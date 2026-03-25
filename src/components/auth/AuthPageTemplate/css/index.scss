@@ -1,0 +1,78 @@
+#root{
+    .account-page{
+        width: 100%;
+        height:100%;
+        padding-bottom: 150px;
+        display: flex;
+        justify-content: center;
+        &>.account-page-section{
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 85px;;
+            row-gap: 45px;
+            &>.account-page-section-title{
+                display: flex;
+                flex-direction: column;
+                row-gap: 12px;
+                margin-right:auto;
+                &>.account-page-section-title-title{
+                    font-size: 30px;
+                    font-weight: 700;
+                }
+                &>.account-page-section-title-sub{
+                    font-size: 16px;
+                    color: #666666;
+                    white-space: pre-line;
+                    line-height: 150%;
+                }
+            }
+
+            &>.account-page-section-inputs{
+                display: flex;
+                flex-direction: column;
+                row-gap: 31px;
+            }
+            &>.account-page-button-box{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                row-gap: 24px;
+
+                &>.account-page-button-box-terms{
+                    font-size: 12px;
+                    font-weight: 400;
+                    color:#A1A1AA;
+                }
+            }
+        }
+        
+    }
+
+    @media screen and (max-width:767px){
+        .account-page{
+            padding:0px 20px;
+            padding-bottom: 200px;
+            padding-top: 70px;
+            &>.account-page-section{
+                width: 320px;
+                row-gap: 30px;
+                &>.account-page-section-title{
+                    &>.account-page-section-title-title{
+                        font-size: 26px;
+                    }
+                    &>.account-page-section-title-sub{
+                        font-size: 14px;
+                    }
+                }
+                &>.account-page-button-box{
+                    &>.account-page-button-box-terms{
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

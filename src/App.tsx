@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import RootRoute from './routes/RootRoute';
 import VideoRoute from './routes/VideoRoute';
 import UserRoute from './routes/UserRoute';
-import HeaderContainer from './components/header/container/HeaderContainer';
+import HeaderContainer from './components/common/header/container/HeaderContainer';
 import { Fragment } from 'react/jsx-runtime';
 
 const routes = [

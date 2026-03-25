@@ -12,5 +12,11 @@
           align-items: center;
   background-color: #E60000;
   color: white;
+  font-size: 16px;
   border-radius: 8px;
+}
+@media screen and (max-width: 767px) {
+  #root .submit-button {
+    width: 320px;
+  }
 }

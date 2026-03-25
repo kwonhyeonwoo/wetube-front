@@ -6,4 +6,15 @@ declare module "auth" {
         password: string;
         confirmPassword: string;
     }
+
+    interface ILogin{
+        email:string;
+        password:string;
+    }
+    interface IAuthFields{
+        name:string;
+        placeholder:string;
+        type:string;
+        label:string;
+    }
 }

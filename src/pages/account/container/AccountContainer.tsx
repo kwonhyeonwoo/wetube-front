@@ -1,27 +1,16 @@
-import { useCallback, useState } from 'react'
+import { useCallback } from 'react'
 import Account from '../Account'
-import type { IAccount } from 'auth'
+import { useForm } from '../../../hooks/useForm'
 
 const AccountContainer = () => {
-  const [inputs, setInputs] = useState<IAccount>({
-    name:"",
-    email:"",
-    password:"",
-    nickName:"",
-    confirmPassword:"",
-  })
+  const {inputs,handleChange} = useForm({
+    name: "",
+    email: "",
+    password: "",
+    nickName: "",
+    confirmPassword: "",
+  });
 
-  const handleChange = useCallback(
-    (e:React.ChangeEvent<HTMLInputElement>) => {
-      const {name,value} = e.target;
-      setInputs((prev)=>({
-        ...prev,
-        [name]:value,
-      }))
-      
-    },
-    [],
-  );
 
   const handleSubmit = useCallback(
     () => {

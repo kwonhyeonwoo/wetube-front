@@ -1,0 +1,98 @@
+#root .account-page {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#root .account-page > .account-page-section {
+  width: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 85px;
+  row-gap: 45px;
+}
+#root .account-page > .account-page-section > .account-page-section-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 12px;
+  margin-right: auto;
+}
+#root .account-page > .account-page-section > .account-page-section-title > .account-page-section-title-title {
+  font-size: 30px;
+  font-weight: 700;
+}
+#root .account-page > .account-page-section > .account-page-section-title > .account-page-section-title-sub {
+  font-size: 16px;
+  color: #666666;
+  white-space: pre-line;
+  line-height: 150%;
+}
+#root .account-page > .account-page-section > .account-page-section-inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 31px;
+}
+#root .account-page > .account-page-section > .account-page-button-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  row-gap: 24px;
+}
+#root .account-page > .account-page-section > .account-page-button-box > .account-page-button-box-terms {
+  font-size: 12px;
+  font-weight: 400;
+  color: #A1A1AA;
+}
+@media screen and (max-width: 767px) {
+  #root .account-page {
+    padding: 0px 20px;
+    padding-bottom: 200px;
+    padding-top: 70px;
+  }
+  #root .account-page > .account-page-section {
+    width: 320px;
+    row-gap: 30px;
+  }
+  #root .account-page > .account-page-section > .account-page-section-title > .account-page-section-title-title {
+    font-size: 26px;
+  }
+  #root .account-page > .account-page-section > .account-page-section-title > .account-page-section-title-sub {
+    font-size: 14px;
+  }
+  #root .account-page > .account-page-section > .account-page-button-box > .account-page-button-box-terms {
+    font-size: 10px;
+  }
+}
