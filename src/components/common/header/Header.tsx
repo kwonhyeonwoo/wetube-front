@@ -1,5 +1,7 @@
-import { Link } from "react-router-dom";
 import "./css/index.css";
+import LeftHeader from "../../LeftHeader/LeftHeader";
+import CenterHeaderContainer from "../../CenterHeader/container/CenterHeaderContainer";
+import RightHeaderContainer from "../../RightHeader/container/RightHeaderContainer";
 
 interface Props{
     pathname:string;
@@ -7,19 +9,10 @@ interface Props{
 const Header = ({pathname}:Props) => {
   return (
     <header className="header">
-        <Link to="/" className="header-logo">
-            <img 
-                src="/assets/header/header-logo.png"
-                srcSet="
-                    /assets/header/header-logo@2x.png 2x,
-                    /assets/header/header-logo@3x.png 3x
-                " 
-                alt="header-logo" 
-            />
-        </Link>
-        {pathname !== "/user/login" && pathname !== "/user/account" && (
-            <div className="header-menu"></div>
-        )}
+         
+       <LeftHeader/>
+       <CenterHeaderContainer/>
+       <RightHeaderContainer/>
     </header>
   )
 }

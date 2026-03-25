@@ -1,8 +1,8 @@
-import React from 'react'
+import "./css/index.css";
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <main className="home-page">Home</main>
   )
 }
 

@@ -1,0 +1,23 @@
+#root .left-header-wrapper {
+  display: flex;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+  height: 100%;
+}
+#root .left-header-wrapper > .left-header-wrapper-menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 28px;
+}
+#root .left-header-wrapper > .left-header-wrapper-logo {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+}
+#root .left-header-wrapper > .left-header-wrapper-logo > .left-header-wrapper-logo-title {
+  font-weight: 700;
+  font-size: 18px;
+}/*# sourceMappingURL=index.css.map */

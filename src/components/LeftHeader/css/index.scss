@@ -1,0 +1,30 @@
+#root{
+    .left-header-wrapper{
+        display: flex;
+        column-gap: 5px;
+        height:100%;
+        &>.left-header-wrapper-menu-btn{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+                height:28px;
+            img{
+               
+            }
+        }
+
+        &>.left-header-wrapper-logo{
+            display: flex;
+            align-items: center;
+            column-gap: 5px;
+            &>.left-header-wrapper-logo-logo{
+
+            }
+            &>.left-header-wrapper-logo-title{
+                font-weight: 700;
+                font-size: 18px;
+            }
+        }
+    }
+}
