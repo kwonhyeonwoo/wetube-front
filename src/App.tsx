@@ -19,7 +19,6 @@ const routes = [
     element:<UserRoute/>
   }
 ]
-
 function App() {
   return (
    <Fragment>

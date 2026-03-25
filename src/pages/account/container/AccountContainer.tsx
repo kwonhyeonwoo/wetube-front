@@ -1,8 +1,12 @@
 import { useCallback } from 'react'
 import Account from '../Account'
 import { useForm } from '../../../hooks/useForm'
+import { useAccountMutation } from '../../../hooks/queries/auth/useAccountMutation'
+import { useNavigate } from 'react-router-dom'
 
 const AccountContainer = () => {
+  const navigate = useNavigate();
+  const {mutate:account} = useAccountMutation();
   const {inputs,handleChange} = useForm({
     name: "",
     email: "",
@@ -19,6 +23,11 @@ const AccountContainer = () => {
         alert("비밀번호가 일치하지 않습니다.");
         return;
       }
+      account(inputs,{
+        onSuccess:()=>{
+          navigate('/user/login')
+        }
+      })
       console.log(inputs)
     },
     [inputs],
