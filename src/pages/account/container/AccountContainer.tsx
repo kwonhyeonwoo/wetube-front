@@ -15,7 +15,6 @@ const AccountContainer = () => {
     confirmPassword: "",
   });
 
-
   const handleSubmit = useCallback(
     () => {
       const {password,confirmPassword} = inputs;
