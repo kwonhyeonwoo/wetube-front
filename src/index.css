@@ -25,10 +25,10 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	height:20000px;
 }
 main{
-	padding-top:66px;
+	padding-top:100px;
+	padding-left: 286px;
 	box-sizing: border-box;
 }
 div{

@@ -1,0 +1,31 @@
+#root .sidebar-group-ul-li > .sidebar-group-ul-li-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 12px;
+     -moz-column-gap: 12px;
+          column-gap: 12px;
+  padding: 15px 16px;
+}
+#root .sidebar-group-ul-li > .sidebar-group-ul-li-link > .sidebar-icon-container > .sidebar-profile-img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+#root .sidebar-group-ul-li > .sidebar-group-ul-li-link > .sidebar-icon-container > .active-menu-svg path {
+  fill: #BC0100;
+}
+#root .sidebar-group-ul-li > .sidebar-group-ul-li-link > .sidebar-group-ul-li-text {
+  font-size: 14px;
+  color: #52525B;
+}
+#root .sidebar-group-ul-li > .sidebar-group-ul-li-link > .active-li-text {
+  color: #BC0100;
+}
+#root .sidebar-group-ul-li > .sidebar-group-ul-li-link-active {
+  background-color: #E4E4E7;
+  border-radius: 9999px;
+}

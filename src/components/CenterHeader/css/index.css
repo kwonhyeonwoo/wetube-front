@@ -5,7 +5,8 @@
   width: 480px;
   height: 44px;
   padding: 13px 24px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   background-color: #F3F3F3;
   border-radius: 20px;
 }
@@ -13,5 +14,6 @@
   position: absolute;
   top: 50%;
   right: 24px;
-  transform: translate(0%, -50%);
-}/*# sourceMappingURL=index.css.map */
+  -webkit-transform: translate(0%, -50%);
+          transform: translate(0%, -50%);
+}

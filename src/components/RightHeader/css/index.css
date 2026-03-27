@@ -1,14 +1,24 @@
 #root .right-header-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 20px;
+     -moz-column-gap: 20px;
+          column-gap: 20px;
 }
 #root .right-header-wrapper > .right-heaeer-wrapper-write-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 10px 18px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   background-color: #E8E8E8;
   border-radius: 16px;
 }
@@ -17,9 +27,15 @@
   font-size: 14px;
 }
 #root .right-header-wrapper > .right-header-wrapper-alert-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: relative;
 }
 #root .right-header-wrapper > .right-header-wrapper-alert-button > .right-header-wrapper-alert-button-circle {
@@ -36,4 +52,4 @@
   height: 40px;
   border-radius: 50%;
   background-color: aqua;
-}/*# sourceMappingURL=index.css.map */
+}

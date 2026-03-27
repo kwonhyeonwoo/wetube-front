@@ -2,13 +2,12 @@ import  { useMemo } from 'react'
 import Sidebar from '../Sidebar'
 import { getSidebarContents } from '../../../constants/sidebarConstants'
 import type { ISubscription } from 'sidebar';
+import { useLocation } from 'react-router-dom';
 
 const SidebarContainer = () => {
+    const {pathname} = useLocation();
     const sidebarData = useMemo(() => getSidebarContents(getTestData), [getTestData]);
-    console.log('sidebar data',sidebarData)
-  return (
-    <Sidebar sidebarData={sidebarData}/>
-  )
+  return <Sidebar pathname={pathname} sidebarData={sidebarData} />;
 }
 
 export default SidebarContainer;

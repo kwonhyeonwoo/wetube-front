@@ -1,0 +1,13 @@
+#root{
+    .category-box{
+        padding:6px 16px;
+        background-color: #E8E8E8;
+        text-align: center;
+        border-radius:9999px;
+        font-size: 16px;
+    }
+    .active-category-box{
+        background-color: black;
+        color: white;
+    }
+}
