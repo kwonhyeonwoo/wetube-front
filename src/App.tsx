@@ -4,6 +4,7 @@ import VideoRoute from './routes/VideoRoute';
 import UserRoute from './routes/UserRoute';
 import HeaderContainer from './components/common/header/container/HeaderContainer';
 import { Fragment } from 'react/jsx-runtime';
+import SidebarContainer from './components/Sidebar/container/SidebarContainer';
 
 const routes = [
   {
@@ -23,6 +24,7 @@ function App() {
   return (
    <Fragment>
     <HeaderContainer/>
+    <SidebarContainer/>
     <Routes>
     {routes.map(({path,element},idx)=>(
       <Route key={idx} path={path} element={element}/>

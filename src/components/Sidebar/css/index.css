@@ -1,0 +1,46 @@
+#root .sidebar-wrapper {
+  width: 256px;
+  height: 1024px;
+  position: fixed;
+  top: 72px;
+  border: 1px solid blue;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 46px;
+}
+#root .sidebar-wrapper > .sidebar-group {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 16px;
+  box-sizing: border-box;
+  row-gap: 5px;
+}
+#root .sidebar-wrapper > .sidebar-group > .sidebar-group-title {
+  font-size: 14px;
+  font-weight: 400;
+  color: #603E39;
+}
+#root .sidebar-wrapper > .sidebar-group > .sidebar-group-ul {
+  display: flex;
+  flex-direction: column;
+}
+#root .sidebar-wrapper > .sidebar-group > .sidebar-group-ul > .sidebar-group-ul-li > .sidebar-group-ul-li-link {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 12px;
+       column-gap: 12px;
+  padding: 12px 0px;
+}
+#root .sidebar-wrapper > .sidebar-group > .sidebar-group-ul > .sidebar-group-ul-li > .sidebar-group-ul-li-link > .sidebar-icon-container > .sidebar-profile-img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+#root .sidebar-wrapper > .sidebar-group > .sidebar-group-ul > .sidebar-group-ul-li > .sidebar-group-ul-li-link > .sidebar-icon-container > .sidebar-group-ul-li-icon path {
+  fill: red;
+}
+#root .sidebar-wrapper > .sidebar-group > .sidebar-group-ul > .sidebar-group-ul-li > .sidebar-group-ul-li-link > .sidebar-group-ul-li-text {
+  font-size: 14px;
+  color: #52525B;
+}/*# sourceMappingURL=index.css.map */

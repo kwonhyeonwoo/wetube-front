@@ -1,10 +1,11 @@
-import React, { useMemo } from 'react'
+import  { useMemo } from 'react'
 import Sidebar from '../Sidebar'
 import { getSidebarContents } from '../../../constants/sidebarConstants'
 import type { ISubscription } from 'sidebar';
 
 const SidebarContainer = () => {
-    const sidebarData = useMemo(() => getSidebarContents(getTestData), [getTestData])
+    const sidebarData = useMemo(() => getSidebarContents(getTestData), [getTestData]);
+    console.log('sidebar data',sidebarData)
   return (
     <Sidebar sidebarData={sidebarData}/>
   )

@@ -1,5 +1,52 @@
 #root{
-    .sideber-wrapper{
-        
+    .sidebar-wrapper{
+        width: 256px;
+        height:1024px;
+        position: fixed;
+        top:72px;
+        border:1px solid blue;
+        padding:20px 24px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 46px;
+        &>.sidebar-group{
+            display: flex;
+            flex-direction: column;
+            padding:0px 16px;
+            box-sizing: border-box;
+            row-gap: 5px;
+            &>.sidebar-group-title{
+                font-size: 14px;
+                font-weight: 400;
+                color:#603E39;
+            }
+            &>.sidebar-group-ul{
+                display: flex;
+                flex-direction: column;
+                &>.sidebar-group-ul-li{
+                    &>.sidebar-group-ul-li-link{
+                        display: flex;
+                        align-items: center;
+                        column-gap: 12px;
+                        padding:12px 0px;
+                        &>.sidebar-icon-container{
+                            &>.sidebar-profile-img{
+                                width: 24px;
+                                height:24px;
+                                border-radius: 50%;
+                            }
+
+                            &>.sidebar-group-ul-li-icon path{
+                                fill:red;
+                            }
+                        }
+                        &>.sidebar-group-ul-li-text{
+                            font-size: 14px;
+                            color:#52525B;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
