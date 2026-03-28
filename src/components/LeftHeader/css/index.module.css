@@ -1,0 +1,45 @@
+.leftHeaderWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 5px;
+     -moz-column-gap: 5px;
+          column-gap: 5px;
+  height: 100%;
+}
+
+.leftHeaderWrapperMenuBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 34px;
+  height: 28px;
+}
+
+.leftHeaderWrapperLogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 5px;
+     -moz-column-gap: 5px;
+          column-gap: 5px;
+}
+
+.leftHeaderWrapperLogoLogo {
+  width: 24px;
+  height: 24px;
+}
+
+.leftHeaderWrapperLogoTitle {
+  font-weight: 700;
+  font-size: 18px;
+}

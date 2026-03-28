@@ -1,10 +1,10 @@
-import "./css/index.css";
+import styles from "./css/index.module.css";
 import { Link } from 'react-router-dom'
 
 const LeftHeader = () => {
   return (
-    <div className='left-header-wrapper'>
-        <button className='left-header-wrapper-menu-btn'>
+    <div className={styles.leftHeaderWrapper}>
+        <button className={styles.leftHeaderWrapperMenuBtn}>
             <img 
                 src="/assets/header/menu.png"
                 srcSet="
@@ -14,7 +14,7 @@ const LeftHeader = () => {
                 alt="menu-bar" 
             />
         </button>
-        <div className='left-header-wrapper-logo'>
+        <div className={styles.leftHeaderWrapperLogo}>
             <Link to="/" className="left-header-wrapper-logo-logo">
                 <img 
                     src="/assets/header/header-logo.png"
@@ -25,7 +25,7 @@ const LeftHeader = () => {
                     alt="header-logo" 
                 />
             </Link> 
-            <p className='left-header-wrapper-logo-title'>
+            <p className={styles.leftHeaderWrapperLogoTitle}>
                 YouTube
             </p>
         </div>

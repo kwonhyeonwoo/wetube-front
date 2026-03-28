@@ -1,14 +1,14 @@
-import "./css/index.css";
+import styles from "./css/index.module.css";
 const CenterHeader = () => {
   return (
-    <form className="center-header-wrapper">
+    <form className={styles.centerHeaderForm}>
       <input 
         type="text" 
-        className="center-header-wrapper-input"
+        className={styles.input}
         placeholder="검색어를 입력하세요"
         onChange={()=>{}}
       />
-      <button className="center-header-wrapper-glass">
+      <button className={styles.centerHeaderGlass}>
         <img 
           src="/assets/header/glass.png"
           srcSet="

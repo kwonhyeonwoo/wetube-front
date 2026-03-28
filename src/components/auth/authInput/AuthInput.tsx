@@ -1,4 +1,4 @@
-import "./css/index.css";
+import styles from  "./css/index.module.css";
 interface Props{
     type:string;
     name:string;
@@ -16,10 +16,10 @@ const AuthInput = ({
     handleChange,
 }:Props) => {
   return (
-    <div className="auth-input-wrapper">
-        <span className="auth-input-label">{label}</span>
+    <div className={styles.authInputWrapper}>
+        <span className={styles.label}>{label}</span>
         <input
-            className="auth-input"
+            className={styles.input}
             type={type}
             name={name}
             value={value}

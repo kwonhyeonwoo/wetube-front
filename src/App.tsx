@@ -13,7 +13,7 @@ const routes = [
   },
   {
     path:"/video/*",
-    Element:<VideoRoute/>
+    element:<VideoRoute/>
   },
   {
     path:"/user/*",

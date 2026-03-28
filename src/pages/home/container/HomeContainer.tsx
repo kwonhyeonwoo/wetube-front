@@ -288,25 +288,25 @@ const videos: IVideo[] = [
 
 const shorts: IShort[] = [
   {
-    shortId: "j1klj2kl",
+    id: "j1klj2kl",
     video: "12345",
     title: "오늘의 메이크업 룩 #GRWM",
     views: "12",
   },
   {
-    shortId: "j1klj2kl",
+    id: "j1klj2kl",
     video: "12345",
     title: "오늘의 메이크업 룩 #GRWM",
     views: "12",
   },
   {
-    shortId: "j1klj2kl",
+    id: "j1klj2kl",
     video: "12345",
     title: "오늘의 메이크업 룩 #GRWM",
     views: "12",
   },
   {
-    shortId: "j1klj2kl",
+    id: "j1klj2kl",
     video: "12345",
     title: "오늘의 메이크업 룩 #GRWM",
     views: "12",

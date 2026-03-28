@@ -1,5 +1,4 @@
-import React from 'react'
-import WriteVideo from '../WriteVideo'
+import WriteVideo from "../WriteVideo"
 
 const WriteVideoContainer = () => {
   return (

@@ -1,8 +1,8 @@
+import styles from "./css/index.module.css";
 import type {  IAuthFields } from "auth";
 import SubmitButtonContainer from "../../common/SubmitButton/container/SubmitButtonContainer";
 import AuthInputContainer from "../authInput/container/AuthInputContainer";
 import AuthLink from "../AuthLink/AuthLink";
-import "./css/index.css";
 interface Props<T> {
   title: string;
   subTitle?: React.ReactNode;
@@ -26,13 +26,13 @@ const AuthPageTemplate = <T extends Record<string, any>>({
     handleSubmit
 }:Props<T>) => {
   return (
-    <main className="account-page">
-      <section className="account-page-section">
-        <div className="account-page-section-title">
-          <h1 className="account-page-section-title-title">{title}</h1>
-          <p className="account-page-section-title-sub">{subTitle}</p>
+    <main className={styles.authPageTemplate}>
+      <section className={styles.section}>
+        <div className={styles.titleBox}>
+          <h1 className={styles.title}>{title}</h1>
+          <p className={styles.subTitle}>{subTitle}</p>
         </div>
-        <div className="account-page-section-inputs">
+        <div className={styles.inputs}>
           {fields.map(({ name, placeholder, type, label }, idx) => (
             <AuthInputContainer
               type={type}
@@ -45,11 +45,11 @@ const AuthPageTemplate = <T extends Record<string, any>>({
             />
           ))}
         </div>
-        <div className="account-page-button-box">
+        <div className={styles.buttonBox}>
           <SubmitButtonContainer text={btnText} handleSubmit={handleSubmit} />
           <AuthLink link={link} text={linkText} />
           {link === "/user/login" && (
-            <span className="account-page-button-box-terms">
+            <span className={styles.terms}>
               가입 버튼을 누름으로써, 이용약관 및 개인정보처리방침에 동의하게
               됩니다.
             </span>

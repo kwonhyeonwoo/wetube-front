@@ -1,8 +1,8 @@
-import "./css/index.css";
+import styles from "./css/index.module.css";
+import CategoriesContainer from "@/components/common/Categories/container/CategoriesContainer";
+import Short from "@/components/Short/Short";
+import VideoCard from "@/components/VideoCard/VideoCard";
 import type { IShort, IVideo } from "video";
-import CategoriesContainer from "../../components/common/Categories/container/CategoriesContainer";
-import VideoCard from "../../components/VideoCard/VideoCard";
-import Short from "../../components/Short/Short";
 
 interface Props {
   videos: IVideo[];
@@ -12,28 +12,39 @@ interface Props {
 
 const Home = ({ videos, shorts,handleVideoDetail }: Props) => {
   return (
-    <main className="home-page">
+    <main className={styles.homePage}>
       <CategoriesContainer />
-      <section className="home-page-videos-section">
-        {videos.map((item, idx) => (
+      <section className={styles.videoSection}>
+        {videos.map((item) => (
           <VideoCard
-            key={idx}
-            video={item.video}
-            videoId={item.id}
-            profile={item.profile}
-            content={item.content}
-            title={item.title}
-            nickName={item.nickName}
-            views={item.views}
-            timeAgo={String(item.date)}
+            key={item.id}
+            {...item}
             handleVideoDetail={handleVideoDetail}
           />
         ))}
       </section>
-      <section className="home-page-short-shorts-section">
-        {shorts.map((item,idx)=>(
-          <Short title={item.title} views={item.views} shortId={item.shortId}/>
-        ))}
+      <section className={styles.shortSection}>
+        <div className={styles.shortTitleBox}>
+          <img 
+            src="/assets/short/short.png"
+            srcSet="
+              /assets/short/short@2x.png 2x,
+              /assets/short/short@3x.png 3x
+            " 
+            alt="short" 
+          />
+          <h2 className={styles.shortTitle}>Shorts</h2>
+        </div>
+        <div className={styles.shortLists}>
+          {shorts.map((item)=>(
+            <Short 
+              key={item.id} 
+              title={item.title} 
+              views={item.views} 
+              shortId={item.id}
+            />
+          ))}
+        </div>
       </section>
     </main>
   );

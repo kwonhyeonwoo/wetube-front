@@ -1,0 +1,38 @@
+.sidebarGroupUlLi {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 12px;
+     -moz-column-gap: 12px;
+          column-gap: 12px;
+  padding: 15px 16px;
+}
+
+.sidebarGroupUlLiLink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 12px;
+     -moz-column-gap: 12px;
+          column-gap: 12px;
+}
+
+.sidebarGroupUlLiText {
+  font-size: 14px;
+  color: #52525B;
+}
+
+.activeLiText {
+  color: #BC0100;
+}
+
+.sidebarGroupUlLiActive {
+  background-color: #E4E4E7;
+  border-radius: 9999px;
+}

@@ -1,0 +1,36 @@
+.homePage{
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    height:100%;
+    padding-bottom: 250px;
+    overflow: hidden;
+}
+.videoSection{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    column-gap: 10px;
+    row-gap: 41px;
+    margin-top: 36px;
+}
+.shortSection{
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+}
+.shortTitleBox{
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}
+.shortTitle{
+    font-size: 20px;
+    font-weight: 700;
+}
+.shortLists{
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+    justify-content: space-between;
+    column-gap: 10px;
+    padding-right: 24px;
+}

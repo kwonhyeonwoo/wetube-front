@@ -1,0 +1,18 @@
+.centerHeaderForm{
+    position:relative;
+
+}
+.input{
+    width: 480px;
+    height:44px;
+    padding:13px 24px;
+    box-sizing: border-box;
+    background-color:#F3F3F3;
+    border-radius:20px;
+}
+.centerHeaderGlass{
+    position:absolute;
+    top: 50%;
+    right:24px;
+    transform: translate(0%, -50%); 
+} 

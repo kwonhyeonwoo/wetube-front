@@ -1,5 +1,4 @@
 import type { ILogin } from "auth";
-import "./css/index.css";
 import AuthPageTemplate from "../../components/auth/AuthPageTemplate/AuthPageTemplate";
 import { LOGIN_FIELDS } from "../../constants/authConstants";
 

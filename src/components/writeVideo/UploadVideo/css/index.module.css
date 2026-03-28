@@ -1,0 +1,56 @@
+.imgUploadBox {
+  position: relative;
+  height: 303px;
+  width: 100%;
+  border: 1px dotted #BC0100;
+  border-radius: 32px;
+  cursor: pointer;
+}
+.imgUploadBox :hover {
+  opacity: 0.6;
+}
+
+.uploadLabel {
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  row-gap: 10px;
+}
+
+.uploadCircle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgba(188, 1, 0, 0.1);
+}
+
+.uploadLabelText {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.imgUploadInput {
+  display: none;
+}

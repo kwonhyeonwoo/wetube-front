@@ -1,8 +1,8 @@
 import { useCallback } from 'react'
-import Account from '../Account'
-import { useForm } from '../../../hooks/useForm'
-import { useAccountMutation } from '../../../hooks/queries/auth/useAccountMutation'
 import { useNavigate } from 'react-router-dom'
+import { useAccountMutation } from '@/hooks/queries/auth/useAccountMutation';
+import Account from '../Account';
+import { useForm } from '@/hooks/useForm';
 
 const AccountContainer = () => {
   const navigate = useNavigate();

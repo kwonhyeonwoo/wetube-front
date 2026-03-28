@@ -3,7 +3,7 @@ import WriteVideoContainer from "../pages/writeVideo/container/WriteVideoContain
 
 const routes = [
     {
-        path:"/",
+        path:"/write",
         element:<WriteVideoContainer/>
     }
 ]

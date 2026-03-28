@@ -1,4 +1,4 @@
-import "./css/index.css";
+import styles from "./css/index.module.css";
 interface Props {
   title: string;
   name: string;
@@ -8,7 +8,7 @@ interface Props {
 const CategoryBox = ({title,name,currentCategory,handleCategoryActive}:Props) => {
   return (
     <button
-      className={`category-box ${name === currentCategory && "active-category-box"}`}
+    className={`${styles.categoryBtn} ${name === currentCategory ? styles.activeCategoryBtn : ""}`}
       onClick={() => handleCategoryActive(name)}
     >
       {title}

@@ -1,42 +1,35 @@
-import "./css/index.css";
+import styles from "./css/index.module.css";
+import type { IVideo } from "video";
 
-interface Props {
-  video: string;
-  videoId: string;
-  profile?: string;
-  content: string;
-  title: string;
-  nickName: string;
-  views: string;
-  timeAgo: string; // ~~몇시간,몇분전,
+interface Props extends IVideo {
   handleVideoDetail:(id:string)=>void;
 }
 
 const VideoCard = ({
     video,
-    videoId,
+    id,
     profile,
     content,
     title,
     nickName,
     views,
-    timeAgo
+    date
 }:Props) => {
   return (
-    <div className="video-card-wrapper">
+    <div className={styles.videoCardWrapper}>
       {/* <video /> */}
-      <div className="test-video" />
-      <div className="video-card-wrapper-info">
+      <div className={styles.testVideo} />
+      <div className={styles.videoCardWrapperInfo}>
         <img
           src={profile}
           alt="user-profile"
-          className="video-card-wrapper-info-profile"
+          className={styles.videoCardWrapperInfoProfile}
         />
-        <div className="video-card-wrapper-info-content">
-          <p className="video-card-wrapper-info-content-text">{title}</p>
-          <div className="video-card-wrapper-info-content-author">
-            <p className="video-card-wrapper-info-author-text">{nickName}</p>
-            <p className="video-card-wrapper-info-author-text">
+        <div className={styles.videoCardWrapperInfoContent}>
+          <p className={styles.videoCardWrapperInfoContentText}>{title}</p>
+          <div className={styles.videoCardWrapperInfoContentAuthor}>
+            <p className={styles.videoCardWrapperInfoAuthorText}>{nickName}</p>
+            <p className={styles.videoCardWrapperInfoAuthorText}>
               조회수: {views}회 • 2일 전
             </p>
           </div>

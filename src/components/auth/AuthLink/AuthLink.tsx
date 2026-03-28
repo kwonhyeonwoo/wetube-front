@@ -1,4 +1,4 @@
-import "./css/index.css";
+import styles from "./css/index.module.css";
 import { Link } from 'react-router-dom';
 
 interface Props{
@@ -8,7 +8,7 @@ interface Props{
 
 const AuthLink = ({link,text}:Props) => {
   return (
-    <Link to={link} className="auth-link">
+    <Link to={link} className={styles.authLink}>
       {text}
     </Link>
   );

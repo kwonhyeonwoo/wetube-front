@@ -1,4 +1,4 @@
-import "./css/index.css";
+import styles from "./css/index.module.css";
 import { categoriesConstants } from '../../../constants/categoriesConstants'
 import CategoryBox from '../../CategoryBox/CategoryBox'
 
@@ -8,7 +8,7 @@ interface Props {
 }
 const Categories = ({ currentCategory, handleCategoryActive }: Props) => {
   return (
-    <div className="categories-wrapper">
+    <div className={styles.categoriesWrapper}>
       {categoriesConstants.map(({ name, title }, idx) => (
         <CategoryBox
             key={idx}

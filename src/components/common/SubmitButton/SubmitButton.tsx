@@ -1,4 +1,4 @@
-import "./css/index.css";
+import styles from "./css/index.module.css";
 
 interface Props{
     text:string;
@@ -6,7 +6,7 @@ interface Props{
 }
 const SubmitButton = ({text,handleSubmit}:Props) => {
   return (
-    <button className="submit-button" onClick={handleSubmit}>{text}</button>
+    <button className={styles.submitButton} onClick={handleSubmit}>{text}</button>
   )
 }
 

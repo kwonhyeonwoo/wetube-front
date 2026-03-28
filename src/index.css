@@ -27,9 +27,14 @@ body {
 	line-height: 1;
 }
 main{
-	padding-top:100px;
-	padding-left: 286px;
-	box-sizing: border-box;
+    width: calc(100vw - 262px); 
+    height: calc(100vh - 72px); 
+    padding:40px 24px;
+    position: relative;
+    top: 72px;
+    left: 262px;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 div{
 	box-sizing: border-box;

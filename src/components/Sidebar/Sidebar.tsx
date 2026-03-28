@@ -1,6 +1,6 @@
-import "./css/index.css";
-import type { ISidebarSection } from "sidebar";
+import styles from "./css/index.module.css";
 import SidebarList from "../SidebarList/SidebarList";
+import type { ISidebarSection } from "sidebar";
 
 interface Props {
   pathname:string;
@@ -9,11 +9,11 @@ interface Props {
 
 const Sidebar = ({pathname, sidebarData }: Props) => {
   return (
-    <aside className='sidebar-wrapper'>
+    <aside className={styles.sidebarWrapper}>
       {sidebarData.map(({ title, lists }, sidebarIndex) => (
-        <div className="sidebar-group" key={sidebarIndex}>
-          {title && <h2 className="sidebar-group-title">{title}</h2>}
-          <ul className="sidebar-group-ul">
+        <div className={styles.sidebarGroup} key={sidebarIndex}>
+          {title && <h2 className={styles.sidebarGroupTitle}>{title}</h2>}
+          <ul className={styles.sidebarGroupUl}>
             {lists.map(({ text, link, icon, isProfile }, listIndex) => {
               const IconComponent = icon;
               const isActivePathname = link === pathname;

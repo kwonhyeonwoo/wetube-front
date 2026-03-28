@@ -1,4 +1,3 @@
-import "./css/index.css";
 import type { IAccount } from "auth";
 import AuthPageTemplate from "../../components/auth/AuthPageTemplate/AuthPageTemplate";
 import { ACCOUNT_FIELDS } from "../../constants/authConstants";

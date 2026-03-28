@@ -1,9 +1,9 @@
+import styles from "./css/index.module.css";
 import { Link } from "react-router-dom";
-import "./css/index.css";
 const RightHeader = () => {
   return (
-    <div className="right-header-wrapper">
-      <Link  to='/video/write' className="right-heaeer-wrapper-write-button">
+    <div className={styles.rightHeaderWrapper}>
+      <Link  to='/video/write' className={styles.rightHeaderWrapperWriteButton}>
         <img  
           src="/assets/header/plus.png"
           srcSet="/assets/header/plus@2x.png 2x,
@@ -11,10 +11,10 @@ const RightHeader = () => {
           "
           alt="glass" 
         />
-        <span className="right-header-wrapper-write-button-text">만들기</span>
+        <span className={styles.rightHeaderWrapperWriteButtonText}>만들기</span>
       </Link>
 
-      <button  className="right-header-wrapper-alert-button">
+      <button  className={styles.rightHeaderWrapperAlertButton}>
         <img 
           src="/assets/header/alert.png"
           srcSet="
@@ -23,10 +23,10 @@ const RightHeader = () => {
           " 
           alt="alert" 
         />
-        <div className="right-header-wrapper-alert-button-circle"/>
+        <div className={styles.rightHeaderWrapperAlertButtonCircle}/>
       </button>
 
-      <button className="right-header-wrapper-profile">
+      <button className={styles.rightHeaderWrapperProfile}>
         test
       </button>
     </div>

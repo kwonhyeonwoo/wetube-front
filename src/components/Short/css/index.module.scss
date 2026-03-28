@@ -1,0 +1,23 @@
+.shortVideoCard{
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+.shortVideoCardVideo{
+    width: 100%;
+    height:395px;
+    background-color: #D9D9D9;
+    border-radius: 16px;
+}
+.shortVideoCardText{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+.shortVideoCardTextTitle{
+    font-weight: 700;
+}
+.shortVideoCardTextViews{
+    font-size: 14px;
+    color:#603E39;
+}

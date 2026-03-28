@@ -1,6 +1,6 @@
+import styles from "./css/index.module.css";
 import { Link } from "react-router-dom";
 import type { ElementType } from "react";
-import "./css/index.css";
 
 interface Props {
   link: string;
@@ -19,10 +19,10 @@ const SidebarList = ({
     isProfile,
 }:Props) => {
   return (
-    <li className="sidebar-group-ul-li">
+    <li className={`${styles.sidebarGroupUlLi} ${isActivePathname && styles.sidebarGroupUlLiActive}`}>
       <Link
         to={link}
-        className={`sidebar-group-ul-li-link ${isActivePathname && "sidebar-group-ul-li-link-active"}`}
+        className={styles.sidebarGroupUlLiLink}
       >
         <div className="sidebar-icon-container">
           {isProfile ? (
@@ -39,7 +39,7 @@ const SidebarList = ({
         </div>
         <span
           className={`
-                      sidebar-group-ul-li-text ${isActivePathname && "active-li-text"}`}
+            ${styles.sidebarGroupUlLiText} ${isActivePathname && styles.activeLiText}`}
         >
           {text}
         </span>

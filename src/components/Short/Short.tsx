@@ -1,4 +1,4 @@
-import "./css/index.css";
+import styles from "./css/index.module.css";
 
 interface Props{
     title:string;
@@ -8,11 +8,11 @@ interface Props{
 
 const Short = ({title,views,shortId}:Props) => {
   return (
-    <div className="short-video-card">
-      <div className="short-video-card-video" />
-      <div className="short-video-card-text">
-        <p className="short-video-card-text-title">{title}</p>
-        <p className="short-video-card-text-views">조회수 {views}회</p>
+    <div className={styles.shortVideoCard}>
+      <div className={styles.shortVideoCardVideo} />
+      <div className={styles.shortVideoCardText}>
+        <p className={styles.shortVideoCardTextTitle}>{title}</p>
+        <p className={styles.shortVideoCardTextViews}>조회수 {views}회</p>
       </div>
     </div>
   );

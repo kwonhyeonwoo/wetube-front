@@ -1,4 +1,4 @@
-import "./css/index.css";
+import styles from "./css/index.module.css";
 import LeftHeader from "../../LeftHeader/LeftHeader";
 import CenterHeaderContainer from "../../CenterHeader/container/CenterHeaderContainer";
 import RightHeaderContainer from "../../RightHeader/container/RightHeaderContainer";
@@ -8,8 +8,7 @@ interface Props{
 }
 const Header = ({pathname}:Props) => {
   return (
-    <header className="header">
-         
+    <header className={styles.header}>
        <LeftHeader/>
        <CenterHeaderContainer/>
        <RightHeaderContainer/>

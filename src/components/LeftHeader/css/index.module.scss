@@ -1,0 +1,25 @@
+.leftHeaderWrapper{
+    display: flex;
+    column-gap: 5px;
+    height:100%;
+}
+.leftHeaderWrapperMenuBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height:28px;
+}
+.leftHeaderWrapperLogo{
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+.leftHeaderWrapperLogoLogo{
+    width: 24px;
+    height: 24px;
+}
+.leftHeaderWrapperLogoTitle{
+    font-weight: 700;
+    font-size: 18px;
+}
