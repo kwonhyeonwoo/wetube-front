@@ -1,5 +1,11 @@
+import type { UseFormRegister } from "react-hook-form";
 import styles from "./css/index.module.css";
-const UploadVideo = () => {
+import type { WriteVideoFormType } from "@/schema/writeVideo.schema";
+
+interface Props{
+  register:UseFormRegister<WriteVideoFormType>;
+}
+const UploadVideo = ({register}:Props) => {
   return (
     <div className={styles.imgUploadBox}>
     <label htmlFor="imgUpload" className={styles.uploadLabel}>
@@ -13,7 +19,12 @@ const UploadVideo = () => {
         </div>
         <span className={styles.uploadLabelText}>이미지 업로드</span>
     </label>
-    <input type="file" id="imgUpload" className={styles.imgUploadInput} />
+    <input 
+      type="file" 
+      id="imgUpload" 
+      className={styles.imgUploadInput} 
+      {...register('video')}
+    />
     </div>
   )
 }
