@@ -11,17 +11,19 @@ const UploadDropMenuContainer = ({currentCategory,setValue}:Props) => {
 
     const handleOpen = useCallback(
       () => {
+        console.log('hello')
        setIsOpen((prev)=>!prev); 
       },
       [],
     )
-    
   return (
     <UploadDropMenu
       currentCategory={currentCategory}
+      isOpen={isOpen}
       setValue={setValue}
+      handleOpen={handleOpen}
     />
-  )
+  );
 }
 
 export default UploadDropMenuContainer

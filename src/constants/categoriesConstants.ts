@@ -35,4 +35,4 @@ export const categoriesConstants = [
         title: "최근에 본 영상",
         name: "recents"
     }
-];
+] as const;
