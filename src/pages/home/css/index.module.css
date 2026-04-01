@@ -1,11 +1,6 @@
 .homePage {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   row-gap: 50px;
   height: 100%;
   padding-bottom: 250px;
@@ -15,34 +10,23 @@
 .videoSection {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  -webkit-column-gap: 10px;
-     -moz-column-gap: 10px;
-          column-gap: 10px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
   row-gap: 41px;
   margin-top: 36px;
 }
 
 .shortSection {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   row-gap: 24px;
 }
 
 .shortTitleBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-column-gap: 8px;
-     -moz-column-gap: 8px;
-          column-gap: 8px;
+  align-items: center;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
 }
 
 .shortTitle {
@@ -53,11 +37,8 @@
 .shortLists {
   display: grid;
   grid-template-columns: repeat(4, 300px);
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-column-gap: 10px;
-     -moz-column-gap: 10px;
-          column-gap: 10px;
+  justify-content: space-between;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
   padding-right: 24px;
-}
+}/*# sourceMappingURL=index.module.css.map */

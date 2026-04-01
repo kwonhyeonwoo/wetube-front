@@ -1,11 +1,6 @@
 .videoCardWrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   row-gap: 12px;
 }
 
@@ -17,12 +12,9 @@
 }
 
 .videoCardWrapperInfo {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-column-gap: 12px;
-     -moz-column-gap: 12px;
-          column-gap: 12px;
+  -moz-column-gap: 12px;
+       column-gap: 12px;
 }
 
 .videoCardWrapperInfoProfile {
@@ -32,13 +24,8 @@
 }
 
 .videoCardWrapperInfoContent {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   row-gap: 5px;
 }
 
@@ -54,15 +41,12 @@
 }
 
 .videoCardWrapperInfoContentAuthor {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-column-gap: 10px;
-     -moz-column-gap: 10px;
-          column-gap: 10px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
 }
 
 .videoCardWrapperInfoAuthorText {
   font-size: 13px;
   color: #603E39;
-}
+}/*# sourceMappingURL=index.module.css.map */

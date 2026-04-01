@@ -1,0 +1,34 @@
+.guideLine {
+  width: 372px;
+  border-radius: 32px;
+  background-color: #D7E2FF;
+  padding: 32px 30px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 7px;
+}
+
+.guideContent {
+  font-size: 13px;
+  font-weight: 400;
+  white-space: pre-line;
+  line-height: 1.5;
+  color: #001A40;
+  opacity: 9.7;
+}
+
+.texts {
+  box-sizing: border-box;
+  padding-top: 17px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
+  font-size: 12px;
+}/*# sourceMappingURL=index.module.css.map */
