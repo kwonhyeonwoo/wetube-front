@@ -1,0 +1,98 @@
+.profileSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 32px;
+     -moz-column-gap: 32px;
+          column-gap: 32px;
+}
+
+.profileSectionImage {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background-color: #D9D9D9;
+}
+
+.userInfoBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 16px;
+}
+
+.userName {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.userContent {
+  white-space: pre-line;
+  line-height: 150%;
+  color: #603E39;
+  font-size: 18px;
+}
+
+.channelStats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 24px;
+     -moz-column-gap: 24px;
+          column-gap: 24px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.channelStateBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.channelStateBoxKey {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.channelStateBoxValue {
+  font-size: 12px;
+  color: #603E39;
+}
+
+.profileButtonBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-left: 50px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.button {
+  background-color: #E2E2E2;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 16px;
+  padding: 12px 24px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}

@@ -1,7 +1,4 @@
-.rightUpload {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+.profilePage {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9,5 +6,5 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  row-gap: 32px;
+  row-gap: 65px;
 }

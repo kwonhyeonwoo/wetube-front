@@ -1,0 +1,62 @@
+.profileSection{
+    display: flex;
+    column-gap: 32px;
+}
+
+.profileSectionImage{
+    width: 160px;
+    height:160px;
+    border-radius:50%;
+    background-color: #D9D9D9;
+}
+
+.userInfoBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+.userName{
+    font-size: 48px;
+    font-weight: 700;
+}
+.userContent{
+    white-space: pre-line;
+    line-height: 150%;
+    color:#603E39;
+    font-size: 18px;
+}
+
+.channelStats{
+    display: flex;
+    column-gap: 24px;
+    align-items: center;
+}
+
+.channelStateBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    align-items: center;
+}
+.channelStateBoxKey{
+    font-size: 24px;
+    font-weight: 700;
+}
+.channelStateBoxValue{
+    font-size:12px;
+    color:#603E39;
+}
+.profileButtonBox{
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+    justify-content: flex-end;
+}
+.button{
+    background-color: #E2E2E2;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 16px;
+    padding:12px 24px;
+    box-sizing: border-box;
+}

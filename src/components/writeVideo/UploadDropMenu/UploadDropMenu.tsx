@@ -4,19 +4,25 @@ import type { WriteVideoFormType } from "@/schema/writeVideo.schema";
 import { getFindCategory } from "@/lib/lib";
 import dropDownIcon from "@/assets/common/arrow-down.svg";
 import { categoriesConstants } from "@/constants/categoriesConstants";
+import { useCallback, useState } from "react";
 
 interface Props {
   currentCategory: string;
-  isOpen:boolean;
-  handleOpen:()=>void;
   setValue: UseFormSetValue<WriteVideoFormType>;
 }
 const UploadDropMenu = ({
   currentCategory,
-  isOpen,
-  handleOpen,
   setValue,
 }: Props) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    const handleOpen = useCallback(
+      () => {
+        console.log('hello')
+       setIsOpen((prev)=>!prev); 
+      },
+      [],
+    )
   return (
     <div className={styles.uploadDropMenu}>
       <p className={styles.uploadTitle}>카테고리</p>

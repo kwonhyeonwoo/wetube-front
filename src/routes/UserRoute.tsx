@@ -13,7 +13,7 @@ const routes = [
         element:<LoginContainer/>
     },
     {
-        path:"/profile",
+        path:"/:id",
         element:<ProfileContainer/>
     }
 ]

@@ -12,8 +12,7 @@ const {
       handleSubmit,
       watch,
       setValue,
-      control,
-      formState:{errors}} = useForm<WriteVideoFormType>({
+      } = useForm<WriteVideoFormType>({
         resolver:zodResolver(writeVideoSchema),
         defaultValues:{
           categories:"movie",

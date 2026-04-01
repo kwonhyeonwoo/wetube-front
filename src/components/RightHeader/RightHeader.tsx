@@ -26,9 +26,9 @@ const RightHeader = () => {
         <div className={styles.rightHeaderWrapperAlertButtonCircle}/>
       </button>
 
-      <button className={styles.rightHeaderWrapperProfile}>
+      <Link to={'/user/123'} className={styles.rightHeaderWrapperProfile}>
         test
-      </button>
+      </Link>
     </div>
   )
 }

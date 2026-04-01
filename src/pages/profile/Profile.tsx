@@ -1,7 +1,10 @@
-import "./css/index.css";
+import ProfileSection from "@/components/profile/ProfileSection/ProfileSection"
+import styles from "./css/index.module.css"
 const Profile = () => {
   return (
-    <div>Profile</div>
+    <main className={styles.profilePage}>
+      <ProfileSection/>
+    </main>
   )
 }
 
