@@ -2,6 +2,8 @@ import { Route, Routes } from "react-router-dom"
 import AccountContainer from "../pages/account/container/AccountContainer"
 import LoginContainer from "../pages/login/container/LoginContainer"
 import ProfileContainer from "../pages/profile/container/ProfileContainer"
+import ProfileEditContainer from "@/pages/profileEdit/container/ProfileEditContainer"
+import MyVideosContainer from "@/pages/MyVideos/container/MyVidoesContainer"
 
 const routes = [
     {
@@ -15,6 +17,14 @@ const routes = [
     {
         path:"/:id",
         element:<ProfileContainer/>
+    },
+    {
+        path:"/:id/edit",
+        element:<ProfileEditContainer/>
+    },
+    {
+        path:"/:id/videos",
+        element:<MyVideosContainer/>
     }
 ]
 

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./css/index.module.css";
 
 const ProfileSection = () => {
@@ -18,7 +19,7 @@ const ProfileSection = () => {
         <div className={styles.userInfoBox}>
             <div className={styles.userNameBox}>
                 <p className={styles.userName}>김태현</p>
-                <button className={styles.button}>프로필 수정</button>
+                <Link  to={`/user/1234/edit`} className={styles.button}>프로필 수정</Link>
             </div>
             <p className={styles.userContent}>{`서울에서 활동하는 디지털 프로덕트 디자이너이자 미니멀
 리즘 라이프스타일 크리에이터입니다.`}</p>

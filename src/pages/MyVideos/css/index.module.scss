@@ -1,0 +1,25 @@
+.myVideosPage{
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+}
+.videoSection{
+}
+.videoBox{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 24px;
+}
+.undeVideos{
+    height: 400px;
+    border-radius:24px;
+    background-color:#F3F3F3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.undeVideoText{
+    font-size: 18px;
+    font-weight: 700;
+}

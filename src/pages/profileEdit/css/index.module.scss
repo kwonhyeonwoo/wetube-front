@@ -1,0 +1,33 @@
+.profileEditPage{
+    display: flex;
+    flex-direction: column;
+    row-gap: 48px;
+    background-color:#F3F3F3;
+}
+.titleSection{
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+.title{
+    font-size: 48px;
+    font-weight: 400;
+}
+.subText{
+    font-weight: 400;
+    color:#603E39;
+    white-space: pre-line;
+    line-height: 1.5;
+}
+
+.profileEditSection{}
+.profileForm{
+    display: flex;
+    flex-direction: column;
+    row-gap: 48px;
+}
+.btnBox{
+    width: 896px;
+    display: flex;
+    justify-content: end;
+}
