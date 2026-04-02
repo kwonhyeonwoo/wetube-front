@@ -1,12 +1,12 @@
+import type { IShort, IVideo } from "@/@types/video.type";
 import styles from "./css/index.module.css";
 import CategoriesContainer from "@/components/common/Categories/container/CategoriesContainer";
 import Short from "@/components/Short/Short";
 import VideoCard from "@/components/VideoCard/VideoCard";
-import type { IShort, IVideo } from "video";
 
 interface Props {
-  videos: IVideo[];
   shorts:IShort[];
+  videos:IVideo[];
   handleVideoDetail:(id:string)=>void;
 }
 

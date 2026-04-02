@@ -1,6 +1,6 @@
 import type { UseFormRegister, UseFormSetValue } from "react-hook-form";
 import styles from "./css/index.module.css";
-import type { WriteVideoFormType } from "@/schema/writeVideo.schema";
+import type { videoType } from "@/schema/video.schema";
 import UploadDropMenu from "../UploadDropMenu/UploadDropMenu";
 import TagSection from "../TagSection/TagSection";
 import UploadGuideLine from "../UploadGuideLine/UploadGuideLine";
@@ -8,8 +8,8 @@ import SubmitButtonContainer from "@/components/common/SubmitButton/container/Su
 interface Props{
     currentTags:string[];
     currentCategory:string;
-    setValue:UseFormSetValue<WriteVideoFormType>;
-    register:UseFormRegister<WriteVideoFormType>
+    setValue:UseFormSetValue<videoType>;
+    register:UseFormRegister<videoType>
 }
 const WriteVideoRight = ({
   currentTags,

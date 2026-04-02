@@ -1,5 +1,4 @@
-declare module "video" {
-    interface IVideo {
+export interface IVideo {
         video: string;
         title: string;
         content: string;
@@ -11,11 +10,9 @@ declare module "video" {
         profile?: string;
         id: string;
     }
-
-    interface IShort {
+export interface IShort {
         video: string;
         views: string;
         title: string;
         id: string;
     }
-}

@@ -1,10 +1,10 @@
 import type { UseFormRegister } from "react-hook-form";
 import UploadVideo from "../UploadVideo/UploadVideo";
 import styles from "./css/index.module.css";
-import type { WriteVideoFormType } from "@/schema/writeVideo.schema";
+import type { videoType } from "@/schema/video.schema";
 
 interface Props{
-  register:UseFormRegister<WriteVideoFormType>;
+  register:UseFormRegister<videoType>;
 }
 
 const WriteVideoLeft = ({register}:Props) => {

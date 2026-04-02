@@ -1,4 +1,4 @@
-import type { IShort, IVideo } from "video";
+import type { IShort, IVideo } from "@/@types/video.type";
 import Home from "../Home"
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";

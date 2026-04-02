@@ -1,6 +1,6 @@
 import styles from "./css/index.module.css";
 import type { UseFormSetValue } from "react-hook-form";
-import type { WriteVideoFormType } from "@/schema/writeVideo.schema";
+import type { videoType } from "@/schema/video.schema";
 import { getFindCategory } from "@/lib/lib";
 import dropDownIcon from "@/assets/common/arrow-down.svg";
 import { categoriesConstants } from "@/constants/categoriesConstants";
@@ -8,7 +8,7 @@ import { useCallback, useState } from "react";
 
 interface Props {
   currentCategory: string;
-  setValue: UseFormSetValue<WriteVideoFormType>;
+  setValue: UseFormSetValue<videoType>;
 }
 const UploadDropMenu = ({
   currentCategory,

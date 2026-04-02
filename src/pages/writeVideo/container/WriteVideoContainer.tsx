@@ -1,10 +1,10 @@
 import styles from "../css/index.module.css";
 import { useForm } from "react-hook-form"
-import { writeVideoSchema, type WriteVideoFormType } from "@/schema/writeVideo.schema";
 import { zodResolver } from "@hookform/resolvers/zod/src/zod.js";
 import { useCallback } from "react";
 import WriteVideoLeft from "@/components/writeVideo/WriteVideoLeft/WriteVideoLeft";
 import WriteVideoRight from "@/components/writeVideo/WritevideoRight/WriteVideoRight";
+import { videoSchema, type videoType } from "@/schema/video.schema";
 
 const WriteVideoContainer = () => {
 const {
@@ -12,8 +12,8 @@ const {
       handleSubmit,
       watch,
       setValue,
-      } = useForm<WriteVideoFormType>({
-        resolver:zodResolver(writeVideoSchema),
+      } = useForm<videoType>({
+        resolver:zodResolver(videoSchema),
         defaultValues:{
           categories:"movie",
           tags:[]
@@ -21,7 +21,7 @@ const {
       });
     
       const onSubmit = useCallback(
-        (data:WriteVideoFormType) => {
+        (data:videoType) => {
           console.log(data);
         },
         [],

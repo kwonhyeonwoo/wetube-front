@@ -1,5 +1,5 @@
+import type { IVideo } from "@/@types/video.type";
 import styles from "./css/index.module.css";
-import type { IVideo } from "video";
 
 interface Props extends IVideo {
   handleVideoDetail:(id:string)=>void;
@@ -20,11 +20,15 @@ const VideoCard = ({
       {/* <video /> */}
       <div className={styles.testVideo} />
       <div className={styles.videoCardWrapperInfo}>
-        <img
-          src={profile}
-          alt="user-profile"
-          className={styles.videoCardWrapperInfoProfile}
-        />
+       {profile ? (
+         <img
+         src={profile}
+         alt="user-profile"
+         className={styles.videoCardWrapperInfoProfile}
+       />
+       ):(
+        <div className={styles.undeProfile}/>
+       )}
         <div className={styles.videoCardWrapperInfoContent}>
           <p className={styles.videoCardWrapperInfoContentText}>{title}</p>
           <div className={styles.videoCardWrapperInfoContentAuthor}>

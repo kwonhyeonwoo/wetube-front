@@ -1,0 +1,30 @@
+.videoTitle {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.videoSection {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+}
+
+.videoGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  -moz-column-gap: 24px;
+       column-gap: 24px;
+}
+
+.videoTitleBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.allVideoBtn {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+}/*# sourceMappingURL=index.module.css.map */

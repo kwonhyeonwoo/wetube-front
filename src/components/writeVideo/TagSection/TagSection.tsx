@@ -1,11 +1,11 @@
 import type {  UseFormSetValue } from "react-hook-form";
 import styles from "./css/index.module.css";
-import type { WriteVideoFormType } from "@/schema/writeVideo.schema";
+import type { videoType } from "@/schema/video.schema";
 import { useState, type ChangeEvent } from "react";
 
 interface Props{
     tags:string[];
-    setValue:UseFormSetValue<WriteVideoFormType>
+    setValue:UseFormSetValue<videoType>
 }
 
 const TagSection = ({tags,setValue,}:Props) => {
