@@ -1,0 +1,7 @@
+.storageDetailPage {
+  display: flex;
+  -moz-column-gap: 32px;
+       column-gap: 32px;
+  border: 1px solid blue;
+  justify-content: center;
+}/*# sourceMappingURL=index.module.css.map */

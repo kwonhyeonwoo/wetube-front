@@ -1,6 +1,7 @@
 import styles from "./css/index.module.css";
 import testImg from  "@/assets/test/video-test.png"
 import MenubarIcon from "@/assets/common/menu-bar.svg?react";
+import type { IStorageNavi } from "@/interfaces/storage.type";
 
 interface Props{
     title:string;
@@ -8,7 +9,8 @@ interface Props{
     count:string;
     id:string;
     userId:string;
-    handleNavigate:(userId:string, storageId:string)=>void;
+    content:string;
+    handleNavigate:(data:IStorageNavi)=>void;
 }
 
 const StorageVideoCard = ({
@@ -17,12 +19,22 @@ const StorageVideoCard = ({
   count,
   userId,
   id,
+  content,
   handleNavigate,
 }: Props) => {
   return (
     <div
       className={styles.storageVideoCard}
-      onClick={() => handleNavigate("1234", id)}
+      onClick={() => handleNavigate({
+        userId,
+        item:{
+          id,
+          title,
+          date,
+          count,
+          content,
+        }
+      })}
     >
       {/* <video/> 나중에 비디오로 바꿔야함 */}
       <div className={styles.video}>

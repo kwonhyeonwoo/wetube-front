@@ -1,23 +1,13 @@
 .videoHistoryPage {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   row-gap: 48px;
   padding-bottom: 100px;
 }
 
 .tabsSection {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   row-gap: 34px;
 }
 
@@ -27,23 +17,17 @@
 }
 
 .tabBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-column-gap: 32px;
-     -moz-column-gap: 32px;
-          column-gap: 32px;
+  align-items: center;
+  -moz-column-gap: 32px;
+       column-gap: 32px;
 }
 
 .tabBtn {
   color: #A1A1AA;
   font-weight: 700;
   padding-bottom: 8px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 18px;
 }
 
@@ -53,12 +37,7 @@
 }
 
 .videos {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   row-gap: 32px;
-}
+}/*# sourceMappingURL=index.module.css.map */

@@ -1,12 +1,7 @@
 .authInputWrapper {
   width: 400px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   row-gap: 5px;
 }
 
@@ -17,36 +12,15 @@
 }
 
 .input {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   padding: 14px 12px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border-width: 0 0 1px;
   border-bottom: 1px solid #6B7280;
 }
 
-.input::-webkit-input-placeholder {
-  color: #D4D4D8;
-  font-size: 16px;
-}
-
 .input::-moz-placeholder {
-  color: #D4D4D8;
-  font-size: 16px;
-}
-
-.input:-ms-input-placeholder {
-  color: #D4D4D8;
-  font-size: 16px;
-}
-
-.input::-ms-input-placeholder {
   color: #D4D4D8;
   font-size: 16px;
 }
@@ -60,4 +34,4 @@
   .authInputWrapper {
     width: 320px;
   }
-}
+}/*# sourceMappingURL=index.module.css.map */
