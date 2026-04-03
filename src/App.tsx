@@ -18,7 +18,7 @@ const routes = [
   {
     path:"/user/*",
     element:<UserRoute/>
-  }
+  },
 ]
 function App() {
   return (

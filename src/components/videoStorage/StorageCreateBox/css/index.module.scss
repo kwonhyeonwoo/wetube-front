@@ -1,0 +1,29 @@
+.storageCreateBox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.storageTitleBox {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+}
+
+.storageTitle {
+    font-size: 24px;
+}
+
+.storageSub {
+    font-size: 14px;
+    color: var(--color-text-sub);
+}
+
+.storageBtn {
+    padding: 8px 20px;
+    box-sizing: border-box;
+    background-color: black;
+    color: var(--color-white);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+}

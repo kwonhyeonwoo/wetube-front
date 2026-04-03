@@ -26,7 +26,7 @@ const VideoHistoryContainer = () => {
         </div>
       </section>
 
-      <section className={styles.vidoes}>
+      <section className={styles.videos}>
           {historyVideos.map((item,idx)=>(
             <HistoryVideoCard {...item }key={item.id}/>
           ))}

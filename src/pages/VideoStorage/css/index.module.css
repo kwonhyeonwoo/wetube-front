@@ -1,58 +1,4 @@
-.videoHistoryPage {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  row-gap: 48px;
-  padding-bottom: 100px;
-}
-
-.tabsSection {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  row-gap: 34px;
-}
-
-.title {
-  font-size: 40px;
-  font-weight: 400;
-}
-
-.tabBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-column-gap: 32px;
-     -moz-column-gap: 32px;
-          column-gap: 32px;
-}
-
-.tabBtn {
-  color: #A1A1AA;
-  font-weight: 700;
-  padding-bottom: 8px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-size: 18px;
-}
-
-.activeTabBtn {
-  color: #BC0100;
-  border-bottom: 2px solid #BC0100;
-}
-
-.videos {
+.videoStoragePage {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -61,4 +7,44 @@
       -ms-flex-direction: column;
           flex-direction: column;
   row-gap: 32px;
+  padding-bottom: 100px;
+}
+
+.titleBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 4px;
+}
+
+.title {
+  font-size: 48px;
+  color: var(--color-text-main);
+}
+
+.subText {
+  white-space: pre-line;
+  color: var(--color-text-sub);
+  line-height: 150%;
+}
+
+.storageSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 32px;
+}
+
+.storageVideos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 50px;
 }
