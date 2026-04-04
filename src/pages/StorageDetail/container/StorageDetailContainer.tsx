@@ -1,7 +1,7 @@
 import styles from "../css/index.module.css";
-import { useLocation, useParams } from "react-router-dom";
-import StorageOverView from "@/components/storageDetail/StorageOverView/StorageOverView";
-import StorageList from "@/components/storageDetail/StorageList/StorageList";
+import { useLocation } from "react-router-dom";
+import StorageOverView from "@/components/video/StorageOverView/StorageOverView";
+import StorageList from "@/components/video/StorageList/StorageList";
 import type { IVideo } from "@/@types/video.type";
 
 const StorageDetailContainer = () => {

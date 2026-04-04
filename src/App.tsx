@@ -2,9 +2,9 @@ import { Route, Routes } from 'react-router-dom';
 import RootRoute from './routes/RootRoute';
 import VideoRoute from './routes/VideoRoute';
 import UserRoute from './routes/UserRoute';
-import HeaderContainer from './components/common/header/container/HeaderContainer';
+import HeaderContainer from './components/layouts/header/container/HeaderContainer';
 import { Fragment } from 'react/jsx-runtime';
-import SidebarContainer from './components/Sidebar/container/SidebarContainer';
+import SidebarContainer from './components/layouts/Sidebar/container/SidebarContainer';
 
 const routes = [
   {

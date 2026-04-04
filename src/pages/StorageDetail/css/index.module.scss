@@ -1,9 +1,17 @@
 .storageDetailPage{
     display: flex;
-    column-gap:32px;
-    border:1px solid blue;
+    column-gap:42px;
     justify-content: center;
 }
 
 
-.rightSection{}
+.storageListsSection{
+    height:770px;
+    overflow-y: scroll;
+}
+
+.storageLists{
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}

@@ -1,4 +1,4 @@
-import VideoCard from "@/components/VideoCard/VideoCard";
+import VideoCard from "@/components/video/VideoCard/VideoCard";
 import styles from "./css/index.module.css";
 import type { IVideo } from "@/@types/video.type";
 import GrayArrow from "@/assets/common/gray-right-arrow.svg"

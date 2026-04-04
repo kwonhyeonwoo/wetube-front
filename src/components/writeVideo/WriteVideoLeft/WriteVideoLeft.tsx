@@ -1,5 +1,5 @@
 import type { UseFormRegister } from "react-hook-form";
-import UploadVideo from "../UploadVideo/UploadVideo";
+import UploadVideo from "../../video/UploadVideo/UploadVideo";
 import styles from "./css/index.module.css";
 import type { videoType } from "@/schema/video.schema";
 

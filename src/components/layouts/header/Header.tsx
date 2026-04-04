@@ -1,7 +1,7 @@
 import styles from "./css/index.module.css";
-import LeftHeader from "../../LeftHeader/LeftHeader";
-import CenterHeaderContainer from "../../CenterHeader/container/CenterHeaderContainer";
-import RightHeaderContainer from "../../RightHeader/container/RightHeaderContainer";
+import LeftHeader from "../../header/LeftHeader/LeftHeader";
+import CenterHeaderContainer from "../../header/CenterHeader/container/CenterHeaderContainer";
+import RightHeaderContainer from "../../header/RightHeader/container/RightHeaderContainer";
 
 interface Props{
     pathname:string;

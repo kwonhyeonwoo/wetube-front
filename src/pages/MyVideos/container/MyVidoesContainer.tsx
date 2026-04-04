@@ -2,7 +2,7 @@ import MyVideoSearch from "@/components/MyVideoSearch/MyVideoSearch";
 import styles from "../css/index.module.css";
 import { useCallback} from "react";
 import { useForm } from "react-hook-form";
-import VideoCard from "@/components/VideoCard/VideoCard";
+import VideoCard from "@/components/video/VideoCard/VideoCard";
 import type { IVideo } from "@/@types/video.type";
 
 const MyVideosContainer = () => {
