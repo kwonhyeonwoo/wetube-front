@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 42px;
+    align-items: center;
 }
 
 .titleSection{
@@ -19,6 +20,12 @@
     color:var(--color-text-sub);
     line-height: 1.5;
 }
+.uploadSection{
+    width: 556px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+}
 .titleInputBox{
     display: flex;
     flex-direction: column;
@@ -26,8 +33,15 @@
 }
 .inputSpan{
     font-size: 14px;
+    color: var(--color-text-sub);
 }
-.titleInput{}
-.uploadSection{
-    width: 556px;
+.titleInput{
+    padding:23px 24px;
+    box-sizing: border-box;
+    background-color: var(--color-bg-light);
+    border-radius:16px;
+}
+.btnBox{
+    display: flex;
+    justify-content: center;
 }

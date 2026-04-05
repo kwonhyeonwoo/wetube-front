@@ -13,10 +13,11 @@ const VideoCard = ({
     title,
     nickName,
     views,
-    date
+    date,
+    handleVideoDetail
 }:Props) => {
   return (
-    <div className={styles.videoCardWrapper}>
+    <div className={styles.videoCardWrapper} onClick={()=>handleVideoDetail(id)}>
       {/* <video /> */}
       <div className={styles.testVideo} />
       <div className={styles.videoCardWrapperInfo}>

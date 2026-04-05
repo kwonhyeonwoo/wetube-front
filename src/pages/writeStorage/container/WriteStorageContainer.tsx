@@ -2,6 +2,7 @@ import UploadVideo from "@/components/video/UploadVideo/UploadVideo";
 import styles from "../css/index.module.css";
 import { useForm } from "react-hook-form";
 import ContentTextArea from "@/components/video/ContentTextArea/ContentTextArea";
+import SubmitButtonContainer from "@/components/common/SubmitButton/container/SubmitButtonContainer";
 const WriteStorageContainer = () => {
   const {register} = useForm(); 
   return (
@@ -31,6 +32,9 @@ const WriteStorageContainer = () => {
             name={"colntent"}
             register={register}
           />
+          <div className={styles.btnBox}>
+            <SubmitButtonContainer text="만들기" handleSubmit={()=>{}}/>
+          </div>
       </section>
     </main>
   )

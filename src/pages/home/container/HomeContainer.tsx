@@ -1,23 +1,60 @@
+import styles from "../css/index.module.css";
 import type { IShort, IVideo } from "@/@types/video.type";
-import Home from "../Home"
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import CategoriesContainer from "@/components/common/Categories/container/CategoriesContainer";
+import VideoCard from "@/components/video/VideoCard/VideoCard";
+import Short from "@/components/video/Short/Short";
 
 const HomeContainer = () => {
   const navigate = useNavigate();
   const handleVideoDetail = useCallback(
     (id:string) => {
-      navigate(`/video/${id}`)
+      navigate(`/video/${id}`,{
+        state:{
+          id,
+        }
+      })
     },
     [navigate],
   )
   
   return (
-    <Home
-      videos={videos}
-      shorts={shorts}
-      handleVideoDetail={handleVideoDetail}
-    />
+    <main className={styles.homePage}>
+      <CategoriesContainer />
+      <section className={styles.videoSection}>
+        {videos.map((item) => (
+          <VideoCard
+            key={item.id}
+            {...item}
+            handleVideoDetail={handleVideoDetail}
+          />
+        ))}
+      </section>
+      <section className={styles.shortSection}>
+        <div className={styles.shortTitleBox}>
+          <img 
+            src="/assets/short/short.png"
+            srcSet="
+              /assets/short/short@2x.png 2x,
+              /assets/short/short@3x.png 3x
+            " 
+            alt="short" 
+          />
+          <h2 className={styles.shortTitle}>Shorts</h2>
+        </div>
+        <div className={styles.shortLists}>
+          {shorts.map((item)=>(
+            <Short 
+              key={item.id} 
+              title={item.title} 
+              views={item.views} 
+              shortId={item.id}
+            />
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
 
