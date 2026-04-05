@@ -1,0 +1,33 @@
+.storageWritePage{
+    display: flex;
+    flex-direction: column;
+    row-gap: 42px;
+}
+
+.titleSection{
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+.title{
+    font-size: 48px;
+}
+.subText{
+    font-size: 18px;
+    font-weight: 400;
+    white-space: pre-line;
+    color:var(--color-text-sub);
+    line-height: 1.5;
+}
+.titleInputBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+.inputSpan{
+    font-size: 14px;
+}
+.titleInput{}
+.uploadSection{
+    width: 556px;
+}

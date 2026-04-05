@@ -1,11 +1,15 @@
-import type { UseFormRegister } from "react-hook-form";
+import type { FieldValues, Path, UseFormRegister } from "react-hook-form";
 import styles from "./css/index.module.css";
-import type { videoType } from "@/schema/video.schema";
 
-interface Props{
-  register:UseFormRegister<videoType>;
+interface Props <T extends FieldValues>{
+  mode:"video" | "image";
+  name:Path<T>
+  register:UseFormRegister<T>;
 }
-const UploadVideo = ({register}:Props) => {
+const UploadVideo = <T extends FieldValues>({
+  mode, 
+  name,
+  register}:Props<T>) => {
   return (
     <div className={styles.imgUploadBox}>
     <label htmlFor="imgUpload" className={styles.uploadLabel}>
@@ -17,13 +21,16 @@ const UploadVideo = ({register}:Props) => {
             alt="upload" 
         />
         </div>
-        <span className={styles.uploadLabelText}>이미지 업로드</span>
+        <span className={styles.uploadLabelText}>
+          {mode === "video" ? "동영상 업로드" : "이미지 업로드"} 업로드
+        </span>
     </label>
     <input 
       type="file" 
       id="imgUpload" 
+      accept={mode === "video" ? "video/*" : "image/*"}
       className={styles.imgUploadInput} 
-      {...register('video')}
+      {...register(name)}
     />
     </div>
   )

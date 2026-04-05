@@ -6,6 +6,7 @@ import ProfileEditContainer from "@/pages/profileEdit/container/ProfileEditConta
 import MyVideosContainer from "@/pages/MyVideos/container/MyVidoesContainer"
 import VideoStorageContainer from "@/pages/VideoStorage/container/VideoStorageContainer"
 import StorageDetailContainer from "@/pages/StorageDetail/container/StorageDetailContainer"
+import WriteStorageContainer from "@/pages/writeStorage/container/WriteStorageContainer"
 
 const routes = [
     {
@@ -35,7 +36,11 @@ const routes = [
     {
         path:"/:userId/storage/:storageId",
         element:<StorageDetailContainer/>
-    }
+    },
+    {
+        path:"/storage/write",
+        element:<WriteStorageContainer/>
+      }
 ]
 
 const UserRoute = () => {

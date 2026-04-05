@@ -1,0 +1,19 @@
+.textAreaBox{
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+}
+.textArea{
+    border-radius: 16px;
+    height: 204px;
+    padding:24px 24px;
+    box-sizing: border-box;
+    resize: none;
+    background-color: #F3F3F3;
+    border: none;
+    outline: none;
+}
+.textAreaText{
+    font-size: 12px;
+    color:var(--color-text-sub);
+}

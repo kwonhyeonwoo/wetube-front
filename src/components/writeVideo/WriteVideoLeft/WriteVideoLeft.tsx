@@ -2,6 +2,7 @@ import type { UseFormRegister } from "react-hook-form";
 import UploadVideo from "../../video/UploadVideo/UploadVideo";
 import styles from "./css/index.module.css";
 import type { videoType } from "@/schema/video.schema";
+import ContentTextArea from "@/components/video/ContentTextArea/ContentTextArea";
 
 interface Props{
   register:UseFormRegister<videoType>;
@@ -11,7 +12,7 @@ const WriteVideoLeft = ({register}:Props) => {
   return (
     <div className={styles.leftUpload}>
       {/* 비디오 업로드 */}
-        <UploadVideo register={register}/>
+        <UploadVideo mode="video" name="video" register={register}/>
         {/* 제목 */}
         <div className={styles.titleInputBox}>
             <span className={styles.inputSpan}>동영상 제목</span>
@@ -24,14 +25,12 @@ const WriteVideoLeft = ({register}:Props) => {
         </div>
 
         {/* 내용  */}
-        <div className={styles.textAreaBox}>
-            <span className={styles.inputSpan}>동영상 설명</span>
-            <textarea 
-            placeholder="동영상 설명을 입력하세요" 
-            className={styles.textArea}
-            {...register('content')}
-            />
-        </div>
+       <ContentTextArea 
+          placeholder="동영상 설명을 입력하세요" 
+          text="동영상 설명" 
+          name={"content"}
+          register={register}
+        />
   </div>
   )
 }
