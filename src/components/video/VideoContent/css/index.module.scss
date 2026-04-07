@@ -1,0 +1,47 @@
+.videoContentWrapper{
+    display: flex;
+    flex-direction: column;
+    padding:16px 16px;
+    background-color: var(--color-bg-light);
+    border-radius: 16px;
+    row-gap: 20px;
+    max-height:144px;
+    overflow: hidden;
+    transition: max-height .2s ease-in-out;
+}
+.activeCotent{
+    max-height:500px;
+    transition: max-height .2s ease-in-out;
+}
+.metaBox{
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+.boldTextBox{
+    display: flex;
+    align-items: center;
+}
+.boldText{
+    font-size: 14px;
+    font-weight: 700;
+}
+.tagBox{
+    display: flex;
+    align-items: center;
+}
+.tagText{
+    color:#606060;
+    font-size: 14px;
+}
+.content{
+    white-space: pre-line;
+    line-height: 1.5;
+    overflow: hidden;
+}
+.seeMoreBox{
+
+}
+.seeMoreBtn{
+
+}
