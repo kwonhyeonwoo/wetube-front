@@ -1,8 +1,6 @@
 import styles from "./css/index.module.css";
 import type { FieldValues, Path, UseFormRegister } from "react-hook-form";
 
-
-
 interface Props <T extends FieldValues>{
     placeholder:string;
     text:string;

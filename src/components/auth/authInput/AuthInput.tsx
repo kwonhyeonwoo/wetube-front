@@ -1,30 +1,26 @@
-import styles from  "./css/index.module.css";
-interface Props{
+import type { UseFormRegister, FieldValues,Path } from "react-hook-form";import styles from  "./css/index.module.css";
+interface Props<T extends FieldValues>{
     type:string;
-    name:string;
-    value:string;
+    name:Path<T>;
     label:string;
     placeholder:string;
-    handleChange:(e:React.ChangeEvent<HTMLInputElement>)=>void;
+    register:UseFormRegister<T>
 }
-const AuthInput = ({
+const AuthInput = <T extends FieldValues>({
     type,
     name,
-    value,
     label,
     placeholder,
-    handleChange,
-}:Props) => {
+    register
+}:Props<T>) => {
   return (
     <div className={styles.authInputWrapper}>
         <span className={styles.label}>{label}</span>
         <input
             className={styles.input}
             type={type}
-            name={name}
-            value={value}
             placeholder={placeholder}
-            onChange={handleChange}
+            {...register(name)}
         />
     </div>
   )

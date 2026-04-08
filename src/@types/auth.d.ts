@@ -1,3 +1,5 @@
+import type { Path } from "react-hook-form";
+
 declare module "auth" {
     interface IAccount {
         name: string;
@@ -11,10 +13,5 @@ declare module "auth" {
         email:string;
         password:string;
     }
-    interface IAuthFields{
-        name:string;
-        placeholder:string;
-        type:string;
-        label:string;
-    }
+
 }

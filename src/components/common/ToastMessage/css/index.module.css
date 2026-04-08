@@ -1,0 +1,20 @@
+@charset "UTF-8";
+.toastContainer {
+  position: fixed;
+  width: 300px;
+  bottom: 20px;
+  z-index: 9999;
+  left: 0; /* 왼쪽 끝에서 */
+  right: 0; /* 오른쪽 끝까지 */
+  margin: 0 auto;
+}
+
+.toastItem {
+  background-color: black;
+  border-radius: 8px;
+  padding: 16px 10px;
+  text-align: center;
+}
+.toastItem span {
+  color: white;
+}/*# sourceMappingURL=index.module.css.map */

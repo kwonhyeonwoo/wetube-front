@@ -1,19 +1,19 @@
 import { useCallback,} from 'react'
-import { useAuthForm } from "../../../hooks/useAuthForm";
 import { useLoginMutation } from '../../../hooks/queries/auth/useLoginMutation'
 import AuthPageTemplate from '@/components/auth/AuthPageTemplate/AuthPageTemplate'
 import { LOGIN_FIELDS } from '@/constants/authConstants'
+import { useForm } from 'react-hook-form';
+import type { LoginRequest } from '@/interfaces/auth.type';
 
 const LoginContainer = () => {
-  const {mutate:login , isError, error} = useLoginMutation();
-  const { inputs, handleChange } = useAuthForm({ email: "", password: "" });
+  const {mutate:login , } = useLoginMutation();
+  const {register,handleSubmit} = useForm<LoginRequest>();
   
-  const handleSubmit = useCallback(
-    () => {
-      login(inputs);
-      
+  const onSubmit = useCallback(
+    (data:LoginRequest) => {
+      login(data);
     },
-    [inputs],
+    [login],
   )
   
   return (
@@ -23,9 +23,9 @@ const LoginContainer = () => {
       link="/user/account"
       linkText="계정이 없으신가요?"
       btnText="로그인"
-      inputs={inputs}
-      handleChange={handleChange}
+      register={register}
       handleSubmit={handleSubmit}
+      onSubmit={onSubmit}
     />
   );
 }

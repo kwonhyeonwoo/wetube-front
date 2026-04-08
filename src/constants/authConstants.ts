@@ -1,6 +1,6 @@
-import type { IAuthFields } from "auth";
+import type { IAuthFields, LoginRequest, AccountRequest } from "@/interfaces/auth.type";
 
-export const ACCOUNT_FIELDS: IAuthFields[] = [
+export const ACCOUNT_FIELDS: IAuthFields<AccountRequest>[] = [
   {
     name: "name",
     label: "이름",
@@ -33,7 +33,7 @@ export const ACCOUNT_FIELDS: IAuthFields[] = [
   },
 ] as const;
 
-export const LOGIN_FIELDS: IAuthFields[] = [
+export const LOGIN_FIELDS: IAuthFields<LoginRequest>[] = [
   {
     name: "email",
     label: "이메일",

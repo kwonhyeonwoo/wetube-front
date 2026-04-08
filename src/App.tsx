@@ -7,6 +7,7 @@ import { Fragment } from 'react/jsx-runtime';
 import SidebarContainer from './components/layouts/Sidebar/container/SidebarContainer';
 import useUserStore from './store/useUserStore';
 import { useEffect } from 'react';
+import { ToastContainer } from './components/common/ToastMessage/container/ToastMessageContainer';
 
 const routes = [
   {
@@ -38,6 +39,7 @@ function App() {
           <Route key={idx} path={path} element={element} />
         ))}
       </Routes>
+      <ToastContainer/>
     </Fragment>
   );
 }

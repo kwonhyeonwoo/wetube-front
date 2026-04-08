@@ -1,29 +1,30 @@
 import styles from "./css/index.module.css";
-import type {  IAuthFields } from "auth";
 import SubmitButtonContainer from "../../common/SubmitButton/container/SubmitButtonContainer";
-import AuthInputContainer from "../authInput/container/AuthInputContainer";
 import AuthLink from "../AuthLink/AuthLink";
-interface Props<T> {
+import type {IAuthFields } from "@/interfaces/auth.type";
+import type { UseFormRegister,FieldValues, UseFormHandleSubmit,SubmitHandler } from "react-hook-form";
+import AuthInput from "../authInput/AuthInput";
+interface Props<T extends FieldValues> {
   title: string;
   subTitle?: React.ReactNode;
-  fields: IAuthFields[];
+  fields: IAuthFields<T>[];
   link: string;
   linkText: string;
   btnText: string;
-  inputs: T;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleSubmit: () => void;
+  handleSubmit:UseFormHandleSubmit<T>;
+  register:UseFormRegister<T>;
+  onSubmit: SubmitHandler<T>
 }
-const AuthPageTemplate = <T extends Record<string, any>>({
+const AuthPageTemplate = <T extends FieldValues>({
     title,
     subTitle,
     fields,
     link,
     linkText,
     btnText,
-    inputs,
-    handleChange,
-    handleSubmit
+    register,
+    handleSubmit,
+    onSubmit
 }:Props<T>) => {
   return (
     <main className={styles.authPageTemplate}>
@@ -32,29 +33,30 @@ const AuthPageTemplate = <T extends Record<string, any>>({
           <h1 className={styles.title}>{title}</h1>
           <p className={styles.subTitle}>{subTitle}</p>
         </div>
-        <div className={styles.inputs}>
-          {fields.map(({ name, placeholder, type, label }, idx) => (
-            <AuthInputContainer
-              type={type}
-              label={label}
-              name={name}
-              value={inputs[name as keyof T]}
-              placeholder={placeholder}
-              key={idx}
-              handleChange={handleChange}
-            />
-          ))}
-        </div>
-        <div className={styles.buttonBox}>
-          <SubmitButtonContainer text={btnText} handleSubmit={handleSubmit} />
-          <AuthLink link={link} text={linkText} />
-          {link === "/user/login" && (
-            <span className={styles.terms}>
-              가입 버튼을 누름으로써, 이용약관 및 개인정보처리방침에 동의하게
-              됩니다.
-            </span>
-          )}
-        </div>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className={styles.inputs}>
+            {fields.map(({ name, placeholder, type, label }, idx) => (
+              <AuthInput
+                type={type}
+                label={label}
+                name={name}
+                placeholder={placeholder}
+                key={idx}
+                register={register}
+              />
+            ))}
+          </div>
+          <div className={styles.buttonBox}>
+            <SubmitButtonContainer text={btnText} handleSubmit={()=>{}} />
+            <AuthLink link={link} text={linkText} />
+            {link === "/user/login" && (
+              <span className={styles.terms}>
+                가입 버튼을 누름으로써, 이용약관 및 개인정보처리방침에 동의하게
+                됩니다.
+              </span>
+            )}
+          </div>
+        </form>
       </section>
     </main>
   );
