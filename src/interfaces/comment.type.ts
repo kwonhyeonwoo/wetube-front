@@ -6,3 +6,9 @@ export interface IComment{
     cmtId:string;
     authorId:string;
 }
+
+export interface CommentRequest {
+    authorId:string;
+    videoId:string;
+    comment:string;
+}

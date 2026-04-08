@@ -7,7 +7,7 @@ import ActionButton from "../ActionButton/ActionButton";
 import VideoContent from "../VideoContent/VideoContent";
 const VideoPrimaryInfo = () => {
   return (
-    <div className={styles.videoSection}>
+    <div className={styles.videoBox}>
         {/* 나중에 진짜 비디오 올라 올 곳 */}
         {/* <video/> */}
         <div className={styles.testVideo}/>

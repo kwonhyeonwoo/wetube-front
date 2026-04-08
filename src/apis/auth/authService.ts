@@ -1,6 +1,6 @@
 import type { IAccount, ILogin } from "auth";
 import { api } from "../axiosInstance";
-import type { UserReponse } from "@/interfaces/auth.type";
+import type { UserResponse } from "@/interfaces/auth.type";
 
 export const authService = {
     account: async (data: IAccount) => {
@@ -15,18 +15,18 @@ export const authService = {
     },
     login: async (data: ILogin) => {
         try {
-        const { email, password } = data;
-        const response = await api.post("/user/login", {
-            email,
-            password,
-        });
-        return response;
+            const { email, password } = data;
+            const response = await api.post("/user/login", {
+                email,
+                password,
+            });
+            return response;
         } catch (err: any) {
-        const message = err.response?.data?.message;
-        throw new Error(message);
+            const message = err.response?.data?.message;
+            throw new Error(message);
         }
     },
-    getUser: async (id: string): Promise<UserReponse> => {
+    getUser: async (id: string): Promise<UserResponse> => {
         const response = await api.get(`/user/${id}`);
         return await response.data;
     },

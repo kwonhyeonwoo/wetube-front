@@ -1,0 +1,18 @@
+.commentForm{
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+}
+.profile{
+    width: 40px;
+    height:40px;
+    border-radius: 50%;
+    background-color: #D9D9D9;
+}
+.input{
+    width: 100%;
+    padding:9px 12px;
+    box-sizing: border-box;
+    border-bottom:1px solid var(--color-bg-light);
+    font-size: 16px;
+}

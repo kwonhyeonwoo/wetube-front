@@ -1,4 +1,4 @@
-#root .right-header-wrapper {
+.rightHeaderWrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9,7 +9,8 @@
      -moz-column-gap: 20px;
           column-gap: 20px;
 }
-#root .right-header-wrapper > .right-heaeer-wrapper-write-button {
+
+.rightHeaderWrapperWriteButton {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,11 +23,13 @@
   background-color: #E8E8E8;
   border-radius: 16px;
 }
-#root .right-header-wrapper > .right-heaeer-wrapper-write-button > .right-header-wrapper-write-button-text {
+
+.rightHeaderWrapperWriteButtonText {
   font-weight: 700;
   font-size: 14px;
 }
-#root .right-header-wrapper > .right-header-wrapper-alert-button {
+
+.rightHeaderWrapperAlertButton {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -38,7 +41,8 @@
           justify-content: center;
   position: relative;
 }
-#root .right-header-wrapper > .right-header-wrapper-alert-button > .right-header-wrapper-alert-button-circle {
+
+.rightHeaderWrapperAlertButtonCircle {
   width: 8px;
   height: 8px;
   background-color: #BC0100;
@@ -47,7 +51,8 @@
   top: 1px;
   right: 5px;
 }
-#root .right-header-wrapper > .right-header-wrapper-profile {
+
+.rightHeaderWrapperProfile {
   width: 40px;
   height: 40px;
   border-radius: 50%;

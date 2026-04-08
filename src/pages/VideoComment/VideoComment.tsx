@@ -1,6 +1,8 @@
-import { useState } from "react";
 import styles from "./css/index.module.css";
-import SortIcon from "@/assets/common/fillter.svg";
+
+import LikeIcon from "@/assets/video/like.svg?react";
+import UnLikeIcon from "@/assets/video/unlike.svg?react";
+
 interface Props{
     commentCount:string;
     comment:string;
@@ -13,7 +15,7 @@ interface Props{
 
 
 // 댓글갯수, 댓글, 유저
-const VideoComment = ({
+const  VideoComment = ({
     commentCount,
     comment,
     profile,
@@ -22,33 +24,27 @@ const VideoComment = ({
     cmtId,
     authorId
 }:Props) => {
-    const [isSort, setIsSort] = useState<boolean>(false);
-    const handleSort = ()=>{
-        setIsSort((prev)=>!prev)
-    }
   return (
     <div className={styles.videoComment}>
-        <div className={styles.commentCountBox}>
-            <p className={styles.commentCount}>댓글 {commentCount}개</p>
-           <div className={styles.sortByBtnBox}>
-                <button type="button" className={styles.sortByBtn}>
-                    <img src={SortIcon} alt="sort-icon" />
-                    <p className={styles.sortByText}>정렬기준</p>
-                </button>
-                <div className={styles.sortModal}>
-                     <button className={styles.sortModalBtn}>
-                        <p className={styles.sortModalText}>인기순</p>
-                        <p className={styles.sortModalSubText}>추천 댓글 표시</p>
-                     </button>
-                     <button>
-                        <p className={styles.sortModalText}>최신순</p>
-                        <p className={styles.sortModalSubText}>스팸 가능성이 있는 댓글을 포함하여 최근 댓글 표시</p>
-                     </button>
-                </div>
-           </div>
+      <div className={styles.profile} />
+      <div className={styles.cmtInfoBox}>
+        <div className={styles.nickNameDate}>
+          <p className={styles.nickName}>{nickName}</p>
+          <p className={styles.date}>{date}</p>
         </div>
+        <p className={styles.comment}>{comment}</p>
+        <div className={styles.actions}>
+          <button className={styles.actionBtn}>
+            <LikeIcon width={14} height={14} />
+            <span className={styles.likeCount}>12</span>
+          </button>
+          <button className={styles.actionBtn}>
+            <UnLikeIcon width={14} height={14} />
+          </button>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
 export default VideoComment

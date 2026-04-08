@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     column-gap: 16px;
+    flex-shrink: 1;
     cursor: pointer;
 };
 .storageNumberBox{
@@ -30,15 +31,24 @@
     width: 212px;
     line-height: 1.5;
 }
+.nickName{
+    font-weight: 700;
+    font-size: 14px;
+}
 .authorBox{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    row-gap: 4px;
+}
+.metaBox{
+    display: flex;
     align-items: center;
+    column-gap: 10px;
 }
 .viewBox{
     display: flex;
-    flex-direction: column;
-    row-gap: 4px;
+    column-gap: 4px;
     align-items: center;
 }
 .customText{

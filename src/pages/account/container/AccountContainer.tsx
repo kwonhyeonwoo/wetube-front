@@ -2,12 +2,12 @@ import { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAccountMutation } from '@/hooks/queries/auth/useAccountMutation';
 import Account from '../Account';
-import { useForm } from '@/hooks/useForm';
+import { useAuthForm } from '@/hooks/useAuthForm';
 
 const AccountContainer = () => {
   const navigate = useNavigate();
   const {mutate:account} = useAccountMutation();
-  const {inputs,handleChange} = useForm({
+  const {inputs,handleChange} = useAuthForm({
     name: "",
     email: "",
     password: "",

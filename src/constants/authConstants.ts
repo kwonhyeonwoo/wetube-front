@@ -48,3 +48,14 @@ export const LOGIN_FIELDS: IAuthFields[] = [
   },
 
 ] as const;
+
+export const GUEST_USER = [
+  {
+    text:"로그인",
+    link:"login"
+  },
+  {
+    text:"회원가입",
+    link:"account"
+  }
+]

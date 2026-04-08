@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react"
 
-export const useForm = <T>(initialState: T) => {
+export const useAuthForm = <T>(initialState: T) => {
     const [inputs, setInputs] = useState<T>(initialState);
 
     const handleChange = useCallback(

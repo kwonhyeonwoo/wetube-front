@@ -1,18 +1,31 @@
 .videoDetailPage{
     display: flex;
-    column-gap: 32px;
+    column-gap: 20px;
+    overflow-x: hidden;
 }
 
 .videoSection{
     display: flex;
+    flex: 7;
+    min-width: 0;
     flex-direction: column;
     row-gap: 20px;
 }
 
-.videoListSection{
-    flex: 1;
-    border:1px solid blue;
+.comments{
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
 }
-
-
-
+.videoListSection {
+    flex: 3;
+    min-width: 0;
+}
+.cateBox{
+    display: flex;
+    overflow-x:auto ;
+    width: 100%;
+    padding:10px 0px;
+}
+.cateLists{
+}

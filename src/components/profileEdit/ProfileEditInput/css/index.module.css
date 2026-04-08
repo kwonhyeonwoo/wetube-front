@@ -1,6 +1,11 @@
 .profileEditInputBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   row-gap: 8px;
   width: 100%;
 }
@@ -15,13 +20,15 @@
   width: 100%;
   border-radius: 16px;
   padding: 16px 24px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   background-color: #F3F3F3;
 }
 
 .textarea {
   padding: 16px 24px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   background-color: #F3F3F3;
   border-radius: 16px;
   border: none;
@@ -31,4 +38,4 @@
 }
 .textarea:focus {
   outline: none;
-}/*# sourceMappingURL=index.module.css.map */
+}
