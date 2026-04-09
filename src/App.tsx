@@ -8,6 +8,7 @@ import SidebarContainer from './components/layouts/Sidebar/container/SidebarCont
 import useUserStore from './store/useUserStore';
 import { useEffect } from 'react';
 import { ToastContainer } from './components/common/ToastMessage/container/ToastMessageContainer';
+import { useGetMe } from './hooks/queries/auth/useGetMe';
 
 const routes = [
   {
@@ -26,10 +27,13 @@ const routes = [
 function App() {
   const {pathname} = useLocation();
   const isSidebar = pathname.includes('/user/login') || pathname.includes('/user/account')
-  const {isLoggedIn,setLoggedIn} = useUserStore();
+  const {data:user} = useGetMe();
+  const {setUser} = useUserStore();
   useEffect(()=>{
-    setLoggedIn(false);
-  },[])
+    if(user){
+      setUser(user.status,user.uid)
+    }
+  },[user])
   return (
     <Fragment>
       <HeaderContainer />
