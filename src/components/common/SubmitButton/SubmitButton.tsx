@@ -2,11 +2,12 @@ import styles from "./css/index.module.css";
 
 interface Props{
     text:string;
-    handleSubmit:()=>void;
+    type:"button" | "submit"
+    handleSubmit?:()=>void;
 }
-const SubmitButton = ({text,handleSubmit}:Props) => {
+const SubmitButton = ({text,type,handleSubmit}:Props) => {
   return (
-    <button className={styles.submitButton} onClick={handleSubmit}>{text}</button>
+    <button type={type} className={styles.submitButton} onClick={handleSubmit}>{text}</button>
   )
 }
 

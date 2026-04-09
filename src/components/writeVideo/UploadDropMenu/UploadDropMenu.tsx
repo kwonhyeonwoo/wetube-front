@@ -18,7 +18,6 @@ const UploadDropMenu = ({
 
     const handleOpen = useCallback(
       () => {
-        console.log('hello')
        setIsOpen((prev)=>!prev); 
       },
       [],
@@ -44,7 +43,7 @@ const UploadDropMenu = ({
                 className={`${styles.dropList} ${isOpen && styles.activeDropList}`}
                 key={item.name}
               >
-                <button>{getFindCategory(item.name)}</button>
+                <button type="button">{getFindCategory(item.name)}</button>
               </li>
             ),
         )}

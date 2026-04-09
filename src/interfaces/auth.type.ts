@@ -1,13 +1,28 @@
 import type { Path } from "react-hook-form";
+import type { VideoResponse } from "./video.type";
+
+export interface SessionUser{
+    nickName:string;
+    profile?:string;
+    email:string;
+    name:string;
+    uid:string;
+}
+
+export interface SessionResponse {
+  status: boolean;
+  user: SessionUser;
+}
 
 export interface UserResponse{
     id:string;
     name:string;
     nickName:string;
+    introduction?:string;
     email:string;
     profile?:string;
     createdAt:Date;
-    updatedAt:Date;
+    videos:VideoResponse[];
 }
 
 export interface LoginRequest{
@@ -30,4 +45,4 @@ export interface IAuthFields<T>{
     placeholder:string;
     type:string;
     label:string;
-}
+};

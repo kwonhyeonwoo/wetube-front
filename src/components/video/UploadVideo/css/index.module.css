@@ -54,3 +54,17 @@
 .imgUploadInput {
   display: none;
 }
+
+.videoBox {
+  width: 100%;
+  height: 303px;
+  border-radius: 32px;
+}
+
+.video {
+  width: 100%;
+  height: 303px;
+  border-radius: 32px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}

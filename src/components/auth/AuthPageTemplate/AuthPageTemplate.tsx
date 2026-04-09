@@ -1,9 +1,9 @@
 import styles from "./css/index.module.css";
-import SubmitButtonContainer from "../../common/SubmitButton/container/SubmitButtonContainer";
 import AuthLink from "../AuthLink/AuthLink";
 import type {IAuthFields } from "@/interfaces/auth.type";
 import type { UseFormRegister,FieldValues, UseFormHandleSubmit,SubmitHandler } from "react-hook-form";
 import AuthInput from "../authInput/AuthInput";
+import SubmitButton from "@/components/common/SubmitButton/SubmitButton";
 interface Props<T extends FieldValues> {
   title: string;
   subTitle?: React.ReactNode;
@@ -47,7 +47,7 @@ const AuthPageTemplate = <T extends FieldValues>({
             ))}
           </div>
           <div className={styles.buttonBox}>
-            <SubmitButtonContainer text={btnText} handleSubmit={()=>{}} />
+            <SubmitButton type="button" text={btnText}  />
             <AuthLink link={link} text={linkText} />
             {link === "/user/login" && (
               <span className={styles.terms}>

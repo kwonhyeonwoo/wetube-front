@@ -48,6 +48,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  position: absolute;
+  top: 68px;
   -webkit-transition: max-height 0.2s ease-in-out;
   transition: max-height 0.2s ease-in-out;
 }

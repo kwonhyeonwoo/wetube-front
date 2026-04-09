@@ -1,28 +1,33 @@
 import ProfileSection from "@/components/profile/ProfileSection/ProfileSection";
 import styles from "../css/index.module.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import type { IVideo } from "@/@types/video.type";
 import VideosSection from "@/components/profile/VideosSection/VideosSection";
+import { useGetUser } from "@/hooks/queries/auth/useGetUser";
 
 const ProfileContainer = () => {
   const {id} = useParams();
-  // const {data} = useGetVideo(id ?? "");
-  const handleVideoDetail = (id:string)=>{}
+  const navigate = useNavigate();
+  const {data:user} = useGetUser(id ?? "");
+  const handleVideoDetail = (id:string)=>{
+    console.log('???')
+    return navigate(`/video/${id}`)
+  }
   return (
     <main className={styles.profilePage}>
-      <ProfileSection/>
+      <ProfileSection user={user} />
       <VideosSection
         text="내 동영상"
-        videos={data}
-        handleVideoDetail={()=>{}}
+        videos={user?.videos}
+        handleVideoDetail={handleVideoDetail}
       />
       <VideosSection
         text="좋아요 표시한 동영상"
-        videos={data}
-        handleVideoDetail={()=>{}}
+        videos={user?.videos}
+        handleVideoDetail={handleVideoDetail}
       />
     </main>
-  )
+  );
 }
 
 export default ProfileContainer;

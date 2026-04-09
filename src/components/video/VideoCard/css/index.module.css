@@ -7,12 +7,17 @@
       -ms-flex-direction: column;
           flex-direction: column;
   row-gap: 12px;
+  cursor: pointer;
 }
 
-.testVideo {
-  background-color: black;
-  width: 100%;
+.videoBox {
   height: 252px;
+}
+
+.video {
+  height: 252px;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 16px;
 }
 

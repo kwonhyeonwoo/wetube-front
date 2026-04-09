@@ -1,7 +1,12 @@
+import type { SessionUser } from "@/interfaces/auth.type";
 import styles from "./css/index.module.css";
 import { Link } from 'react-router-dom';
 
-const UserActions = () => {
+interface Props{
+  user:SessionUser;
+}
+
+const UserActions = ({user}:Props) => {
   return (
     <div className={styles.rightHeaderWrapper}>
       <Link to="/video/write" className={styles.rightHeaderWrapperWriteButton}>
@@ -26,10 +31,13 @@ const UserActions = () => {
         />
         <div className={styles.rightHeaderWrapperAlertButtonCircle} />
       </button>
-
-      <Link to={"/user/123"} className={styles.rightHeaderWrapperProfile}>
-        test
+      <Link to={`/user/${user.uid}`} className={styles.profile}>
+          {user.profile ? 
+            <img alt={`${user.nickName}-profile`} className={styles.userProfile}/> : 
+              <div className={styles.undeProfile}/>
+          }
       </Link>
+      
     </div>
   );
 }

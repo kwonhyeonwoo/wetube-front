@@ -1,9 +1,9 @@
-import type { ISidebarSection, ISubscription } from "sidebar";
 import HomeIcon from '../assets/sidebar/home.svg?react';
 import ShortsIcon from '../assets/sidebar/shorts.svg?react';
 import VideosIcon from '../assets/sidebar/videos.svg?react';
 import HistoryIcon from '../assets/sidebar/history.svg?react';
 import PlayListsIcon from '../assets/sidebar/playlists.svg?react';
+import type { ISidebarSection, ISubscription } from '@/interfaces/sidebar.type';
 export const getSidebarContents = (subscriptions: ISubscription[],userId:string): ISidebarSection[] => [
     {
         lists: [

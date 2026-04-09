@@ -35,9 +35,16 @@
     right: 5px;
 }
 
-.rightHeaderWrapperProfile {
+.profile {
+}
+.userProfile{
+    width: 40px;
+    height:40px;
+    border-radius: 50%;
+}
+.undeProfile{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: aqua;
+    background-color: #D9D9D9;
 }

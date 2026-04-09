@@ -1,18 +1,26 @@
+import type { SessionUser } from "@/interfaces/auth.type";
 import { create } from "zustand";
 
-interface UserState{
-    isLoggedIn:boolean;
-    uid:string | null;
-    setUser:(login:boolean,uid:string)=>void;
+interface UserState {
+  user: SessionUser;
+  isLoggedIn: boolean;
+  setUser: (user: SessionUser,status:boolean) => void;
 }
 
 const useUserStore = create<UserState>((set) => ({
-    isLoggedIn:false,
-    uid:null,
-    setUser:(login,uid)=>set(()=>({
-        isLoggedIn:login,
-        uid,
-    }))
+  user: {
+    uid: "",
+    profile: "",
+    nickName: "",
+    email: "",
+    name:""
+  },
+  isLoggedIn: false,
+  setUser: (user,status) =>
+    set(() => ({
+        user,
+        isLoggedIn:status
+    })),
 }));
 
 export default useUserStore;

@@ -1,35 +1,41 @@
-import type { IVideo } from "@/@types/video.type";
 import styles from "./css/index.module.css";
+import type { VideoResponse } from "@/interfaces/video.type";
 
-interface Props extends IVideo {
+interface Props extends VideoResponse {
   handleVideoDetail:(id:string)=>void;
 }
 
 const VideoCard = ({
     video,
-    id,
+    _id,
+    meta:{
+      views,
+      rating,
+    },
     profile,
     content,
     title,
     nickName,
-    views,
-    date,
     handleVideoDetail
 }:Props) => {
   return (
-    <div className={styles.videoCardWrapper} onClick={()=>handleVideoDetail(id)}>
-      {/* <video /> */}
-      <div className={styles.testVideo} />
+    <div
+      className={styles.videoCardWrapper}
+      onClick={() => handleVideoDetail(_id)}
+    >
+      <div className={styles.videoBox}>
+        <video src={`http://localhost:3000/${video}`} className={styles.video} />
+      </div>
       <div className={styles.videoCardWrapperInfo}>
-       {profile ? (
-         <img
-         src={profile}
-         alt="user-profile"
-         className={styles.videoCardWrapperInfoProfile}
-       />
-       ):(
-        <div className={styles.undeProfile}/>
-       )}
+        {profile ? (
+          <img
+            src={profile}
+            alt="user-profile"
+            className={styles.videoCardWrapperInfoProfile}
+          />
+        ) : (
+          <div className={styles.undeProfile} />
+        )}
         <div className={styles.videoCardWrapperInfoContent}>
           <p className={styles.videoCardWrapperInfoContentText}>{title}</p>
           <div className={styles.videoCardWrapperInfoContentAuthor}>

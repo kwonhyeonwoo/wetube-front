@@ -27,13 +27,13 @@ const routes = [
 function App() {
   const {pathname} = useLocation();
   const isSidebar = pathname.includes('/user/login') || pathname.includes('/user/account')
-  const {data:user} = useGetMe();
+  const {data} = useGetMe();
   const {setUser} = useUserStore();
   useEffect(()=>{
-    if(user){
-      setUser(user.status,user.uid)
+    if (data) {
+      setUser(data.user,data.status);
     }
-  },[user])
+  },[data]);
   return (
     <Fragment>
       <HeaderContainer />

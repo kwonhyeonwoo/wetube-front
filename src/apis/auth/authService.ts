@@ -1,8 +1,8 @@
 import { api } from "../axiosInstance";
-import type { AccountRequest, LoginRequest, UserResponse } from "@/interfaces/auth.type";
+import type { AccountRequest, LoginRequest, SessionResponse,  UserResponse } from "@/interfaces/auth.type";
 
 export const authService = {
-  me: async (): Promise<{ status: boolean; uid: string }> => {
+  me: async (): Promise<SessionResponse> => {
     const response = await api.get("/user/me");
     const responseData = await response.data;
     return responseData;
@@ -27,6 +27,7 @@ export const authService = {
   },
   getUser: async (id: string): Promise<UserResponse> => {
     const response = await api.get(`/user/${id}`);
-    return await response.data;
+    console.log('response',response);
+    return await response.data.user;
   },
 };

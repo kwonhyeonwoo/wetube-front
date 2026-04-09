@@ -1,20 +1,18 @@
-import type { UseFormRegister, UseFormSetValue } from "react-hook-form";
+import type {  UseFormSetValue } from "react-hook-form";
 import styles from "./css/index.module.css";
 import type { videoType } from "@/schema/video.schema";
 import UploadDropMenu from "../UploadDropMenu/UploadDropMenu";
 import TagSection from "../TagSection/TagSection";
 import UploadGuideLine from "../UploadGuideLine/UploadGuideLine";
-import SubmitButtonContainer from "@/components/common/SubmitButton/container/SubmitButtonContainer";
+import SubmitButton from "@/components/common/SubmitButton/SubmitButton";
 interface Props{
     currentTags:string[];
     currentCategory:string;
     setValue:UseFormSetValue<videoType>;
-    register:UseFormRegister<videoType>
 }
 const WriteVideoRight = ({
   currentTags,
   currentCategory,
-  register,
   setValue
 }:Props) => {
   return (
@@ -25,7 +23,7 @@ const WriteVideoRight = ({
         />
         <TagSection tags={currentTags} setValue={setValue}/>
         <UploadGuideLine/>
-        <SubmitButtonContainer text="동영상 업로드" handleSubmit={()=>{}}/>
+        <SubmitButton text="동영상 업로드"type="submit"/>
     </div>
   )
 }

@@ -1,14 +1,27 @@
+export type CategoryType =
+  | "movie"
+  | "music"
+  | "product-design"
+  | "building"
+  | "game"
+  | "live"
+  | "cooking"
+  | "recents";
 export interface VideoResponse {
   video: string;
   title: string;
   content: string;
-  views: string;
-  category: string;
-  tags: string[];
+  craetedAt:Date;
+  meta: {
+    views: number;
+    rating: number;
+  };
+  category: CategoryType;
+  hashtags: string[];
+  owner:string;
   nickName: string;
-  date: Date;
   profile?: string;
-  id: string;
+  _id: string;
 }
 
 export interface ShortResponse {

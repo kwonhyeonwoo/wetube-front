@@ -10,9 +10,16 @@ export interface IVideo {
         profile?: string;
         id: string;
     }
+export interface VideoRequest {
+    video: FileList;
+    title: string;
+    content:string;
+    category:string;
+    tags:string[];
+}
 export interface IShort {
         video: string;
         views: string;
         title: string;
         id: string;
-    }
+}

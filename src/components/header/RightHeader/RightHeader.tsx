@@ -1,14 +1,14 @@
+import type { SessionUser } from "@/interfaces/auth.type";
 import GuestActions from "../GuestActions/GuestActions";
 import UserActions from "../UserActions/UserActions";
 
-interface Props{
-  isLogin:boolean;
+interface Props {
+  user: SessionUser;
 }
-const RightHeader = ({isLogin}:Props) => {
-  console.log('isLogin',isLogin)
+const RightHeader = ({user}:Props) => {
   return (
     <>
-      {isLogin ? <UserActions/> : <GuestActions/>}
+      {user.uid ? <UserActions user={user}/> : <GuestActions/>}
     </>
   )
 }
