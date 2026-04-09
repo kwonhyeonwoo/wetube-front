@@ -5,9 +5,11 @@ import { useNavigate } from "react-router-dom";
 import CategoriesContainer from "@/components/common/Categories/container/CategoriesContainer";
 import VideoCard from "@/components/video/VideoCard/VideoCard";
 import Short from "@/components/video/Short/Short";
+import { useGetVideos } from "@/hooks/queries/video/useGetVideos";
 
 const HomeContainer = () => {
   const navigate = useNavigate();
+  const {data:videos} = useGetVideos();
   const handleVideoDetail = useCallback(
     (id:string) => {
       navigate(`/video/${id}`,{
@@ -23,9 +25,9 @@ const HomeContainer = () => {
     <main className={styles.homePage}>
       <CategoriesContainer />
       <section className={styles.videoSection}>
-        {videos.map((item) => (
+        {videos?.map((item) => (
           <VideoCard
-            key={item.id}
+            key={item._id}
             {...item}
             handleVideoDetail={handleVideoDetail}
           />

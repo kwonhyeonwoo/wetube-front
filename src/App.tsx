@@ -30,9 +30,11 @@ function App() {
   const {data} = useGetMe();
   const {setUser} = useUserStore();
   useEffect(()=>{
-    if (data) {
-      setUser(data.user,data.status);
+    if(!data){
+      return ;
     }
+    setUser(data.user,data.status);
+    
   },[data]);
   return (
     <Fragment>

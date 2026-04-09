@@ -11,6 +11,7 @@ const LoginContainer = () => {
   
   const onSubmit = useCallback(
     (data:LoginRequest) => {
+      console.log('data',data)
       login(data);
     },
     [login],

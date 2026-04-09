@@ -47,7 +47,7 @@ const AuthPageTemplate = <T extends FieldValues>({
             ))}
           </div>
           <div className={styles.buttonBox}>
-            <SubmitButton type="button" text={btnText}  />
+            <SubmitButton type="submit" text={btnText}  />
             <AuthLink link={link} text={linkText} />
             {link === "/user/login" && (
               <span className={styles.terms}>

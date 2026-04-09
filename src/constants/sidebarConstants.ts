@@ -34,7 +34,7 @@ export const getSidebarContents = (subscriptions: ISubscription[],userId:string)
             {
                 text: "내 동영상",
                 icon:VideosIcon,
-                link: "/user/1234/videos",
+                link:`/user/${userId}/videos`,
             },
             {
                 text: "기록",
