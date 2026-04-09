@@ -2,9 +2,9 @@ import type { VideoResponse } from "@/interfaces/video.type";import { api } from
 import type { IVideo, VideoRequest } from "@/@types/video.type";
 
 export const videoService = {
-    getVideo:async(id:string):Promise<IVideo[]>=>{
-        const response = await api.get('/vidoes');
-        return await response.data;
+    getVideo:async(id:string):Promise<VideoResponse>=>{
+        const response = await api.get(`/video/${id}`);
+        return await response.data.video;
     },
     getVideos:async():Promise<VideoResponse[]>=>{
         const response = await api.get('/video');

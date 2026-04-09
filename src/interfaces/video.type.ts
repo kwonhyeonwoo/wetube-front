@@ -1,3 +1,5 @@
+import type { UserResponse } from "./auth.type";
+
 export type CategoryType =
   | "movie"
   | "music"
@@ -18,7 +20,7 @@ export interface VideoResponse {
   };
   category: CategoryType;
   hashtags: string[];
-  owner:string;
+  owner:UserResponse;
   nickName: string;
   profile?: string;
   _id: string;

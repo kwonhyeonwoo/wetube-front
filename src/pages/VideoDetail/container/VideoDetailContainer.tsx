@@ -1,6 +1,6 @@
 import styles from "../css/index.module.css";
 import VideoPrimaryInfo from "@/components/video/VideoPrimaryInfo/VideoPrimaryInfo";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import VideoComment from "@/pages/VideoComment/VideoComment";
 import type { CommentRequest, IComment } from "@/interfaces/comment.type";
 import CommentCount from "@/components/video/CommentCount/CommentCount";
@@ -9,14 +9,16 @@ import CommentInput from "@/components/video/CommentInput/CommentInput";
 import CategoriesContainer from "@/components/common/Categories/container/CategoriesContainer";
 import StorageList from "@/components/video/StorageList/StorageList";
 import type { IVideo } from "@/@types/video.type";
+import { useGetVideo } from "@/hooks/queries/video/useGetVideo";
 
 const VideoDetailContainer = () => {
-  const { state } = useLocation();
+  const {id} = useParams();
+  const {data:video} = useGetVideo(id ?? "");
   const { register } = useForm<CommentRequest>();
   return (
     <main className={styles.videoDetailPage}>
       <section className={styles.videoSection}>
-        <VideoPrimaryInfo />
+        {video && <VideoPrimaryInfo video={video}/>}
         <CommentCount length="9" />
         <CommentInput register={register} />
         <div className={styles.comments}>

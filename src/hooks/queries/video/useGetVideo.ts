@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query"
 
 export const useGetVideo = (id:string)=>{
     return useQuery({
-        queryKey:VIDEO_KEYS.all,
+        queryKey:VIDEO_KEYS.detail(id),
         queryFn:()=>videoService.getVideo(id)
     })
 }
