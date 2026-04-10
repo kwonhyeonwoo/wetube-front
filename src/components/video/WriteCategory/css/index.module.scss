@@ -1,0 +1,21 @@
+.categoryLists{
+    border-radius:16px;
+    background-color: var(--color-bg-light);
+    padding:10px 20px;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+.categoryList{
+    padding:8px 24px;
+    a{
+        color: var(--color-text-sub);
+    }
+}
+.activeList{
+    background-color: var(--color-primary);
+    border-radius: 16px;
+    a{
+        color: white;
+    }
+}

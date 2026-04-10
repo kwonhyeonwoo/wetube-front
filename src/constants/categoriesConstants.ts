@@ -36,3 +36,14 @@ export const categoriesConstants = [
         name: "recents"
     }
 ] as const;
+
+export const writeCategory = [
+    {
+        title:"동영상",
+        path:"/video/write",
+    },
+    {
+        title:"쇼츠",
+        path:"/shorts/write"
+    }
+]

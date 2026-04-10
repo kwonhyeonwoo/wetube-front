@@ -9,6 +9,8 @@ import useUserStore from './store/useUserStore';
 import { useEffect } from 'react';
 import { ToastContainer } from './components/common/ToastMessage/container/ToastMessageContainer';
 import { useGetMe } from './hooks/queries/auth/useGetMe';
+import { ClipLoader } from 'react-spinners';
+import ShortRoute from './routes/ShortRoute';
 
 const routes = [
   {
@@ -23,11 +25,15 @@ const routes = [
     path:"/user/*",
     element:<UserRoute/>
   },
+  {
+    path:"/shorts/*",
+    element:<ShortRoute/>
+  }
 ]
 function App() {
   const {pathname} = useLocation();
   const isSidebar = pathname.includes('/user/login') || pathname.includes('/user/account')
-  const {data} = useGetMe();
+  const {data,isLoading} = useGetMe();
   const {setUser} = useUserStore();
   useEffect(()=>{
     if(!data){
@@ -35,7 +41,16 @@ function App() {
     }
     setUser(data.user,data.status);
     
-  },[data]);
+  },[data,setUser]);
+  if(isLoading){
+    <ClipLoader 
+      color={"#E60000"} 
+      loading={isLoading}
+      size={150}
+      aria-lagel="Loading Spinner"
+      data-testId="loader"
+    />;
+  }
   return (
     <Fragment>
       <HeaderContainer />
