@@ -1,9 +1,8 @@
 import VideoFormTemplate from "@/components/video/VideoFormTemplate/VideoFormTemplate";
-import styles from "../css/index.module.css";
 import { useForm } from "react-hook-form";
 import { videoSchema, type videoType } from "@/schema/video.schema";
 import { useCallback } from "react";
-import { usePreviewVideo } from "@/hooks/queries/usePreviewVideo";
+import { usePreviewVideo } from "@/hooks/usePreviewVideo";
 import { zodResolver } from "@hookform/resolvers/zod";
 import usePostShortMutation from "@/hooks/queries/short/usePostShortMutation";
 const WriteShortContainer = () => { 

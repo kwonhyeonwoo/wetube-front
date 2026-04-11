@@ -5,7 +5,7 @@ import { videoSchema, type videoType } from "@/schema/video.schema";
 import { useToastStore } from "@/store/useToastStore";
 import useVideoMutation from "@/hooks/queries/video/useVideoMutation";
 import VideoFormTemplate from "@/components/video/VideoFormTemplate/VideoFormTemplate";
-import { usePreviewVideo } from "@/hooks/queries/usePreviewVideo";
+import { usePreviewVideo } from "@/hooks/usePreviewVideo";
 
 const WriteVideoContainer = () => {
   const {mutate} =useVideoMutation();

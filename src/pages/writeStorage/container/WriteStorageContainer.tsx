@@ -16,7 +16,8 @@ const WriteStorageContainer = () => {
         <UploadVideo 
           mode="image"
           name="image"
-          register={register}/>
+          register={register}
+        />
           <div className={styles.titleInputBox}>
             <span className={styles.inputSpan}>보관함 제목</span>
             <input 

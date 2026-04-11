@@ -7,18 +7,18 @@ import { useNavigate } from 'react-router-dom'
 
 const usePostShortMutation = () => {
   const navigate = useNavigate();
-  const {user} = useUserStore()
-  const {addToast} = useToastStore();
+  const { user } = useUserStore()
+  const { addToast } = useToastStore();
   const queryClient = useQueryClient();
   const mutation = useMutation({
-    mutationFn:shortsService.postShorts,
-    onSuccess:(data)=>{
+    mutationFn: shortsService.postShorts,
+    onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: SHORTS_KEYS.all });
       addToast('쇼츠를 생성하였습니다.')
       navigate(`/user/${user.uid}/videos`)
     },
-    onError:(error:any)=>{
-      const message = error.message ? error.message : "서버 에러" 
+    onError: (error: any) => {
+      const message = error.message ? error.message : "서버 에러"
       addToast(message);
     }
   })
