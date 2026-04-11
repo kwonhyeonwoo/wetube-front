@@ -44,6 +44,7 @@ const WriteVideoContainer = () => {
       currentCategory={currentCategory}
       currentTags={currentTags}
       videoPreview={videoPreview}
+      mediaName="video"
       register={register}
       setValue={setValue}
       onInvalid={onInvalid}

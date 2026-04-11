@@ -12,6 +12,6 @@ export const usePreviewVideo = (videoFiles: FileList) => {
             const previewUrl = URL.createObjectURL(file);
             setVideoPreview(previewUrl);
         }
-    }, []);
+    }, [videoFiles]);
     return [videoPreview];
 }

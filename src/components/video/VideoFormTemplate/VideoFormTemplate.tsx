@@ -6,6 +6,7 @@ import type {
   FieldValues,
   SubmitHandler,
   SubmitErrorHandler,
+  Path,
 } from "react-hook-form";
 import WriteVideoLeft from "@/components/writeVideo/WriteVideoLeft/WriteVideoLeft";
 import WriteVideoRight from "@/components/writeVideo/WritevideoRight/WriteVideoRight";
@@ -16,6 +17,7 @@ interface Props <T extends FieldValues>{
   currentTags: string[];
   videoPreview: string | null;
   currentCategory: CategoryType;
+  mediaName:Path<T>
   register: UseFormRegister<T>;
   setValue: UseFormSetValue<T>;
   onInvalid?: SubmitErrorHandler<T>;
@@ -27,6 +29,7 @@ const VideoFormTemplate =<T extends FieldValues> ({
   currentTags,
   videoPreview,
   currentCategory,
+  mediaName,
   register,
   setValue,
   onInvalid,
@@ -49,7 +52,11 @@ const VideoFormTemplate =<T extends FieldValues> ({
           className={styles.uploadForm}
           onSubmit={handleSubmit(onSubmit, onInvalid)}
         >
-          <WriteVideoLeft videoPreview={videoPreview} register={register} />
+          <WriteVideoLeft 
+            mediaName={mediaName} 
+            videoPreview={videoPreview} 
+            register={register} 
+          />
           <WriteVideoRight
             setValue={setValue}
             currentTags={currentTags}

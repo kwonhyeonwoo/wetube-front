@@ -15,6 +15,7 @@ const WriteShortContainer = () => {
       tags:[]
     }
   });
+  const [preview] = usePreviewVideo(watch('shorts'));
   const onSubmit :SubmitHandler<ShortsType> = useCallback(
     (data) => {
       mutate({
@@ -27,12 +28,12 @@ const WriteShortContainer = () => {
     },
     [mutate],
   );
-  const [preview] = usePreviewVideo(watch('shorts'));
   const currentTags = watch('tags')
   return (
     <VideoFormTemplate
       currentTags={currentTags}
       videoPreview={preview}
+      mediaName="shorts"
       currentCategory={watch("categories")}
       register={register}
       setValue={setValue}

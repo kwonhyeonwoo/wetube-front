@@ -1,22 +1,26 @@
-import type { UseFormRegister } from "react-hook-form";
+import type { UseFormRegister, FieldValues, Path } from "react-hook-form";
 import UploadVideo from "../../video/UploadVideo/UploadVideo";
 import styles from "./css/index.module.css";
-import type { videoType } from "@/schema/media.schema";
 import ContentTextArea from "@/components/video/ContentTextArea/ContentTextArea";
 
-interface Props {
+interface Props <T extends FieldValues> {
   videoPreview: string | null;
-  register: UseFormRegister<videoType>;
+  mediaName:Path<T>;
+  register: UseFormRegister<T>;
 }
 
-const WriteVideoLeft = ({ videoPreview,register }: Props) => {
+const WriteVideoLeft = <T extends FieldValues>({ 
+  mediaName,
+  videoPreview, 
+  register
+}: Props<T>) => {
   return (
     <div className={styles.leftUpload}>
       {/* 비디오 업로드 */}
       <UploadVideo
         videoPreview={videoPreview}
         mode="video"
-        name="video"
+        name={mediaName}
         register={register}
       />
       {/* 제목 */}
@@ -26,7 +30,7 @@ const WriteVideoLeft = ({ videoPreview,register }: Props) => {
           type="text"
           placeholder="시선을 사로잡는 제목을 입력하세요"
           className={styles.input}
-          {...register("title")}
+          {...register("title" as Path<T>)}
         />
       </div>
 
@@ -34,7 +38,7 @@ const WriteVideoLeft = ({ videoPreview,register }: Props) => {
       <ContentTextArea
         placeholder="동영상 설명을 입력하세요"
         text="동영상 설명"
-        name={"content"}
+        name={"content" as Path<T>}
         register={register}
       />
     </div>
