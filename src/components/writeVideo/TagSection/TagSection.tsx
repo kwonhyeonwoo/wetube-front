@@ -1,6 +1,6 @@
 import type {  UseFormSetValue } from "react-hook-form";
 import styles from "./css/index.module.css";
-import type { videoType } from "@/schema/video.schema";
+import type { videoType } from "@/schema/media.schema";
 import { useState, type ChangeEvent } from "react";
 
 interface Props{

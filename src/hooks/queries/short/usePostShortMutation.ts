@@ -13,6 +13,7 @@ const usePostShortMutation = () => {
   const mutation = useMutation({
     mutationFn: shortsService.postShorts,
     onSuccess: (data) => {
+      console.log('shorts data->',data);
       queryClient.invalidateQueries({ queryKey: SHORTS_KEYS.all });
       addToast('쇼츠를 생성하였습니다.')
       navigate(`/user/${user.uid}/videos`)

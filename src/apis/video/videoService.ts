@@ -1,5 +1,6 @@
-import type { VideoResponse } from "@/interfaces/video.type";import { api } from "../axiosInstance";
-import type { IVideo, VideoRequest } from "@/@types/video.type";
+import type { VideoResponse } from "@/interfaces/media.type";import type { VideoType } from "@/schema/media.schema";
+import { api } from "../axiosInstance";
+
 
 export const videoService = {
     getVideo:async(id:string):Promise<VideoResponse>=>{
@@ -11,12 +12,12 @@ export const videoService = {
         console.log('first',response.data)
         return await response.data.videos;
     },
-    postVideo:async(data:VideoRequest)=>{
+    postVideo:async(data:VideoType)=>{
         const formData = new FormData();
         formData.append("title", data.title);
         formData.append("video", data.video[0]);
         formData.append("content", data.content);
-        formData.append("category", data.category);
+        formData.append("categories", data.categories);
         formData.append("hashtags", JSON.stringify(data.tags));
         const response = await api.post("/video", formData, {
             headers: {

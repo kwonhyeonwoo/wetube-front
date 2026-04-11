@@ -14,7 +14,6 @@ interface Props{
 const VideoPrimaryInfo = ({video}:Props) => {
   return (
     <div className={styles.videoBox}>
-        {/* 나중에 진짜 비디오 올라 올 곳 */}
         <div className={styles.videoWrap}>
             <video 
                 className={styles.video}
@@ -22,7 +21,6 @@ const VideoPrimaryInfo = ({video}:Props) => {
                 controls
             />
         </div>
-        {/* <div className={styles.testVideo}/> */}
         {/* infobox -> 제목, 프로필,닉네임,공유하기,저장하기 버튼 모음 */}
         <div className={styles.videoInfoBox}>
             <h2 className={styles.videoTitle}>

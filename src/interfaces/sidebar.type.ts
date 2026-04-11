@@ -6,11 +6,11 @@ interface SidebarItem {
 }
 
 export interface ISidebarSection {
-        title?: string;
-        lists: SidebarItem[];
-    }
+  title?: string;
+  lists: SidebarItem[];
+}
 export interface ISubscription {
-        id: string;
-        name: string;
-        profileImage: string;
-    }
+  id: string;
+  name: string;
+  profileImage: string;
+}

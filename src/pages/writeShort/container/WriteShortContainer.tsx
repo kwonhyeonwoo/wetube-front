@@ -1,32 +1,33 @@
 import VideoFormTemplate from "@/components/video/VideoFormTemplate/VideoFormTemplate";
-import { useForm } from "react-hook-form";
-import { videoSchema, type videoType } from "@/schema/video.schema";
+import { useForm,type SubmitHandler } from "react-hook-form";
+import { shortsSchema,type ShortsType, } from "@/schema/media.schema";
 import { useCallback } from "react";
 import { usePreviewVideo } from "@/hooks/usePreviewVideo";
 import { zodResolver } from "@hookform/resolvers/zod";
 import usePostShortMutation from "@/hooks/queries/short/usePostShortMutation";
+
 const WriteShortContainer = () => { 
   const {mutate} = usePostShortMutation();
-  const {register, watch, handleSubmit,setValue} = useForm<videoType>({
-    resolver:zodResolver(videoSchema),
+  const {register, watch, handleSubmit,setValue} = useForm<ShortsType>({
+    resolver:zodResolver(shortsSchema),
     defaultValues:{
       categories:"movie",
       tags:[]
     }
   });
-  const onSubmit = useCallback(
-    (data:videoType) => {
+  const onSubmit :SubmitHandler<ShortsType> = useCallback(
+    (data) => {
       mutate({
-        video:data.video,
+        shorts:data.shorts,
         title:data.title,
         content:data.content,
-        category:data.categories,
+        categories:data.categories,
         tags:data.tags
       });
     },
     [mutate],
   );
-  const [preview] = usePreviewVideo(watch('video'));
+  const [preview] = usePreviewVideo(watch('shorts'));
   const currentTags = watch('tags')
   return (
     <VideoFormTemplate

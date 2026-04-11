@@ -1,20 +1,19 @@
-import type {  UseFormSetValue } from "react-hook-form";
+import type {  UseFormSetValue, FieldValues } from "react-hook-form";
 import styles from "./css/index.module.css";
-import type { videoType } from "@/schema/video.schema";
 import UploadDropMenu from "../UploadDropMenu/UploadDropMenu";
 import TagSection from "../TagSection/TagSection";
 import UploadGuideLine from "../UploadGuideLine/UploadGuideLine";
 import SubmitButton from "@/components/common/SubmitButton/SubmitButton";
-interface Props{
+interface Props<T extends FieldValues>{
     currentTags:string[];
     currentCategory:string;
-    setValue:UseFormSetValue<videoType>;
+    setValue:UseFormSetValue<T>;
 }
-const WriteVideoRight = ({
+const WriteVideoRight = <T extends FieldValues>({
   currentTags,
   currentCategory,
   setValue
-}:Props) => {
+}:Props<T>) => {
   return (
     <div className={styles.rightUpload}>
         <UploadDropMenu 

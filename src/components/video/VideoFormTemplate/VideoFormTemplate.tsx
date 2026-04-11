@@ -3,24 +3,27 @@ import type {
   UseFormHandleSubmit,
   UseFormRegister,
   UseFormSetValue,
+  FieldValues,
+  SubmitHandler,
+  SubmitErrorHandler,
 } from "react-hook-form";
-import type { videoType } from "@/schema/video.schema";
 import WriteVideoLeft from "@/components/writeVideo/WriteVideoLeft/WriteVideoLeft";
 import WriteVideoRight from "@/components/writeVideo/WritevideoRight/WriteVideoRight";
-import type { CategoryType } from "@/interfaces/video.type";
 import WriteCategory from "../WriteCategory/WriteCategory";
-interface Props {
+import type { CategoryType } from "@/interfaces/media.type";
+
+interface Props <T extends FieldValues>{
   currentTags: string[];
   videoPreview: string | null;
   currentCategory: CategoryType;
-  register: UseFormRegister<videoType>;
-  setValue: UseFormSetValue<videoType>;
-  onInvalid?: () => void;
-  onSubmit: (data: videoType) => void;
-  handleSubmit: UseFormHandleSubmit<videoType>;
+  register: UseFormRegister<T>;
+  setValue: UseFormSetValue<T>;
+  onInvalid?: SubmitErrorHandler<T>;
+  onSubmit: SubmitHandler<T>
+  handleSubmit: UseFormHandleSubmit<T>;
 }
 
-const VideoFormTemplate = ({
+const VideoFormTemplate =<T extends FieldValues> ({
   currentTags,
   videoPreview,
   currentCategory,
@@ -29,7 +32,7 @@ const VideoFormTemplate = ({
   onInvalid,
   onSubmit,
   handleSubmit,
-}: Props) => {
+}: Props<T>) => {
   return (
     <main className={styles.videoWriteTemplate}>
       <section className={styles.titleSection}>

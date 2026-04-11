@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod/src/zod.js";
 import { useCallback, } from "react";
-import { videoSchema, type videoType } from "@/schema/video.schema";
+import { videoSchema,type VideoType, } from "@/schema/media.schema";
 import { useToastStore } from "@/store/useToastStore";
 import useVideoMutation from "@/hooks/queries/video/useVideoMutation";
 import VideoFormTemplate from "@/components/video/VideoFormTemplate/VideoFormTemplate";
@@ -15,7 +15,7 @@ const WriteVideoContainer = () => {
           handleSubmit,
           watch,
           setValue,
-    } = useForm<videoType>({
+    } = useForm<VideoType>({
             resolver:zodResolver(videoSchema),
             defaultValues:{
               categories:"movie",
@@ -24,12 +24,12 @@ const WriteVideoContainer = () => {
   });
   const [videoPreview] = usePreviewVideo(watch('video'));
   const onSubmit = useCallback(
-    (data: videoType) => {
+    (data: VideoType) => {
       mutate({
         video: data.video,
         title: data.title,
         content: data.content,
-        category: data.categories,
+        categories: data.categories,
         tags: data.tags,
       });
     },[mutate],

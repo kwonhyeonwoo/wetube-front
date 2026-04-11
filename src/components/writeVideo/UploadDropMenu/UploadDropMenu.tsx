@@ -1,6 +1,6 @@
 import styles from "./css/index.module.css";
 import type { UseFormSetValue } from "react-hook-form";
-import type { videoType } from "@/schema/video.schema";
+import type { videoType } from "@/schema/media.schema";
 import { getFindCategory } from "@/lib/lib";
 import dropDownIcon from "@/assets/common/arrow-down.svg";
 import { categoriesConstants } from "@/constants/categoriesConstants";
