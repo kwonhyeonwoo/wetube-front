@@ -2,17 +2,30 @@ import styles from "./css/index.module.css";
 
 interface Props{
     title:string;
-    views:string;
+    meta:{
+      views:number;
+      rating:number;
+    };
+    shorts:string;
     shortId:string;
 }
 
-const Short = ({title,views,shortId}:Props) => {
+const Short = ({title,meta,shorts,shortId}:Props) => {
   return (
     <div className={styles.shortVideoCard}>
-      <div className={styles.shortVideoCardVideo} />
+      <div className={styles.shortsVideoBox}>
+        <video 
+          src={`http://localhost:3000/${shorts}`} 
+          className={styles.shortVideoCardVideo} 
+          controls
+        />
+      </div>
       <div className={styles.shortVideoCardText}>
         <p className={styles.shortVideoCardTextTitle}>{title}</p>
-        <p className={styles.shortVideoCardTextViews}>조회수 {views}회</p>
+        <p className={styles.shortVideoCardTextViews}>
+          조회수 {String(meta.views)}회
+          조회수 12회
+        </p>
       </div>
     </div>
   );

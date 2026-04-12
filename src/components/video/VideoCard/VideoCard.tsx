@@ -1,5 +1,5 @@
+import type {  VideoResponse } from "@/interfaces/media.type";
 import styles from "./css/index.module.css";
-import type { VideoResponse } from "@/interfaces/video.type";
 
 interface Props extends VideoResponse {
   handleVideoDetail:(id:string)=>void;

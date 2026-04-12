@@ -23,3 +23,13 @@
     font-size: 18px;
     font-weight: 700;
 }
+.tabBox{
+    display: flex;
+    align-items: center;
+    column-gap: 32px;
+}
+.shortsBox{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 24px;
+}

@@ -1,0 +1,13 @@
+.tabBtn {
+  color: #A1A1AA;
+  font-weight: 700;
+  padding-bottom: 8px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 18px;
+}
+
+.activeTabBtn {
+  color: #BC0100;
+  border-bottom: 2px solid #BC0100;
+}

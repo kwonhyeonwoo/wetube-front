@@ -7,7 +7,7 @@ export const baseMediaSchema = z.object({
 });
 
 export const videoSchema = baseMediaSchema.extend({
-    video:z.instanceof(FileList)
+    video: z.instanceof(FileList)
 });
 
 export const shortsSchema = baseMediaSchema.extend({

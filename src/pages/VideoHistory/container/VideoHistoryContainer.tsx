@@ -1,8 +1,9 @@
 import { HISTORY_TABS } from "@/constants/historyConstants";
 import styles from "../css/index.module.css";
 import { useState } from "react";
-import type { VideoResponse } from "@/interfaces/video.type";
 import HistoryVideoCard from "@/components/HistoryVideoCard/HistoryVideoCard";
+import MediaTabs from "@/components/video/MediaTabs/MediaTabs";
+import type { VideoResponse } from "@/interfaces/media.type";
 
 const VideoHistoryContainer = () => {
     const [tab, setTab] = useState<string>("history");
@@ -15,19 +16,19 @@ const VideoHistoryContainer = () => {
         <h2 className={styles.title}>기록</h2>
         <div className={styles.tabBox}>
           {HISTORY_TABS.map(({ text, key }, idx) => (
-            <button
+            <MediaTabs
               key={idx}
-              className={`${styles.tabBtn} ${tab === key && styles.activeTabBtn}`}
-              onClick={() => handleTabClicked(key)}
-            >
-              {text}
-            </button>
+              text={text}
+              name={key}
+              currentTab={tab}
+              handleTabClicked={handleTabClicked}
+            />
           ))}
         </div>
       </section>
 
       <section className={styles.videos}>
-          {historyVideos.map((item,idx)=>(
+          {historyVideos.map((item)=>(
             <HistoryVideoCard {...item }key={item.id}/>
           ))}
       </section>
