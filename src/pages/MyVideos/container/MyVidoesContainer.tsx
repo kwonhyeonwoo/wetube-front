@@ -40,11 +40,11 @@ const MyVideosContainer = () => {
       </div>
       <section className={styles.videoSection}>
         {tab === "video" ?  
-        <div className={styles.videoBox}>
+        <div className={styles.gridBox}>
             {videos?.map((item)=>(
               <VideoCard key={item._id} {...item} handleVideoDetail={()=>{}}/>
             ))}
-        </div>: tab === "shorts" ? <div className={styles.shortsBox}>
+        </div>: tab === "shorts" ? <div className={styles.gridBox}>
             {shorts?.map((item)=>(
               <Short 
                 key={item._id}

@@ -16,7 +16,11 @@ const UploadVideo = <T extends FieldValues>({
     <div >
       {videoPreview ? (
         <div className={styles.videoBox}>
-          <video src={videoPreview} controls className={styles.video} />
+          {mode === "video" ? (
+            <video src={videoPreview} controls className={styles.video} />
+          ):(
+            <img src={videoPreview} alt="thumnail-preview" className={styles.video} />
+          )}
         </div>
       ) : (
         <div className={styles.imgUploadBox}>

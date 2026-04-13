@@ -8,7 +8,11 @@ interface Props <T extends FieldValues>{
     register:UseFormRegister<T>;
 }
 
-const ContentTextArea = <T extends FieldValues>({name,placeholder,text,register}:Props<T>) => {
+const ContentTextArea = <T extends FieldValues>({
+  name,
+  placeholder,
+  text,
+  register}:Props<T>) => {
   return (
     <div className={styles.textAreaBox}>
         <span className={styles.textAreaText}>{text}</span>

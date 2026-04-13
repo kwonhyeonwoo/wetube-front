@@ -1,36 +1,25 @@
 .myVideosPage {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   row-gap: 32px;
 }
 
-.videoBox {
+.gridBox {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  -webkit-column-gap: 24px;
-     -moz-column-gap: 24px;
-          column-gap: 24px;
+  -moz-column-gap: 24px;
+       column-gap: 24px;
+  row-gap: 40px;
 }
 
 .undeVideos {
   height: 400px;
   border-radius: 24px;
   background-color: #F3F3F3;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .undeVideoText {
@@ -39,21 +28,15 @@
 }
 
 .tabBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-column-gap: 32px;
-     -moz-column-gap: 32px;
-          column-gap: 32px;
+  align-items: center;
+  -moz-column-gap: 32px;
+       column-gap: 32px;
 }
 
 .shortsBox {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  -webkit-column-gap: 24px;
-     -moz-column-gap: 24px;
-          column-gap: 24px;
-}
+  -moz-column-gap: 24px;
+       column-gap: 24px;
+}/*# sourceMappingURL=index.module.css.map */

@@ -1,14 +1,14 @@
 import type { VideoType } from "@/schema/media.schema";
 import { api } from "../axiosInstance";
-import type { MediaResponse } from "@/interfaces/media.type";
+import type {VideoResponse } from "@/interfaces/media.type";
 
 
 export const videoService = {
-    getVideo: async (id: string): Promise<MediaResponse> => {
+    getVideo: async (id: string): Promise<VideoResponse> => {
         const response = await api.get(`/video/${id}`);
         return await response.data.video;
     },
-    getVideos: async (): Promise<MediaResponse[]> => {
+    getVideos: async (): Promise<VideoResponse[]> => {
         const response = await api.get('/video');
         console.log('first', response.data)
         return await response.data.videos;

@@ -8,7 +8,7 @@ const StorageCreateBox = () => {
         <p className={styles.storageTitle}>모든 재생목록</p>
         <p className={styles.storageSub}>총{13}개의 재생목록</p>
       </div>
-      <Link to={""} className={styles.storageBtn}>
+      <Link to={"/user/storage/write"} className={styles.storageBtn}>
         + 새 재생목록 만들기
       </Link>
     </div>
