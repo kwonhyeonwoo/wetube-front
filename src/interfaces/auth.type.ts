@@ -1,5 +1,5 @@
 import type { Path } from "react-hook-form";
-import type { VideoResponse } from "./video.type";
+import type { ShortsResponse, VideoResponse } from "./media.type";
 
 export interface SessionUser{
     nickName:string;
@@ -23,6 +23,7 @@ export interface UserResponse{
     profile?:string;
     createdAt:Date;
     videos:VideoResponse[];
+    shorts:ShortsResponse[]
 }
 
 export interface LoginRequest{

@@ -1,4 +1,4 @@
-import type { VideoResponse } from "@/interfaces/video.type";import { api } from "../axiosInstance";
+import type { VideoResponse } from "@/interfaces/media.type";import { api } from "../axiosInstance";
 import type { AccountRequest, LoginRequest, SessionResponse,  UserResponse } from "@/interfaces/auth.type";
 
 export const authService = {
@@ -19,6 +19,7 @@ export const authService = {
   },
   login: async (data: LoginRequest) => {
     const { email, password } = data;
+    console.log('email',email,'passsword',password)
     const response = await api.post("/user/login", {
       email,
       password,
@@ -26,7 +27,11 @@ export const authService = {
     return response.data;
   },
   getUser: async (id: string): Promise<UserResponse> => {
-    const response = await api.get(`/user/${id}`);
+    const response = await api.get(`/user/${id}`,{
+        params:{
+          limit:4
+        }
+    });
     return await response.data.user;
   },
   getUserVideos:async(id:string):Promise<VideoResponse[]>=>{

@@ -1,4 +1,4 @@
-import styles from "./css/index.module.css";
+import MediaTabs from "../MediaTabs/MediaTabs";import styles from "./css/index.module.css";
 
 interface Props{
     title:string;
@@ -23,8 +23,7 @@ const Short = ({title,meta,shorts,shortId}:Props) => {
       <div className={styles.shortVideoCardText}>
         <p className={styles.shortVideoCardTextTitle}>{title}</p>
         <p className={styles.shortVideoCardTextViews}>
-          조회수 {String(meta.views)}회
-          조회수 12회
+          조회수 {String(meta.views) ? String(meta?.views) : "0"}회
         </p>
       </div>
     </div>

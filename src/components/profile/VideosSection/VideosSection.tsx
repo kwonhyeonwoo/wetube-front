@@ -2,21 +2,21 @@ import VideoCard from "@/components/video/VideoCard/VideoCard";
 import styles from "./css/index.module.css";
 import GrayArrow from "@/assets/common/gray-right-arrow.svg"
 import { Link } from "react-router-dom";
-import type { VideoResponse } from "@/interfaces/video.type";
-
+import type { VideoResponse, ShortsResponse} from "@/interfaces/media.type";
+type MediaType = VideoResponse[] | ShortsResponse[]
 interface Props {
-  videos: VideoResponse[] | undefined;
+  videos: MediaType | undefined;
   text: string;
+  userId:string | undefined;
   handleVideoDetail: (id: string) => void;
 }
 
-const VideosSection = ({ videos, text, handleVideoDetail }: Props) => {
-  console.log('first',videos)
+const VideosSection = ({ videos, text,userId, handleVideoDetail }: Props) => {
   return (
     <section className={styles.videoSection}>
       <div className={styles.videoTitleBox}>
         <h2 className={styles.videoTitle}>{text}</h2>
-        <Link to={"/user/12345/videos"} className={styles.allVideoBtn}>
+        <Link to={`/user/${userId}/videos`} className={styles.allVideoBtn}>
           <span>전체보기</span>
           <img src={GrayArrow} alt="" />
         </Link>

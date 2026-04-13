@@ -1,30 +1,42 @@
-import type {  VideoResponse } from "@/interfaces/media.type";
 import styles from "./css/index.module.css";
 
-interface Props extends VideoResponse {
-  handleVideoDetail:(id:string)=>void;
+interface Props {
+  _id: string;
+  title: string;
+  content: string;
+  meta: {
+      views: number;
+      rating: number;
+  };
+  profile?: string;
+  nickName?: string;
+  video?: string;  
+  shorts?: string;
+  handleVideoDetail: (id: string) => void;
 }
 
 const VideoCard = ({
-    video,
-    _id,
-    meta:{
-      views,
-      rating,
-    },
-    profile,
-    content,
-    title,
-    nickName,
-    handleVideoDetail
+  video,
+  shorts, 
+  _id,
+  meta: {
+    views,
+    rating,
+  },
+  profile,
+  content,
+  title,
+  nickName,
+  handleVideoDetail
 }:Props) => {
+  const mediaSrc = video || shorts;
   return (
     <div
       className={styles.videoCardWrapper}
       onClick={() => handleVideoDetail(_id)}
     >
       <div className={styles.videoBox}>
-        <video src={`http://localhost:3000/${video}`} className={styles.video} />
+        <video src={`http://localhost:3000/${mediaSrc}`} className={styles.video} />
       </div>
       <div className={styles.videoCardWrapperInfo}>
         {profile ? (
