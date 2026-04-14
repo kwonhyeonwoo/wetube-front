@@ -1,51 +1,43 @@
 import styles from "./css/index.module.css";
-import testImg from  "@/assets/test/video-test.png"
 import MenubarIcon from "@/assets/common/menu-bar.svg?react";
-import type { IStorageNavi } from "@/interfaces/storage.type";
+import type { VideoResponse } from "@/interfaces/media.type";
 
 interface Props{
     title:string;
-    date:string;
-    count:string;
-    id:string;
-    userId:string;
+    createdAt:Date;
+    length:number;
+    _id:string;
     content:string;
-    handleNavigate:(data:IStorageNavi)=>void;
+    thumnail:string;
+    videos:VideoResponse[]
+    handleNavigate:(storageId:string)=>void;
 }
 
 const StorageVideoCard = ({
   title,
-  date,
-  count,
-  userId,
-  id,
+  createdAt,
+  length,
+  _id,
+  videos,
+  thumnail,
   content,
   handleNavigate,
 }: Props) => {
+  console.log('thumnail',thumnail)
   return (
     <div
       className={styles.storageVideoCard}
-      onClick={() => handleNavigate({
-        userId,
-        item:{
-          id,
-          title,
-          date,
-          count,
-          content,
-        }
-      })}
+      onClick={() => handleNavigate(_id)}
     >
-      {/* <video/> 나중에 비디오로 바꿔야함 */}
       <div className={styles.video}>
-        <img src={testImg} alt="test" />
+        <img src={`http://localhost:3000/${thumnail}`} alt="thumnail" />
       </div>
       <div className={styles.titleBox}>
         <p className={styles.title}>{title}</p>
-        <p className={styles.subText}>최근 업데이트: {date}주전</p>
+        <p className={styles.subText}>최근 업데이트: {2}주전</p>
       </div>
       <div className={styles.overlayBox}>
-        <p className={styles.videoCount}>{count}</p>
+        <p className={styles.videoCount}>{String(length)}</p>
         <MenubarIcon />
       </div>
     </div>

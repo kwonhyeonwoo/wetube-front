@@ -1,5 +1,6 @@
 import type { StorageType } from "@/schema/storage.schema";
 import { api } from "../axiosInstance";
+import type { StorageResponse } from "@/interfaces/storage.type";
 
 export const storageService = {
     postStorage:async(data:StorageType)=>{
@@ -19,5 +20,15 @@ export const storageService = {
             },
         });
         return await response.data
+    },
+
+    getMyStorages:async(id:string):Promise<StorageResponse[]>=>{
+        const response = await api.get(`/storage/${id}`);
+        return response.data.storages || []
+    },
+
+    getStorageVideos:async(storageId:string):Promise<StorageResponse>=>{
+        const response = await api.get(`/storage/videos/${storageId}`);
+        return response.data.storage;
     }
 }

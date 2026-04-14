@@ -1,15 +1,15 @@
 import StorageVideoCard from "@/components/videoStorage/StorageVideoCard/StorageVideoCard";
 import styles from "../css/index.module.css";
 import StorageCreateBox from "@/components/videoStorage/StorageCreateBox/StorageCreateBox";
-import { useNavigate } from "react-router-dom";
-import type { IStorage, IStorageNavi } from "@/interfaces/storage.type";
+import { useNavigate,useParams } from "react-router-dom";
+import { useGetStorageQuery } from "@/hooks/queries/storage/useStorageQuery";
 const VideoStorageContainer = () => {
+    const {id:userId} = useParams();
+    const {data:storages} = useGetStorageQuery(userId ?? "");
+  
     const navigate = useNavigate();
-    
-    const handleNavigate = (data:IStorageNavi)=>{
-        navigate(`/user/${data.userId}/storage/${data.item.id}`,{
-          state:data.item
-        })
+    const handleNavigate = (storageId:string)=>{
+        navigate(`/user/${userId}/storage/${storageId}`)
     }
   return (
     <main className={styles.videoStoragePage}>
@@ -20,14 +20,14 @@ const VideoStorageContainer = () => {
         </p>
       </section>
       <section className={styles.storageSection}>
-        <StorageCreateBox />
+        <StorageCreateBox length={storages?.length}/>
         <div className={styles.storageVideos}>
-          {storageArr.map((item, idx) => (
+          {storages?.map((item) => (
             <StorageVideoCard
                 {...item}
-                key={item.id}
+                length={item.videos.length}
+                key={item._id}
                 handleNavigate={handleNavigate}
-                userId="1235"
             />
           ))}
         </div>
@@ -37,48 +37,3 @@ const VideoStorageContainer = () => {
 }
 
 export default VideoStorageContainer;
-
-const storageArr : IStorage[]= [
-  {
-    id: "1234",
-    title: "디자인 영감",
-    date: "12",
-    count: "122",
-    content:"콘텐트 내용은 뭐 아무거나 할려고하는데 왜이리 귀찮고 존나 귀찮다..하 진짜 너무 귀찮은데 ?ㅋㅋㅋㅋ하하하하하"
-  },
-  {
-    id: "1234",
-    title: "디자인 영감",
-    date: "12",
-    count: "122",
-    content:"콘텐트 내용은 뭐 아무거나 할려고하는데 왜이리 귀찮고 존나 귀찮다..하 진짜 너무 귀찮은데 ?ㅋㅋㅋㅋ하하하하하"
-  },
-  {
-    id: "1234",
-    title: "디자인 영감",
-    date: "12",
-    count: "122",
-    content:"콘텐트 내용은 뭐 아무거나 할려고하는데 왜이리 귀찮고 존나 귀찮다..하 진짜 너무 귀찮은데 ?ㅋㅋㅋㅋ하하하하하"
-  },
-  {
-    id: "1234",
-    title: "디자인 영감",
-    date: "12",
-    count: "122",
-    content:"콘텐트 내용은 뭐 아무거나 할려고하는데 왜이리 귀찮고 존나 귀찮다..하 진짜 너무 귀찮은데 ?ㅋㅋㅋㅋ하하하하하"
-  },
-  {
-    id: "1234",
-    title: "디자인 영감",
-    date: "12",
-    count: "122",
-    content:"콘텐트 내용은 뭐 아무거나 할려고하는데 왜이리 귀찮고 존나 귀찮다..하 진짜 너무 귀찮은데 ?ㅋㅋㅋㅋ하하하하하"
-  },
-  {
-    id: "1234",
-    title: "디자인 영감",
-    date: "12",
-    count: "122",
-    content:"콘텐트 내용은 뭐 아무거나 할려고하는데 왜이리 귀찮고 존나 귀찮다..하 진짜 너무 귀찮은데 ?ㅋㅋㅋㅋ하하하하하"
-  },
-];
