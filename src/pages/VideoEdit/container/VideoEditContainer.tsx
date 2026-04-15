@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 const VideoEditContainer = () => {
     const {id} = useParams();
     const {data:video , isLoading, isError} = useGetVideoQuery(id ?? "");
-    const { register, handleSubmit} = useForm();
+    const { register, handleSubmit } = useForm();
     if(isLoading){
         return (
             <div>Loading...</div>

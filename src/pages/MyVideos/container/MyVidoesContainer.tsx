@@ -42,7 +42,7 @@ const MyVideosContainer = () => {
         {tab === "video" ?  
         <div className={styles.gridBox}>
             {videos?.map((item)=>(
-              <VideoCard key={item._id} {...item} handleVideoDetail={()=>{}}/>
+              <VideoCard key={item._id} {...item} nickName={item.owner.nickName} handleVideoDetail={()=>{}}/>
             ))}
         </div>: tab === "shorts" ? <div className={styles.gridBox}>
             {shorts?.map((item)=>(
