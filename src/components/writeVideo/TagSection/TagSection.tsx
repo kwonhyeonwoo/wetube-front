@@ -1,14 +1,14 @@
 import type {  UseFormSetValue } from "react-hook-form";
 import styles from "./css/index.module.css";
-import type { videoType } from "@/schema/media.schema";
 import { useState, type ChangeEvent } from "react";
+import type { VideoType } from "@/schema/media.schema";
 
 interface Props{
-    tags:string[];
-    setValue:UseFormSetValue<videoType>
+    hashtags:string[];
+    setValue:UseFormSetValue<VideoType>
 }
 
-const TagSection = ({tags,setValue,}:Props) => {
+const TagSection = ({hashtags,setValue,}:Props) => {
     const [inputValue,setInputValue] = useState<string>("");
     const handleKeyDown = (e:React.KeyboardEvent<HTMLInputElement>)=>{
         // 한글 입력 시 이벤트가 두번 발생하는 문제 해결
@@ -22,13 +22,13 @@ const TagSection = ({tags,setValue,}:Props) => {
             if(!trimmedValue) return ;
 
             // 중복 방지
-            if(tags.includes(inputValue)){
+            if(hashtags.includes(inputValue)){
                 setInputValue("")
                 return ;
             }
 
             // 입력 태그 setValue 넣기
-            setValue("tags", [...tags, trimmedValue], {
+            setValue("hashtags", [...hashtags, trimmedValue], {
                 shouldValidate: true,
               });
             setInputValue("");
@@ -40,15 +40,15 @@ const TagSection = ({tags,setValue,}:Props) => {
     }
 
     const handleTagRemove = (removeTag:string)=>{
-        setValue("tags",
-            tags.filter((tag)=>tag !== removeTag)
+        setValue("hashtags",
+            hashtags.filter((tag)=>tag !== removeTag)
         )
     }
   return (
     <div className={styles.tagSection}>
         <span className={styles.tagTitle}>태그</span>
         <ul className={styles.tagLists}>
-            {tags.map((item)=>(
+            {hashtags.map((item)=>(
                 <li
                     key={item} 
                     onClick={()=>handleTagRemove(item)}

@@ -1,14 +1,14 @@
 import styles from "./css/index.module.css";
 import type { UseFormSetValue } from "react-hook-form";
-import type { videoType } from "@/schema/media.schema";
 import { getFindCategory } from "@/lib/lib";
 import dropDownIcon from "@/assets/common/arrow-down.svg";
 import { categoriesConstants } from "@/constants/categoriesConstants";
 import { useCallback, useState } from "react";
+import type { VideoType } from "@/schema/media.schema";
 
 interface Props {
   currentCategory: string;
-  setValue: UseFormSetValue<videoType>;
+  setValue: UseFormSetValue<VideoType>;
 }
 const UploadDropMenu = ({
   currentCategory,
@@ -34,7 +34,7 @@ const UploadDropMenu = ({
       <ul className={`${styles.dropLists} ${isOpen && styles.activeDropLists}`}>
         {categoriesConstants.map(
           (item) =>
-            item.name !== "all" && (
+            item.name !== undefined && (
               <li
                 onClick={()=>{
                   setValue("categories", item.name);

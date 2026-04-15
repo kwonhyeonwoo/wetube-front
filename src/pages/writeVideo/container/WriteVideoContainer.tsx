@@ -19,7 +19,7 @@ const WriteVideoContainer = () => {
             resolver:zodResolver(videoSchema),
             defaultValues:{
               categories:"movie",
-              tags:[]
+              hashtags:[]
             }
   });
   const [videoPreview] = usePreviewVideo(watch('video'));
@@ -30,7 +30,7 @@ const WriteVideoContainer = () => {
         title: data.title,
         content: data.content,
         categories: data.categories,
-        tags: data.tags,
+        hashtags: data.hashtags,
       });
     },[mutate],
   );
@@ -38,7 +38,7 @@ const WriteVideoContainer = () => {
     addToast('내용을 전부 채워주세요.')
   }
   const currentCategory = watch('categories');
-  const currentTags = watch('tags');
+  const currentTags = watch('hashtags');
   return (
     <VideoFormTemplate
       currentCategory={currentCategory}

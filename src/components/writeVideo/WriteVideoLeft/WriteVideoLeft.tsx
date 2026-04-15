@@ -2,6 +2,7 @@ import type { UseFormRegister, FieldValues, Path } from "react-hook-form";
 import UploadVideo from "../../video/UploadVideo/UploadVideo";
 import styles from "./css/index.module.css";
 import ContentTextArea from "@/components/video/ContentTextArea/ContentTextArea";
+import VideoCustomInput from "@/components/video/VideoCustomInput/VideoCustomInput";
 
 interface Props <T extends FieldValues> {
   videoPreview: string | null;
@@ -24,16 +25,11 @@ const WriteVideoLeft = <T extends FieldValues>({
         register={register}
       />
       {/* 제목 */}
-      <div className={styles.titleInputBox}>
-        <span className={styles.inputSpan}>동영상 제목</span>
-        <input
-          type="text"
-          placeholder="시선을 사로잡는 제목을 입력하세요"
-          className={styles.input}
-          {...register("title" as Path<T>)}
-        />
-      </div>
-
+      <VideoCustomInput
+          name={"title"}
+          label="동영상 제목"
+          register={register}
+      />
       {/* 내용  */}
       <ContentTextArea
         placeholder="동영상 설명을 입력하세요"

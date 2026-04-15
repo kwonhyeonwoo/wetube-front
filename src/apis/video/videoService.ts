@@ -18,7 +18,7 @@ export const videoService = {
         formData.append("video", data.video[0]);
         formData.append("content", data.content);
         formData.append("categories", data.categories);
-        formData.append("hashtags", JSON.stringify(data.tags));
+        formData.append("hashtags", JSON.stringify(data.hashtags));
         const response = await api.post("/video", formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
