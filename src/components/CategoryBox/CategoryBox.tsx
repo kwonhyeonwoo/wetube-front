@@ -1,9 +1,10 @@
+import type { CategoryType } from "@/interfaces/media.type";
 import styles from "./css/index.module.css";
 interface Props {
   title: string;
-  name: string;
-  currentCategory: string;
-  handleCategoryActive: (category: string) => void;
+  name: CategoryType;
+  currentCategory: CategoryType;
+  handleCategoryActive: (category: CategoryType) => void;
 }
 const CategoryBox = ({title,name,currentCategory,handleCategoryActive}:Props) => {
   return (

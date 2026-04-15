@@ -5,7 +5,7 @@ import UnLikeIcon from "@/assets/video/unlike.svg";
 import SaveIcon from "@/assets/video/save.svg?react";
 import ActionButton from "../ActionButton/ActionButton";
 import VideoContent from "../VideoContent/VideoContent";
-import type { VideoResponse } from "@/interfaces/video.type";
+import type { VideoResponse } from "@/interfaces/media.type";
 
 interface Props{
     video:VideoResponse;
@@ -17,7 +17,7 @@ const VideoPrimaryInfo = ({video}:Props) => {
         <div className={styles.videoWrap}>
             <video 
                 className={styles.video}
-                src={`http://localhost:3000/${video.video}`}
+                src={`${import.meta.env.VITE_APP_BASE_SRC}/${video.video}`}
                 controls
             />
         </div>

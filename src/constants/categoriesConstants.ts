@@ -1,7 +1,9 @@
-export const categoriesConstants = [
+import type { CategoryType } from "@/interfaces/media.type";
+
+export const categoriesConstants:{title:string,name:CategoryType}[] = [
     {
         title: "전체",
-        name: "all",
+        name: undefined,
     },
     {
         title: "영화",

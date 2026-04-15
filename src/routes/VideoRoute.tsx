@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import WriteVideoContainer from "../pages/writeVideo/container/WriteVideoContainer"
 import VideoHistoryContainer from "@/pages/VideoHistory/container/VideoHistoryContainer"
 import VideoDetailContainer from "@/pages/VideoDetail/container/VideoDetailContainer"
+import VideoEditContainer from "@/pages/VideoEdit/container/VideoEditContainer"
 
 const routes = [
     {
@@ -15,6 +16,10 @@ const routes = [
     {
       path:"/:id",
       element:<VideoDetailContainer/>
+    },
+    {
+      path:'/:id/edit',
+      element:<VideoEditContainer/>
     }
     
 ]

@@ -1,15 +1,12 @@
 import type { VideoResponse } from "@/interfaces/media.type";import styles from "./css/index.module.css";
-import TestImg from "@/assets/test/video-test.png";
 
 interface Props{
     item:VideoResponse;
-    nickName:string
     number:number;
 }
 
 const StorageList = ({
     item,
-    nickName,
     number
 }:Props) => {
   return (
@@ -18,13 +15,14 @@ const StorageList = ({
         <p className={styles.storageNumber}>{String(number)}</p>
       </div>
       <div className={styles.storageInfoBox}>
-        <div className={styles.testImg}>
-          <img src={TestImg} alt="test-img" />
+        <div className={styles.videoBox}>
+          <video src={`${import.meta.env.VITE_APP_BASE_SRC}/${item.video}`}/>
+          {/* <img src={TestImg} alt="test-img" /> */}
         </div>
         <div className={styles.infoBox}>
           <p className={styles.title}>{item.title}</p>
           <div className={styles.authorBox}>
-            <p className={styles.nickName}>{nickName}</p>
+            <p className={styles.nickName}>{item.owner.nickName}</p>
             <div className={styles.metaBox}>
               <div className={styles.viewBox}>
                 <p className={styles.customText}>조회수</p>

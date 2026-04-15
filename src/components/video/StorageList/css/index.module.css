@@ -48,6 +48,19 @@
           justify-content: center;
 }
 
+.videoBox {
+  width: 168px;
+  height: 94px;
+  border-radius: 16px;
+}
+.videoBox video {
+  width: 168px;
+  height: 94px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 16px;
+}
+
 .title {
   overflow: hidden;
   text-overflow: ellipsis;

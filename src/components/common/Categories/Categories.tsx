@@ -1,10 +1,11 @@
 import styles from "./css/index.module.css";
 import { categoriesConstants } from '../../../constants/categoriesConstants'
 import CategoryBox from '../../CategoryBox/CategoryBox'
+import type { CategoryType } from "@/interfaces/media.type";
 
 interface Props {
-  currentCategory: string;
-  handleCategoryActive: (category: string) => void;
+  currentCategory: CategoryType;
+  handleCategoryActive: (category: CategoryType) => void;
 }
 const Categories = ({ currentCategory, handleCategoryActive }: Props) => {
   return (

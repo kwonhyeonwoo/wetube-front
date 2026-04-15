@@ -2,7 +2,7 @@ import type { ShortsType, VideoType } from "@/schema/media.schema";
 import type { UserResponse } from "./auth.type";
 
 export type CategoryType =
-  "movie"
+    "movie"
   | "music"
   | "product-design"
   | "building"
@@ -10,6 +10,7 @@ export type CategoryType =
   | "live"
   | "cooking"
   | "recents"
+  | undefined
 
 export interface ShortsResponse extends Omit<ShortsType, 'shorts'> {
   shorts: string;

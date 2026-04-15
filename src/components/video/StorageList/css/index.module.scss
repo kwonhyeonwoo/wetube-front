@@ -25,6 +25,17 @@
     row-gap: 5px;
     justify-content: center;
 }
+.videoBox{
+    width: 168px;
+    height:94px;
+       border-radius: 16px;
+    video{
+        width: 168px;
+        height: 94px;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+}
 .title{
     overflow: hidden;
     text-overflow: ellipsis;

@@ -1,15 +1,17 @@
 import styles from "../css/index.module.css";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import CategoriesContainer from "@/components/common/Categories/container/CategoriesContainer";
 import VideoCard from "@/components/video/VideoCard/VideoCard";
 import Short from "@/components/video/Short/Short";
-import { useGetVideos } from "@/hooks/queries/video/useGetVideos";
 import { useGetShorts } from "@/hooks/queries/short/useShortsQuery";
+import { useGetVideosQuery } from "@/hooks/queries/video/useGetVideoQuery";
+import Categories from "@/components/common/Categories/Categories";
+import type { CategoryType } from "@/interfaces/media.type";
 
 const HomeContainer = () => {
   const navigate = useNavigate();
-  const {data:videos} = useGetVideos();
+  const [currentCategory, setCurrentCategory] = useState<CategoryType>();
+  const { data: videos } = useGetVideosQuery({category:currentCategory});
   const {data:shorts} = useGetShorts();
   const handleVideoDetail = useCallback(
     (id:string) => {
@@ -17,12 +19,20 @@ const HomeContainer = () => {
     },
     [navigate],
   );
-
-  console.log('shorts',shorts)
+  console.log("category", currentCategory);
+  const handleCategoryActive = useCallback(
+    (name: CategoryType) => {
+      setCurrentCategory(name);
+    },
+    [currentCategory],
+  );
   
   return (
     <main className={styles.homePage}>
-      <CategoriesContainer />
+      <Categories
+        currentCategory={currentCategory}
+        handleCategoryActive={handleCategoryActive}
+      />
       <section className={styles.videoSection}>
         {videos?.map((item) => (
           <VideoCard
@@ -34,23 +44,23 @@ const HomeContainer = () => {
       </section>
       <section className={styles.shortSection}>
         <div className={styles.shortTitleBox}>
-          <img 
+          <img
             src="/assets/short/short.png"
             srcSet="
               /assets/short/short@2x.png 2x,
               /assets/short/short@3x.png 3x
-            " 
-            alt="short" 
+            "
+            alt="short"
           />
           <h2 className={styles.shortTitle}>Shorts</h2>
         </div>
         <div className={styles.shortLists}>
-          {shorts?.map((item)=>(
-            <Short 
+          {shorts?.map((item) => (
+            <Short
               shorts={item.shorts}
-              key={item._id} 
-              title={item.title} 
-              meta={item.meta} 
+              key={item._id}
+              title={item.title}
+              meta={item.meta}
               shortId={item._id}
             />
           ))}

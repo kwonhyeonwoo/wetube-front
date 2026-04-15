@@ -1,6 +1,6 @@
 import type { VideoType } from "@/schema/media.schema";
 import { api } from "../axiosInstance";
-import type {VideoResponse } from "@/interfaces/media.type";
+import type {CategoryType, VideoResponse } from "@/interfaces/media.type";
 
 
 export const videoService = {
@@ -8,10 +8,9 @@ export const videoService = {
         const response = await api.get(`/video/${id}`);
         return await response.data.video;
     },
-    getVideos: async (): Promise<VideoResponse[]> => {
-        const response = await api.get('/video');
-        console.log('first', response.data)
-        return await response.data.videos;
+    getVideos: async (filters:{keyword?:string, category?: CategoryType;}): Promise<VideoResponse[]> => {
+        const response = await api.get(`/video?keyword=${filters.keyword}&category=${filters.category}`);
+        return await response.data.videos || [];
     },
     postVideo: async (data: VideoType) => {
         const formData = new FormData();
@@ -27,6 +26,17 @@ export const videoService = {
         });
         return await response.data;
 
+    },
+    getSearchVideos:async(filters:{keyword?:string, category?:string}):Promise<VideoResponse[]>=>{
+        console.log('fitlers',filters)
+        const response = await api.get(`/video`, {
+          params: {
+            keyword: filters.keyword,
+            category: filters.category,
+          },
+        });
+        console.log('search',response)
+        return await response.data.videos || [];
     },
     putVideo: (id: string) => { }
 }

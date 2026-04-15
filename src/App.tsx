@@ -14,7 +14,7 @@ import ShortRoute from './routes/ShortRoute';
 
 const routes = [
   {
-    path:"/",
+    path:"/*",
     element:<RootRoute/>
   },
   {
