@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export const usePreviewVideo = (videoFiles: FileList) => {
+export const usePreviewVideo = (videoFiles?: FileList) => {
     const [videoPreview, setVideoPreview] = useState<string | null>(null);
     useEffect(() => {
         if (videoFiles && videoFiles.length > 0) {

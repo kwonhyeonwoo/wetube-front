@@ -16,7 +16,7 @@ import type { CategoryType } from "@/interfaces/media.type";
 interface Props <T extends FieldValues>{
   currentTags: string[];
   videoPreview: string | null;
-  currentCategory: CategoryType;
+  currentCategory: string;
   mediaName:Path<T>
   register: UseFormRegister<T>;
   setValue: UseFormSetValue<T>;
@@ -39,7 +39,7 @@ const VideoFormTemplate =<T extends FieldValues> ({
   return (
     <main className={styles.videoWriteTemplate}>
       <section className={styles.titleSection}>
-        <WriteCategory/>
+        <WriteCategory />
         <h2 className={styles.title}>동영상 업로드</h2>
         <p
           className={styles.subText}
@@ -52,10 +52,10 @@ const VideoFormTemplate =<T extends FieldValues> ({
           className={styles.uploadForm}
           onSubmit={handleSubmit(onSubmit, onInvalid)}
         >
-          <WriteVideoLeft 
-            mediaName={mediaName} 
-            videoPreview={videoPreview} 
-            register={register} 
+          <WriteVideoLeft
+            mediaName={mediaName}
+            videoPreview={videoPreview}
+            register={register}
           />
           <WriteVideoRight
             setValue={setValue}

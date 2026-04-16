@@ -13,7 +13,8 @@ const VideoCustomInput = <T extends FieldValues>
         <span className={styles.inputSpan}>{label}</span>
         <input
           type="text"
-          placeholder={value ? value : "시선을 사로잡는 제목을 입력하세요"}
+          value={value}
+          placeholder={"시선을 사로잡는 제목을 입력하세요"}
           className={styles.input}
           {...register(name as Path<T>)}
         />

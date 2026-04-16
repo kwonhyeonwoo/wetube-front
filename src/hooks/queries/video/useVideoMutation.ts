@@ -1,11 +1,12 @@
 import { USER_KEYS } from "@/apis/auth/authKeys";
+import { VIDEO_KEYS } from "@/apis/video/videoKeys";
 import { videoService } from "@/apis/video/videoService";
 import { useToastStore } from "@/store/useToastStore";
 import useUserStore from "@/store/useUserStore";
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useNavigate } from "react-router-dom";
 
-const useVideoMutation = ()=>{
+export const useVideoMutation = ()=>{
     const queryClient= useQueryClient();
     const navigate = useNavigate();
     const {user} = useUserStore();
@@ -26,5 +27,22 @@ const useVideoMutation = ()=>{
     })
     return mutation;
 }
-
-export default useVideoMutation;
+export const useVideoPutMutation = (videoId:string )=>{
+    console.log('videoId',videoId)
+    const queryClient = useQueryClient();
+    const {addToast}  = useToastStore();
+    const navigate = useNavigate();
+    return useMutation({
+        mutationFn:videoService.putVideo,
+        onSuccess:(data)=>{
+            queryClient.invalidateQueries({queryKey:VIDEO_KEYS.all});
+            addToast('비디오를 수정하였습니다.')
+            navigate(`/video/${videoId}`)
+        },
+        onError:(err:any)=>{
+            console.log('err',err)
+            const message = err.response?.data?.message || "서버 에러가 터졌습니다."
+            addToast(message);
+        }
+    })
+}

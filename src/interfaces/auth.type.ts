@@ -15,7 +15,7 @@ export interface SessionResponse {
 }
 
 export interface UserResponse{
-    id:string;
+    _id:string;
     name:string;
     nickName:string;
     introduction?:string;

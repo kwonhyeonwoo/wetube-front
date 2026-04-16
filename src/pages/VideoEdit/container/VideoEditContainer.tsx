@@ -1,61 +1,116 @@
 import { useParams } from "react-router-dom";
 import styles from "../css/index.module.css";
 import { useGetVideoQuery } from "@/hooks/queries/video/useGetVideoQuery";
-import { useForm,type Path } from "react-hook-form";
+import { useForm, type SubmitErrorHandler, type SubmitHandler } from "react-hook-form";
 import VideoCustomInput from "@/components/video/VideoCustomInput/VideoCustomInput";
 import TagSection from "@/components/writeVideo/TagSection/TagSection";
 import ContentTextArea from "@/components/video/ContentTextArea/ContentTextArea";
 import UploadDropMenu from "@/components/writeVideo/UploadDropMenu/UploadDropMenu";
-import type { VideoType } from "@/schema/media.schema";
+import { videoEditSchema, type VideoEditType } from "@/schema/media.schema";
 import SubmitButton from "@/components/common/SubmitButton/SubmitButton";
+import PlayerIcon from "@/assets/video/play.svg?react";
+import { usePreviewVideo } from "@/hooks/usePreviewVideo";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useVideoPutMutation } from "@/hooks/queries/video/useVideoMutation";
 
 const VideoEditContainer = () => {
     const {id} = useParams();
     const {data:video , isLoading, isError} = useGetVideoQuery(id ?? "");
-    const { register, handleSubmit ,setValue} = useForm<VideoType>();
+    const {mutate:putVideo} = useVideoPutMutation(video?._id ?? "");
+    const {
+      register,
+      handleSubmit,
+      setValue,
+      watch,
+      formState: { errors },
+    } = useForm<VideoEditType>({
+      resolver: zodResolver(videoEditSchema),
+      // ✅ 이렇게 수정하세요!
+      // video가 있을 때만 객체를 만들어주고, 없으면 통째로 undefined를 줍니다.
+      values: video
+        ? {
+            title: video.title,
+            content: video.content,
+            categories: video.categories,
+            hashtags: video.hashtags,
+          }
+        : undefined,
+    });
+    const [videoPreview] = usePreviewVideo(watch("video"));
+
+    const onSubmit : SubmitHandler<VideoEditType>= (data)=>{
+        if (!video?._id) return;
+        putVideo({ videoId:video._id, data });
+    };
+
+    const onInvalid :SubmitErrorHandler<VideoEditType>= (data)=>{
+      console.log('err?',data)
+    }
+        if (!video) {
+          return;
+        }
     if(isLoading){
         return (
             <div>Loading...</div>
         )
     };
-    if(!video){
-        return (
-            <div>비디오를 조회할 수 없습니다.</div>
-        )
-    }
-    console.log('video tags',video.hashtags)
   return (
     <main className={styles.videoEditPage}>
-      <form className={styles.leftSection}>
-        <div className={styles.videoBox}>
-            <video className={styles.video} src={`${import.meta.env.VITE_APP_BASE_SRC}/${video.video}`} />
-        </div>
-        <VideoCustomInput
-          name="title"
-          label="제목"
-          value={video.title}
-          register={register}
-        />
-        <ContentTextArea
-            placeholder={video.content}
+      <section className={styles.videoEditSection}>
+        <form
+          className={styles.formBox}
+          onSubmit={handleSubmit(onSubmit, onInvalid)}
+        >
+          <div className={styles.videoBox}>
+            <label htmlFor="video" className={styles.videoFilesBtn}>
+              <div className={styles.circle}>
+                <PlayerIcon />
+              </div>
+            </label>
+            <input
+              type="file"
+              {...register("video")}
+              id="video"
+              style={{ display: "none" }}
+            />
+            <video
+              className={styles.video}
+              controls={videoPreview === null ? false : true}
+              src={
+                videoPreview
+                  ? videoPreview
+                  : `${import.meta.env.VITE_APP_BASE_SRC}/${video.video}`
+              }
+            />
+          </div>
+          <VideoCustomInput
+            name="title"
+            label="제목"
+            value={watch('title')}
+            register={register}
+          />
+          <ContentTextArea
             text="동영상 설명"
             name={"content"}
+            value={watch('content')}
             register={register}
-        />
-        <UploadDropMenu 
-          currentCategory={video.categories} 
-          setValue={setValue}
-        />
-        <div className={styles.tagBox}>
-          <TagSection
-            hashtags={video.hashtags}
+          />
+          <UploadDropMenu
+            currentCategory={watch("categories", video.categories)}
             setValue={setValue}
           />
-        </div>
-        <div className={styles.btnBox}>
-          <SubmitButton text="수정하기" type="button" handleSubmit={()=>{}}/>
-        </div>
-      </form>
+          <div className={styles.tagBox}>
+            <TagSection hashtags={watch('hashtags') || []} setValue={setValue} />
+          </div>
+          <div className={styles.btnBox}>
+            <SubmitButton
+              text="수정하기"
+              type="submit"
+              handleSubmit={() => {}}
+            />
+          </div>
+        </form>
+      </section>
     </main>
   );
 }

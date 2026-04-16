@@ -19,7 +19,6 @@ const HomeContainer = () => {
     },
     [navigate],
   );
-  console.log("category", currentCategory);
   const handleCategoryActive = useCallback(
     (name: CategoryType) => {
       setCurrentCategory(name);

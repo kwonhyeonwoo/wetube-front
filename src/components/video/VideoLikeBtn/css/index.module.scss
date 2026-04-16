@@ -1,15 +1,14 @@
-.actionBtnBox{
-    height:35px;
-    padding:8px 16px;
+.actionBtnBox {
+    padding: 8px 16px;
     box-sizing: border-box;
     background-color: var(--color-bg-light);
     display: flex;
     align-items: center;
-    justify-content: center;
     column-gap: 8px;
-    border-radius:999px;
+    border-radius: 999px;
 }
-.actionBtn{
+
+.actionBtn {
     font-size: 14px;
     display: flex;
     align-items: center;

@@ -1,14 +1,18 @@
-import type {  UseFormSetValue } from "react-hook-form";
+import type {
+  FieldValues,
+  PathValue,
+  UseFormSetValue,
+  Path,
+} from "react-hook-form";
 import styles from "./css/index.module.css";
 import { useState, type ChangeEvent } from "react";
-import type { VideoType } from "@/schema/media.schema";
 
-interface Props{
-    hashtags:string[];
-    setValue:UseFormSetValue<VideoType>
+interface Props <T extends FieldValues>{
+  hashtags: string[];
+  setValue: UseFormSetValue<T>;
 }
 
-const TagSection = ({hashtags,setValue,}:Props) => {
+const TagSection =<T extends FieldValues> ({hashtags,setValue,}:Props<T>) => {
     const [inputValue,setInputValue] = useState<string>("");
     const handleKeyDown = (e:React.KeyboardEvent<HTMLInputElement>)=>{
         // 한글 입력 시 이벤트가 두번 발생하는 문제 해결
@@ -22,33 +26,36 @@ const TagSection = ({hashtags,setValue,}:Props) => {
             if(!trimmedValue) return ;
 
             // 중복 방지
-            if(hashtags.includes(inputValue)){
-                setInputValue("")
-                return ;
+            if (hashtags.includes(trimmedValue)) {
+              setInputValue("");
+              return;
             }
 
             // 입력 태그 setValue 넣기
-            setValue("hashtags", [...hashtags, trimmedValue], {
+            setValue("hashtags" as Path<T>, [...hashtags, trimmedValue] as PathValue<T, Path<T>>, {
                 shouldValidate: true,
               });
             setInputValue("");
         }
     };
-
     const handleChange = (e:ChangeEvent<HTMLInputElement>)=>{
         setInputValue(e.target.value);
     }
 
     const handleTagRemove = (removeTag:string)=>{
-        setValue("hashtags",
-            hashtags.filter((tag)=>tag !== removeTag)
-        )
+        setValue(
+          "hashtags" as Path<T>,
+          hashtags?.filter((tag) => tag !== removeTag) as PathValue<T, Path<T>>,
+          {
+            shouldValidate: true,
+          },
+        );
     }
   return (
     <div className={styles.tagSection}>
         <span className={styles.tagTitle}>태그</span>
         <ul className={styles.tagLists}>
-            {hashtags.map((item)=>(
+            {hashtags?.map((item)=>(
                 <li
                     key={item} 
                     onClick={()=>handleTagRemove(item)}
@@ -62,7 +69,7 @@ const TagSection = ({hashtags,setValue,}:Props) => {
             type="text" 
             value={inputValue}
             placeholder="태그를 추가하고 Enter을 누르세요"
-            onChange={(e)=>handleChange(e)}
+            onChange={handleChange}
             onKeyDown={handleKeyDown}
             className={styles.tagInput}
         />

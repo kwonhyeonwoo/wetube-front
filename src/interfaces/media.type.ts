@@ -12,7 +12,7 @@ export type CategoryType =
   | "recents"
   | undefined
 
-export interface ShortsResponse extends Omit<ShortsType, 'shorts'> {
+export interface ShortsResponse extends Omit<ShortsType, "shorts"> {
   shorts: string;
   _id: string;
   meta: {
@@ -23,7 +23,7 @@ export interface ShortsResponse extends Omit<ShortsType, 'shorts'> {
   owner: UserResponse;
 };
 
-export interface VideoResponse extends Omit<VideoType, 'video'> {
+export interface VideoResponse extends Omit<VideoType, "video"> {
   video: string;
   _id: string;
   id: string;

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import styles from "./css/index.module.css";
-import MeatBall from "@/assets/common/meatball.svg?react";
 import { useNavigate } from "react-router-dom";
+import useUserStore from "@/store/useUserStore";
+import VideoOptionMenu from "../VideoOptionMenu/VideoOptionMenu";
 interface Props {
   _id: string;
   title: string;
@@ -10,6 +11,9 @@ interface Props {
       views: number;
       rating: number;
   };
+  owner:{
+    _id:string
+  }
   profile?: string;
   nickName?: string;
   video?: string;  
@@ -25,13 +29,16 @@ const VideoCard = ({
     views,
     rating,
   },
+  owner,
   profile,
   content,
   title,
   nickName,
   handleVideoDetail
 }:Props) => {
+  console.log('owenr',owner)
   const navigate = useNavigate();
+  const {user:{uid}} = useUserStore();
   const [currVideoId, setCurrVideoId] = useState<string>("");
   const handleCurrVideoId = (id:string)=>{
       setCurrVideoId((prev)=> prev === id ? "" : id);
@@ -70,36 +77,17 @@ const VideoCard = ({
             </p>
           </div>
         </div>
-        <div className={styles.meatballBox}>
-          <MeatBall onClick={() => handleCurrVideoId(_id)} />
-          {currVideoId === _id && (
-            <div className={styles.meatBallMenu}>
-              <ul className={styles.meatBallUl}>
-                {meatBallList.map(({ text, type }, idx) => (
-                  <li
-                    className={styles.meatBallLi}
-                    onClick={() => handleListClicked(type)}
-                  >
-                    {text}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
+        {uid === owner && (
+          <VideoOptionMenu
+            currVideoId={currVideoId}
+            videoId={_id}
+            handleListClicked={handleListClicked}
+            handleCurrVideoId={handleCurrVideoId}
+          />
+        )}
       </div>
     </div>
   );
 }
 
 export default VideoCard;
-const meatBallList=[
-  {
-    text:"수정하기",
-    type:"edit"
-  },
-  {
-    text:"삭제하기",
-    type:"delete"
-  }
-]

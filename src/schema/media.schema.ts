@@ -14,7 +14,11 @@ export const shortsSchema = baseMediaSchema.extend({
     shorts: z.instanceof(FileList)
 });
 
+export const videoEditSchema = baseMediaSchema.extend({
+    video: z.instanceof(FileList).optional(),
+})
 
 // infer은 zod에서 사용 한 타입을 typscript로 다시 변환해주는 기능
 export type VideoType = z.infer<typeof videoSchema>;
 export type ShortsType = z.infer<typeof shortsSchema>;
+export type VideoEditType = z.infer<typeof videoEditSchema>

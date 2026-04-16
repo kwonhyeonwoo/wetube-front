@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod/src/zod.js";
 import { useCallback, } from "react";
 import { videoSchema,type VideoType, } from "@/schema/media.schema";
 import { useToastStore } from "@/store/useToastStore";
-import useVideoMutation from "@/hooks/queries/video/useVideoMutation";
+import {useVideoMutation} from "@/hooks/queries/video/useVideoMutation";
 import VideoFormTemplate from "@/components/video/VideoFormTemplate/VideoFormTemplate";
 import { usePreviewVideo } from "@/hooks/usePreviewVideo";
 
