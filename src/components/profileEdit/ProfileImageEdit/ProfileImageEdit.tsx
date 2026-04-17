@@ -1,14 +1,20 @@
 import styles from "./css/index.module.css";
-import type { UserReponse } from "@/interfaces/auth.type";
 import ImgEditBox from "../ImgEditBox/ImgEditBox";
+import type { UserResponse } from "@/interfaces/auth.type";
+import type { UseFormRegister, UseFormWatch } from "react-hook-form";
+import type { UserEditType } from "@/schema/auth.schema";
 
 interface Props {
-  data?: UserReponse;
+  avatar:string | null;
+  register:UseFormRegister<UserEditType>;
+  watch:UseFormWatch<UserEditType>;
+  data?: UserResponse;
 }
-const ProfileImageEdit = ({ data }: Props) => {
+const ProfileImageEdit = ({ avatar,data, watch,register }: Props) => {
+
   return (
     <div className={styles.profileEditBox}>
-        <ImgEditBox profile={data?.profile}/>
+        <ImgEditBox avatarPreview={avatar}profile={data?.avatar} register={register}/>
         <div className={styles.imgTextBox}>
             <h2 className={styles.imgText}>프로필 사진</h2>
             <p className={styles.imgContent}>

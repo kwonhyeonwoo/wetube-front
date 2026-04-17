@@ -1,5 +1,6 @@
 import type { VideoResponse } from "@/interfaces/media.type";import { api } from "../axiosInstance";
 import type { AccountRequest, LoginRequest, SessionResponse,  UserResponse } from "@/interfaces/auth.type";
+import type { UserEditType } from "@/schema/auth.schema";
 
 export const authService = {
   me: async (): Promise<SessionResponse> => {
@@ -37,5 +38,22 @@ export const authService = {
   getUserVideos:async(id:string):Promise<VideoResponse[]>=>{
     const response = await api.get(`/user/${id}/videos`);
     return await response.data.videos;
+  },
+
+  putUser:async({data,id}:{data:UserEditType, id:string})=>{
+    console.log('data',data);
+    const formData = new FormData();
+    formData.append('name',data.name);
+    formData.append('nickName',data.nickName);
+    formData.append('email',data.email);
+    if(data.introduction){
+      formData.append('introduction',data.introduction);
+    }
+    if(data.avatar && data.avatar.length > 0){
+      formData.append('avatar',data.avatar[0])
+    };
+    const response = await api.put(`/user/${id}`,formData,);
+    console.log('responsedata',response.data);
+    return  response.data;
   }
 };

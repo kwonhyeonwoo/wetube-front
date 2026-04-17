@@ -13,6 +13,7 @@ const HomeContainer = () => {
   const [currentCategory, setCurrentCategory] = useState<CategoryType>();
   const { data: videos } = useGetVideosQuery({category:currentCategory});
   const {data:shorts} = useGetShorts();
+  console.log('videos',videos)
   const handleVideoDetail = useCallback(
     (id:string) => {
       navigate(`/video/${id}`)
@@ -37,6 +38,7 @@ const HomeContainer = () => {
           <VideoCard
             key={item._id}
             {...item}
+            ownerId={item.owner._id}
             handleVideoDetail={handleVideoDetail}
           />
         ))}

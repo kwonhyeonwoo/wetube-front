@@ -11,7 +11,6 @@ import type {
 import WriteVideoLeft from "@/components/writeVideo/WriteVideoLeft/WriteVideoLeft";
 import WriteVideoRight from "@/components/writeVideo/WritevideoRight/WriteVideoRight";
 import WriteCategory from "../WriteCategory/WriteCategory";
-import type { CategoryType } from "@/interfaces/media.type";
 
 interface Props <T extends FieldValues>{
   currentTags: string[];

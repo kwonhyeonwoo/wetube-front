@@ -20,7 +20,7 @@ export interface UserResponse{
     nickName:string;
     introduction?:string;
     email:string;
-    profile?:string;
+    avatar?:string;
     createdAt:Date;
     videos:VideoResponse[];
     shorts:ShortsResponse[]

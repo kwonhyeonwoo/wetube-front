@@ -11,9 +11,7 @@ interface Props {
       views: number;
       rating: number;
   };
-  owner:{
-    _id:string
-  }
+  ownerId:string;
   profile?: string;
   nickName?: string;
   video?: string;  
@@ -29,14 +27,13 @@ const VideoCard = ({
     views,
     rating,
   },
-  owner,
+  ownerId,
   profile,
   content,
   title,
   nickName,
   handleVideoDetail
 }:Props) => {
-  console.log('owenr',owner)
   const navigate = useNavigate();
   const {user:{uid}} = useUserStore();
   const [currVideoId, setCurrVideoId] = useState<string>("");
@@ -77,7 +74,7 @@ const VideoCard = ({
             </p>
           </div>
         </div>
-        {uid === owner && (
+        {uid === ownerId && (
           <VideoOptionMenu
             currVideoId={currVideoId}
             videoId={_id}

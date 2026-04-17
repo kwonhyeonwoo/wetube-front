@@ -4,25 +4,52 @@ import ProfileImageEdit from "@/components/profileEdit/ProfileImageEdit/ProfileI
 import ProfileInfoEditBox from "@/components/profileEdit/ProfileInfoEditBox/ProfileInfoEditBox";
 import SubmitButton from "@/components/common/SubmitButton/SubmitButton";
 import { useCallback } from "react";
+import { useGetUser } from "@/hooks/queries/auth/useAuthQuery";
+import { useForm,type SubmitErrorHandler,type SubmitHandler } from "react-hook-form";
+import { baseAuthSchema,
+type UserEditType } from "@/schema/auth.schema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useUserEditMutation } from "@/hooks/queries/auth/useAuthMutation";
+import { usePreviewVideo } from "@/hooks/usePreviewVideo";
 
 const ProfileEditContainer = () => {
     const {id} = useParams();
-    // const {data,isLoading} = useGetUser(id ?? "")
-    const handleSubit = useCallback(
-      (e:React.ChangeEvent<HTMLFormElement>) => {
-            e.preventDefault();
+    const {data:user} = useGetUser(id ?? "");
+    const {mutate:editUser} = useUserEditMutation(id ?? "")
+    const {register, handleSubmit, watch,} = useForm<UserEditType>({
+      resolver:zodResolver(baseAuthSchema),
+      values : user ? {
+          nickName:user.nickName,
+          name:user.name,
+          email:user.email,
+    avatar: undefined,
+      }:undefined 
+    });
+    const [videoPreview] = usePreviewVideo(watch('avatar'))
+    const onSubmit:SubmitHandler<UserEditType> = useCallback(
+      (data) => {
+        console.log('data',data)
+        if(id){
+          editUser({data:{
+            nickName:data.nickName,
+            name:data.name,
+            email:data.email,
+            avatar:data.avatar ?? watch('avatar'),
+            introduction: data.introduction ?? watch('introduction')
+          }, id});
+        }
+      },
+      [id],
+    )
+    const onInValid :SubmitErrorHandler<UserEditType>=useCallback(
+      (error) => {
+        console.log('error',error)
       },
       [],
     )
     
-    const data = {
-        id:"12345",
-        name:"권현우",
-        nickName:"사악한현우",
-        email:"khw19980926@gmail.com",
-        profile:"",
-        createdAt:new Date(),
-        updatedAt:new Date(),
+    if(!user){
+      return ;
     }
   return (
     <main className={styles.profileEditPage}>
@@ -34,11 +61,11 @@ const ProfileEditContainer = () => {
     수 있습니다.`}</p>
       </section>
       <section className={styles.profileEditSection}>
-        <form onSubmit={() => {}} className={styles.profileForm}>
-          <ProfileImageEdit data={data} />
-          <ProfileInfoEditBox data={data} />
+        <form onSubmit={handleSubmit(onSubmit,onInValid)} className={styles.profileForm}>
+          <ProfileImageEdit  avatar={videoPreview} data={user}watch={watch} register={register}/>
+          <ProfileInfoEditBox data={user} />
           <div className={styles.btnBox}>
-            <SubmitButton text="수정하기" handleSubmit={() => {}} />
+            <SubmitButton text="수정하기" type="submit" handleSubmit={() => {}} />
           </div>
         </form>
       </section>

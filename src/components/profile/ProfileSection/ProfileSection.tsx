@@ -19,8 +19,8 @@ const ProfileSection = ({user}:Props) => {
     ]
   return (
     <section className={styles.profileSection}>
-      {user?.profile ? (
-        <img src={user.profile} alt={`${user.nickName}-proifle`} />
+      {user?.avatar ? (
+        <img src={user.avatar} alt={`${user.nickName}-proifle`} />
       ) : (
         <div className={styles.profileSectionImage} />
       )}
@@ -28,7 +28,7 @@ const ProfileSection = ({user}:Props) => {
       <div className={styles.userInfoBox}>
         <div className={styles.userNameBox}>
           <p className={styles.userName}>{user?.name}</p>
-          <Link to={`/user/${user?.id}/edit`} className={styles.button}>
+          <Link to={`/user/${user?._id}/edit`} className={styles.button}>
             프로필 수정
           </Link>
         </div>

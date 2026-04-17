@@ -26,6 +26,7 @@ const VideosSection = ({ videos, text,userId, handleVideoDetail }: Props) => {
           <VideoCard
             key={idx}
             {...item}
+            ownerId={userId ?? ""}
             handleVideoDetail={handleVideoDetail}
           />
         ))}
