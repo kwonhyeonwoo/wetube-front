@@ -1,22 +1,32 @@
 import styles from "./css/index.module.css";
-import UnLikeIcon from "@/assets/video/unlike.svg";
-import LikeIcon from "@/assets/video/like.svg";
+import LikeIcon from "@/assets/video/like.svg?react";
+import { useVideoLikePostMutation } from "@/hooks/queries/video/useVideoMutation";
+import useUserStore from "@/store/useUserStore";
+import { useParams } from "react-router-dom";
 
 interface Props{
-    likeCount:number;
-    handleLikeAction:()=>void;
-    handleUnLikeAction:()=>void;
+    likes:string[];
 }
 
-const VideoLikeBtn = () => {
+const VideoLikeBtn = ({likes}:Props) => {
+  const {id} = useParams();
+  const {user:{uid}} = useUserStore();
+  const {mutate} = useVideoLikePostMutation({userId:uid,videoId:id ?? ""});
+  const handleLikeClicked = ()=>{
+      if(id){
+        mutate(id);
+      }
+  }
+  const isLike = likes.includes(uid);
   return (
     <div className={styles.actionBtnBox}>
-      <button className={styles.actionBtn}>
-        <img src={LikeIcon} alt="like" />
-        <span className={styles.btnText}>12K</span>
-      </button>
-      <button className={styles.actionBtn}>
-        <img src={UnLikeIcon} alt="un-like" />
+      <button className={styles.actionBtn} onClick={handleLikeClicked}>
+      <LikeIcon 
+        style={{ 
+          color: isLike ? "#EB0000": "black", // 좋아요 상태에 따라 색상 변경
+        }} 
+        />
+        <span className={styles.btnText}>{likes.length}개</span>
       </button>
     </div>
   );

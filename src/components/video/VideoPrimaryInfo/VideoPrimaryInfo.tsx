@@ -7,20 +7,34 @@ import MeatBallIcon from "@/assets/common/meatball.svg?react";
 import type { VideoResponse } from "@/interfaces/media.type";
 import VideoAuthorProfile from "../VideoAuthorProfile/VideoAuthorProfile";
 import VideoLikeBtn from "../VideoLikeBtn/VideoLikeBtn";
+import { useRef,useState } from "react";
 
 interface Props{
     video:VideoResponse;
+    handleCopyUrl:()=>void
 }
 
-const VideoPrimaryInfo = ({video}:Props) => {
+const VideoPrimaryInfo = ({video,handleCopyUrl}:Props) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handlePlayer = ()=>{
+    setIsPlaying(!isPlaying)
+      if(!isPlaying){
+        videoRef.current?.play()
+      }else{
+        videoRef.current?.pause();
+      }
+  }
   return (
     <div className={styles.videoBox}>
       <div className={styles.videoWrap}>
         <video
+          ref={videoRef}
           className={styles.video}
           src={`${import.meta.env.VITE_APP_BASE_SRC}/${video.video}`}
-          controls
         />
+        <button onClick={handlePlayer}>Play</button>
       </div>
       {/* infobox -> 제목, 프로필,닉네임,공유하기,저장하기 버튼 모음 */}
       <div className={styles.videoInfoBox}>
@@ -28,11 +42,11 @@ const VideoPrimaryInfo = ({video}:Props) => {
         <div className={styles.flexBox}>
           <VideoAuthorProfile nickName={video.owner.nickName}/>
           <div className={styles.videoActions}>
-            <VideoLikeBtn/>
+            <VideoLikeBtn likes={video.likes ?? []}/>
             <ActionButton
               Icon={ShareIcon}
               text="공유하기"
-              handleActive={() => {}}
+              handleActive={handleCopyUrl}
             />
             <ActionButton
               Icon={SaveIcon}

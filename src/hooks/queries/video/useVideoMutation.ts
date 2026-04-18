@@ -28,7 +28,6 @@ export const useVideoMutation = ()=>{
     return mutation;
 }
 export const useVideoPutMutation = (videoId:string )=>{
-    console.log('videoId',videoId)
     const queryClient = useQueryClient();
     const {addToast}  = useToastStore();
     const navigate = useNavigate();
@@ -40,9 +39,24 @@ export const useVideoPutMutation = (videoId:string )=>{
             navigate(`/video/${videoId}`)
         },
         onError:(err:any)=>{
-            console.log('err',err)
             const message = err.response?.data?.message || "서버 에러가 터졌습니다."
             addToast(message);
+        }
+    })
+};
+
+export const useVideoLikePostMutation = ({userId,videoId}:{userId:string,videoId:string})=>{
+    const queryClient = useQueryClient();
+    const {addToast} = useToastStore();
+
+    return useMutation({
+        mutationFn:videoService.postLikeVideo,
+        onSuccess:(data)=>{
+            console.log('like data', data);
+            queryClient.invalidateQueries({ 
+                queryKey: VIDEO_KEYS.detail(videoId) 
+              });
+            addToast(data.message)
         }
     })
 }

@@ -17,6 +17,7 @@ interface Props <T extends FieldValues>{
   videoPreview: string | null;
   currentCategory: string;
   mediaName:Path<T>
+  addPreviewMedia:(e:React.ChangeEvent<HTMLInputElement>)=>void;
   register: UseFormRegister<T>;
   setValue: UseFormSetValue<T>;
   onInvalid?: SubmitErrorHandler<T>;
@@ -29,6 +30,7 @@ const VideoFormTemplate =<T extends FieldValues> ({
   videoPreview,
   currentCategory,
   mediaName,
+  addPreviewMedia,
   register,
   setValue,
   onInvalid,
@@ -54,6 +56,7 @@ const VideoFormTemplate =<T extends FieldValues> ({
           <WriteVideoLeft
             mediaName={mediaName}
             videoPreview={videoPreview}
+            addPreviewMedia={addPreviewMedia}
             register={register}
           />
           <WriteVideoRight

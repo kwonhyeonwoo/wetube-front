@@ -7,13 +7,15 @@ import VideoCustomInput from "@/components/video/VideoCustomInput/VideoCustomInp
 interface Props <T extends FieldValues> {
   videoPreview: string | null;
   mediaName:Path<T>;
+  addPreviewMedia:(e:React.ChangeEvent<HTMLInputElement>)=>void;
   register: UseFormRegister<T>;
 }
 
 const WriteVideoLeft = <T extends FieldValues>({ 
   mediaName,
   videoPreview, 
-  register
+  register,
+  addPreviewMedia,
 }: Props<T>) => {
   return (
     <div className={styles.leftUpload}>
@@ -22,6 +24,7 @@ const WriteVideoLeft = <T extends FieldValues>({
         videoPreview={videoPreview}
         mode="video"
         name={mediaName}
+        addPreviewMedia={addPreviewMedia}
         register={register}
       />
       {/* 제목 */}
@@ -32,7 +35,6 @@ const WriteVideoLeft = <T extends FieldValues>({
       />
       {/* 내용  */}
       <ContentTextArea
-        placeholder="동영상 설명을 입력하세요"
         text="동영상 설명"
         name={"content" as Path<T>}
         register={register}

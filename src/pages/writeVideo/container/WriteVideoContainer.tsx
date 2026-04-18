@@ -22,7 +22,7 @@ const WriteVideoContainer = () => {
               hashtags:[]
             }
   });
-  const {mediaPreview,addPreviewMedia} = useMediaPreview();
+  const {mediaPreview,addPreviewMedia} = useMediaPreview({name:"video", setValue});
   const onSubmit = useCallback(
     (data: VideoType) => {
       mutate({
@@ -45,6 +45,7 @@ const WriteVideoContainer = () => {
       currentTags={currentTags}
       videoPreview={mediaPreview}
       mediaName="video"
+      addPreviewMedia={addPreviewMedia}
       register={register}
       setValue={setValue}
       onInvalid={onInvalid}

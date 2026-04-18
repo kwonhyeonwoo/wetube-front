@@ -5,12 +5,14 @@ interface Props<T extends FieldValues> {
   mode: "video" | "image";
   name: Path<T>;
   videoPreview:string | null;
+  addPreviewMedia:(e:React.ChangeEvent<HTMLInputElement>)=>void;
   register: UseFormRegister<T>;
 }
 const UploadVideo = <T extends FieldValues>({
   mode, 
   name,
   videoPreview,
+  addPreviewMedia,
   register}:Props<T>) => {
   return (
     <div >
@@ -42,7 +44,7 @@ const UploadVideo = <T extends FieldValues>({
             id="imgUpload"
             accept={mode === "video" ? "video/*" : "image/*"}
             className={styles.imgUploadInput}
-            {...register(name)}
+            onChange={addPreviewMedia}
           />
         </div>
       )}

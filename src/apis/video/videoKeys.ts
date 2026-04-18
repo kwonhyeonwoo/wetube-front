@@ -10,4 +10,5 @@ export const VIDEO_KEYS = {
     );
     return [...VIDEO_KEYS.all, "search", cleanFilters] as const;
   },
+  likes:(videoId:string, userId:string)=>[...VIDEO_KEYS.detail(videoId), 'likes',{userId}]
 };

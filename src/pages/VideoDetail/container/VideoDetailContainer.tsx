@@ -1,6 +1,7 @@
 import styles from "../css/index.module.css";
 import VideoPrimaryInfo from "@/components/video/VideoPrimaryInfo/VideoPrimaryInfo";
-import { useParams } from "react-router-dom";
+import { useNavigate,
+useParams } from "react-router-dom";
 import VideoComment from "@/pages/VideoComment/VideoComment";
 import type { CommentRequest, IComment } from "@/interfaces/comment.type";
 import CommentCount from "@/components/video/CommentCount/CommentCount";
@@ -10,16 +11,22 @@ import { useGetVideo } from "@/hooks/queries/video/useGetVideo";
 import { useGetVideosQuery } from "@/hooks/queries/video/useGetVideoQuery";
 import StorageList from "@/components/video/StorageList/StorageList";
 import Categories from "@/components/common/Categories/Categories";
+import { useToastStore } from "@/store/useToastStore";
 
 const VideoDetailContainer = () => {
   const {id} = useParams();
   const {data:video} = useGetVideo(id ?? "");
   const {data:videos} = useGetVideosQuery({category:undefined});
+  const {addToast} = useToastStore();
   const { register } = useForm<CommentRequest>();
+  const handleCopyUrl = () => {
+    navigator.clipboard.writeText(window.location.href);
+    addToast('주소가 복사되었습니다!');
+  };
   return (
     <main className={styles.videoDetailPage}>
       <section className={styles.videoSection}>
-        {video && <VideoPrimaryInfo video={video} />}
+        {video && <VideoPrimaryInfo video={video} handleCopyUrl={handleCopyUrl}/>}
         <CommentCount length="9" />
         <CommentInput register={register} />
         <div className={styles.comments}>

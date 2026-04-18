@@ -6,7 +6,8 @@ import type {CategoryType, VideoResponse } from "@/interfaces/media.type";
 export const videoService = {
   getVideo: async (id: string): Promise<VideoResponse> => {
     const response = await api.get(`/video/${id}`);
-    return await response.data.video;
+    console.log('get Video',response.data)
+    return  response.data.video;
   },
   getVideos: async (filters: {
     keyword?: string;
@@ -67,4 +68,9 @@ export const videoService = {
     });
     return await response.data;
   },
+
+  postLikeVideo:async(videoId:string)=>{
+    const response = await api.post(`/video/${videoId}/like`);
+    return response.data;
+  }
 };
