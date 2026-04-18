@@ -13,7 +13,6 @@ const HomeContainer = () => {
   const [currentCategory, setCurrentCategory] = useState<CategoryType>();
   const { data: videos } = useGetVideosQuery({category:currentCategory});
   const {data:shorts} = useGetShorts();
-  console.log('videos',videos)
   const handleVideoDetail = useCallback(
     (id:string) => {
       navigate(`/video/${id}`)

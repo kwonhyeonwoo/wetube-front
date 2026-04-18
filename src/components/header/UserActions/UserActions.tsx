@@ -33,7 +33,11 @@ const UserActions = ({user}:Props) => {
       </button>
       <Link to={`/user/${user.uid}`} className={styles.profile}>
           {user.profile ? 
-            <img alt={`${user.nickName}-profile`} className={styles.userProfile}/> : 
+            <img 
+              src={`${import.meta.env.VITE_APP_BASE_SRC}/${user.profile}`}
+              alt={`${user.nickName}-profile`} 
+              className={styles.userProfile}
+            /> : 
               <div className={styles.undeProfile}/>
           }
       </Link>

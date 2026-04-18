@@ -20,9 +20,12 @@ const ProfileSection = ({user}:Props) => {
   return (
     <section className={styles.profileSection}>
       {user?.avatar ? (
-        <img src={user.avatar} alt={`${user.nickName}-proifle`} />
+        <img 
+          className={styles.profile} 
+          src={`${import.meta.env.VITE_APP_BASE_SRC}/${user.avatar}`} 
+          alt={`${user.nickName}-proifle`} />
       ) : (
-        <div className={styles.profileSectionImage} />
+        <div className={styles.undeProfile} />
       )}
 
       <div className={styles.userInfoBox}>

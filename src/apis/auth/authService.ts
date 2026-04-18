@@ -1,6 +1,6 @@
-import type { VideoResponse } from "@/interfaces/media.type";import { api } from "../axiosInstance";
-import type { AccountRequest, LoginRequest, SessionResponse,  UserResponse } from "@/interfaces/auth.type";
+import type { VideoResponse } from "@/interfaces/media.type"; import { api } from "../axiosInstance";
 import type { UserEditType } from "@/schema/auth.schema";
+import type { AccountRequest, LoginRequest, SessionResponse, UserResponse } from "@/interfaces/auth.type";
 
 export const authService = {
   me: async (): Promise<SessionResponse> => {
@@ -20,7 +20,6 @@ export const authService = {
   },
   login: async (data: LoginRequest) => {
     const { email, password } = data;
-    console.log('email',email,'passsword',password)
     const response = await api.post("/user/login", {
       email,
       password,
@@ -28,32 +27,35 @@ export const authService = {
     return response.data;
   },
   getUser: async (id: string): Promise<UserResponse> => {
-    const response = await api.get(`/user/${id}`,{
-        params:{
-          limit:4
-        }
+    const response = await api.get(`/user/${id}`, {
+      params: {
+        limit: 4
+      }
     });
     return await response.data.user;
   },
-  getUserVideos:async(id:string):Promise<VideoResponse[]>=>{
+  getUserVideos: async (id: string): Promise<VideoResponse[]> => {
     const response = await api.get(`/user/${id}/videos`);
     return await response.data.videos;
   },
 
-  putUser:async({data,id}:{data:UserEditType, id:string})=>{
-    console.log('data',data);
+  putUser: async ({ data, id }: { data: UserEditType, id: string }) => {
     const formData = new FormData();
-    formData.append('name',data.name);
-    formData.append('nickName',data.nickName);
-    formData.append('email',data.email);
-    if(data.introduction){
-      formData.append('introduction',data.introduction);
+    if (data.introduction) {
+      formData.append('introduction', data.introduction);
     }
-    if(data.avatar && data.avatar.length > 0){
-      formData.append('avatar',data.avatar[0])
+    if (data.avatar) {
+      formData.append('avatar', data.avatar)
     };
-    const response = await api.put(`/user/${id}`,formData,);
-    console.log('responsedata',response.data);
-    return  response.data;
+    formData.append('name', data.name);
+    formData.append('nickName', data.nickName);
+    formData.append('email', data.email);
+
+    const response = await api.put(`/user/${id}`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      }
+    });
+    return response.data;
   }
 };

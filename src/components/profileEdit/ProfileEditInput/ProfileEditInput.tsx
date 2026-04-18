@@ -1,34 +1,42 @@
+import type { Path, UseFormRegister } from "react-hook-form";
 import styles from "./css/index.module.css";
+import type { UserEditType } from "@/schema/auth.schema";
 
 interface Props{
     label:string;
     type:string;
     placeholder:string;
     value:string;
+    name:Path<UserEditType>;
     textArea?:boolean;
-    handleChange:(e:React.ChangeEvent<HTMLInputElement>)=>void;
+    register:UseFormRegister<UserEditType>;
 }
 
 const ProfileEditInput = ({
     label,
     type,
     placeholder,
+    register,
     value,
+    name,
     textArea,
-    handleChange
 }:Props) => {
   return (
     <div className={styles.profileEditInputBox}>
       <label className={styles.label}>{label}</label>
       {textArea ? (
-        <textarea placeholder="간단한 소개문을 입력하여 주십시오!"  className={styles.textarea}/>
+        <textarea 
+          placeholder="간단한 소개문을 입력하여 주십시오!"  
+          {...register(name)}
+          className={styles.textarea}
+        />
       ) : (
         <input
           className={styles.input}
           type={type}
           value={value}
           placeholder={placeholder}
-          onChange={handleChange}
+          {...register(name)}
         />
       )}
     </div>

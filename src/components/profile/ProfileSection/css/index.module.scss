@@ -3,8 +3,12 @@
     justify-content: center;
     column-gap: 32px;
 }
-
-.profileSectionImage{
+.profile{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+}
+.undeProfile{
     width: 160px;
     height:160px;
     border-radius:50%;

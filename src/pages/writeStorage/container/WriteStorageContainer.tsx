@@ -3,13 +3,13 @@ import styles from "../css/index.module.css";
 import { useForm } from "react-hook-form";
 import ContentTextArea from "@/components/video/ContentTextArea/ContentTextArea";
 import SubmitButton from "@/components/common/SubmitButton/SubmitButton";
-import { usePreviewVideo } from "@/hooks/usePreviewVideo";
 import { storageSchema,
 type StorageType } from "@/schema/storage.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useToastStore } from "@/store/useToastStore";
 import { usePostStorage } from "@/hooks/queries/storage/useStorageMutation";
 import { useParams } from "react-router-dom";
+import { useMediaPreview } from "@/hooks/useMediaPreview";
 const WriteStorageContainer = () => {
   const {register,handleSubmit,watch} = useForm<StorageType>({
     resolver:zodResolver(storageSchema),
@@ -21,11 +21,9 @@ const WriteStorageContainer = () => {
   const {id} = useParams()
   const {mutate} = usePostStorage(id ?? "")
   const {addToast} = useToastStore();
-  const [videoPreview] = usePreviewVideo(watch('thumnail'));
+  const { mediaPreview, addPreviewMedia } = useMediaPreview();
 
   const onSubmit = (data:StorageType)=>{
-    console.log('tq');
-    console.log('data',data)
     mutate({
         title:data.title,
         thumnail:data.thumnail,
@@ -48,7 +46,7 @@ const WriteStorageContainer = () => {
         <UploadVideo 
             mode="image"
             name="thumnail"
-            videoPreview={videoPreview}
+            videoPreview={mediaPreview}
             register={register}
           />
             <div className={styles.titleInputBox}>

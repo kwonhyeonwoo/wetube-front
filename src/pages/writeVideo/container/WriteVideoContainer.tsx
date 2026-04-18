@@ -5,7 +5,7 @@ import { videoSchema,type VideoType, } from "@/schema/media.schema";
 import { useToastStore } from "@/store/useToastStore";
 import {useVideoMutation} from "@/hooks/queries/video/useVideoMutation";
 import VideoFormTemplate from "@/components/video/VideoFormTemplate/VideoFormTemplate";
-import { usePreviewVideo } from "@/hooks/usePreviewVideo";
+import { useMediaPreview } from "@/hooks/useMediaPreview";
 
 const WriteVideoContainer = () => {
   const {mutate} =useVideoMutation();
@@ -22,7 +22,7 @@ const WriteVideoContainer = () => {
               hashtags:[]
             }
   });
-  const [videoPreview] = usePreviewVideo(watch('video'));
+  const {mediaPreview,addPreviewMedia} = useMediaPreview();
   const onSubmit = useCallback(
     (data: VideoType) => {
       mutate({
@@ -43,7 +43,7 @@ const WriteVideoContainer = () => {
     <VideoFormTemplate
       currentCategory={currentCategory}
       currentTags={currentTags}
-      videoPreview={videoPreview}
+      videoPreview={mediaPreview}
       mediaName="video"
       register={register}
       setValue={setValue}

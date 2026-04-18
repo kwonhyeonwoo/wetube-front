@@ -5,49 +5,49 @@ import ProfileInfoEditBox from "@/components/profileEdit/ProfileInfoEditBox/Prof
 import SubmitButton from "@/components/common/SubmitButton/SubmitButton";
 import { useCallback } from "react";
 import { useGetUser } from "@/hooks/queries/auth/useAuthQuery";
-import { useForm,type SubmitErrorHandler,type SubmitHandler } from "react-hook-form";
+import { useForm,type SubmitErrorHandler } from "react-hook-form";
 import { baseAuthSchema,
 type UserEditType } from "@/schema/auth.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useUserEditMutation } from "@/hooks/queries/auth/useAuthMutation";
-import { usePreviewVideo } from "@/hooks/usePreviewVideo";
+import { useMediaPreview } from "@/hooks/useMediaPreview";
 
 const ProfileEditContainer = () => {
     const {id} = useParams();
     const {data:user} = useGetUser(id ?? "");
     const {mutate:editUser} = useUserEditMutation(id ?? "")
-    const {register, handleSubmit, watch,} = useForm<UserEditType>({
+    const {register, handleSubmit, watch,setValue} = useForm<UserEditType>({
       resolver:zodResolver(baseAuthSchema),
       values : user ? {
           nickName:user.nickName,
           name:user.name,
           email:user.email,
-    avatar: undefined,
+          avatar: user?.avatar as File | undefined,
+          introduction: user?.introduction,
       }:undefined 
     });
-    const [videoPreview] = usePreviewVideo(watch('avatar'))
-    const onSubmit:SubmitHandler<UserEditType> = useCallback(
-      (data) => {
-        console.log('data',data)
-        if(id){
-          editUser({data:{
-            nickName:data.nickName,
-            name:data.name,
-            email:data.email,
-            avatar:data.avatar ?? watch('avatar'),
-            introduction: data.introduction ?? watch('introduction')
-          }, id});
+    const {mediaPreview, addPreviewMedia} = useMediaPreview({setValue,name:"avatar"});
+
+      const onSubmit = (data: UserEditType) => {
+        if (id) {
+          editUser({
+            data: {
+              nickName: data.nickName,
+              name: data.name,
+              email: data.email,
+              avatar: data.avatar,
+              introduction: data.introduction,
+            },
+            id,
+          });
         }
-      },
-      [id],
-    )
-    const onInValid :SubmitErrorHandler<UserEditType>=useCallback(
+      };
+          const onInValid :SubmitErrorHandler<UserEditType>=useCallback(
       (error) => {
         console.log('error',error)
       },
       [],
     )
-    
     if(!user){
       return ;
     }
@@ -62,8 +62,12 @@ const ProfileEditContainer = () => {
       </section>
       <section className={styles.profileEditSection}>
         <form onSubmit={handleSubmit(onSubmit,onInValid)} className={styles.profileForm}>
-          <ProfileImageEdit  avatar={videoPreview} data={user}watch={watch} register={register}/>
-          <ProfileInfoEditBox data={user} />
+          <ProfileImageEdit  
+              avatarPreview={mediaPreview} 
+              data={user}
+              addPreviewMedia={addPreviewMedia}
+          />
+          <ProfileInfoEditBox watch={watch} register={register} />
           <div className={styles.btnBox}>
             <SubmitButton text="수정하기" type="submit" handleSubmit={() => {}} />
           </div>

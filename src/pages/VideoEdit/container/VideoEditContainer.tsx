@@ -9,20 +9,19 @@ import UploadDropMenu from "@/components/writeVideo/UploadDropMenu/UploadDropMen
 import { videoEditSchema, type VideoEditType } from "@/schema/media.schema";
 import SubmitButton from "@/components/common/SubmitButton/SubmitButton";
 import PlayerIcon from "@/assets/video/play.svg?react";
-import { usePreviewVideo } from "@/hooks/usePreviewVideo";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useVideoPutMutation } from "@/hooks/queries/video/useVideoMutation";
+import { useMediaPreview } from "@/hooks/useMediaPreview";
 
 const VideoEditContainer = () => {
     const {id} = useParams();
-    const {data:video , isLoading, isError} = useGetVideoQuery(id ?? "");
+    const {data:video , isLoading} = useGetVideoQuery(id ?? "");
     const {mutate:putVideo} = useVideoPutMutation(video?._id ?? "");
     const {
       register,
       handleSubmit,
       setValue,
       watch,
-      formState: { errors },
     } = useForm<VideoEditType>({
       resolver: zodResolver(videoEditSchema),
       // video가 있을 때만 객체를 만들어주고, 없으면 통째로 undefined를 줍니다.
@@ -35,7 +34,7 @@ const VideoEditContainer = () => {
           }
         : undefined,
     });
-    const [videoPreview] = usePreviewVideo(watch("video"));
+    const {mediaPreview, addPreviewMedia} = useMediaPreview({setValue,name:"video"});
 
     const onSubmit : SubmitHandler<VideoEditType>= (data)=>{
         if (!video?._id) return;
@@ -68,16 +67,16 @@ const VideoEditContainer = () => {
             </label>
             <input
               type="file"
-              {...register("video")}
+                onChange={addPreviewMedia}
               id="video"
               style={{ display: "none" }}
             />
             <video
               className={styles.video}
-              controls={videoPreview === null ? false : true}
+              controls={mediaPreview === null ? false : true}
               src={
-                videoPreview
-                  ? videoPreview
+                mediaPreview
+                  ? mediaPreview
                   : `${import.meta.env.VITE_APP_BASE_SRC}/${video.video}`
               }
             />
