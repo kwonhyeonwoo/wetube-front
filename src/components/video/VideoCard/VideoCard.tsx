@@ -68,7 +68,7 @@ const VideoCard = ({
         <div className={styles.videoCardWrapperInfoContent}>
           <p className={styles.videoCardWrapperInfoContentText}>{title}</p>
           <div className={styles.videoCardWrapperInfoContentAuthor}>
-            <p className={styles.videoCardWrapperInfoAuthorText}>{nickName}</p>
+            <p className={styles.nickName}>{nickName}</p>
             <p className={styles.videoCardWrapperInfoAuthorText}>
               조회수: {views}회 • 2일 전
             </p>

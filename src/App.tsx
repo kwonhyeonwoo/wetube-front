@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { matchPath, Route, Routes, useLocation, useParams } from 'react-router-dom';
 import RootRoute from './routes/RootRoute';
 import VideoRoute from './routes/VideoRoute';
 import UserRoute from './routes/UserRoute';
@@ -32,7 +32,13 @@ const routes = [
 ]
 function App() {
   const {pathname} = useLocation();
-  const isSidebar = pathname.includes('/user/login') || pathname.includes('/user/account')
+  const isVideoDetail = matchPath("/video/:id", pathname);
+  const isSidebar =
+    pathname.includes("/user/login") ||
+    pathname.includes("/user/account") ||
+    pathname.includes("/video") ||
+    isVideoDetail;
+
   const {data,isLoading} = useGetMe();
   const {setUser} = useUserStore();
   useEffect(()=>{

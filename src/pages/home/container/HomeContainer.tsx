@@ -25,7 +25,7 @@ const HomeContainer = () => {
     },
     [currentCategory],
   );
-  
+  console.log('video',videos)
   return (
     <main className={styles.homePage}>
       <Categories
@@ -37,6 +37,7 @@ const HomeContainer = () => {
           <VideoCard
             key={item._id}
             {...item}
+            nickName={item.owner.nickName}
             ownerId={item.owner._id}
             handleVideoDetail={handleVideoDetail}
           />

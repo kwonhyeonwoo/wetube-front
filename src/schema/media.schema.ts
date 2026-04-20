@@ -1,21 +1,21 @@
 import { z } from "zod";
 export const baseMediaSchema = z.object({
-    title: z.string().min(5, "최소 5글자 이상 입니다.").max(50, "최대 50글자 입니다."),
-    content: z.string().min(10, "최소 10글자 이상 입니다.").max(1000, "최대 1000글자 입니다."),
+    title: z.string().min(5, "최소 5글자 이상 입니다."),
+    content: z.string().min(10, "최소 10글자 이상 입니다."),
     categories: z.enum(["movie", "music", "product-design", "building", "game", "live", "cooking", "recents"]),
     hashtags: z.array(z.string()),
 });
 
 export const videoSchema = baseMediaSchema.extend({
-    video: z.instanceof(FileList)
+    video: z.instanceof(File)
 });
 
 export const shortsSchema = baseMediaSchema.extend({
-    shorts: z.instanceof(FileList)
+    shorts: z.instanceof(File)
 });
 
 export const videoEditSchema = baseMediaSchema.extend({
-    video: z.instanceof(FileList).optional(),
+    video: z.instanceof(File).optional(),
 })
 
 // infer은 zod에서 사용 한 타입을 typscript로 다시 변환해주는 기능

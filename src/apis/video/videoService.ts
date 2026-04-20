@@ -21,7 +21,7 @@ export const videoService = {
   postVideo: async (data: VideoType) => {
     const formData = new FormData();
     formData.append("title", data.title);
-    formData.append("video", data.video[0]);
+    formData.append("video", data.video);
     formData.append("content", data.content);
     formData.append("categories", data.categories);
     formData.append("hashtags", JSON.stringify(data.hashtags));
@@ -55,7 +55,7 @@ export const videoService = {
   }) => {
     const formData = new FormData();
     if (data.video) {
-      formData.append("video", data.video[0]);
+      formData.append("video", data.video);
     }
     formData.append("title", data.title);
     formData.append("content", data.content);

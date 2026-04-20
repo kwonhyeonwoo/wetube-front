@@ -41,7 +41,7 @@ const VideoDetailContainer = () => {
         </div>
         <div className={styles.cateLists}>
           {videos?.map((item, idx) => (
-            <StorageList item={item} number={idx + 1} />
+            <StorageList item={item}  />
           ))}
         </div>
       </section>

@@ -16,8 +16,8 @@
   transition: max-height 0.2s ease-in-out;
 }
 
-.activeCotent {
-  max-height: 500px;
+.activeContent {
+  max-height: 1500px;
   -webkit-transition: max-height 0.2s ease-in-out;
   transition: max-height 0.2s ease-in-out;
 }

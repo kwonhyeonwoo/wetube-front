@@ -18,6 +18,7 @@ const ProfileContainer = () => {
         text="내 동영상"
         userId={id}
         videos={user?.videos}
+        nickName={user?.nickName}
         handleVideoDetail={handleVideoDetail}
       />
       <VideosSection

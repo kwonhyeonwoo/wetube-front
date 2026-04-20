@@ -8,6 +8,7 @@ import type { VideoResponse } from "@/interfaces/media.type";
 import VideoAuthorProfile from "../VideoAuthorProfile/VideoAuthorProfile";
 import VideoLikeBtn from "../VideoLikeBtn/VideoLikeBtn";
 import { useRef,useState } from "react";
+import VideoPlayContainer from "../VideoPlay/container/VideoPlayContainer";
 
 interface Props{
     video:VideoResponse;
@@ -15,27 +16,9 @@ interface Props{
 }
 
 const VideoPrimaryInfo = ({video,handleCopyUrl}:Props) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const handlePlayer = ()=>{
-    setIsPlaying(!isPlaying)
-      if(!isPlaying){
-        videoRef.current?.play()
-      }else{
-        videoRef.current?.pause();
-      }
-  }
   return (
     <div className={styles.videoBox}>
-      <div className={styles.videoWrap}>
-        <video
-          ref={videoRef}
-          className={styles.video}
-          src={`${import.meta.env.VITE_APP_BASE_SRC}/${video.video}`}
-        />
-        <button onClick={handlePlayer}>Play</button>
-      </div>
+     <VideoPlayContainer video={video.video}/>
       {/* infobox -> 제목, 프로필,닉네임,공유하기,저장하기 버튼 모음 */}
       <div className={styles.videoInfoBox}>
         <h2 className={styles.videoTitle}>{video.title}</h2>
@@ -65,7 +48,7 @@ const VideoPrimaryInfo = ({video,handleCopyUrl}:Props) => {
         content={video.content}
         views="1.8만회"
         date="5개월전"
-        tags={["#운동", "#취미", "#힙"]}
+        tags={video.hashtags}
       />
     </div>
   );

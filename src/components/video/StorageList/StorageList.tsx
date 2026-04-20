@@ -2,22 +2,15 @@ import type { VideoResponse } from "@/interfaces/media.type";import styles from 
 
 interface Props{
     item:VideoResponse;
-    number:number;
 }
 
 const StorageList = ({
     item,
-    number
 }:Props) => {
   return (
-    <div className={styles.storageList}>
-      <div className={styles.storageNumberBox}>
-        <p className={styles.storageNumber}>{String(number)}</p>
-      </div>
       <div className={styles.storageInfoBox}>
         <div className={styles.videoBox}>
           <video src={`${import.meta.env.VITE_APP_BASE_SRC}/${item.video}`}/>
-          {/* <img src={TestImg} alt="test-img" /> */}
         </div>
         <div className={styles.infoBox}>
           <p className={styles.title}>{item.title}</p>
@@ -33,7 +26,6 @@ const StorageList = ({
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

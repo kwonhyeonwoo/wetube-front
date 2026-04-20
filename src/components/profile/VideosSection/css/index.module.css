@@ -1,6 +1,6 @@
 .videoTitle {
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .videoSection {
@@ -16,7 +16,7 @@
 
 .videoGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   -webkit-column-gap: 24px;
      -moz-column-gap: 24px;
           column-gap: 24px;

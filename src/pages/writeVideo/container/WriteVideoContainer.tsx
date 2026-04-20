@@ -34,7 +34,8 @@ const WriteVideoContainer = () => {
       });
     },[mutate],
   );
-  const onInvalid = ()=>{
+  const onInvalid = (err:any)=>{
+    console.log('err',err)
     addToast('내용을 전부 채워주세요.')
   }
   const currentCategory = watch('categories');

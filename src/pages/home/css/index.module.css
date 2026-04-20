@@ -14,7 +14,7 @@
 
 .videoSection {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   -webkit-column-gap: 10px;
      -moz-column-gap: 10px;
           column-gap: 10px;

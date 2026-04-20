@@ -7,11 +7,18 @@ type MediaType = VideoResponse[] | ShortsResponse[]
 interface Props {
   videos: MediaType | undefined;
   text: string;
-  userId:string | undefined;
+  userId: string | undefined;
+  nickName?: string;
   handleVideoDetail: (id: string) => void;
 }
 
-const VideosSection = ({ videos, text,userId, handleVideoDetail }: Props) => {
+const VideosSection = ({
+  videos,
+  text,
+  nickName,
+  userId,
+  handleVideoDetail,
+}: Props) => {
   return (
     <section className={styles.videoSection}>
       <div className={styles.videoTitleBox}>
@@ -27,6 +34,7 @@ const VideosSection = ({ videos, text,userId, handleVideoDetail }: Props) => {
             key={idx}
             {...item}
             ownerId={userId ?? ""}
+            nickName={nickName}
             handleVideoDetail={handleVideoDetail}
           />
         ))}

@@ -20,7 +20,7 @@ const VideoContent = ({
     }
   return (
     <div className={
-        `${styles.videoContentWrapper} ${isOpen}`
+        `${styles.videoContentWrapper} ${isOpen && styles.activeContent}`
     }>
         {/* 조회수, 시간, 태그 */}
         <div className={styles.metaBox}>

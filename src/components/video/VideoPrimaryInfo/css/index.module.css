@@ -9,18 +9,6 @@
   row-gap: 16px;
 }
 
-.videoWrap {
-  width: 100%;
-  height: 441px;
-  border-radius: 16px;
-}
-
-.testVideo {
-  width: 100%;
-  height: 441px;
-  background: var(--color-bg-light);
-}
-
 .videoInfoBox {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -34,16 +22,9 @@
   overflow: hidden;
 }
 
-.video {
-  width: 100%;
-  height: 441px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 16px;
-}
-
 .videoTitle {
   font-size: 24px;
+  font-weight: 700;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
