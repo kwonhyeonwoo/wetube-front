@@ -22,6 +22,8 @@ export interface UserResponse{
     email:string;
     avatar?:string;
     createdAt:Date;
+    followers:string[];
+    following:string[];
     saveVideos:VideoResponse[];
     videos:VideoResponse[];
     shorts:ShortsResponse[]

@@ -1,3 +1,4 @@
+import type { IComment } from "@/interfaces/comment.type";
 import { api } from "../axiosInstance"
 
 export const commentService ={
@@ -6,5 +7,11 @@ export const commentService ={
             comment,
         });
         return await response.data;
+    },
+
+    getComments:async(videoId:string):Promise<IComment[]>=>{
+        const response = await api.get(`/comment/${videoId}`);
+        console.log('first',response.data)
+        return await response.data.comment;
     }
 }

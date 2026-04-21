@@ -26,6 +26,10 @@ export const authService = {
     });
     return response.data;
   },
+  logout:async()=>{
+      const response = await api.post('/user/logout');
+      return response.data;
+  },
   getUser: async (id: string): Promise<UserResponse> => {
     const response = await api.get(`/user/${id}`, {
       params: {
@@ -57,5 +61,10 @@ export const authService = {
       }
     });
     return response.data;
+  },
+
+  postUserFollow:async(followId:string)=>{
+      const response = await api.post(`/user/${followId}/follow`);
+      return await response.data;
   }
 };

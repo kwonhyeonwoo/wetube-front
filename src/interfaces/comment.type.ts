@@ -1,14 +1,18 @@
 export interface IComment{
+    _id:string;
     comment:string;
-    profile?:string;
-    nickName:string;
-    date:string;
-    cmtId:string;
-    authorId:string;
+    owner:{
+        _id:string;
+        nickName:string;
+    }
+    video:string;
+    createdAt:Date;
 }
 
 export interface CommentRequest {
     authorId:string;
     videoId:string;
     comment:string;
+    createdAt:Date;
+    
 }

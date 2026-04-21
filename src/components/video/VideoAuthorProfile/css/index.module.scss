@@ -30,7 +30,12 @@
     padding: 8px 24px;
     box-sizing: border-box;
     font-size: 14px;
+    font-weight: 700;
     color: white;
     border-radius: 9999px;
     background-color: black;
+}
+.activeFollow{
+    background-color: var(--color-bg-light);
+    color: black;
 }

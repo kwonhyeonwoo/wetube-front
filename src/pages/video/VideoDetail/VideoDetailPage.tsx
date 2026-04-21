@@ -11,20 +11,22 @@ import { useGetVideosQuery } from "@/hooks/queries/video/useGetVideoQuery";
 import StorageList from "@/components/video/StorageList/StorageList";
 import Categories from "@/components/common/Categories/Categories";
 import { useToastStore } from "@/store/useToastStore";
+import { useGetComment } from "@/hooks/queries/comment/useGetComment";
 
 const VideoDetailPage = () => {
   const {id} = useParams();
   const {data:video} = useGetVideo(id ?? "");
   const {data:videos} = useGetVideosQuery({category:undefined});
+  const {data:comments} = useGetComment(id ?? "")
   return (
     <main className={styles.videoDetailPage}>
       <section className={styles.videoSection}>
         {video && <VideoPrimaryInfo paramsId={id} video={video} />}
-        <CommentCount length="9" />
+        <CommentCount length={String(comments?.length)} />
         <CommentInput videoId ={id}/>
         <div className={styles.comments}>
-          {comments.map((item) => (
-            <VideoComment {...item} commentCount={String(comments.length)} />
+          {comments?.map((item) => (
+              <VideoComment key={item._id} {...item}/>
           ))}
         </div>
       </section>
@@ -46,62 +48,3 @@ const VideoDetailPage = () => {
 };
 
 export default VideoDetailPage;
-
-const comments: IComment[] = [
-  {
-    comment: "너무 이뻐요 이거 어뜩해요?",
-    nickName: "사악한혀누",
-    date: "1개월 전",
-    cmtId: "jsdkljfksjkfl",
-    authorId: "sdjflksj12345",
-  },
-  {
-    comment: "너무 이뻐요 이거 어뜩해요?",
-    nickName: "사악한혀누",
-    date: "1개월 전",
-    cmtId: "jsdkljfksjkfl",
-    authorId: "sdjflksj12345",
-  },
-  {
-    comment: "너무 이뻐요 이거 어뜩해요?",
-    nickName: "사악한혀누",
-    date: "1개월 전",
-    cmtId: "jsdkljfksjkfl",
-    authorId: "sdjflksj12345",
-  },
-  {
-    comment: "너무 이뻐요 이거 어뜩해요?",
-    nickName: "사악한혀누",
-    date: "1개월 전",
-    cmtId: "jsdkljfksjkfl",
-    authorId: "sdjflksj12345",
-  },
-  {
-    comment: "너무 이뻐요 이거 어뜩해요?",
-    nickName: "사악한혀누",
-    date: "1개월 전",
-    cmtId: "jsdkljfksjkfl",
-    authorId: "sdjflksj12345",
-  },
-  {
-    comment: "너무 이뻐요 이거 어뜩해요?",
-    nickName: "사악한혀누",
-    date: "1개월 전",
-    cmtId: "jsdkljfksjkfl",
-    authorId: "sdjflksj12345",
-  },
-  {
-    comment: "너무 이뻐요 이거 어뜩해요?",
-    nickName: "사악한혀누",
-    date: "1개월 전",
-    cmtId: "jsdkljfksjkfl",
-    authorId: "sdjflksj12345",
-  },
-  {
-    comment: "너무 이뻐요 이거 어뜩해요?",
-    nickName: "사악한혀누",
-    date: "1개월 전",
-    cmtId: "jsdkljfksjkfl",
-    authorId: "sdjflksj12345",
-  },
-];

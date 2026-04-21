@@ -1,5 +1,5 @@
+import { COMMENT_KEYS } from "@/apis/comment/commentKeys";
 import { commentService } from "@/apis/comment/commentService";
-import { VIDEO_KEYS } from "@/apis/video/videoKeys";
 import { useToastStore } from "@/store/useToastStore";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
@@ -10,8 +10,8 @@ const usePostComment = (videoId:string)=>{
         mutationFn:commentService.postComment,
         onSuccess:(data)=>{
             queryClient.invalidateQueries({
-              queryKey: VIDEO_KEYS.detail(videoId),
-            });
+                queryKey: COMMENT_KEYS.list(videoId), 
+              });
             addToast('댓글을 생성하였습니다')
         }
     })

@@ -34,6 +34,7 @@ const VideoPrimaryInfo = ({ video, paramsId }: Props) => {
   )
   const isActive =
     video.owner.saveVideos?.some((item) => item._id === paramsId) || false;
+  console.log('video',video)
   return (
     <div className={styles.videoBox}>
       <VideoPlayContainer video={video.video} paramsId={paramsId} />
@@ -41,7 +42,12 @@ const VideoPrimaryInfo = ({ video, paramsId }: Props) => {
       <div className={styles.videoInfoBox}>
         <h2 className={styles.videoTitle}>{video.title}</h2>
         <div className={styles.flexBox}>
-          <VideoAuthorProfile nickName={video.owner.nickName} />
+          <VideoAuthorProfile  
+            videoId={video._id}
+            followers={video.owner.followers}
+            videoOwnerId={video.owner._id}
+            nickName={video.owner.nickName} 
+          />
           <div className={styles.videoActions}>
             <VideoLikeBtn likes={video.likes ?? []} />
             <ActionButton
