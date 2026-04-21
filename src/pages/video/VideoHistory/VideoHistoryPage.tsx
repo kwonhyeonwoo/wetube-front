@@ -1,11 +1,11 @@
 import { HISTORY_TABS } from "@/constants/historyConstants";
-import styles from "../css/index.module.css";
+import styles from "./css/index.module.css";
 import { useState } from "react";
 import HistoryVideoCard from "@/components/HistoryVideoCard/HistoryVideoCard";
 import MediaTabs from "@/components/video/MediaTabs/MediaTabs";
 import type { VideoResponse } from "@/interfaces/media.type";
 
-const VideoHistoryContainer = () => {
+const VideoHistoryPage = () => {
     const [tab, setTab] = useState<string>("history");
     const handleTabClicked = (key:string)=>{
         setTab(key);
@@ -36,7 +36,7 @@ const VideoHistoryContainer = () => {
   );
 }
 
-export default VideoHistoryContainer;
+export default VideoHistoryPage;
 
 const historyVideos: VideoResponse[] = [
   {

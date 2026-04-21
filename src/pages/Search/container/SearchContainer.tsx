@@ -7,6 +7,7 @@ const SearchContainer = () => {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const keyword = searchParams.get('keyword') || ""
+    const categories = searchParams.get("category") || "";
     const {data:videos, isLoading} = useGetSearchVideos({keyword});
     const handleNavigate = useCallback(
       (id:string) => {
@@ -14,7 +15,7 @@ const SearchContainer = () => {
       },
       [],
     )
-    
+    console.log("keyword", categories);
     if(isLoading){
         <div>Loading...</div>
     }
@@ -29,6 +30,8 @@ const SearchContainer = () => {
         {videos.map((item) => (
           <VideoCard
             {...item}
+            ownerId={item.owner._id}
+            nickName={item.owner.nickName}
             handleVideoDetail={handleNavigate}
             key={item._id}
           />

@@ -7,7 +7,7 @@ import {useVideoMutation} from "@/hooks/queries/video/useVideoMutation";
 import VideoFormTemplate from "@/components/video/VideoFormTemplate/VideoFormTemplate";
 import { useMediaPreview } from "@/hooks/useMediaPreview";
 
-const WriteVideoContainer = () => {
+const VideoWritePage = () => {
   const {mutate} =useVideoMutation();
   const { addToast } = useToastStore();
   const {
@@ -56,4 +56,4 @@ const WriteVideoContainer = () => {
   );
 }
 
-export default WriteVideoContainer
+export default VideoWritePage

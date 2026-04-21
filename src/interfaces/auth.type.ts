@@ -22,6 +22,7 @@ export interface UserResponse{
     email:string;
     avatar?:string;
     createdAt:Date;
+    saveVideos:VideoResponse[];
     videos:VideoResponse[];
     shorts:ShortsResponse[]
 }

@@ -6,17 +6,20 @@ import type {CategoryType, VideoResponse } from "@/interfaces/media.type";
 export const videoService = {
   getVideo: async (id: string): Promise<VideoResponse> => {
     const response = await api.get(`/video/${id}`);
-    console.log('get Video',response.data)
-    return  response.data.video;
+    return response.data.video;
   },
   getVideos: async (filters: {
     keyword?: string;
     category?: CategoryType;
   }): Promise<VideoResponse[]> => {
-    const response = await api.get(
-      `/video?keyword=${filters.keyword}&category=${filters.category}`,
-    );
-    return (await response.data.videos) || [];
+    const response = await api.get("/video", {
+      params: {
+        keyword: filters.keyword,
+        category: filters.category,
+      },
+    });
+
+    return response.data.videos || [];
   },
   postVideo: async (data: VideoType) => {
     const formData = new FormData();
@@ -69,8 +72,24 @@ export const videoService = {
     return await response.data;
   },
 
-  postLikeVideo:async(videoId:string)=>{
+  postLikeVideo: async (videoId: string) => {
     const response = await api.post(`/video/${videoId}/like`);
     return response.data;
+  },
+
+  postVideoViewsIncrease:async(videoId:string)=>{
+    const response = await api.post(`/video/${videoId}/views`);
+    return await response.data;
+  },
+
+  postVideoSave:async(videoId:string)=>{
+      const response = await api.post(`/video/${videoId}/save`);
+      return await response.data;
+  },
+
+  getVideoSave: async(userId:string):Promise<VideoResponse[]>=>{
+    const response = await api.get(`/video/saved`);
+    console.log('first',response.data.videos);
+    return await response.data.videos;
   }
 };

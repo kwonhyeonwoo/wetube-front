@@ -39,12 +39,12 @@ export const getSidebarContents = (subscriptions: ISubscription[],userId:string)
             {
                 text: "기록",
                 icon: HistoryIcon,
-                link: "/video/history",
+                link: `/video/${userId}/history`,
             },
             {
                 text: "보관함",
                 icon: PlayListsIcon,
-                link: `/user/${userId}/storage`
+                link: `/video/${userId}/storage`
             }
         ]
     }

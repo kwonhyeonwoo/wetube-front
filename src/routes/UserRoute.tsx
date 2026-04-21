@@ -4,7 +4,6 @@ import LoginContainer from "../pages/login/container/LoginContainer"
 import ProfileContainer from "../pages/profile/container/ProfileContainer"
 import ProfileEditContainer from "@/pages/profileEdit/container/ProfileEditContainer"
 import MyVideosContainer from "@/pages/MyVideos/container/MyVidoesContainer"
-import VideoStorageContainer from "@/pages/VideoStorage/container/VideoStorageContainer"
 import StorageDetailContainer from "@/pages/StorageDetail/container/StorageDetailContainer"
 import WriteStorageContainer from "@/pages/writeStorage/container/WriteStorageContainer"
 
@@ -28,10 +27,6 @@ const routes = [
     {
         path:"/:id/videos",
         element:<MyVideosContainer/>
-    },
-    {
-        path:"/:id/storage",
-        element:<VideoStorageContainer/>
     },
     {
         path:"/:userId/storage/:storageId",

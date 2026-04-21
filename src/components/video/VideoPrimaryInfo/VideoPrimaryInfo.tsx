@@ -7,25 +7,43 @@ import MeatBallIcon from "@/assets/common/meatball.svg?react";
 import type { VideoResponse } from "@/interfaces/media.type";
 import VideoAuthorProfile from "../VideoAuthorProfile/VideoAuthorProfile";
 import VideoLikeBtn from "../VideoLikeBtn/VideoLikeBtn";
-import { useRef,useState } from "react";
 import VideoPlayContainer from "../VideoPlay/container/VideoPlayContainer";
+import { useToastStore } from "@/store/useToastStore";
+import usePostVideoSave from "@/hooks/queries/video/usePostVideoSave";
+import { useCallback } from "react";
 
 interface Props{
     video:VideoResponse;
-    handleCopyUrl:()=>void
+    paramsId:string | undefined;
 }
 
-const VideoPrimaryInfo = ({video,handleCopyUrl}:Props) => {
+const VideoPrimaryInfo = ({ video, paramsId }: Props) => {
+  const { mutate } = usePostVideoSave(paramsId ?? "");
+  const { addToast } = useToastStore();
+  const handleCopyUrl = () => {
+    navigator.clipboard.writeText(window.location.href);
+    addToast("주소가 복사되었습니다!");
+  };
+  const handleVideoSave = useCallback(
+    () => {
+      if(paramsId){
+        mutate(paramsId);
+      }
+    },
+    [mutate],
+  )
+  const isActive =
+    video.owner.saveVideos?.some((item) => item._id === paramsId) || false;
   return (
     <div className={styles.videoBox}>
-     <VideoPlayContainer video={video.video}/>
+      <VideoPlayContainer video={video.video} paramsId={paramsId} />
       {/* infobox -> 제목, 프로필,닉네임,공유하기,저장하기 버튼 모음 */}
       <div className={styles.videoInfoBox}>
         <h2 className={styles.videoTitle}>{video.title}</h2>
         <div className={styles.flexBox}>
-          <VideoAuthorProfile nickName={video.owner.nickName}/>
+          <VideoAuthorProfile nickName={video.owner.nickName} />
           <div className={styles.videoActions}>
-            <VideoLikeBtn likes={video.likes ?? []}/>
+            <VideoLikeBtn likes={video.likes ?? []} />
             <ActionButton
               Icon={ShareIcon}
               text="공유하기"
@@ -34,24 +52,25 @@ const VideoPrimaryInfo = ({video,handleCopyUrl}:Props) => {
             <ActionButton
               Icon={SaveIcon}
               text="보관함 저장"
-              handleActive={() => {}}
+              isActive={isActive}
+              handleActive={handleVideoSave}
             />
             <ActionButton
               Icon={MeatBallIcon}
               text=""
-              handleActive={() => {}}
+              handleActive={()=>{}}
             />
           </div>
         </div>
       </div>
       <VideoContent
         content={video.content}
-        views="1.8만회"
+        views={video.meta.views}
         date="5개월전"
         tags={video.hashtags}
       />
     </div>
   );
-}
+};
 
 export default VideoPrimaryInfo

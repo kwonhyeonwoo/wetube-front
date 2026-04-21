@@ -3,7 +3,7 @@ import { VIDEO_KEYS } from "@/apis/video/videoKeys";
 import { videoService } from "@/apis/video/videoService";
 import { useToastStore } from "@/store/useToastStore";
 import useUserStore from "@/store/useUserStore";
-import { useMutation, useQueryClient } from "@tanstack/react-query"
+import {  useMutation, useQueryClient } from "@tanstack/react-query"
 import { useNavigate } from "react-router-dom";
 
 export const useVideoMutation = ()=>{
@@ -57,6 +57,16 @@ export const useVideoLikePostMutation = ({userId,videoId}:{userId:string,videoId
                 queryKey: VIDEO_KEYS.detail(videoId) 
               });
             addToast(data.message)
+        }
+    })
+}
+
+export const useVideoViewsPostMutation= (videoId:string)=>{
+    const queyClient = useQueryClient();
+    return useMutation({
+        mutationFn:videoService.postVideoViewsIncrease,
+        onSuccess:(data)=>{
+            queyClient.invalidateQueries({queryKey:VIDEO_KEYS.detail(videoId)})
         }
     })
 }

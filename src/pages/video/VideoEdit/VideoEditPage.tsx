@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import styles from "../css/index.module.css";
+import styles from "./css/index.module.css";
 import { useGetVideoQuery } from "@/hooks/queries/video/useGetVideoQuery";
 import { useForm, type SubmitErrorHandler, type SubmitHandler } from "react-hook-form";
 import VideoCustomInput from "@/components/video/VideoCustomInput/VideoCustomInput";
@@ -13,7 +13,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useVideoPutMutation } from "@/hooks/queries/video/useVideoMutation";
 import { useMediaPreview } from "@/hooks/useMediaPreview";
 
-const VideoEditContainer = () => {
+const VideoEditPage = () => {
     const {id} = useParams();
     const {data:video , isLoading} = useGetVideoQuery(id ?? "");
     const {mutate:putVideo} = useVideoPutMutation(video?._id ?? "");
@@ -113,4 +113,4 @@ const VideoEditContainer = () => {
   );
 }
 
-export default VideoEditContainer
+export default VideoEditPage

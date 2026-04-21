@@ -3,7 +3,7 @@ import styles from "./css/index.module.css";
 
 interface Props{
     content:string;
-    views:string;
+    views:number;
     date:string;
     tags:string[];
 }
@@ -25,7 +25,7 @@ const VideoContent = ({
         {/* 조회수, 시간, 태그 */}
         <div className={styles.metaBox}>
             <div className={styles.boldTextBox}>
-                <p className={styles.boldText}>{views}</p>
+                <p className={styles.boldText}>{views}회</p>
                 <p className={styles.boldText}>{date}</p>
             </div>
             <div className={styles.tagBox}>

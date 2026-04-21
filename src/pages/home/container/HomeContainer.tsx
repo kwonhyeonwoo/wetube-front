@@ -25,7 +25,6 @@ const HomeContainer = () => {
     },
     [currentCategory],
   );
-  console.log('video',videos)
   return (
     <main className={styles.homePage}>
       <Categories

@@ -20,6 +20,7 @@
   -webkit-column-gap: 24px;
      -moz-column-gap: 24px;
           column-gap: 24px;
+  row-gap: 41px;
 }
 
 .videoTitleBox {
