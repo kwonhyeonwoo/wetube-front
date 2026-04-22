@@ -6,6 +6,7 @@ import type {CategoryType, VideoResponse } from "@/interfaces/media.type";
 export const videoService = {
   getVideo: async (id: string): Promise<VideoResponse> => {
     const response = await api.get(`/video/${id}`);
+    console.log('response',await response.data)
     return response.data.video;
   },
   getVideos: async (filters: {
@@ -71,7 +72,10 @@ export const videoService = {
     });
     return await response.data;
   },
-
+  deleteVideo:async(videoId:string)=>{
+    const response = await api.delete(`/video/${videoId}`);
+    return response.data;
+  },
   postLikeVideo: async (videoId: string) => {
     const response = await api.post(`/video/${videoId}/like`);
     return response.data;
@@ -83,7 +87,7 @@ export const videoService = {
   },
 
   postVideoSave:async(videoId:string)=>{
-      const response = await api.post(`/video/${videoId}/save`);
+      const response = await api.post(`/user/${videoId}/save`);
       return await response.data;
   },
 

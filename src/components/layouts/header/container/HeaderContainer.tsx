@@ -2,14 +2,16 @@ import styles from "../css/index.module.css";
 import LeftHeader from '@/components/header/LeftHeader/LeftHeader';
 import CenterHeader from "@/components/header/CenterHeader/CenterHeader";
 import RightHeader from "@/components/header/RightHeader/RightHeader";
-import useUserStore from "@/store/useUserStore";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { useCallback,  } from "react";
 import { useNavigate } from "react-router-dom";
+import type { SessionUser } from "@/interfaces/auth.type";
 
-const HeaderContainer = () => {
+interface Props{
+  user:SessionUser;
+}
+const HeaderContainer = ({user}:Props) => {
   const navigate = useNavigate();
-  const {user} = useUserStore();  
   const { register, handleSubmit ,} = useForm<{ keyword: string }>();
   const onSubmit: SubmitHandler<{ keyword: string }> = useCallback(
     (data) => {

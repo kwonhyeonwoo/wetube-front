@@ -34,4 +34,5 @@ export interface VideoResponse extends Omit<VideoType, "video"> {
   craetedAt: Date;
   owner: UserResponse;
   likes?:string[];
+  isSaved:boolean;
 }

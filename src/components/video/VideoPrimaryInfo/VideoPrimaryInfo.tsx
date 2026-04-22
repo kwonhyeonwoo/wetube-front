@@ -11,6 +11,7 @@ import VideoPlayContainer from "../VideoPlay/container/VideoPlayContainer";
 import { useToastStore } from "@/store/useToastStore";
 import usePostVideoSave from "@/hooks/queries/video/usePostVideoSave";
 import { useCallback } from "react";
+import useUserStore from "@/store/useUserStore";
 
 interface Props{
     video:VideoResponse;
@@ -19,6 +20,7 @@ interface Props{
 
 const VideoPrimaryInfo = ({ video, paramsId }: Props) => {
   const { mutate } = usePostVideoSave(paramsId ?? "");
+  const {user:{uid}} = useUserStore();
   const { addToast } = useToastStore();
   const handleCopyUrl = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -27,14 +29,12 @@ const VideoPrimaryInfo = ({ video, paramsId }: Props) => {
   const handleVideoSave = useCallback(
     () => {
       if(paramsId){
+        console.log('first',paramsId)
         mutate(paramsId);
       }
     },
     [mutate],
   )
-  const isActive =
-    video.owner.saveVideos?.some((item) => item._id === paramsId) || false;
-  console.log('video',video)
   return (
     <div className={styles.videoBox}>
       <VideoPlayContainer video={video.video} paramsId={paramsId} />
@@ -58,7 +58,7 @@ const VideoPrimaryInfo = ({ video, paramsId }: Props) => {
             <ActionButton
               Icon={SaveIcon}
               text="보관함 저장"
-              isActive={isActive}
+              isActive={video.isSaved}
               handleActive={handleVideoSave}
             />
             <ActionButton

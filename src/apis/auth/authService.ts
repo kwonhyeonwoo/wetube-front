@@ -1,6 +1,6 @@
 import type { VideoResponse } from "@/interfaces/media.type"; import { api } from "../axiosInstance";
 import type { UserEditType } from "@/schema/auth.schema";
-import type { AccountRequest, LoginRequest, SessionResponse, UserResponse } from "@/interfaces/auth.type";
+import type { AccountRequest,  FollowingResponse,  LoginRequest, SessionResponse, UserResponse } from "@/interfaces/auth.type";
 
 export const authService = {
   me: async (): Promise<SessionResponse> => {
@@ -37,6 +37,11 @@ export const authService = {
       }
     });
     return await response.data.user;
+  },
+  getFollowing:async(userId:string):Promise<FollowingResponse[]>=>{
+    const response = await api.get(`/user/followers`);
+    console.log('followers', await response.data.following.following);
+    return await await response.data.following.following;
   },
   getUserVideos: async (id: string): Promise<VideoResponse[]> => {
     const response = await api.get(`/user/${id}/videos`);

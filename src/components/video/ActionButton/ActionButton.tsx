@@ -6,6 +6,7 @@ interface Props{
     handleActive:()=>void;
 }
 const ActionButton = ({Icon,text,isActive,handleActive}:Props) => {
+  console.log('isActive',isActive)
   return (
     <div className={styles.actionBtnBox}>
       <button className={styles.actionBtn} onClick={handleActive}>

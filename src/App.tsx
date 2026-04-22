@@ -9,7 +9,6 @@ import useUserStore from "./store/useUserStore";
 import { useEffect } from "react";
 import { ToastContainer } from "./components/common/ToastMessage/container/ToastMessageContainer";
 import { useGetMe } from "./hooks/queries/auth/useGetMe";
-import { ClipLoader } from "react-spinners";
 import ShortRoute from "./routes/ShortRoute";
 
 const routes = [
@@ -20,48 +19,21 @@ const routes = [
 ];
 
 function App() {
-  const { pathname } = useLocation();
-
-  // 1. 딱 /video/12345 형태일 때만 true가 되는 치트키 정규식
-  const hideSidebar = /^\/video\/[^/]+$/.test(pathname);
-
+  const { pathname } = useLocation()
   const { data, isLoading } = useGetMe();
-  const { setUser } = useUserStore();
-
+  const { setUser ,user} = useUserStore();
+  const hideSidebar = /^\/video\/[^/]+$/.test(pathname);
   useEffect(() => {
     if (!data) return;
     setUser(data.user, data.status);
   }, [data, setUser]);
 
-  // 🚨 보너스 수정: 로딩 중일 때는 반드시 return을 해줘야 화면에 스피너가 나옵니다!
-  if (isLoading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
-        <ClipLoader
-          color={"#E60000"}
-          loading={isLoading}
-          size={150}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
-      </div>
-    );
-  }
 
   return (
     <Fragment>
-      <HeaderContainer />
-
+      <HeaderContainer user={user} />
       {/* 2. 상세페이지가 아닐 때만(!) 사이드바 렌더링! (isSidebar 앞의 느낌표 제거함) */}
-      {!hideSidebar && <SidebarContainer />}
-
+      {!hideSidebar && <SidebarContainer uid={user.uid} />}
       <Routes>
         {routes.map(({ path, element }, idx) => (
           <Route key={idx} path={path} element={element} />

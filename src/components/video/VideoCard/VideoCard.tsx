@@ -34,18 +34,12 @@ const VideoCard = ({
   nickName,
   handleVideoDetail
 }:Props) => {
-  const navigate = useNavigate();
   const {user:{uid}} = useUserStore();
   const [currVideoId, setCurrVideoId] = useState<string>("");
   const handleCurrVideoId = (id:string)=>{
       setCurrVideoId((prev)=> prev === id ? "" : id);
   };
 
-  const handleListClicked = (type:string)=>{
-      if(type === "edit"){
-          navigate(`/video/${_id}/edit`)
-      }
-  }
   const mediaSrc = video || shorts;
   return (
     <div className={styles.videoCardWrapper}>
@@ -78,7 +72,6 @@ const VideoCard = ({
           <VideoOptionMenu
             currVideoId={currVideoId}
             videoId={_id}
-            handleListClicked={handleListClicked}
             handleCurrVideoId={handleCurrVideoId}
           />
         )}

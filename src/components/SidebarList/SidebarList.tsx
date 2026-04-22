@@ -1,45 +1,32 @@
 import styles from "./css/index.module.css";
 import { Link } from "react-router-dom";
 import type { ElementType } from "react";
-
 interface Props {
   link: string;
   isActivePathname: boolean;
-  IconComponent: ElementType;
-  isProfile: boolean;
-  icon: string;
+  icon: ElementType |  string;
   text: string;
 }
 const SidebarList = ({
     link,
     isActivePathname,
-    icon,
-    IconComponent,
+    icon: Icon,
     text,
-    isProfile,
 }:Props) => {
   return (
-    <li className={`${styles.sidebarGroupUlLi} ${isActivePathname && styles.sidebarGroupUlLiActive}`}>
-      <Link
-        to={link}
-        className={styles.sidebarGroupUlLiLink}
-      >
+    <li
+      className={`${styles.sidebarGroupUlLi} ${isActivePathname ? styles.sidebarGroupUlLiActive : ''}`}
+    >
+      <Link to={link} className={styles.sidebarGroupUlLiLink}>
         <div className="sidebar-icon-container">
-          {isProfile ? (
-            <img src={icon} alt="" className="sidebar-profile-img" />
-          ) : IconComponent && typeof IconComponent !== "string" ? (
-            <IconComponent className={isActivePathname && "active-menu-svg"} />
+          {typeof Icon === "string" ? (
+            <img src={Icon} alt={`${text} 아이콘`} />
           ) : (
-            <img
-              src={icon as string}
-              alt=""
-              className="sidebar-group-ul-li-icon"
-            />
+            <Icon />
           )}
         </div>
         <span
-          className={`
-            ${styles.sidebarGroupUlLiText} ${isActivePathname && styles.activeLiText}`}
+          className={`${styles.sidebarGroupUlLiText} ${isActivePathname ? styles.activeLiText : ''}`}
         >
           {text}
         </span>

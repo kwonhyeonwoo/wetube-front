@@ -1,51 +1,54 @@
-import HomeIcon from '../assets/sidebar/home.svg?react';
-import ShortsIcon from '../assets/sidebar/shorts.svg?react';
-import VideosIcon from '../assets/sidebar/videos.svg?react';
-import HistoryIcon from '../assets/sidebar/history.svg?react';
-import PlayListsIcon from '../assets/sidebar/playlists.svg?react';
-import type { ISidebarSection, ISubscription } from '@/interfaces/sidebar.type';
-export const getSidebarContents = (subscriptions: ISubscription[],userId:string): ISidebarSection[] => [
-    {
-        lists: [
-            {
-                text: "홈",
-                link: "/",
-                icon: HomeIcon
-            },
-            {
-                text: "Shorts",
-                link: "/shorts",
-                icon: ShortsIcon
-            },
-        ]
-    },
-    {
-        title: "구독",
-        lists: subscriptions.map((sub) => ({
-            text: sub.name,
-            link: `/subscriptions/${sub.id}`,
-            icon: sub.profileImage,
-            isProfile: true
-        }))
-    },
-    {
-        title: "내 페이지",
-        lists: [
-            {
-                text: "내 동영상",
-                icon:VideosIcon,
-                link:`/user/${userId}/videos`,
-            },
-            {
-                text: "기록",
-                icon: HistoryIcon,
-                link: `/video/${userId}/history`,
-            },
-            {
-                text: "보관함",
-                icon: PlayListsIcon,
-                link: `/video/${userId}/storage`
-            }
-        ]
-    }
+import HomeIcon from '@/assets/sidebar/home.svg';
+import ShortsIcon from '@/assets/sidebar/shorts.svg';
+import VideosIcon from '@/assets/sidebar/videos.svg';
+import HistoryIcon from '@/assets/sidebar/history.svg';
+import PlayListsIcon from '@/assets/sidebar/playlists.svg';
+import type { ISidebarSection } from '@/interfaces/sidebar.type';
+import type { FollowingResponse } from '@/interfaces/auth.type';
+export const getSidebarContents = (
+  following: FollowingResponse[],
+  userId: string,
+): ISidebarSection[] => [
+  {
+    lists: [
+      {
+        text: "홈",
+        link: "/",
+        icon: HomeIcon,
+      },
+      {
+        text: "Shorts",
+        link: "/shorts",
+        icon: ShortsIcon,
+      },
+    ],
+  },
+  {
+    title: "구독",
+    lists: following.map((sub) => ({
+        text: sub.nickName,
+        link: `/user/${sub._id}`,
+        icon: sub.avatar ? `http://localshot:3000/${sub.avatar}` : "",
+    })),
+  },
+  {
+    title: "내 페이지",
+    lists: [
+      {
+        text: "내 동영상",
+        icon: VideosIcon,
+        link: `/user/${userId}/videos`,
+      },
+      {
+        text: "기록",
+        icon: HistoryIcon,
+        link: `/video/${userId}/history`,
+      },
+      {
+        text: "보관함",
+        icon: PlayListsIcon,
+        link: `/video/${userId}/storage`,
+      },
+    ],
+  },
 ];

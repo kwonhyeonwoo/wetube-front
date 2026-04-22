@@ -12,7 +12,10 @@ const usePostFollow = (userId:string)=>{
         onSuccess:(data)=>{
             console.log('data',data)
             addToast(data.message);
-            queryClient.invalidateQueries({queryKey:VIDEO_KEYS.detail(userId)})
+            queryClient.invalidateQueries({queryKey:VIDEO_KEYS.detail(userId)});
+            queryClient.invalidateQueries({
+              queryKey: USER_KEYS.detail(userId),
+            });
         },
         onError: (error) => {
             if (isAxiosError(error)) {

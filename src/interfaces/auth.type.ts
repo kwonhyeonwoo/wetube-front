@@ -50,3 +50,10 @@ export interface IAuthFields<T>{
     type:string;
     label:string;
 };
+
+export interface FollowingResponse {
+    _id:string;
+    avatar?:string;
+    nickName:string;
+    name:string;
+}

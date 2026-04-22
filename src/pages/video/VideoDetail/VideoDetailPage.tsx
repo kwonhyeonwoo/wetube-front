@@ -2,15 +2,12 @@ import styles from "./css/index.module.css";
 import VideoPrimaryInfo from "@/components/video/VideoPrimaryInfo/VideoPrimaryInfo";
 import {useParams } from "react-router-dom";
 import VideoComment from "@/pages/VideoComment/VideoComment";
-import type {  IComment } from "@/interfaces/comment.type";
 import CommentCount from "@/components/video/CommentCount/CommentCount";
-import { useForm } from "react-hook-form";
 import CommentInput from "@/components/video/CommentInput/CommentInput";
 import { useGetVideo } from "@/hooks/queries/video/useGetVideo";
 import { useGetVideosQuery } from "@/hooks/queries/video/useGetVideoQuery";
 import StorageList from "@/components/video/StorageList/StorageList";
 import Categories from "@/components/common/Categories/Categories";
-import { useToastStore } from "@/store/useToastStore";
 import { useGetComment } from "@/hooks/queries/comment/useGetComment";
 
 const VideoDetailPage = () => {
