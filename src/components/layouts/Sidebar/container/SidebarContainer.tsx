@@ -3,14 +3,13 @@ import { useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { getSidebarContents } from "@/constants/sidebarConstants";
 import SidebarList from "@/components/SidebarList/SidebarList";
-import userGetFollwing from "@/hooks/queries/auth/userGetFollwing";
+import useGetFollwing from "@/hooks/queries/auth/userGetFollwing";
 interface Props{
     uid:string | undefined
 }
 const SidebarContainer = ({uid}:Props) => {
   const { pathname } = useLocation();
-  const { data: following, isLoading } = userGetFollwing(uid);
-  console.log("following", following);
+  const { data: following, isLoading } = useGetFollwing(uid ??"" );
   const sidebarData = useMemo(() => {
     return getSidebarContents(following ?? [], uid || "");
   }, [uid, following]);

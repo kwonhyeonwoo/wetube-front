@@ -1,4 +1,4 @@
-import styles from "../css/index.module.css";
+import styles from "./css/index.module.css";
 import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import VideoCard from "@/components/video/VideoCard/VideoCard";
@@ -8,7 +8,7 @@ import { useGetVideosQuery } from "@/hooks/queries/video/useGetVideoQuery";
 import Categories from "@/components/common/Categories/Categories";
 import type { CategoryType } from "@/interfaces/media.type";
 
-const HomeContainer = () => {
+const HomePage = () => {
   const navigate = useNavigate();
   const [currentCategory, setCurrentCategory] = useState<CategoryType>();
   const { data: videos } = useGetVideosQuery({category:currentCategory});
@@ -25,6 +25,7 @@ const HomeContainer = () => {
     },
     [currentCategory],
   );
+  console.log('video',videos)
   return (
     <main className={styles.homePage}>
       <Categories
@@ -36,6 +37,7 @@ const HomeContainer = () => {
           <VideoCard
             key={item._id}
             {...item}
+            avatar={item.owner.avatar}
             nickName={item.owner.nickName}
             ownerId={item.owner._id}
             handleVideoDetail={handleVideoDetail}
@@ -70,4 +72,4 @@ const HomeContainer = () => {
   );
 }
 
-export default HomeContainer;
+export default HomePage;

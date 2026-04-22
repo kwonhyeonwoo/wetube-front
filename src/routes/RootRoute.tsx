@@ -1,11 +1,11 @@
 import { Route, Routes } from 'react-router-dom'
-import HomeContainer from '../pages/home/container/HomeContainer'
 import SearchContainer from '@/pages/Search/container/SearchContainer'
+import HomePage from '@/pages/home/HomePage'
 
 const routes = [
   {
     path:"/",
-    element:<HomeContainer/>,
+    element:<HomePage/>,
   },
   {
     path:'/search',

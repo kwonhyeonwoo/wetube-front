@@ -1,7 +1,12 @@
 .uploadDropMenu {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .uploadTitle {
@@ -15,9 +20,15 @@
   margin-top: 12px;
   padding: 0px 16px;
   background-color: #F3F3F3;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .dropButton:hover {
   opacity: 1;
@@ -30,10 +41,16 @@
 
 .dropLists {
   max-height: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   position: absolute;
   top: 68px;
+  -webkit-transition: max-height 0.2s ease-in-out;
   transition: max-height 0.2s ease-in-out;
 }
 
@@ -41,13 +58,17 @@
   width: 222px;
   height: 45px;
   padding: 0px 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   background-color: #F3F3F3;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   overflow: hidden;
   border-bottom: 1px solid #D9D9D9;
   opacity: 0;
   cursor: pointer;
+  -webkit-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
 }
 
@@ -57,9 +78,10 @@
 
 .activeDropLists {
   max-height: 500px;
+  -webkit-transition: max-height 0.2s ease-in-out;
   transition: max-height 0.2s ease-in-out;
 }
 
 .activeDropList {
   opacity: 1;
-}/*# sourceMappingURL=index.module.css.map */
+}

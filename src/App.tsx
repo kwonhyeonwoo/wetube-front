@@ -20,19 +20,16 @@ const routes = [
 
 function App() {
   const { pathname } = useLocation()
-  const { data, isLoading } = useGetMe();
+  const { data } = useGetMe();
   const { setUser ,user} = useUserStore();
   const hideSidebar = /^\/video\/[^/]+$/.test(pathname);
   useEffect(() => {
     if (!data) return;
     setUser(data.user, data.status);
   }, [data, setUser]);
-
-
   return (
     <Fragment>
       <HeaderContainer user={user} />
-      {/* 2. 상세페이지가 아닐 때만(!) 사이드바 렌더링! (isSidebar 앞의 느낌표 제거함) */}
       {!hideSidebar && <SidebarContainer uid={user.uid} />}
       <Routes>
         {routes.map(({ path, element }, idx) => (

@@ -13,16 +13,20 @@ const SidebarList = ({
     icon: Icon,
     text,
 }:Props) => {
+
   return (
     <li
       className={`${styles.sidebarGroupUlLi} ${isActivePathname ? styles.sidebarGroupUlLiActive : ''}`}
     >
       <Link to={link} className={styles.sidebarGroupUlLiLink}>
         <div className="sidebar-icon-container">
-          {typeof Icon === "string" ? (
-            <img src={Icon} alt={`${text} 아이콘`} />
-          ) : (
-            <Icon />
+          {typeof Icon === "string" && (
+            <img 
+              src={Icon} alt={`${text} 아이콘`}  
+              className={
+                Icon.includes(import.meta.env.VITE_APP_BASE_SRC) ? styles.iconImage : ""
+              }
+            />
           )}
         </div>
         <span

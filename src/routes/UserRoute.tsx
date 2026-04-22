@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom"
 import AccountContainer from "../pages/account/container/AccountContainer"
 import LoginContainer from "../pages/login/container/LoginContainer"
-import ProfileContainer from "../pages/profile/container/ProfileContainer"
 import ProfileEditContainer from "@/pages/profileEdit/container/ProfileEditContainer"
 import MyVideosContainer from "@/pages/MyVideos/container/MyVidoesContainer"
 import StorageDetailContainer from "@/pages/StorageDetail/container/StorageDetailContainer"
 import WriteStorageContainer from "@/pages/writeStorage/container/WriteStorageContainer"
+import ProfilePage from "@/pages/profile/ProfilePage"
 
 const routes = [
     {
@@ -18,7 +18,7 @@ const routes = [
     },
     {
         path:"/:id",
-        element:<ProfileContainer/>
+        element:<ProfilePage/>
     },
     {
         path:"/:id/edit",

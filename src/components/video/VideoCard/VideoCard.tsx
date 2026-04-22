@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styles from "./css/index.module.css";
-import { useNavigate } from "react-router-dom";
 import useUserStore from "@/store/useUserStore";
 import VideoOptionMenu from "../VideoOptionMenu/VideoOptionMenu";
 interface Props {
@@ -12,7 +11,7 @@ interface Props {
       rating: number;
   };
   ownerId:string;
-  profile?: string;
+  avatar?: string;
   nickName?: string;
   video?: string;  
   shorts?: string;
@@ -28,7 +27,7 @@ const VideoCard = ({
     rating,
   },
   ownerId,
-  profile,
+  avatar,
   content,
   title,
   nickName,
@@ -50,9 +49,9 @@ const VideoCard = ({
         />
       </div>
       <div className={styles.videoCardWrapperInfo}>
-        {profile ? (
+        {avatar ? (
           <img
-            src={profile}
+            src={`${import.meta.env.VITE_APP_BASE_SRC}/${avatar}`}
             alt="user-profile"
             className={styles.videoCardWrapperInfoProfile}
           />

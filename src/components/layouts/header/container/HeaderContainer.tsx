@@ -12,6 +12,7 @@ interface Props{
 }
 const HeaderContainer = ({user}:Props) => {
   const navigate = useNavigate();
+
   const { register, handleSubmit ,} = useForm<{ keyword: string }>();
   const onSubmit: SubmitHandler<{ keyword: string }> = useCallback(
     (data) => {
