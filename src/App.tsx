@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useRoutes } from "react-router-dom";
 import RootRoute from "./routes/RootRoute";
 import VideoRoute from "./routes/VideoRoute";
 import UserRoute from "./routes/UserRoute";

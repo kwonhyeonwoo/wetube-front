@@ -10,5 +10,5 @@
 
     /* 텍스트 컬러 */
     --color-text-main:#1A1C1C;
-    --color-text-sub:#603E39;  /* 조회수, 날짜 등 */
+    --color-text-sub:#606060;  /* 조회수, 날짜 등 */
 }

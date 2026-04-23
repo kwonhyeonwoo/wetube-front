@@ -1,6 +1,6 @@
 import ShortContainer from "@/pages/Short/container/ShortContainer"
 import WriteShortContainer from "@/pages/writeShort/container/WriteShortContainer"
-import { Route, Routes } from "react-router-dom"
+import {useRoutes } from "react-router-dom"
 
 const shortRoutes=[
     {
@@ -14,13 +14,8 @@ const shortRoutes=[
 ]
 
 const ShortRoute = () => {
-  return (
-    <Routes>
-        {shortRoutes.map(({path,element},idx)=>(
-            <Route path={path} element={element} key={idx}/>
-        ))}
-    </Routes>
-  )
+    const shortElement = useRoutes(shortRoutes)
+  return shortElement;
 }
 
 export default ShortRoute

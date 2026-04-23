@@ -49,3 +49,18 @@ export const writeCategory = [
         path:"/shorts/write"
     }
 ]
+
+export const PROFILE_CATEGORIES = (uid: string) => [
+  {
+    text: "홈",
+    path: "featured",
+  },
+  {
+    text: "동영상",
+    path: "videos",
+  },
+  {
+    text: "쇼츠",
+    path: `shorts`,
+  },
+];

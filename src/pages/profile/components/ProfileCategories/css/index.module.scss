@@ -1,0 +1,17 @@
+.categorySection{
+}
+.categories{
+    display: flex;
+    border-bottom:1px solid #E2E8F0;
+}
+
+.category{
+    color: var(--color-text-sub);
+    font-weight: 700;
+    padding:10px 24px;
+    box-sizing: border-box;
+}
+
+.activeCategory{
+    border-bottom:2px solid black
+}

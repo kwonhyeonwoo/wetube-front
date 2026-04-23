@@ -22,7 +22,7 @@ const UserActions = ({user}:Props) => {
         />
         <span className={styles.rightHeaderWrapperWriteButtonText}>만들기</span>
       </Link>
-      <Link to={`/user/${user.uid}`} className={styles.profile}>
+      <Link to={`/user/${user.uid}/featured`} className={styles.profile}>
           {user.profile ? 
             <img 
               src={`${import.meta.env.VITE_APP_BASE_SRC}/${user.profile}`}

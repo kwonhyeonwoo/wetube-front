@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useRoutes } from 'react-router-dom'
 import SearchContainer from '@/pages/Search/container/SearchContainer'
 import HomePage from '@/pages/home/HomePage'
 
@@ -15,13 +15,8 @@ const routes = [
 ]
 
 const RootRoute = () => {
-  return (
-    <Routes>
-        {routes.map(({path,element},idx)=>(
-        <Route key={idx} path={path} element={element}/>
-        ))}
-    </Routes>
-  )
+  const rootElement = useRoutes(routes)
+  return rootElement;
 }
 
 export default RootRoute
