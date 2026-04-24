@@ -1,0 +1,10 @@
+.profileShortsSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.videos {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}/*# sourceMappingURL=index.module.css.map */

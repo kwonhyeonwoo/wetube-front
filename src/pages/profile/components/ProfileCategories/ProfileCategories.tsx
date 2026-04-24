@@ -3,7 +3,7 @@ import styles from "./css/index.module.css";
 
 interface Props {
   pathname: string | undefined;
-  tab:string | undefined;
+  tab:string ;
   handleCategoryAction: (uid: string, path: string) => void;
 }
 const ProfileCategories = ({
@@ -11,6 +11,8 @@ const ProfileCategories = ({
   tab,
   handleCategoryAction,
 }: Props) => {
+  console.log('url tab',tab);
+  
   return (
     <section className={styles.categorySection}>
       <ul className={styles.categories}>

@@ -7,17 +7,17 @@ interface Props {
     views: number;
   };
   createdAt: Date;
-  type: "video" | "shorts";
+  height?: string;
 }
 
-const ProfileVideoCard = ({ video, title, meta, createdAt, type }: Props) => {
+const ProfileVideoCard = ({ video, title, meta, createdAt, height }: Props) => {
   return (
     <div className={styles.profileVideoCard}>
       <div className={styles.videoBox}>
         <div
           className={styles.videoTest}
           style={{
-            height: type === "shorts" ? "311px" : "118px",
+            height: height ? height : "118px"
           }}
         />
       </div>

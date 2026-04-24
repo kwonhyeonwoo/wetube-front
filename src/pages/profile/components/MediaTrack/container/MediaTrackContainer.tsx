@@ -11,9 +11,9 @@ interface Props {
     meta: { views: number };
     createdAt: Date;
   }[];
-  type: "video" | "shorts";
+  type:"video" | "shorts"
 }
-const MediaTrackContainer = ({ videos, type }: Props) => {
+const MediaTrackContainer = ({ videos ,type}: Props) => {
   const [currentPage, setCurrentPage] = useState(0);
   const totalPage = Math.ceil(videos.length / 6);
 
@@ -46,7 +46,9 @@ const MediaTrackContainer = ({ videos, type }: Props) => {
               video={item.video}
               title={item.title}
               meta={item.meta}
-              type={type}
+              height={
+                type === "shorts" ? "314px" : ""
+              }
               createdAt={item.craetedAt}
             />
           ))}

@@ -1,15 +1,12 @@
 import usePostFollow from "@/hooks/queries/auth/usePostFollow";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
 const useProfileAction = (id?:string)=>{
     const navigate = useNavigate();
-    const [currentCategory, setCurrentCategory] = useState<string>("");
     const { mutate :followingMutate} = usePostFollow(id ?? "");
 
     const handleCategoryAction = (uid:string,path:string)=> {
-        setCurrentCategory(path);
         navigate(`/user/${uid}/${path}`);
     }
 
@@ -21,7 +18,6 @@ const useProfileAction = (id?:string)=>{
         }
     }   
     return {
-      currentCategory,
       handleCategoryAction,
       handleProfileAction,
     };

@@ -40,7 +40,6 @@ export const authService = {
   },
   getFollowing: async (): Promise<FollowingResponse[]> => {
     const response = await api.get(`/user/followers`);
-    console.log('followers', await response.data.following);
     return await await response.data.following;
   },
   getUserVideos: async (id: string): Promise<VideoResponse[]> => {

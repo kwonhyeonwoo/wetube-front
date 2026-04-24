@@ -1,6 +1,5 @@
 .profileVideoCard{
-    flex: 0 0 calc((100% - 80px) / 6);
-    max-width: calc((100% - 80px) / 6); 
+    width: 100%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
