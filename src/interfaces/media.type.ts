@@ -2,7 +2,7 @@ import type { ShortsType, VideoType } from "@/schema/media.schema";
 import type { UserResponse } from "./auth.type";
 
 export type CategoryType =
-    "movie"
+  "movie"
   | "music"
   | "product-design"
   | "building"
@@ -33,6 +33,6 @@ export interface VideoResponse extends Omit<VideoType, "video"> {
   };
   craetedAt: Date;
   owner: UserResponse;
-  likes?:string[];
-  isSaved:boolean;
+  likes?: string[];
+  isSaved: boolean;
 }

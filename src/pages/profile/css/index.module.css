@@ -1,4 +1,4 @@
-.profilePage {
+.profileLayout {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6,6 +6,5 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  row-gap: 65px;
-  padding-bottom: 200px;
+  row-gap: 48px;
 }

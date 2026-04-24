@@ -1,10 +1,8 @@
 import styles from "./css/index.module.css";
-interface Props{
-  handleMediaAction :(videoId:string)=>void;
+interface Props {
+  handleMediaAction: (videoId: string) => void;
 }
-const BestMedia = ({
-  handleMediaAction
-}:Props) => {
+const BestMedia = ({ handleMediaAction }: Props) => {
   return (
     <div className={styles.bestMedia} onClick={() => handleMediaAction("")}>
       <div className={styles.bestMediaCard}>
@@ -51,6 +49,6 @@ const BestMedia = ({
       </div>
     </div>
   );
-}
+};
 
 export default BestMedia;

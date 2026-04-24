@@ -1,0 +1,16 @@
+.paginationBtnBox{
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+.paginationBtn{
+    width: 40px;
+    height:40px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:50%;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+}
