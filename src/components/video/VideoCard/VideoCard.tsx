@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./css/index.module.css";
-import useUserStore from "@/store/useUserStore";
 import VideoOptionMenu from "../VideoOptionMenu/VideoOptionMenu";
+import { useUidStore } from "@/store/useUserStore";
 interface Props {
   _id: string;
   title: string;
@@ -33,7 +33,7 @@ const VideoCard = ({
   nickName,
   handleVideoDetail
 }:Props) => {
-  const {user:{uid}} = useUserStore();
+  const uid = useUidStore();
   const [currVideoId, setCurrVideoId] = useState<string>("");
   const handleCurrVideoId = (id:string)=>{
       setCurrVideoId((prev)=> prev === id ? "" : id);

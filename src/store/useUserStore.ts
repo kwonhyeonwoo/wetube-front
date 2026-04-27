@@ -1,26 +1,26 @@
-import type { SessionUser } from "@/interfaces/auth.type";
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 interface UserState {
-  user: SessionUser;
-  isLoggedIn: boolean;
-  setUser: (user: SessionUser,status:boolean) => void;
+  uid:string;
+  setUser: (uid: string) => void;
 }
 
-const useUserStore = create<UserState>((set) => ({
-  user: {
-    uid: "",
-    profile: "",
-    nickName: "",
-    email: "",
-    name:""
-  },
-  isLoggedIn: false,
-  setUser: (user,status) =>
-    set(() => ({
-        user,
-        isLoggedIn:status
-    })),
-}));
+const useUserStore = create(
+  persist<UserState>(
+    (set)=>({
+      uid:"",
+      setUser:(uid,)=>{
+        if(uid){
+           set({ uid,});
+        }
+      }
+    }),
+    {
+      name: "user-store",
+    }
+  )
+)
 
-export default useUserStore;
+export const useSetUserAction = ()=>useUserStore((state)=>state.setUser);
+export const useUidStore =()=> useUserStore((state)=>state.uid);

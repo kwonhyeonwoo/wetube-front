@@ -1,4 +1,4 @@
-import useUserStore from "@/store/useUserStore";
+import { useUidStore } from "@/store/useUserStore";
 import styles from "./css/index.module.css";
 import type {  UserResponse } from "@/interfaces/auth.type";
 
@@ -9,7 +9,7 @@ interface Props {
 }
 
 const ProfileSection = ({user,userId,handleProfileAction}:Props) => {
-  const {user:{uid}} = useUserStore();
+  const uid = useUidStore();
   return (
     <section className={styles.profileSection}>
       {user?.avatar ? (

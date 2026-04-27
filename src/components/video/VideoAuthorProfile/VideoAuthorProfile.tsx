@@ -1,6 +1,6 @@
-import usePostFollow from "@/hooks/queries/auth/usePostFollow";
+import usePostFollow from "@/hooks/mutations/auth/useFollowingMutation";
 import styles from "./css/index.module.css";
-import useUserStore from "@/store/useUserStore";
+import { useUidStore } from "@/store/useUserStore";
 
 interface Props{
     videoId:string;
@@ -9,7 +9,7 @@ interface Props{
     nickName:string;
 }
 const VideoAuthorProfile = ({nickName,followers,videoOwnerId,videoId}:Props) => {
-  const {user:{uid}} = useUserStore();
+  const uid = useUidStore();
   const {mutate} = usePostFollow(videoId ?? "");
   const isFollower = followers?.includes(uid) ?? false; 
   const handleFollow = ()=>{

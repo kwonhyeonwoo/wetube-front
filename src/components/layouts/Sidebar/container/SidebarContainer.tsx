@@ -5,7 +5,7 @@ import { getSidebarContents } from "@/constants/sidebarConstants";
 import SidebarList from "@/components/SidebarList/SidebarList";
 import useGetFollwing from "@/hooks/queries/auth/userGetFollwing";
 interface Props{
-    uid:string | undefined
+    uid:string | null
 }
 const SidebarContainer = ({uid}:Props) => {
   const { pathname } = useLocation();

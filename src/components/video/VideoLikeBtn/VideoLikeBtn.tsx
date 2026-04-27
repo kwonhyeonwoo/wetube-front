@@ -1,7 +1,7 @@
 import styles from "./css/index.module.css";
 import LikeIcon from "@/assets/video/like.svg?react";
 import { useVideoLikePostMutation } from "@/hooks/queries/video/useVideoMutation";
-import useUserStore from "@/store/useUserStore";
+import { useUidStore } from "@/store/useUserStore";
 import { useParams } from "react-router-dom";
 
 interface Props{
@@ -10,7 +10,7 @@ interface Props{
 
 const VideoLikeBtn = ({likes}:Props) => {
   const {id} = useParams();
-  const {user:{uid}} = useUserStore();
+  const uid = useUidStore();
   const {mutate} = useVideoLikePostMutation({userId:uid,videoId:id ?? ""});
   const handleLikeClicked = ()=>{
       if(id){

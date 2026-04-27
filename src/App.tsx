@@ -5,11 +5,11 @@ import UserRoute from "./routes/UserRoute";
 import HeaderContainer from "./components/layouts/header/container/HeaderContainer";
 import { Fragment } from "react/jsx-runtime";
 import SidebarContainer from "./components/layouts/Sidebar/container/SidebarContainer";
-import useUserStore from "./store/useUserStore";
 import { useEffect } from "react";
 import { ToastContainer } from "./components/common/ToastMessage/container/ToastMessageContainer";
 import { useGetMe } from "./hooks/queries/auth/useGetMe";
 import ShortRoute from "./routes/ShortRoute";
+import { useUidStore } from "./store/useUserStore";
 
 const routes = [
   { path: "/*", element: <RootRoute /> },
@@ -19,18 +19,22 @@ const routes = [
 ];
 
 function App() {
-  const { pathname } = useLocation()
+  const { pathname } = useLocation();
   const { data } = useGetMe();
-  const { setUser ,user} = useUserStore();
+  const uid = useUidStore();
+  console.log('uid',uid)
+  // const { setUser ,uid} = useUserStore();
   const hideSidebar = /^\/video\/[^/]+$/.test(pathname);
-  useEffect(() => {
-    if (!data) return;
-    setUser(data.user, data.status);
-  }, [data, setUser]);
+  // useEffect(() => {
+  //   if (!data) return;
+  //   setUser(data.uid, true);
+  // }, [data, setUser]);
   return (
     <Fragment>
-      <HeaderContainer user={user} />
-      {!hideSidebar && <SidebarContainer uid={user.uid} />}
+      <HeaderContainer user={data} />
+      {!hideSidebar &&
+        pathname !== "/user/login" &&
+        pathname !== "/user/account" && <SidebarContainer uid={uid} />}
       <Routes>
         {routes.map(({ path, element }, idx) => (
           <Route key={idx} path={path} element={element} />

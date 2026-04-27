@@ -1,17 +1,13 @@
 import type { Path } from "react-hook-form";
 import type { ShortsResponse, VideoResponse } from "./media.type";
 
-export interface SessionUser{
-    nickName:string;
-    profile?:string;
-    email:string;
-    name:string;
-    uid:string;
-}
 
-export interface SessionResponse {
-  status: boolean;
-  user: SessionUser;
+export interface IUserMe {
+    nickName:string;
+    name:string;
+    avatar:string;
+    email:string;
+    uid:string;
 }
 
 export interface UserResponse{
@@ -39,13 +35,14 @@ export interface AccountRequest{
     email:string;
     nickName:string;
     password:string;
-    confirmPassword:string;
 }
 
 export type AuthFormValues = AccountRequest | LoginRequest;
 
 export interface IAuthFields<T>{
     name:Path<T>;
+    min?:number;
+    max?:number;
     placeholder:string;
     type:string;
     label:string;

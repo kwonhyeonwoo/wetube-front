@@ -11,7 +11,7 @@ import VideoPlayContainer from "../VideoPlay/container/VideoPlayContainer";
 import { useToastStore } from "@/store/useToastStore";
 import usePostVideoSave from "@/hooks/queries/video/usePostVideoSave";
 import { useCallback } from "react";
-import useUserStore from "@/store/useUserStore";
+import { useUidStore } from "@/store/useUserStore";
 
 interface Props{
     video:VideoResponse;
@@ -20,7 +20,7 @@ interface Props{
 
 const VideoPrimaryInfo = ({ video, paramsId }: Props) => {
   const { mutate } = usePostVideoSave(paramsId ?? "");
-  const {user:{uid}} = useUserStore();
+  const uid= useUidStore();
   const { addToast } = useToastStore();
   const handleCopyUrl = () => {
     navigator.clipboard.writeText(window.location.href);

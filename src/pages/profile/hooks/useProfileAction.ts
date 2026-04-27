@@ -1,4 +1,4 @@
-import usePostFollow from "@/hooks/queries/auth/usePostFollow";
+import usePostFollow from "@/hooks/mutations/auth/useFollowingMutation";
 import { useNavigate } from "react-router-dom";
 
 

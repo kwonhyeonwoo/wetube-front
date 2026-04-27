@@ -1,12 +1,12 @@
 import type { VideoResponse } from "@/interfaces/media.type"; import { api } from "../axiosInstance";
 import type { UserEditType } from "@/schema/auth.schema";
-import type { AccountRequest, FollowingResponse, LoginRequest, SessionResponse, UserResponse } from "@/interfaces/auth.type";
+import type { AccountRequest, FollowingResponse, IUserMe, LoginRequest,  UserResponse } from "@/interfaces/auth.type";
 
 export const authService = {
-  me: async (): Promise<SessionResponse> => {
+  me: async (): Promise<IUserMe> => {
     const response = await api.get("/user/me");
     const responseData = await response.data;
-    return responseData;
+    return responseData.user;
   },
   account: async (data: AccountRequest) => {
     const { email, nickName, password, name } = data;
@@ -27,14 +27,14 @@ export const authService = {
     return response.data;
   },
   logout: async () => {
-    const response = await api.post('/user/logout');
+    const response = await api.post("/user/logout");
     return response.data;
   },
   getUser: async (id: string): Promise<UserResponse> => {
     const response = await api.get(`/user/${id}`, {
       params: {
-        limit: 4
-      }
+        limit: 4,
+      },
     });
     return await response.data.user;
   },
@@ -47,22 +47,22 @@ export const authService = {
     return await response.data.videos;
   },
 
-  putUser: async ({ data, id }: { data: UserEditType, id: string }) => {
+  putUser: async ({ data, id }: { data: UserEditType; id: string }) => {
     const formData = new FormData();
     if (data.introduction) {
-      formData.append('introduction', data.introduction);
+      formData.append("introduction", data.introduction);
     }
     if (data.avatar) {
-      formData.append('avatar', data.avatar)
-    };
-    formData.append('name', data.name);
-    formData.append('nickName', data.nickName);
-    formData.append('email', data.email);
+      formData.append("avatar", data.avatar);
+    }
+    formData.append("name", data.name);
+    formData.append("nickName", data.nickName);
+    formData.append("email", data.email);
 
     const response = await api.put(`/user/${id}`, formData, {
       headers: {
-        'Content-Type': 'multipart/form-data',
-      }
+        "Content-Type": "multipart/form-data",
+      },
     });
     return response.data;
   },
@@ -70,5 +70,5 @@ export const authService = {
   postUserFollow: async (followId: string) => {
     const response = await api.post(`/user/${followId}/follow`);
     return await response.data;
-  }
+  },
 };

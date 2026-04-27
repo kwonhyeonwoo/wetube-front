@@ -1,12 +1,12 @@
 import styles from "./css/index.module.css";
 import { useNavigate,useParams } from "react-router-dom";
 import { useGetSaveVideo } from "@/hooks/queries/video/useGetSaveVideo";
-import useUserStore from "@/store/useUserStore";
 import VideoCard from "@/components/video/VideoCard/VideoCard";
+import { useUidStore } from "@/store/useUserStore";
 
 const VideoStoragePage = () => {
     const {id:userId} = useParams();
-    const {user:{uid}} = useUserStore()
+    const uid = useUidStore()
     const {data:storageVideos} = useGetSaveVideo(uid)  
     const navigate = useNavigate();
     const handleNavigate = (storageId:string)=>{

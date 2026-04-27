@@ -1,14 +1,15 @@
-import type { SessionUser } from "@/interfaces/auth.type";
+import type { IUserMe } from "@/interfaces/auth.type";
 import GuestActions from "../GuestActions/GuestActions";
 import UserActions from "../UserActions/UserActions";
 
 interface Props {
-  user: SessionUser;
+  user?: IUserMe;
 }
 const RightHeader = ({user}:Props) => {
+  console.log('right header',user)
   return (
     <>
-      {user.uid ? <UserActions user={user}/> : <GuestActions/>}
+      {user ? <UserActions user={user}/> : <GuestActions/>}
     </>
   )
 }

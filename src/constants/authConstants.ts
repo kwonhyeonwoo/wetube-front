@@ -1,10 +1,13 @@
-import type { IAuthFields, LoginRequest, AccountRequest } from "@/interfaces/auth.type";
+import type { IAuthFields, LoginRequest } from "@/interfaces/auth.type";
+import type { SignUpType } from "@/schema/auth.schema";
 
-export const ACCOUNT_FIELDS: IAuthFields<AccountRequest>[] = [
+export const ACCOUNT_FIELDS: IAuthFields<SignUpType>[] = [
   {
     name: "name",
     label: "이름",
     placeholder: "홍길동",
+    min: 2,
+    max: 6,
     type: "text",
   },
   {
@@ -16,18 +19,24 @@ export const ACCOUNT_FIELDS: IAuthFields<AccountRequest>[] = [
   {
     name: "nickName",
     label: "닉네임",
+    min:3,
+    max:6,
     placeholder: "사용할 닉네임을 입력하세요",
     type: "text",
   },
   {
     name: "password",
     label: "비밀번호",
+    min:8,
+    max:16,
     placeholder: "8자 이상의 영문, 숫자 조합",
     type: "password",
   },
   {
-    name: "confirmPassword",
+    name: "passwordConfirm",
     label: "비밀번호 확인",
+    min:8,
+    max:16,
     placeholder: "비밀번호 확인",
     type: "password",
   },
@@ -45,6 +54,8 @@ export const LOGIN_FIELDS: IAuthFields<LoginRequest>[] = [
     label: "비밀번호",
     placeholder: "8자 이상의 영문, 숫자 조합",
     type: "password",
+    min:8,
+    max:16,
   },
 
 ] as const;

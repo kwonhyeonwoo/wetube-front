@@ -1,6 +1,6 @@
 import { useRoutes } from "react-router-dom"
-import AccountContainer from "../pages/account/container/AccountContainer"
-import LoginContainer from "../pages/login/container/LoginContainer"
+import AccountContainer from "../pages/user/AccountContainer"
+import LoginContainer from "../pages/user/LoginContainer"
 import ProfileEditContainer from "@/pages/profileEdit/container/ProfileEditContainer"
 import StorageDetailContainer from "@/pages/StorageDetail/container/StorageDetailContainer"
 import WriteStorageContainer from "@/pages/writeStorage/container/WriteStorageContainer"

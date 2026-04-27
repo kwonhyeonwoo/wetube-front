@@ -9,13 +9,13 @@ import { useForm,type SubmitErrorHandler } from "react-hook-form";
 import { baseAuthSchema,
 type UserEditType } from "@/schema/auth.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useUserEditMutation } from "@/hooks/queries/auth/useAuthMutation";
 import { useMediaPreview } from "@/hooks/useMediaPreview";
+import { useProfileEditMutation } from "@/hooks/mutations/auth/useProfileEditMutation";
 
 const ProfileEditContainer = () => {
     const {id} = useParams();
     const {data:user} = useGetUser(id ?? "");
-    const {mutate:editUser} = useUserEditMutation(id ?? "")
+    const {mutate:editUser} = useProfileEditMutation(id ?? "")
     const {register, handleSubmit, watch,setValue} = useForm<UserEditType>({
       resolver:zodResolver(baseAuthSchema),
       values : user ? {

@@ -4,6 +4,7 @@ import type {IAuthFields } from "@/interfaces/auth.type";
 import type { UseFormRegister,FieldValues, UseFormHandleSubmit,SubmitHandler } from "react-hook-form";
 import AuthInput from "../authInput/AuthInput";
 import SubmitButton from "@/components/common/SubmitButton/SubmitButton";
+
 interface Props<T extends FieldValues> {
   title: string;
   subTitle?: React.ReactNode;
@@ -11,10 +12,12 @@ interface Props<T extends FieldValues> {
   link: string;
   linkText: string;
   btnText: string;
-  handleSubmit:UseFormHandleSubmit<T>;
-  register:UseFormRegister<T>;
-  onSubmit: SubmitHandler<T>
+  onInvalid: (error: any) => void;
+  handleSubmit: UseFormHandleSubmit<T>;
+  register: UseFormRegister<T>;
+  onSubmit: SubmitHandler<T>;
 }
+
 const AuthPageTemplate = <T extends FieldValues>({
     title,
     subTitle,
@@ -22,6 +25,7 @@ const AuthPageTemplate = <T extends FieldValues>({
     link,
     linkText,
     btnText,
+    onInvalid,
     register,
     handleSubmit,
     onSubmit
@@ -33,15 +37,17 @@ const AuthPageTemplate = <T extends FieldValues>({
           <h1 className={styles.title}>{title}</h1>
           <p className={styles.subTitle}>{subTitle}</p>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit,onInvalid)}>
           <div className={styles.inputs}>
-            {fields.map(({ name, placeholder, type, label }, idx) => (
+            {fields.map(({ name, placeholder, type, label,min,max }, idx) => (
               <AuthInput
                 type={type}
                 label={label}
                 name={name}
                 placeholder={placeholder}
                 key={idx}
+                min={min}
+                max={max}
                 register={register}
               />
             ))}

@@ -5,22 +5,21 @@ import RightHeader from "@/components/header/RightHeader/RightHeader";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { useCallback,  } from "react";
 import { useNavigate } from "react-router-dom";
-import type { SessionUser } from "@/interfaces/auth.type";
+import type { IUserMe } from "@/interfaces/auth.type";
 
 interface Props{
-  user:SessionUser;
+  user?: IUserMe;
 }
-const HeaderContainer = ({user}:Props) => {
+const HeaderContainer = ({ user }: Props) => {
   const navigate = useNavigate();
-
-  const { register, handleSubmit ,} = useForm<{ keyword: string }>();
+  const { register, handleSubmit } = useForm<{ keyword: string }>();
   const onSubmit: SubmitHandler<{ keyword: string }> = useCallback(
     (data) => {
       navigate(`/search?keyword=${data.keyword}`);
     },
-    [navigate,],
+    [navigate],
   );
-  
+
   return (
     <header className={styles.header}>
       <LeftHeader />
@@ -32,6 +31,6 @@ const HeaderContainer = ({user}:Props) => {
       <RightHeader user={user} />
     </header>
   );
-}
+};
 
 export default HeaderContainer

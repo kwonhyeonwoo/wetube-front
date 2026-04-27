@@ -1,14 +1,15 @@
-import type { SessionUser } from "@/interfaces/auth.type";
+import UndeProfile from "@/assets/common/unde-user.svg";
 import styles from "./css/index.module.css";
 import { Link } from 'react-router-dom';
-import { useAuthLogout } from "@/hooks/queries/auth/useAuthLogout";
+import { useLogoutMutation } from "@/hooks/mutations/auth/useLogoutMutation";
+import type { IUserMe } from "@/interfaces/auth.type";
 
 interface Props{
-  user:SessionUser;
+  user:IUserMe;
 }
 
 const UserActions = ({user}:Props) => {
-  const {mutate} = useAuthLogout(user.uid);
+  const {mutate} = useLogoutMutation();
   const handleLogout = ()=> mutate();
   return (
     <div className={styles.rightHeaderWrapper}>
@@ -23,17 +24,22 @@ const UserActions = ({user}:Props) => {
         <span className={styles.rightHeaderWrapperWriteButtonText}>만들기</span>
       </Link>
       <Link to={`/user/${user.uid}/featured`} className={styles.profile}>
-          {user.profile ? 
-            <img 
-              src={`${import.meta.env.VITE_APP_BASE_SRC}/${user.profile}`}
-              alt={`${user.nickName}-profile`} 
-              className={styles.userProfile}
-            /> : 
-              <div className={styles.undeProfile}/>
+        <img
+          src={
+            user.avatar
+              ? `${import.meta.env.VITE_APP_BASE_SRC}/${user.avatar}`
+              : UndeProfile
           }
+          alt={`${user.nickName}-profile`}
+          className={styles.userProfile}
+        />{" "}
+        
       </Link>
-      <button onClick={handleLogout} className={styles.rightHeaderWrapperAlertButton}>
-          로그아웃
+      <button
+        onClick={handleLogout}
+        className={styles.rightHeaderWrapperAlertButton}
+      >
+        로그아웃
       </button>
     </div>
   );

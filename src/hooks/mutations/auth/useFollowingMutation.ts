@@ -4,7 +4,7 @@ import { VIDEO_KEYS } from "@/apis/video/videoKeys";
 import { useToastStore } from "@/store/useToastStore";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { isAxiosError } from "axios";
-const usePostFollow = (userId:string)=>{
+const useFollowingMutation = (userId:string)=>{
     const queryClient = useQueryClient();
     const {addToast} = useToastStore();
     return useMutation({
@@ -28,4 +28,4 @@ const usePostFollow = (userId:string)=>{
     })
 };
 
-export default usePostFollow
+export default useFollowingMutation

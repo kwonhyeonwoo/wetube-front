@@ -4,6 +4,8 @@ interface Props<T extends FieldValues>{
     name:Path<T>;
     label:string;
     placeholder:string;
+    min?:number;
+    max?:number;
     register:UseFormRegister<T>
 }
 const AuthInput = <T extends FieldValues>({
@@ -11,6 +13,8 @@ const AuthInput = <T extends FieldValues>({
     name,
     label,
     placeholder,
+    min,
+    max,
     register
 }:Props<T>) => {
   return (
@@ -20,6 +24,8 @@ const AuthInput = <T extends FieldValues>({
             className={styles.input}
             type={type}
             placeholder={placeholder}
+            minLength={min}
+            maxLength={max}
             {...register(name)}
         />
     </div>

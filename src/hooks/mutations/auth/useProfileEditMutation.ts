@@ -3,7 +3,7 @@ import { authService } from "@/apis/auth/authService"; import { useToastStore } 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 
-export const useUserEditMutation = (id: string) => {
+export const useProfileEditMutation = (id: string) => {
     const queryClient = useQueryClient();
     const navigate = useNavigate();
     const { addToast } = useToastStore();
