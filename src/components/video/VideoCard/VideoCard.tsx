@@ -1,20 +1,22 @@
 import { useState } from "react";
 import styles from "./css/index.module.css";
 import VideoOptionMenu from "../VideoOptionMenu/VideoOptionMenu";
+import EmptyProfile from "@/assets/common/unde-user.svg";
 import { useUidStore } from "@/store/useUserStore";
+import { Link } from "react-router-dom";
+import { getRelativeTime } from "@/lib/lib";
 interface Props {
   _id: string;
   title: string;
-  content: string;
   meta: {
       views: number;
-      rating: number;
   };
   ownerId:string;
   avatar?: string;
   nickName?: string;
   video?: string;  
   shorts?: string;
+  createdAt:Date,
   handleVideoDetail: (id: string) => void;
 }
 
@@ -24,13 +26,12 @@ const VideoCard = ({
   _id,
   meta: {
     views,
-    rating,
   },
   ownerId,
   avatar,
-  content,
   title,
   nickName,
+  createdAt,
   handleVideoDetail
 }:Props) => {
   const uid = useUidStore();
@@ -49,21 +50,23 @@ const VideoCard = ({
         />
       </div>
       <div className={styles.videoCardWrapperInfo}>
-        {avatar ? (
+        <Link to={`/user/${ownerId}/featured`}>
           <img
-            src={`${import.meta.env.VITE_APP_BASE_SRC}/${avatar}`}
+            src={
+              avatar
+                ? `${import.meta.env.VITE_APP_BASE_SRC}/${avatar}`
+                : EmptyProfile
+            }
             alt="user-profile"
-            className={styles.videoCardWrapperInfoProfile}
+            className={styles.userProfile}
           />
-        ) : (
-          <div className={styles.undeProfile} />
-        )}
+        </Link>
         <div className={styles.videoCardWrapperInfoContent}>
           <p className={styles.videoCardWrapperInfoContentText}>{title}</p>
           <div className={styles.videoCardWrapperInfoContentAuthor}>
             <p className={styles.nickName}>{nickName}</p>
             <p className={styles.videoCardWrapperInfoAuthorText}>
-              조회수: {views}회 • 2일 전
+              조회수: {views}회 • {getRelativeTime(createdAt)}
             </p>
           </div>
         </div>

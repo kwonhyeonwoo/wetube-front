@@ -1,29 +1,30 @@
 import type { Path } from "react-hook-form";
-import type { ShortsResponse, VideoResponse } from "./media.type";
 
 
-export interface IUserMe {
-    nickName:string;
-    name:string;
-    avatar:string;
-    email:string;
-    uid:string;
+export interface UserResponse {
+  nickName: string;
+  name: string;
+  avatar?: string;
+  email: string;
+  _id: string;
+  introduction?: string;
+  stats: {
+    followerCount: number;
+    videoCount: number;
+  };
 }
 
-export interface UserResponse{
-    _id:string;
-    name:string;
-    nickName:string;
-    introduction?:string;
-    email:string;
-    avatar?:string;
-    createdAt:Date;
-    followers:string[];
-    following:string[];
-    saveVideos:VideoResponse[];
-    videos:VideoResponse[];
-    shorts:ShortsResponse[]
+export interface OwnerType{
+  _id:string;
+  avatar?:string;
+  followers:string[];
+  nickName:string;
+  name:string;
 }
+
+export interface ProfileResponse extends UserResponse {
+    
+};
 
 export interface LoginRequest{
     email:string;

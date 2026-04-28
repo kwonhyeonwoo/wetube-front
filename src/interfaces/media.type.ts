@@ -1,5 +1,5 @@
 import type { ShortsType, VideoType } from "@/schema/media.schema";
-import type { UserResponse } from "./auth.type";
+import type { OwnerType, UserResponse } from "./auth.type";
 
 export type CategoryType =
   "movie"
@@ -19,20 +19,20 @@ export interface ShortsResponse extends Omit<ShortsType, "shorts"> {
     views: number;
     rating: number;
   };
-  craetedAt: Date;
-  owner: UserResponse;
+  createdAt: Date;
+  isSaved:boolean;
+  owner: OwnerType;
 };
 
 export interface VideoResponse extends Omit<VideoType, "video"> {
   video: string;
   _id: string;
-  id: string;
   meta: {
     views: number;
     rating: number;
   };
-  craetedAt: Date;
-  owner: UserResponse;
+  createdAt: Date;
+  owner: OwnerType;
   likes?: string[];
   isSaved: boolean;
 }

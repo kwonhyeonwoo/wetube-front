@@ -12,6 +12,7 @@ import { useToastStore } from "@/store/useToastStore";
 import usePostVideoSave from "@/hooks/queries/video/usePostVideoSave";
 import { useCallback } from "react";
 import { useUidStore } from "@/store/useUserStore";
+import { getRelativeTime } from "@/lib/lib";
 
 interface Props{
     video:VideoResponse;
@@ -42,11 +43,12 @@ const VideoPrimaryInfo = ({ video, paramsId }: Props) => {
       <div className={styles.videoInfoBox}>
         <h2 className={styles.videoTitle}>{video.title}</h2>
         <div className={styles.flexBox}>
-          <VideoAuthorProfile  
+          <VideoAuthorProfile
             videoId={video._id}
+            ownerId={video.owner._id}
             followers={video.owner.followers}
-            videoOwnerId={video.owner._id}
-            nickName={video.owner.nickName} 
+            nickName={video.owner.nickName}
+            avatar={video.owner.avatar}
           />
           <div className={styles.videoActions}>
             <VideoLikeBtn likes={video.likes ?? []} />
@@ -61,18 +63,14 @@ const VideoPrimaryInfo = ({ video, paramsId }: Props) => {
               isActive={video.isSaved}
               handleActive={handleVideoSave}
             />
-            <ActionButton
-              Icon={MeatBallIcon}
-              text=""
-              handleActive={()=>{}}
-            />
+            <ActionButton Icon={MeatBallIcon} text="" handleActive={() => {}} />
           </div>
         </div>
       </div>
       <VideoContent
         content={video.content}
         views={video.meta.views}
-        date="5개월전"
+        date={getRelativeTime(video.createdAt)}
         tags={video.hashtags}
       />
     </div>

@@ -1,18 +1,14 @@
 import { useState } from "react";
 import styles from "../css/index.module.css";
-// import type { VideoResponse } from "@/interfaces/media.type";
 import ProfileVideoCard from "../../ProfileVideoCard/ProfileVideoCard";
 import PaginationBtn from "@/components/PaginationBtn/PaginationBtn";
+import type { ShortsResponse, VideoResponse } from "@/interfaces/media.type";
+import Empty from "@/components/Empty/Empty";
+import useMediaAction from "@/pages/profile/hooks/useMediaAction";
 
-interface Props {
-  videos: {
-    video: string;
-    title: string;
-    meta: { views: number };
-    createdAt: Date;
-  }[];
-  type:"video" | "shorts"
-}
+type Props =
+  | { type: "video"; videos: VideoResponse[] }
+  | { type: "shorts"; videos: ShortsResponse[] };
 const MediaTrackContainer = ({ videos ,type}: Props) => {
   const [currentPage, setCurrentPage] = useState(0);
   const totalPage = Math.ceil(videos.length / 6);
@@ -32,30 +28,39 @@ const MediaTrackContainer = ({ videos ,type}: Props) => {
         </h2>
       </div>
       <div className={styles.videoTrack}>
-        <div
-          className={styles.videoGrid}
-          style={{
-            transform: `
-                translateX(calc(-${currentPage * 100}% - ${currentPage * 16}px))
-            `,
-          }}
+        {
+          videos.length > 0 ? (
+            <div
+              className={styles.videoGrid}
+              style={{
+                transform: `
+                    translateX(calc(-${currentPage * 100}% - ${currentPage * 16}px))
+                `,
+              }}
         >
-          {videos.map((item, idx) => (
-            <ProfileVideoCard
-              key={idx}
-              video={item.video}
-              title={item.title}
-              meta={item.meta}
-              height={
-                type === "shorts" ? "314px" : ""
-              }
-              createdAt={item.craetedAt}
-            />
-          ))}
+          {
+            videos.map((item, idx) => {
+              const mediaUrl = "video" in item ? item.video : item.shorts;
+              return (
+                <ProfileVideoCard
+                  key={item._id || idx}
+                  video={mediaUrl}
+                  title={item.title}
+                  meta={item.meta}
+                  height={type === "shorts" ? "314px" : ""}
+                  createdAt={item.createdAt}
+                />
+              );
+            })
+           }
         </div>
-        <div className={styles.pagination}>
-          <PaginationBtn handleSliderBtn={handleSliderBtn} />
-        </div>
+          ):<Empty text="업로드 된 영상이 없습니다."/>
+        }
+        {videos.length > 6 && (
+          <div className={styles.pagination}>
+            <PaginationBtn handleSliderBtn={handleSliderBtn} />
+          </div>
+        )}
       </div>
     </div>
   );

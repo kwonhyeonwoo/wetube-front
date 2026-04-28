@@ -91,9 +91,5 @@ export const videoService = {
       return await response.data;
   },
 
-  getVideoSave: async(userId:string):Promise<VideoResponse[]>=>{
-    const response = await api.get(`/video/saved`);
-    console.log('first',response.data.videos);
-    return await response.data.videos;
-  }
+
 };

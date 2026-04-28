@@ -722,22 +722,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-devtools@npm:5.99.2":
-  version: 5.99.2
-  resolution: "@tanstack/query-devtools@npm:5.99.2"
-  checksum: 615b210365e22bd0674c48090a69c33c158ec69f0a80c0e5ad8217a3911bd8946c666ae08621c665b0b11d68acf7892e46a83ccf2faae6ce28b259f53b8364d2
+"@tanstack/query-devtools@npm:5.100.5":
+  version: 5.100.5
+  resolution: "@tanstack/query-devtools@npm:5.100.5"
+  checksum: 9b5449fbaa1eee78497abfa076b0f3c596f7ee7b8e95323b0e0713dfbb5adb7e0edbb6fb033cea1e3ede8824635ffd922c90ea1976b16fdca37852c88a7468d7
   languageName: node
   linkType: hard
 
-"@tanstack/react-query-devtools@npm:^5.95.2":
-  version: 5.99.2
-  resolution: "@tanstack/react-query-devtools@npm:5.99.2"
+"@tanstack/react-query-devtools@npm:^5.100.5":
+  version: 5.100.5
+  resolution: "@tanstack/react-query-devtools@npm:5.100.5"
   dependencies:
-    "@tanstack/query-devtools": 5.99.2
+    "@tanstack/query-devtools": 5.100.5
   peerDependencies:
-    "@tanstack/react-query": ^5.99.2
+    "@tanstack/react-query": ^5.100.5
     react: ^18 || ^19
-  checksum: 5b7dfa72798a11b5a5ab00f2d29f3a15589fcc6343f158bdd2b05a6385678c3e6d5c9f823db091b6a7a458a6fc6e5dfcbdbc838af6462cbcc37e8d5b75729e06
+  checksum: a0be491e01f09aeb0ed7d2becd69404a131e85c5e94bcdda72e8ac53c79af5231b3685286bf70b55bdde5f65acfdbebff7fda325d8e58fda6e070bc8d036cb60
   languageName: node
   linkType: hard
 
@@ -2812,7 +2812,7 @@ __metadata:
     "@hookform/resolvers": ^5.2.2
     "@rolldown/plugin-babel": ^0.2.1
     "@tanstack/react-query": ^5.95.2
-    "@tanstack/react-query-devtools": ^5.95.2
+    "@tanstack/react-query-devtools": ^5.100.5
     "@types/babel__core": ^7.20.5
     "@types/node": ^24.12.2
     "@types/react": ^19.2.14

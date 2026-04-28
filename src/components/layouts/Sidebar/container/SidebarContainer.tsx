@@ -4,11 +4,11 @@ import { useLocation } from "react-router-dom";
 import { getSidebarContents } from "@/constants/sidebarConstants";
 import SidebarList from "@/components/SidebarList/SidebarList";
 import useGetFollwing from "@/hooks/queries/auth/userGetFollwing";
-interface Props{
-    uid:string | null
-}
-const SidebarContainer = ({uid}:Props) => {
+import { useUidStore } from "@/store/useUserStore";
+
+const SidebarContainer = () => {
   const { pathname } = useLocation();
+  const uid = useUidStore()
   const { data: following, isLoading } = useGetFollwing(uid ??"" );
   const sidebarData = useMemo(() => {
     return getSidebarContents(following ?? [], uid || "");
@@ -19,7 +19,6 @@ const SidebarContainer = ({uid}:Props) => {
         {
         sidebarData?.map(({ title, lists }, sidebarIndex) => {
             if (title === "구독" && (!lists || lists.length === 0)) return null;
-
             return (
             <div className={styles.sidebarGroup} key={sidebarIndex}>
                 {title && <h2 className={styles.sidebarGroupTitle}>{title}</h2>}

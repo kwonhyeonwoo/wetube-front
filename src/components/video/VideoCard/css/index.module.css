@@ -35,7 +35,7 @@
   width: 100%;
 }
 
-.videoCardWrapperInfoProfile {
+.userProfile {
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -86,11 +86,4 @@
 .videoCardWrapperInfoAuthorText {
   font-size: 13px;
   color: var(--color-text-sub);
-}
-
-.undeProfile {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background-color: #D9D9D9;
 }

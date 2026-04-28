@@ -28,6 +28,14 @@
   row-gap: 25px;
 }
 
+.video {
+  width: 424px;
+  height: 228px;
+  border-radius: 16px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .mediaTitle {
   font-size: 14px;
   font-weight: 700;

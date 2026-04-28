@@ -1,13 +1,15 @@
 import { useForm, type SubmitHandler} from "react-hook-form";
+import EmptyProfileIcon from "@/assets/common/unde-user.svg";
 import styles from "./css/index.module.css";
 import { CommentSchema, type CommentType } from "@/schema/comment.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import usePostComment from "@/hooks/queries/comment/usePostComment";
 
 interface Props {
+    avatar?:string;
     videoId:string | undefined;
 }
-const CommentInput = ({ videoId }: Props) => {
+const CommentInput = ({avatar, videoId }: Props) => {
   const { register, handleSubmit, setValue } = useForm<CommentType>({
     resolver: zodResolver(CommentSchema),
   });
@@ -23,7 +25,15 @@ const CommentInput = ({ videoId }: Props) => {
   };
   return (
     <form className={styles.commentForm} onSubmit={handleSubmit(onSubmit)}>
-      <div className={styles.profile} />
+      <img
+        className={styles.profile}
+        src={
+          avatar
+            ? `${import.meta.env.VITE_APP_BASE_SRC}/${avatar}`
+            : EmptyProfileIcon
+        }
+        alt=""
+      />
       <input
         type="text"
         placeholder="댓글 추가..."

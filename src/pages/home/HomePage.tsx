@@ -31,7 +31,7 @@ const HomePage = () => {
         currentCategory={currentCategory}
         handleCategoryActive={handleCategoryActive}
       />
-      {/* <section className={styles.videoSection}>
+      <section className={styles.videoSection}>
         {videos?.map((item) => (
           <VideoCard
             key={item._id}
@@ -66,7 +66,7 @@ const HomePage = () => {
             />
           ))}
         </div>
-      </section> */}
+      </section>
     </main>
   );
 }

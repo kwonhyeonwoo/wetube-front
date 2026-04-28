@@ -1,0 +1,11 @@
+.empty{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 15px;
+}
+.text{
+    font-size: 14px;
+    color: var(--color-text-sub);
+}

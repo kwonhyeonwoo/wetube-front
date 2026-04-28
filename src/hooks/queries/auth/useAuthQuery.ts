@@ -6,10 +6,3 @@ export const useGetUserVideos = (id: string,) => {
         queryFn: () => authService.getUserVideos(id),
     })
 };
-
-export const useGetUser = (id: string,) => {
-    return useQuery({
-        queryKey: USER_KEYS.detail(id),
-        queryFn: () => authService.getUser(id),
-    })
-}

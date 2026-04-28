@@ -14,10 +14,11 @@ const ProfileVideoCard = ({ video, title, meta, createdAt, height }: Props) => {
   return (
     <div className={styles.profileVideoCard}>
       <div className={styles.videoBox}>
-        <div
-          className={styles.videoTest}
+        <video
+          src={`${import.meta.env.VITE_APP_BASE_SRC}/${video}`}
+          className={styles.video}
           style={{
-            height: height ? height : "118px"
+            height: height ? height : "118px",
           }}
         />
       </div>

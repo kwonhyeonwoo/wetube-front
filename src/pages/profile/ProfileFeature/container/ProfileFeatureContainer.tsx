@@ -2,153 +2,35 @@ import BestMedia from "../../components/BestMedia/BestMedia";
 import useMediaAction from "../../hooks/useMediaAction";
 import styles from "../css/index.module.css";
 import MediaTrackContainer from "../../components/MediaTrack/container/MediaTrackContainer";
-// import type { VideoResponse } from "@/interfaces/media.type";
+import { useUserVideosQuery } from "@/hooks/queries/auth/useUserVideosQuery";
+import { useParams } from "react-router-dom";
+import Empty from "@/components/Empty/Empty";
+import { useMediaByViews } from "../../hooks/useMediaByViews";
+import { useUserShortsQuery } from "@/hooks/queries/auth/useUserShortsQuery";
 
 const ProfileFeatureContainer = () => {
+  const {id} = useParams();
   const { handleMediaAction } = useMediaAction();
+  const {data:videos} = useUserVideosQuery(id ?? "")
+  const {data:shorts} = useUserShortsQuery(id ?? "");
+  const { bestVideosByViews } = useMediaByViews(videos ?? []);
   return (
     <section className={styles.feature}>
-      <BestMedia handleMediaAction={handleMediaAction} />
+      {bestVideosByViews.length > 0 ? (
+        <BestMedia video={bestVideosByViews[0]} handleMediaAction={handleMediaAction} />
+      ) : (
+        <Empty text="업로드 된 영상이 없습니다." />
+      )}
       <div className={styles.mediaTrackBox}>
-        <MediaTrackContainer videos={videoArr} type="video" />
-        <MediaTrackContainer videos={videoArr} type="shorts" />
+        {videos && shorts && (
+          <>
+            <MediaTrackContainer videos={videos} type="video" />
+            <MediaTrackContainer videos={shorts} type="shorts" />
+          </>
+        )}
       </div>
     </section>
   );
 };
 
 export default ProfileFeatureContainer;
-
-const videoArr: {
-  video: string;
-  title: string;
-  meta: { views: number };
-  createdAt: Date;
-}[] = [
-  {
-    video: "",
-    title:
-      "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 첫 곡부터 합격.. 120분 국내 감성힙합 💿 | R&B 인스타 느좋 플리",
-    meta: {
-      views: 12,
-    },
-    createdAt: new Date("2026-04-24"),
-  },
-  {
-    video: "",
-    title:
-      "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 첫 곡부터 합격.. 120분 국내 감성힙합 💿 | R&B 인스타 느좋 플리",
-    meta: {
-      views: 12,
-    },
-    createdAt: new Date("2026-04-24"),
-  },
-  {
-    video: "",
-    title:
-      "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 첫 곡부터 합격.. 120분 국내 감성힙합 💿 | R&B 인스타 느좋 플리",
-    meta: {
-      views: 12,
-    },
-    createdAt: new Date("2026-04-24"),
-  },
-  {
-    video: "",
-    title:
-      "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 첫 곡부터 합격.. 120분 국내 감성힙합 💿 | R&B 인스타 느좋 플리",
-    meta: {
-      views: 12,
-    },
-    createdAt: new Date("2026-04-24"),
-  },
-  {
-    video: "",
-    title:
-      "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 첫 곡부터 합격.. 120분 국내 감성힙합 💿 | R&B 인스타 느좋 플리",
-    meta: {
-      views: 12,
-    },
-    createdAt: new Date("2026-04-24"),
-  },
-  {
-    video: "",
-    title:
-      "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 첫 곡부터 합격.. 120분 국내 감성힙합 💿 | R&B 인스타 느좋 플리",
-    meta: {
-      views: 12,
-    },
-    createdAt: new Date("2026-04-24"),
-  },
-  {
-    video: "",
-    title:
-      "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 첫 곡부터 합격.. 120분 국내 감성힙합 💿 | R&B 인스타 느좋 플리",
-    meta: {
-      views: 12,
-    },
-    createdAt: new Date("2026-04-24"),
-  },
-  {
-    video: "",
-    title:
-      "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 첫 곡부터 합격.. 120분 국내 감성힙합 💿 | R&B 인스타 느좋 플리",
-    meta: {
-      views: 12,
-    },
-    createdAt: new Date("2026-04-24"),
-  },
-  {
-    video: "",
-    title:
-      "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 첫 곡부터 합격.. 120분 국내 감성힙합 💿 | R&B 인스타 느좋 플리",
-    meta: {
-      views: 12,
-    },
-    createdAt: new Date("2026-04-24"),
-  },
-  {
-    video: "",
-    title:
-      "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 첫 곡부터 합격.. 120분 국내 감성힙합 💿 | R&B 인스타 느좋 플리",
-    meta: {
-      views: 12,
-    },
-    createdAt: new Date("2026-04-24"),
-  },
-  {
-    video: "",
-    title:
-      "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 첫 곡부터 합격.. 120분 국내 감성힙합 💿 | R&B 인스타 느좋 플리",
-    meta: {
-      views: 12,
-    },
-    createdAt: new Date("2026-04-24"),
-  },
-  {
-    video: "",
-    title:
-      "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 첫 곡부터 합격.. 120분 국내 감성힙합 💿 | R&B 인스타 느좋 플리",
-    meta: {
-      views: 12,
-    },
-    createdAt: new Date("2026-04-24"),
-  },
-  {
-    video: "",
-    title:
-      "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 첫 곡부터 합격.. 120분 국내 감성힙합 💿 | R&B 인스타 느좋 플리",
-    meta: {
-      views: 12,
-    },
-    createdAt: new Date("2026-04-24"),
-  },
-  {
-    video: "",
-    title:
-      "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 첫 곡부터 합격.. 120분 국내 감성힙합 💿 | R&B 인스타 느좋 플리",
-    meta: {
-      views: 12,
-    },
-    createdAt: new Date("2026-04-24"),
-  },
-];

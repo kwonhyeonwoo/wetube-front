@@ -43,11 +43,6 @@ export const getSidebarContents = (
         link: `/user/${userId}/videos`,
       },
       {
-        text: "기록",
-        icon: HistoryIcon,
-        link: `/video/${userId}/history`,
-      },
-      {
         text: "보관함",
         icon: PlayListsIcon,
         link: `/video/${userId}/storage`,

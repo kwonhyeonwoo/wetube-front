@@ -1,9 +1,10 @@
-import type { VideoResponse } from "@/interfaces/media.type"; import { api } from "../axiosInstance";
+import type { ShortsResponse, VideoResponse } from "@/interfaces/media.type";
+ import { api } from "../axiosInstance";
 import type { UserEditType } from "@/schema/auth.schema";
-import type { AccountRequest, FollowingResponse, IUserMe, LoginRequest,  UserResponse } from "@/interfaces/auth.type";
+import type { AccountRequest, FollowingResponse,  LoginRequest,  UserResponse } from "@/interfaces/auth.type";
 
 export const authService = {
-  me: async (): Promise<IUserMe> => {
+  me: async (): Promise<UserResponse> => {
     const response = await api.get("/user/me");
     const responseData = await response.data;
     return responseData.user;
@@ -45,6 +46,15 @@ export const authService = {
   getUserVideos: async (id: string): Promise<VideoResponse[]> => {
     const response = await api.get(`/user/${id}/videos`);
     return await response.data.videos;
+  },
+  getSavedVideos:async(userId:string):Promise<VideoResponse[]>=>{
+    const response = await api.get(`/user/${userId}/save`);
+    console.log('hello',response.data)
+    return await response.data.savedVideos;
+  },
+  getUserShorts:async(id:string):Promise<ShortsResponse[]>=>{
+      const response = await api.get(`/user/${id}/shorts`);
+      return await response.data.shorts;
   },
 
   putUser: async ({ data, id }: { data: UserEditType; id: string }) => {

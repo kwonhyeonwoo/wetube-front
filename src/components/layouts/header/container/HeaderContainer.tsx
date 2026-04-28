@@ -5,10 +5,10 @@ import RightHeader from "@/components/header/RightHeader/RightHeader";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { useCallback,  } from "react";
 import { useNavigate } from "react-router-dom";
-import type { IUserMe } from "@/interfaces/auth.type";
+import type { UserResponse } from "@/interfaces/auth.type";
 
 interface Props{
-  user?: IUserMe;
+  user?: UserResponse;
 }
 const HeaderContainer = ({ user }: Props) => {
   const navigate = useNavigate();

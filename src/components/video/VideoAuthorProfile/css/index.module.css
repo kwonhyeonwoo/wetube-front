@@ -10,11 +10,10 @@
           column-gap: 10px;
 }
 
-.authorTestBox {
+.profile {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--color-bg-light);
 }
 
 .authorNicknameBox {

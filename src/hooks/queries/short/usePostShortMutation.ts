@@ -1,13 +1,13 @@
 import { SHORTS_KEYS } from '@/apis/shorts/shortsKeys'
 import { shortsService } from '@/apis/shorts/shortsService'
 import { useToastStore } from '@/store/useToastStore'
-import useUserStore from '@/store/useUserStore'
+import { useSetUserAction } from '@/store/useUserStore'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom'
 
 const usePostShortMutation = () => {
   const navigate = useNavigate();
-  const { user } = useUserStore()
+  const uid = useSetUserAction();
   const { addToast } = useToastStore();
   const queryClient = useQueryClient();
   const mutation = useMutation({
@@ -16,7 +16,7 @@ const usePostShortMutation = () => {
       console.log('shorts data->',data);
       queryClient.invalidateQueries({ queryKey: SHORTS_KEYS.all });
       addToast('쇼츠를 생성하였습니다.')
-      navigate(`/user/${user.uid}/videos`)
+      navigate(`/user/${uid}/videos`)
     },
     onError: (error: any) => {
       const message = error.message ? error.message : "서버 에러"

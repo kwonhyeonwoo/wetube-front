@@ -1,17 +1,21 @@
 import styles from "./css/index.module.css";
-import { useNavigate,useParams } from "react-router-dom";
-import { useGetSaveVideo } from "@/hooks/queries/video/useGetSaveVideo";
+import { useNavigate } from "react-router-dom";
 import VideoCard from "@/components/video/VideoCard/VideoCard";
 import { useUidStore } from "@/store/useUserStore";
+import { useGetSavedVideos } from "@/hooks/queries/auth/useGetUserSavedVideos";
+import { useCallback } from "react";
 
 const VideoStoragePage = () => {
-    const {id:userId} = useParams();
-    const uid = useUidStore()
-    const {data:storageVideos} = useGetSaveVideo(uid)  
     const navigate = useNavigate();
-    const handleNavigate = (storageId:string)=>{
-        navigate(`/user/${userId}/storage/${storageId}`)
-    }
+    const uid = useUidStore()
+    const { data: storageVideos } = useGetSavedVideos(uid);  
+    const handleVideoDetail =useCallback(
+      (id:string) => {
+        return navigate(`/video/${id}`)
+      },
+      [],
+    )
+    
   return (
     <main className={styles.videoStoragePage}>
       <section className={styles.titleBox}>
@@ -22,11 +26,12 @@ const VideoStoragePage = () => {
       </section>
       <section className={styles.storageSection}>
         <div className={styles.storageVideos}>
-            {storageVideos?.map((item)=>(
-              <VideoCard 
-                {...item} 
-                handleVideoDetail={()=>{}} 
-                ownerId={uid} 
+          {storageVideos &&
+            storageVideos?.map((item) => (
+              <VideoCard
+                {...item}
+                handleVideoDetail={handleVideoDetail}
+                ownerId={uid}
                 nickName={item.owner.nickName}
               />
             ))}

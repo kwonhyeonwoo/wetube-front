@@ -9,18 +9,21 @@ import { useGetVideosQuery } from "@/hooks/queries/video/useGetVideoQuery";
 import StorageList from "@/components/video/StorageList/StorageList";
 import Categories from "@/components/common/Categories/Categories";
 import { useGetComment } from "@/hooks/queries/comment/useGetComment";
+import { useGetUserQuery } from "@/hooks/queries/auth/useGetUserQuery";
 
 const VideoDetailPage = () => {
   const {id} = useParams();
   const {data:video} = useGetVideo(id ?? "");
+  const {data:user} = useGetUserQuery();
   const {data:videos} = useGetVideosQuery({category:undefined});
   const {data:comments} = useGetComment(id ?? "")
+  console.log('video',video?.owner.followers)
   return (
     <main className={styles.videoDetailPage}>
       <section className={styles.videoSection}>
         {video && <VideoPrimaryInfo paramsId={id} video={video} />}
         <CommentCount length={String(comments?.length)} />
-        <CommentInput videoId ={id}/>
+        <CommentInput avatar={user?.avatar} videoId ={id}/>
         <div className={styles.comments}>
           {comments?.map((item) => (
               <VideoComment key={item._id} {...item}/>
