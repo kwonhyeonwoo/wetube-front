@@ -1,16 +1,16 @@
-.leftHeaderWrapper{
+.leftHeader{
     display: flex;
     column-gap: 5px;
     height:100%;
 }
-.leftHeaderWrapperMenuBtn{
+.menubar{
     display: flex;
     align-items: center;
     justify-content: center;
     width: 34px;
     height:28px;
 }
-.leftHeaderWrapperLogo{
+.logoBox{
     display: flex;
     align-items: center;
     column-gap: 5px;
@@ -19,7 +19,12 @@
     width: 24px;
     height: 24px;
 }
-.leftHeaderWrapperLogoTitle{
+.logoLink{
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+}
+.logoTitle{
     font-weight: 700;
     font-size: 18px;
 }

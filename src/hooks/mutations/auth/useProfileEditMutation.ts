@@ -10,10 +10,9 @@ export const useProfileEditMutation = (id: string) => {
     return useMutation({
         mutationFn: authService.putUser,
         onSuccess: (data) => {
-            console.log('tq', data)
-            queryClient.invalidateQueries({ queryKey: USER_KEYS.all });
+            queryClient.invalidateQueries({ queryKey: USER_KEYS.me });
             addToast('프로필을 수정하였습니다.')
-            navigate(`/user/${id}`)
+            navigate(`/user/${id}/featured`)
         }
     })
 }

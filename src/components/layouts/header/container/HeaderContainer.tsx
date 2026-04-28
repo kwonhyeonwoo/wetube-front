@@ -5,13 +5,14 @@ import RightHeader from "@/components/header/RightHeader/RightHeader";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { useCallback,  } from "react";
 import { useNavigate } from "react-router-dom";
-import type { UserResponse } from "@/interfaces/auth.type";
+import { useGetMe } from "@/hooks/queries/auth/useGetMe";
+import { useLogoutMutation } from "@/hooks/mutations/auth/useLogoutMutation";
 
-interface Props{
-  user?: UserResponse;
-}
-const HeaderContainer = ({ user }: Props) => {
+
+const HeaderContainer = () => {
   const navigate = useNavigate();
+  const { data:user } = useGetMe();
+  const {mutate:logOut} = useLogoutMutation();
   const { register, handleSubmit } = useForm<{ keyword: string }>();
   const onSubmit: SubmitHandler<{ keyword: string }> = useCallback(
     (data) => {
@@ -19,7 +20,13 @@ const HeaderContainer = ({ user }: Props) => {
     },
     [navigate],
   );
-
+  const handleLogOut = ()=> useCallback(
+    () => {
+      logOut(); 
+    },
+    [logOut],
+  )
+  
   return (
     <header className={styles.header}>
       <LeftHeader />
@@ -28,7 +35,7 @@ const HeaderContainer = ({ user }: Props) => {
         onSubmit={onSubmit}
         register={register}
       />
-      <RightHeader user={user} />
+      <RightHeader user={user}handleLogOut={handleLogOut} />
     </header>
   );
 };

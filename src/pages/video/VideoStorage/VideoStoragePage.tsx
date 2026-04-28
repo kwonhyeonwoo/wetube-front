@@ -1,14 +1,14 @@
 import styles from "./css/index.module.css";
 import { useNavigate } from "react-router-dom";
-import VideoCard from "@/components/video/VideoCard/VideoCard";
 import { useUidStore } from "@/store/useUserStore";
-import { useGetSavedVideos } from "@/hooks/queries/auth/useGetUserSavedVideos";
 import { useCallback } from "react";
+import VideoCard from "@/components/common/VideoCard/VideoCard";
+import { useSavedVideosQuery } from "@/hooks/queries/auth/useSavedVideosQuery";
 
 const VideoStoragePage = () => {
     const navigate = useNavigate();
     const uid = useUidStore()
-    const { data: storageVideos } = useGetSavedVideos(uid);  
+    const { data: storageVideos } = useSavedVideosQuery(uid);  
     const handleVideoDetail =useCallback(
       (id:string) => {
         return navigate(`/video/${id}`)

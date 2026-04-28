@@ -10,7 +10,7 @@ const useProfileAction = (id?:string)=>{
         navigate(`/user/${uid}/${path}`);
     }
 
-    const handleProfileAction = (type:"edit" | "following",uid?:string)=>{
+    const handleProfileAction = (type:"edit" | "following",uid:string)=>{
         if(type === 'edit'){
             return navigate(`/user/${uid}/edit`)
         }else{

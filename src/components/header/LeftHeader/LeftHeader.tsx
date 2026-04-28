@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 const LeftHeader = () => {
   return (
-    <div className={styles.leftHeaderWrapper}>
-        <button className={styles.leftHeaderWrapperMenuBtn}>
+    <div className={styles.leftHeader}>
+        <button className={styles.menubar}>
             <img 
                 src="/assets/header/menu.png"
                 srcSet="
@@ -14,8 +14,8 @@ const LeftHeader = () => {
                 alt="menu-bar" 
             />
         </button>
-        <div className={styles.leftHeaderWrapperLogo}>
-            <Link to="/" className="left-header-wrapper-logo-logo">
+        <div className={styles.logoBox}>
+            <Link to="/" className={styles.logoLink}>
                 <img 
                     src="/assets/header/header-logo.png"
                     srcSet="
@@ -24,10 +24,11 @@ const LeftHeader = () => {
                     " 
                     alt="header-logo" 
                 />
+                <p className={styles.logoTitle}>
+                    YouTube
+                </p>
             </Link> 
-            <p className={styles.leftHeaderWrapperLogoTitle}>
-                YouTube
-            </p>
+            
         </div>
     </div>
   )

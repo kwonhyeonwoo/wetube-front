@@ -1,8 +1,8 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import styles from "../css/index.module.css";
 import { useGetSearchVideos } from "@/hooks/queries/video/useGetVideoQuery";
-import VideoCard from "@/components/video/VideoCard/VideoCard";
 import { useCallback } from "react";
+import VideoCard from "@/components/common/VideoCard/VideoCard";
 const SearchContainer = () => {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();

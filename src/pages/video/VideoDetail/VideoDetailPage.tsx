@@ -17,7 +17,6 @@ const VideoDetailPage = () => {
   const {data:user} = useGetUserQuery();
   const {data:videos} = useGetVideosQuery({category:undefined});
   const {data:comments} = useGetComment(id ?? "")
-  console.log('video',video?.owner.followers)
   return (
     <main className={styles.videoDetailPage}>
       <section className={styles.videoSection}>

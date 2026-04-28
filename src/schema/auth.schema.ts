@@ -28,6 +28,7 @@ export const baseAuthSchema = z.object({
     .min(8, "비밀번호는 최소 8글자 입니다.")
     .max(16, "비밀번호는 최대 16글자 입니다."),
   introduction: z.string().optional(),
+  avatar:z.instanceof(File).optional(),
 });
 
 export const signUpSchema = baseAuthSchema.refine(
@@ -37,7 +38,14 @@ export const signUpSchema = baseAuthSchema.refine(
         path:["passwordConfirm"]
     }
 )
-
+export const userEditSchema = baseAuthSchema
+  .omit({ 
+    password: true, 
+    passwordConfirm: true 
+  }) 
+  .extend({
+    avatar: z.union([z.string(), z.instanceof(File)]).optional(), 
+  });
 export const signInSchema = baseAuthSchema.pick({
     email:true,
     password:true,
@@ -48,7 +56,7 @@ export const authUpdateSchema = baseAuthSchema
 .omit({passwordConfirm:true})
 .partial();
 
-export type UserEditType = z.infer<typeof baseAuthSchema>;
+export type UserEditType = z.infer<typeof userEditSchema>;
 export type SignUpType = z.infer<typeof signUpSchema>;
 export type SignInType = z.infer<typeof signInSchema>;
 export type AuthUpdateType = z.infer<typeof authUpdateSchema>;

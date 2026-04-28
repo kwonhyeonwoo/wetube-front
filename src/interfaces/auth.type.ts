@@ -1,6 +1,4 @@
 import type { Path } from "react-hook-form";
-
-
 export interface UserResponse {
   nickName: string;
   name: string;

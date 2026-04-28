@@ -8,14 +8,14 @@ interface Props{
 }
 const CenterHeader = ({ register, handleSubmit, onSubmit }: Props) => {
   return (
-    <form className={styles.centerHeaderForm} onSubmit={handleSubmit(onSubmit)}>
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <input 
         type="text" 
         className={styles.input}
         placeholder="검색어를 입력하세요"
         {...register('keyword')}
       />
-      <button className={styles.centerHeaderGlass} type="submit">
+      <button className={styles.glassBtn} type="submit">
         <img 
           src="/assets/header/glass.png"
           srcSet="

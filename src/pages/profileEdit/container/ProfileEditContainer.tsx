@@ -5,55 +5,62 @@ import ProfileInfoEditBox from "@/components/profileEdit/ProfileInfoEditBox/Prof
 import SubmitButton from "@/components/common/SubmitButton/SubmitButton";
 import { useCallback } from "react";
 import { useForm,type SubmitErrorHandler } from "react-hook-form";
-import { baseAuthSchema,
-type UserEditType } from "@/schema/auth.schema";
+import {userEditSchema ,type UserEditType } from "@/schema/auth.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMediaPreview } from "@/hooks/useMediaPreview";
 import { useProfileEditMutation } from "@/hooks/mutations/auth/useProfileEditMutation";
 import { useGetUserQuery } from "@/hooks/queries/auth/useGetUserQuery";
+import { useToastStore } from "@/store/useToastStore";
 
 const ProfileEditContainer = () => {
-    // const {id} = useParams();
-    // const {data:user} = useGetUserQuery(id ?? "");
-    // const {mutate:editUser} = useProfileEditMutation(id ?? "")
-    // const {register, handleSubmit, watch,setValue} = useForm<UserEditType>({
-    //   resolver:zodResolver(baseAuthSchema),
-    //   values : user ? {
-    //       nickName:user.nickName,
-    //       name:user.name,
-    //       email:user.email,
-    //       avatar: user?.avatar as File | undefined,
-    //       introduction: user?.introduction,
-    //   }:undefined 
-    // });
-    // const {mediaPreview, addPreviewMedia} = useMediaPreview({setValue,name:"avatar"});
-
-    //   const onSubmit = (data: UserEditType) => {
-    //     if (id) {
-    //       editUser({
-    //         data: {
-    //           nickName: data.nickName,
-    //           name: data.name,
-    //           email: data.email,
-    //           avatar: data.avatar,
-    //           introduction: data.introduction,
-    //         },
-    //         id,
-    //       });
-    //     }
-    //   };
-    //       const onInValid :SubmitErrorHandler<UserEditType>=useCallback(
-    //   (error) => {
-    //     console.log('error',error)
-    //   },
-    //   [],
-    // )
-    // if(!user){
-    //   return ;
-    // }
+    const {id} = useParams();
+    const {data:user,isLoading} = useGetUserQuery(id ?? "");
+    const addToast = useToastStore(state=>state.addToast);
+    const {mutate:editUser} = useProfileEditMutation(id ?? "")
+    const {register, handleSubmit, watch,setValue} = useForm<UserEditType>({
+      resolver:zodResolver(userEditSchema),
+      values : user ? {
+          nickName:user.nickName,
+          name:user.name,
+          email:user.email,
+          avatar: user?.avatar,
+          introduction: user?.introduction,
+      }:undefined ,
+      
+    });
+    const {mediaPreview, addPreviewMedia} = useMediaPreview({setValue,name:"avatar"});
+      const onSubmit = (data: UserEditType) => {
+        if (id) {
+          editUser({
+            data: {
+              nickName: data.nickName,
+              name: data.name,
+              email: data.email,
+              avatar: data.avatar,
+              introduction: data.introduction,
+            },
+            id,
+          });
+        }
+      };
+      const onInValid :SubmitErrorHandler<UserEditType>=useCallback(
+      (error) => {
+        const firstError = Object.values(error)[0];
+        addToast(firstError as string)
+      },
+      [],
+    )
+    if(!user){
+      return ;
+    }
+    if(isLoading){
+      return (
+          <div>Loading...</div>
+      )
+  };
   return (
     <main className={styles.profileEditPage}>
-      {/* <section className={styles.titleSection}>
+      <section className={styles.titleSection}>
         <h2 className={styles.title}>프로필 수정</h2>
         <p
           className={styles.subText}
@@ -72,7 +79,7 @@ const ProfileEditContainer = () => {
             <SubmitButton text="수정하기" type="submit" handleSubmit={() => {}} />
           </div>
         </form>
-      </section> */}
+      </section>
     </main>
   );
 }

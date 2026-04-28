@@ -1,11 +1,10 @@
-import { Route, Routes, useRoutes } from 'react-router-dom'
+import { useRoutes } from 'react-router-dom'
 import SearchContainer from '@/pages/Search/container/SearchContainer'
-import HomePage from '@/pages/home/HomePage'
-
+import HomeContainer from '@/pages/home/container/HomeContainer';
 const routes = [
   {
     path:"/",
-    element:<HomePage/>,
+    element:<HomeContainer/>,
   },
   {
     path:'/search',

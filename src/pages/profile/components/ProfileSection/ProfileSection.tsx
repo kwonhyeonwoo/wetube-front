@@ -6,11 +6,11 @@ import type {UserResponse } from "@/interfaces/auth.type";
 interface Props {
   userId: string;
   user: UserResponse  | undefined;
-  handleProfileAction: (type: "edit" | "following",uid?:string) => void;
+  uid:string;
+  handleProfileAction: (type: "edit" | "following",uid:string) => void;
 }
 
-const ProfileSection = ({user,userId,handleProfileAction}:Props) => {
-  const uid = useUidStore();
+const ProfileSection = ({uid,userId,user,handleProfileAction}:Props) => {
   return (
     <section className={styles.profileSection}>
       <img
@@ -49,7 +49,7 @@ const ProfileSection = ({user,userId,handleProfileAction}:Props) => {
           <button
             onClick={() => {
               userId === uid
-                ? handleProfileAction("edit")
+                ? handleProfileAction("edit",userId)
                 : handleProfileAction("following", userId);
             }}
             className={styles.followingBtn}

@@ -1,4 +1,4 @@
-.centerHeaderForm{
+.form{
     position:relative;
 
 }
@@ -7,10 +7,10 @@
     height:44px;
     padding:13px 24px;
     box-sizing: border-box;
-    background-color:#F3F3F3;
-    border-radius:20px;
+    border:1px solid #E5E7EB;
+    border-radius:16px;
 }
-.centerHeaderGlass{
+.glassBtn{
     position:absolute;
     top: 50%;
     right:24px;

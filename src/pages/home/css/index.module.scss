@@ -1,7 +1,6 @@
 .homePage{
     display: flex;
     flex-direction: column;
-    row-gap: 50px;
     height:100%;
     padding-bottom: 250px;
     overflow: hidden;
@@ -14,6 +13,7 @@
     margin-top: 36px;
 }
 .shortSection{
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     row-gap: 24px;

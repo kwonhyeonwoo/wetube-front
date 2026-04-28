@@ -24,7 +24,6 @@ const VideoEditPage = () => {
       watch,
     } = useForm<VideoEditType>({
       resolver: zodResolver(videoEditSchema),
-      // video가 있을 때만 객체를 만들어주고, 없으면 통째로 undefined를 줍니다.
       values: video
         ? {
             title: video.title,

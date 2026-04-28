@@ -34,7 +34,7 @@ const ProfileEditInput = ({
         <input
           className={styles.input}
           type={type}
-          value={value}
+          defaultValue={value}
           placeholder={placeholder}
           {...register(name)}
         />

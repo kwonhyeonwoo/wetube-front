@@ -1,10 +1,10 @@
 import { useState } from "react";
 import styles from "./css/index.module.css";
-import VideoOptionMenu from "../VideoOptionMenu/VideoOptionMenu";
 import EmptyProfile from "@/assets/common/unde-user.svg";
 import { useUidStore } from "@/store/useUserStore";
 import { Link } from "react-router-dom";
 import { getRelativeTime } from "@/lib/lib";
+import VideoOptionMenu from "@/components/video/VideoOptionMenu/VideoOptionMenu";
 interface Props {
   _id: string;
   title: string;

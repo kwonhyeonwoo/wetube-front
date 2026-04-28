@@ -1,8 +1,8 @@
-import VideoCard from "@/components/video/VideoCard/VideoCard";
 import styles from "./css/index.module.css";
 import GrayArrow from "@/assets/common/gray-right-arrow.svg"
 import { Link } from "react-router-dom";
 import type { VideoResponse, ShortsResponse} from "@/interfaces/media.type";
+import VideoCard from "@/components/common/VideoCard/VideoCard";
 type MediaType = VideoResponse[] | ShortsResponse[]
 interface Props {
   videos: MediaType | undefined;

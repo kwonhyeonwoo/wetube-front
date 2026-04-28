@@ -1,16 +1,14 @@
 import UndeProfile from "@/assets/common/unde-user.svg";
 import styles from "./css/index.module.css";
 import { Link } from 'react-router-dom';
-import { useLogoutMutation } from "@/hooks/mutations/auth/useLogoutMutation";
-import type { IUserMe } from "@/interfaces/auth.type";
+import type { UserResponse } from "@/interfaces/auth.type";
 
 interface Props{
-  user:IUserMe;
+  user:UserResponse;
+  handleLogOut:()=>void;
 }
 
-const UserActions = ({user}:Props) => {
-  const {mutate} = useLogoutMutation();
-  const handleLogout = ()=> mutate();
+const UserActions = ({user,handleLogOut}:Props) => {
   return (
     <div className={styles.rightHeaderWrapper}>
       <Link to="/video/write" className={styles.rightHeaderWrapperWriteButton}>
@@ -23,7 +21,7 @@ const UserActions = ({user}:Props) => {
         />
         <span className={styles.rightHeaderWrapperWriteButtonText}>만들기</span>
       </Link>
-      <Link to={`/user/${user.uid}/featured`} className={styles.profile}>
+      <Link to={`/user/${user._id}/featured`} className={styles.profile}>
         <img
           src={
             user.avatar
@@ -32,11 +30,10 @@ const UserActions = ({user}:Props) => {
           }
           alt={`${user.nickName}-profile`}
           className={styles.userProfile}
-        />{" "}
-        
+        />
       </Link>
       <button
-        onClick={handleLogout}
+        onClick={handleLogOut}
         className={styles.rightHeaderWrapperAlertButton}
       >
         로그아웃

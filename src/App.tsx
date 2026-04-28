@@ -6,7 +6,6 @@ import HeaderContainer from "./components/layouts/header/container/HeaderContain
 import { Fragment } from "react/jsx-runtime";
 import SidebarContainer from "./components/layouts/Sidebar/container/SidebarContainer";
 import { ToastContainer } from "./components/common/ToastMessage/container/ToastMessageContainer";
-import { useGetMe } from "./hooks/queries/auth/useGetMe";
 import ShortRoute from "./routes/ShortRoute";
 
 const routes = [
@@ -18,11 +17,10 @@ const routes = [
 
 function App() {
   const { pathname } = useLocation();
-  const { data } = useGetMe();
   const hideSidebar = /^\/video\/[^/]+$/.test(pathname);
   return (
     <Fragment>
-      <HeaderContainer user={data} />
+      <HeaderContainer  />
       {!hideSidebar &&
         pathname !== "/user/login" &&
         pathname !== "/user/account" && <SidebarContainer />}

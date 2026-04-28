@@ -1,12 +1,12 @@
 import styles from "../css/index.module.css";
 import { useCallback, useState} from "react";
-import VideoCard from "@/components/video/VideoCard/VideoCard";
 import { useGetMyVideos } from "@/hooks/queries/auth/useGetMyVideos";
 import { useParams } from "react-router-dom";
 import MediaTabs from "@/components/video/MediaTabs/MediaTabs";
 import { MY_VIDEOS_TABS } from "@/constants/historyConstants";
 import { useGetShorts } from "@/hooks/queries/short/useShortsQuery";
 import Short from "@/components/video/Short/Short";
+import VideoCard from "@/components/common/VideoCard/VideoCard";
 
 const MyVideosContainer = () => {
   const {id} = useParams();
