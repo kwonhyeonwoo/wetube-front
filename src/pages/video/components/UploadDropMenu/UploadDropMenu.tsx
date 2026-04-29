@@ -14,7 +14,6 @@ const UploadDropMenu =  <T extends FieldValues>({
   setValue,
 }: Props<T>) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
     const handleOpen = useCallback(
       () => {
        setIsOpen((prev)=>!prev); 
@@ -34,7 +33,6 @@ const UploadDropMenu =  <T extends FieldValues>({
         {categoriesConstants.map((item) => {
           const category = item.name;
           if (category === undefined) return null;
-
           return (
             <li
               onClick={() => {

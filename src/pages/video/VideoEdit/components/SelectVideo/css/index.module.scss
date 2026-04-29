@@ -1,0 +1,19 @@
+.videoBox{
+    width: 100%;
+    height:300px;
+    border-radius: 16px;
+    position:relative;
+}
+.videoFilesBtn{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+.video{
+    width: 100%;
+    height:300px;
+    border-radius: 16px;
+    object-fit: cover;
+}

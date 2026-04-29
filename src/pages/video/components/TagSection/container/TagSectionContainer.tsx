@@ -4,7 +4,7 @@ import type {
   UseFormSetValue,
   Path,
 } from "react-hook-form";
-import styles from "./css/index.module.css";
+import styles from "../css/index.module.css";
 import { useState, type ChangeEvent } from "react";
 
 interface Props <T extends FieldValues>{
@@ -12,7 +12,7 @@ interface Props <T extends FieldValues>{
   setValue: UseFormSetValue<T>;
 }
 
-const TagSection =<T extends FieldValues> ({hashtags,setValue,}:Props<T>) => {
+const TagSectionContainer =<T extends FieldValues> ({hashtags,setValue,}:Props<T>) => {
     const [inputValue,setInputValue] = useState<string>("");
     const handleKeyDown = (e:React.KeyboardEvent<HTMLInputElement>)=>{
         // 한글 입력 시 이벤트가 두번 발생하는 문제 해결
@@ -77,4 +77,4 @@ const TagSection =<T extends FieldValues> ({hashtags,setValue,}:Props<T>) => {
   )
 }
 
-export default TagSection
+export default TagSectionContainer

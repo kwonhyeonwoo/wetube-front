@@ -1,9 +1,9 @@
 import type {  UseFormSetValue, FieldValues } from "react-hook-form";
 import styles from "./css/index.module.css";
-import UploadDropMenu from "../UploadDropMenu/UploadDropMenu";
-import TagSection from "../TagSection/TagSection";
 import UploadGuideLine from "../UploadGuideLine/UploadGuideLine";
 import SubmitButton from "@/components/common/SubmitButton/SubmitButton";
+import UploadDropMenu from "@/pages/video/components/UploadDropMenu/UploadDropMenu";
+import TagSectionContainer from "@/pages/video/components/TagSection/container/TagSectionContainer";
 interface Props <T extends FieldValues>{
     currentTags:string[];
     currentCategory:string;
@@ -17,7 +17,7 @@ const WriteVideoRight = <T extends FieldValues>({
   return (
     <div className={styles.rightUpload}>
       <UploadDropMenu currentCategory={currentCategory} setValue={setValue} />
-      <TagSection hashtags={currentTags} setValue={setValue} />
+      <TagSectionContainer hashtags={currentTags} setValue={setValue} />
       <UploadGuideLine />
       <SubmitButton text="동영상 업로드" type="submit" />
     </div>
