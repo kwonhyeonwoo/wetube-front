@@ -1,5 +1,5 @@
 import styles from "./css/index.module.css";
-import ProgressBar from "../ProgressBar/ProgressBar";
+import ProgressBar from "../../../../../components/video/ProgressBar/ProgressBar";
 import PlayerIcon from "@/assets/video/play.svg?react";
 import PauseIcon from "@/assets/video/pause.svg?react";
 import { formatVideoTime } from "@/lib/lib";

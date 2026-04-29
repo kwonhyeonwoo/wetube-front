@@ -1,20 +1,18 @@
 import styles from "../css/index.module.css";
 import type { VideoResponse } from '@/interfaces/media.type'
 import { useToastStore } from '@/store/useToastStore';
-import VideoPlayContainer from "../../VideoPlay/container/VideoPlayContainer";
-import VideoAuthorProfile from "../../VideoAuthorProfile/VideoAuthorProfile";
-import VideoLikeBtn from "../../VideoLikeBtn/VideoLikeBtn";
 import ActionButton from "../../ActionButton/ActionButton";
 import ShareIcon from "@/assets/video/share.svg?react";
 import SaveIcon from "@/assets/video/save.svg?react";
-import VideoContent from "../../VideoContent/VideoContent";
 import { getRelativeTime } from "@/lib/lib";
 import { useVideoSave } from "@/pages/video/hooks/useVideoSave";
 import { useUidStore } from "@/store/useUserStore";
 import { useFollow } from "@/pages/video/hooks/useFollow";
 import { useVideoLike } from "@/pages/video/hooks/useVideoLike";
-import VideoOptionMenuContainer from "../../VideoOptionMenu/container/VideoOptionMenuContainer";
-
+import VideoOptionMenuContainer from "../../../../../../components/video/VideoOptionMenu/container/VideoOptionMenuContainer";
+import VideoAuthorProfile from "@/components/video/VideoAuthorProfile/VideoAuthorProfile";
+import LikeIcon from "@/assets/video/like.svg?react";
+import VideoContent from "../../VideoContent/VideoContent";
 interface Props{
     video:VideoResponse;
     paramsId:string | undefined;
@@ -37,7 +35,6 @@ const VideoPrimaryInfoContainer = ({
     const isLike = video.likes?.includes(uid)
   return (
     <div className={styles.videoBox}>
-      <VideoPlayContainer video={video.video} paramsId={paramsId} />
       {/* infobox -> 제목, 프로필,닉네임,공유하기,저장하기 버튼 모음 */}
       <div className={styles.videoInfoBox}>
         <h2 className={styles.videoTitle}>{video.title}</h2>
@@ -53,10 +50,11 @@ const VideoPrimaryInfoContainer = ({
             handleFollow={handleFollow}
           />
           <div className={styles.videoActions}>
-            <VideoLikeBtn
-              likeCount={video?.likes?.length}
-              isLike={isLike}
-              handleVideoLike={handleVideoLike}
+            <ActionButton
+              Icon={LikeIcon}
+              isActive={isLike}
+              text={`${String(video?.likes?.length)}개`}
+              handleActive={handleVideoLike}
             />
             <ActionButton
               Icon={ShareIcon}
@@ -69,7 +67,9 @@ const VideoPrimaryInfoContainer = ({
               isActive={video.isSaved}
               handleActive={handleVideoSave}
             />
-            <VideoOptionMenuContainer videoId={paramsId ?? ""}/>
+            {video.owner._id === uid && (
+              <VideoOptionMenuContainer videoId={paramsId ?? ""} />
+            )}
           </div>
         </div>
       </div>

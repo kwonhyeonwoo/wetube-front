@@ -17,9 +17,7 @@ const VideoContent = ({
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const handleOpenContent = ()=> setIsOpen((prev)=>!prev)
   return (
-    <div className={
-        `${styles.videoContentWrapper} ${isOpen && styles.activeContent}`
-    }>
+    <div className={`${styles.videoContentWrapper} ${isOpen && styles.activeContent}`}>
         {/* 조회수, 시간, 태그 */}
         <div className={styles.metaBox}>
             <div className={styles.boldTextBox}>

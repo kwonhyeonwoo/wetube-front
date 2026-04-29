@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Short from "@/components/video/Short/Short";
 import { useGetShorts } from "@/hooks/queries/short/useShortsQuery";
 import { useGetVideosQuery } from "@/hooks/queries/video/useGetVideoQuery";
-import Categories from "@/components/common/Categories/Categories";
+import Categories from "@/components/common/Categories/container/CategoriesContainer";
 import type { CategoryType } from "@/interfaces/media.type";
 import VideoCard from "@/components/common/VideoCard/VideoCard";
 
@@ -17,17 +17,14 @@ const HomeContainer = () => {
     navigate(`/video/${id}`);
   }, [navigate]);
 
-  const handleCategoryActive = useCallback((name: CategoryType) => {
-    setCurrentCategory(name);
-  }, [currentCategory]);
 
   const firstVideos = videos?.slice(0, 12) || []; 
   const remainingVideos = videos?.slice(12) || [];
   return (
     <main className={styles.homePage}>
       <Categories
+        setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}
-        handleCategoryActive={handleCategoryActive}
       />
       {firstVideos.length > 0 && (
         <section className={styles.videoSection}>

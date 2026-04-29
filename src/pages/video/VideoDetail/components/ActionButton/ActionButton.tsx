@@ -1,4 +1,5 @@
-import type { SvgIcon } from "@/interfaces/common.type";import styles from "./css/index.module.css";
+import type { SvgIcon } from "@/interfaces/common.type";
+import styles from "./css/index.module.css";
 interface Props{
     Icon:SvgIcon;
     text:string;
