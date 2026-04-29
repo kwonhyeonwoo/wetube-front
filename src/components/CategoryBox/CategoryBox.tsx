@@ -9,7 +9,7 @@ interface Props {
 const CategoryBox = ({title,name,currentCategory,handleCategoryActive}:Props) => {
   return (
     <button
-    className={`${styles.categoryBtn} ${name === currentCategory ? styles.activeCategoryBtn : ""}`}
+      className={`${styles.categoryBtn} ${name === currentCategory ? styles.activeCategoryBtn : ""}`}
       onClick={() => handleCategoryActive(name)}
     >
       {title}

@@ -1,5 +1,6 @@
+import styles from "../css/index.module.css";
 import { useCallback, useState } from "react"
-import VideoOptionMenu from "../VideoOptionMenu"
+import MeatBall from "@/assets/common/meatball.svg?react";
 import { useNavigate } from "react-router-dom";
 import useDeleteVideoMutation from "@/hooks/mutations/video/useDeleteVideoMutation";
 
@@ -29,12 +30,36 @@ const VideoOptionMenuContainer = ({videoId}:Props) => {
     [],
   )
   return (
-    <VideoOptionMenu
-      isMenuOpen={isMenuOpen}
-      handleMenuOpen={handleMenuOpen}
-      handleOptionActive={handleOptionActive}
-    />
-  )
+    <div className={styles.meatballBox}>
+      <MeatBall onClick={handleMenuOpen} />
+      {isMenuOpen && (
+        <div className={styles.meatBallMenu}>
+          <ul className={styles.meatBallUl}>
+            {meatBallList.map(({ text, type }, idx) => (
+              <li
+                key={idx}
+                className={styles.meatBallLi}
+                onClick={() => handleOptionActive(type)}
+              >
+                {text}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default VideoOptionMenuContainer
+export default VideoOptionMenuContainer;
+
+const meatBallList: { text: string; type: "edit" | "delete" }[] = [
+  {
+    text: "수정하기",
+    type: "edit",
+  },
+  {
+    text: "삭제하기",
+    type: "delete",
+  },
+];
