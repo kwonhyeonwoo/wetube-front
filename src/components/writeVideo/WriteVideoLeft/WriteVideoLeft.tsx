@@ -1,8 +1,8 @@
 import type { UseFormRegister, FieldValues, Path } from "react-hook-form";
 import UploadVideo from "../../video/UploadVideo/UploadVideo";
 import styles from "./css/index.module.css";
-import ContentTextArea from "@/components/video/ContentTextArea/ContentTextArea";
-import VideoCustomInput from "@/components/video/VideoCustomInput/VideoCustomInput";
+import VideoCustomInput from "@/pages/video/components/VideoCustomInput/VideoCustomInput";
+import ContentTextArea from "@/pages/video/components/ContentTextArea/ContentTextArea";
 
 interface Props <T extends FieldValues> {
   videoPreview: string | null;

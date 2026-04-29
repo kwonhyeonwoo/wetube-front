@@ -2,8 +2,6 @@ import { useRoutes } from "react-router-dom"
 import AccountContainer from "../pages/user/AccountContainer"
 import LoginContainer from "../pages/user/LoginContainer"
 import ProfileEditContainer from "@/pages/profileEdit/container/ProfileEditContainer"
-import StorageDetailContainer from "@/pages/StorageDetail/container/StorageDetailContainer"
-import WriteStorageContainer from "@/pages/writeStorage/container/WriteStorageContainer"
 import ProfileLayout from "@/pages/profile/container/ProfileLayout"
 import ProfileFeatureContainer from "@/pages/profile/ProfileFeature/container/ProfileFeatureContainer"
 import MyVideoContainer from "@/pages/profile/MyVideo/container/MyVideoContainer";
@@ -30,15 +28,6 @@ const routes = [
   {
     path: "/:id/edit",
     element: <ProfileEditContainer />,
-  },
-  
-  {
-    path: "/:userId/storage/:storageId",
-    element: <StorageDetailContainer />,
-  },
-  {
-    path: "/storage/write",
-    element: <WriteStorageContainer />,
   },
 ];
 const UserRoute = () => {
