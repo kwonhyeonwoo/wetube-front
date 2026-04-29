@@ -1,29 +1,24 @@
 import styles from "./css/index.module.css";
-import usePostFollow from "@/hooks/mutations/auth/useFollowingMutation";
-import { useUidStore } from "@/store/useUserStore";
 import EmptyProfileIcon from "@/assets/common/unde-user.svg";
-interface Props{
-    nickName:string;
-    followers:string[];
-    ownerId:string;
-    videoId:string;
-    avatar?:string;
+interface Props {
+  nickName: string;
+  followersLength: number;
+  ownerId: string;
+  videoId: string;
+  avatar?: string;
+  uid: string;
+  isFollower:boolean;
+  handleFollow: () => void;
 }
 const VideoAuthorProfile = ({
   nickName,
-  followers,
+  followersLength,
   avatar,
   ownerId,
-  videoId,
+  uid,
+  isFollower,
+  handleFollow,
 }: Props) => {
-  const uid = useUidStore();
-  const { mutate } = usePostFollow(videoId ?? "");
-  const isFollower = followers.includes(uid);
-  const handleFollow = () => {
-    if (ownerId) {
-      mutate(ownerId);
-    }
-  };
   return (
     <div className={styles.authorBox}>
       <img
@@ -37,7 +32,7 @@ const VideoAuthorProfile = ({
       />
       <div className={styles.authorNicknameBox}>
         <p className={styles.nickName}>{nickName}</p>
-        <p className={styles.subscribeCount}>구독자{followers.length}명</p>
+        <p className={styles.subscribeCount}>구독자{followersLength}명</p>
       </div>
       {ownerId !== uid &&  (
         <button className={`${styles.subscribeBtn} `} onClick={handleFollow}>

@@ -10,7 +10,6 @@ const useFollowingMutation = (userId:string)=>{
     return useMutation({
         mutationFn:authService.postUserFollow,
         onSuccess:(data)=>{
-            console.log('data',data)
             addToast(data.message);
             queryClient.invalidateQueries({queryKey:VIDEO_KEYS.detail(userId)});
             queryClient.invalidateQueries({

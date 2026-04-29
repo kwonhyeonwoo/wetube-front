@@ -11,7 +11,6 @@ export const commentService ={
 
     getComments:async(videoId:string):Promise<IComment[]>=>{
         const response = await api.get(`/comment/${videoId}`);
-        console.log('first',response.data)
         return await response.data.comment;
     }
 }

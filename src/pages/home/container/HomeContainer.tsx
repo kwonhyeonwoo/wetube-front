@@ -11,10 +11,8 @@ import VideoCard from "@/components/common/VideoCard/VideoCard";
 const HomeContainer = () => {
   const navigate = useNavigate();
   const [currentCategory, setCurrentCategory] = useState<CategoryType>();
-  
   const { data: videos } = useGetVideosQuery({ category: currentCategory });
   const { data: shorts } = useGetShorts();
-
   const handleVideoDetail = useCallback((id: string) => {
     navigate(`/video/${id}`);
   }, [navigate]);
@@ -25,7 +23,6 @@ const HomeContainer = () => {
 
   const firstVideos = videos?.slice(0, 12) || []; 
   const remainingVideos = videos?.slice(12) || [];
-
   return (
     <main className={styles.homePage}>
       <Categories

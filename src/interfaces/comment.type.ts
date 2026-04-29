@@ -4,6 +4,7 @@ export interface IComment{
     owner:{
         _id:string;
         nickName:string;
+        avatar?:string;
     }
     video:string;
     createdAt:Date;

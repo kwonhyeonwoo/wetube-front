@@ -1,28 +1,15 @@
-import { useForm, type SubmitHandler} from "react-hook-form";
 import EmptyProfileIcon from "@/assets/common/unde-user.svg";
 import styles from "./css/index.module.css";
-import { CommentSchema, type CommentType } from "@/schema/comment.schema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import usePostComment from "@/hooks/queries/comment/usePostComment";
+import type { SubmitHandler, UseFormHandleSubmit, UseFormRegister } from "react-hook-form";
+import type { CommentType } from "@/schema/comment.schema";
 
 interface Props {
     avatar?:string;
-    videoId:string | undefined;
+    register:UseFormRegister<CommentType>;
+    handleSubmit:UseFormHandleSubmit<CommentType>
+    onSubmit:SubmitHandler<CommentType>
 }
-const CommentInput = ({avatar, videoId }: Props) => {
-  const { register, handleSubmit, setValue } = useForm<CommentType>({
-    resolver: zodResolver(CommentSchema),
-  });
-  const {mutate} = usePostComment(videoId ?? "");
-  const onSubmit: SubmitHandler<CommentType> = (data) => {
-    if(videoId){
-       mutate({
-         videoId,
-         comment: data.comment,
-       });
-       setValue('comment',"")
-    }
-  };
+const CommentInput = ({avatar,onSubmit ,handleSubmit,register}: Props) => {
   return (
     <form className={styles.commentForm} onSubmit={handleSubmit(onSubmit)}>
       <img

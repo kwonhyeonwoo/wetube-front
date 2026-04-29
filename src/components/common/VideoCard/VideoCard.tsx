@@ -1,10 +1,9 @@
-import { useState } from "react";
 import styles from "./css/index.module.css";
 import EmptyProfile from "@/assets/common/unde-user.svg";
 import { useUidStore } from "@/store/useUserStore";
 import { Link } from "react-router-dom";
 import { getRelativeTime } from "@/lib/lib";
-import VideoOptionMenu from "@/components/video/VideoOptionMenu/VideoOptionMenu";
+import VideoOptionMenuContainer from "@/components/video/VideoOptionMenu/container/VideoOptionMenuContainer";
 interface Props {
   _id: string;
   title: string;
@@ -35,11 +34,6 @@ const VideoCard = ({
   handleVideoDetail
 }:Props) => {
   const uid = useUidStore();
-  const [currVideoId, setCurrVideoId] = useState<string>("");
-  const handleCurrVideoId = (id:string)=>{
-      setCurrVideoId((prev)=> prev === id ? "" : id);
-  };
-
   const mediaSrc = video || shorts;
   return (
     <div className={styles.videoCardWrapper}>
@@ -71,11 +65,7 @@ const VideoCard = ({
           </div>
         </div>
         {uid === ownerId && (
-          <VideoOptionMenu
-            currVideoId={currVideoId}
-            videoId={_id}
-            handleCurrVideoId={handleCurrVideoId}
-          />
+          <VideoOptionMenuContainer videoId={_id}/>
         )}
       </div>
     </div>

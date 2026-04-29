@@ -1,4 +1,5 @@
 import type { VideoResponse } from "@/interfaces/media.type";import styles from "./css/index.module.css";
+import { getRelativeTime } from "@/lib/lib";
 
 interface Props{
     item:VideoResponse;
@@ -21,7 +22,7 @@ const StorageList = ({
                 <p className={styles.customText}>조회수</p>
                 <p className={styles.customText}>{item.meta.views}회</p>
               </div>
-              <p className={styles.customText}>3주전</p>
+              <p className={styles.customText}>{getRelativeTime(item.createdAt)}</p>
             </div>
           </div>
         </div>

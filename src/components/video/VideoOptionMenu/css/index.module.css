@@ -1,5 +1,6 @@
 .meatballBox {
   margin-left: auto;
+  cursor: pointer;
 }
 
 .meatBallMenu {
@@ -28,4 +29,5 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-size: 14px;
+  cursor: pointer;
 }

@@ -1,5 +1,5 @@
 import type { ShortsType, VideoType } from "@/schema/media.schema";
-import type { OwnerType, UserResponse } from "./auth.type";
+import type { OwnerType } from "./auth.type";
 
 export type CategoryType =
   "movie"

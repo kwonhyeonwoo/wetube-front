@@ -15,9 +15,7 @@ const VideoContent = ({
     tags
 }:Props) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const handleOpenContent = ()=>{
-        setIsOpen((prev)=>!prev)
-    }
+    const handleOpenContent = ()=> setIsOpen((prev)=>!prev)
   return (
     <div className={
         `${styles.videoContentWrapper} ${isOpen && styles.activeContent}`

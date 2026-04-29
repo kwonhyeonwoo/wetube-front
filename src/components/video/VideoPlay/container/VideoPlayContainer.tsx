@@ -101,7 +101,6 @@ const VideoPlayContainer = ({ video, paramsId }: Props) => {
   };
   useEffect(() => {
     if (Math.floor(currentTime) === 3 && !hasTriggered3Sec.current) {
-      console.log("헬로우 !");
       hasTriggered3Sec.current = true; // 한 번 실행했으니 깃발을 올려줍니다.
       fetchVideoViews();
     }

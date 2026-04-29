@@ -1,37 +1,27 @@
-import useDeleteVideo from "@/hooks/queries/video/useDeleteVideo";
 import styles from "./css/index.module.css"
 import MeatBall from "@/assets/common/meatball.svg?react";
-import { useNavigate } from "react-router-dom";
 interface Props {
-  currVideoId: string;
-  videoId: string;
-  handleCurrVideoId: (videoId: string) => void;
+    isMenuOpen:boolean;
+    handleMenuOpen:()=>void;
+    handleOptionActive:(type:"edit"|"delete")=>void;
 }
 const VideoOptionMenu = ({
-  currVideoId,
-  videoId,
-  handleCurrVideoId,
+  isMenuOpen,
+  handleMenuOpen,
+  handleOptionActive,
 }: Props) => {
-  const navigate = useNavigate();
-  const {mutate} = useDeleteVideo(videoId);
-  const handleAction = (type:"edit" | "delete")=>{
-    if(type ==='edit'){
-      navigate(`/video/${videoId}/edit`)
-    }else{
-      mutate(videoId)
-    }
-  }
+  
   return (
     <div className={styles.meatballBox}>
-      <MeatBall onClick={() => handleCurrVideoId(videoId)} />
-      {currVideoId === videoId && (
+      <MeatBall onClick={handleMenuOpen} />
+      {isMenuOpen && (
         <div className={styles.meatBallMenu}>
           <ul className={styles.meatBallUl}>
             {meatBallList.map(({ text, type }, idx) => (
               <li
                 key={idx}
                 className={styles.meatBallLi}
-                onClick={() => handleAction(type)}
+                onClick={() => handleOptionActive(type)}
               >
                 {text}
               </li>
