@@ -1,9 +1,9 @@
 import styles from "./css/index.module.css";
-import GrayArrow from "@/assets/common/gray-right-arrow.svg"
+import GrayArrow from "@/assets/common/gray-right-arrow.svg";
 import { Link } from "react-router-dom";
-import type { VideoResponse, ShortsResponse} from "@/interfaces/media.type";
-import VideoCard from "@/components/common/VideoCard/VideoCard";
-type MediaType = VideoResponse[] | ShortsResponse[]
+import type { VideoResponse, ShortsResponse } from "@/interfaces/media.type";
+import VideoCard from "@/pages/video/components/VideoCard/VideoCard";
+type MediaType = VideoResponse[] | ShortsResponse[];
 interface Props {
   videos: MediaType | undefined;
   text: string;
@@ -43,4 +43,4 @@ const VideosSection = ({
   );
 };
 
-export default VideosSection
+export default VideosSection;

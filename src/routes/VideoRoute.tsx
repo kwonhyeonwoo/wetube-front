@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import VideoStoragePage from "@/pages/video/VideoStorage/VideoStoragePage";
 import VideoDetailContainer from "@/pages/video/VideoDetail/container/VideoDetailContainer";
 import VideoEditContainer from "@/pages/video/VideoEdit/container/VideoEditContainer";
 import VideoWriteContainer from "@/pages/video/VideoWrite/container/VideoWriteContainer";
+import VideoStorageContaienr from "@/pages/video/VideoStorage/container/VideoStorageContaienr";
 
 const routes = [
   {
@@ -19,7 +19,7 @@ const routes = [
   },
   {
     path: "/:id/storage",
-    element: <VideoStoragePage />,
+    element: <VideoStorageContaienr />,
   },
 ];
 

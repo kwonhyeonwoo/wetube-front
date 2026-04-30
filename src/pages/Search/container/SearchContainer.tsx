@@ -2,28 +2,23 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import styles from "../css/index.module.css";
 import { useGetSearchVideos } from "@/hooks/queries/video/useGetVideoQuery";
 import { useCallback } from "react";
-import VideoCard from "@/components/common/VideoCard/VideoCard";
+import VideoCard from "@/pages/video/components/VideoCard/VideoCard";
 const SearchContainer = () => {
-    const navigate = useNavigate();
-    const [searchParams] = useSearchParams();
-    const keyword = searchParams.get('keyword') || ""
-    const categories = searchParams.get("category") || "";
-    const {data:videos, isLoading} = useGetSearchVideos({keyword});
-    const handleNavigate = useCallback(
-      (id:string) => {
-        navigate(`/video/${id}`)
-      },
-      [],
-    )
-    console.log("keyword", categories);
-    if(isLoading){
-        <div>Loading...</div>
-    }
-    if(!videos){
-        return (
-            <div>검색 된 비디오가 없습니다.</div>
-        )
-    }
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const keyword = searchParams.get("keyword") || "";
+  const categories = searchParams.get("category") || "";
+  const { data: videos, isLoading } = useGetSearchVideos({ keyword });
+  const handleNavigate = useCallback((id: string) => {
+    navigate(`/video/${id}`);
+  }, []);
+  console.log("keyword", categories);
+  if (isLoading) {
+    <div>Loading...</div>;
+  }
+  if (!videos) {
+    return <div>검색 된 비디오가 없습니다.</div>;
+  }
   return (
     <main className={styles.searchPage}>
       <section className={styles.searchSection}>
@@ -39,6 +34,6 @@ const SearchContainer = () => {
       </section>
     </main>
   );
-}
+};
 
-export default SearchContainer
+export default SearchContainer;
