@@ -2,9 +2,9 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { shortsSchema, type ShortsType } from "@/schema/media.schema";
 import { useCallback } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import usePostShortMutation from "@/hooks/queries/short/usePostShortMutation";
 import { useMediaPreview } from "@/hooks/useMediaPreview";
 import VideoFormTemplate from "@/pages/video/components/VideoFormTemplate/VideoFormTemplate";
+import usePostShortMutation from "@/hooks/mutations/short/useWriteShortMutation";
 
 const ShortWriteContainer = () => {
   const { mutate } = usePostShortMutation();
