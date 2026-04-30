@@ -1,27 +1,23 @@
-import type { FieldValues, Path, UseFormRegister } from "react-hook-form";
 import styles from "./css/index.module.css";
 
-interface Props<T extends FieldValues> {
+interface Props {
   mode: "video" | "image";
-  name: Path<T>;
-  videoPreview:string | null;
-  addPreviewMedia:(e:React.ChangeEvent<HTMLInputElement>)=>void;
-  register: UseFormRegister<T>;
+  videoPreview: string | null;
+  addPreviewMedia: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-const UploadVideo = <T extends FieldValues>({
-  mode, 
-  name,
-  videoPreview,
-  addPreviewMedia,
-  register}:Props<T>) => {
+const UploadVideo = ({ mode, videoPreview, addPreviewMedia }: Props) => {
   return (
-    <div >
+    <div>
       {videoPreview ? (
         <div className={styles.videoBox}>
           {mode === "video" ? (
             <video src={videoPreview} controls className={styles.video} />
-          ):(
-            <img src={videoPreview} alt="thumnail-preview" className={styles.video} />
+          ) : (
+            <img
+              src={videoPreview}
+              alt="thumnail-preview"
+              className={styles.video}
+            />
           )}
         </div>
       ) : (
@@ -50,6 +46,6 @@ const UploadVideo = <T extends FieldValues>({
       )}
     </div>
   );
-}
+};
 
-export default UploadVideo
+export default UploadVideo;
