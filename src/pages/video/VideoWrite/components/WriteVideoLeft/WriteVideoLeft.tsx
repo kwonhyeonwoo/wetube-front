@@ -1,19 +1,17 @@
 import type { UseFormRegister, FieldValues, Path } from "react-hook-form";
-import UploadVideo from "../../video/UploadVideo/UploadVideo";
+import UploadVideo from "../UploadVideo/UploadVideo";
 import styles from "./css/index.module.css";
 import VideoCustomInput from "@/pages/video/components/VideoCustomInput/VideoCustomInput";
 import ContentTextArea from "@/pages/video/components/ContentTextArea/ContentTextArea";
 
-interface Props <T extends FieldValues> {
+interface Props<T extends FieldValues> {
   videoPreview: string | null;
-  mediaName:Path<T>;
-  addPreviewMedia:(e:React.ChangeEvent<HTMLInputElement>)=>void;
+  addPreviewMedia: (e: React.ChangeEvent<HTMLInputElement>) => void;
   register: UseFormRegister<T>;
 }
 
-const WriteVideoLeft = <T extends FieldValues>({ 
-  mediaName,
-  videoPreview, 
+const WriteVideoLeft = <T extends FieldValues>({
+  videoPreview,
   register,
   addPreviewMedia,
 }: Props<T>) => {
@@ -23,15 +21,13 @@ const WriteVideoLeft = <T extends FieldValues>({
       <UploadVideo
         videoPreview={videoPreview}
         mode="video"
-        name={mediaName}
         addPreviewMedia={addPreviewMedia}
-        register={register}
       />
       {/* 제목 */}
       <VideoCustomInput
-          name={"title"}
-          label="동영상 제목"
-          register={register}
+        name={"title"}
+        label="동영상 제목"
+        register={register}
       />
       {/* 내용  */}
       <ContentTextArea
@@ -43,4 +39,4 @@ const WriteVideoLeft = <T extends FieldValues>({
   );
 };
 
-export default WriteVideoLeft
+export default WriteVideoLeft;

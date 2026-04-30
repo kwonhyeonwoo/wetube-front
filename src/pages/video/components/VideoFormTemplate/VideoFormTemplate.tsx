@@ -6,30 +6,27 @@ import type {
   FieldValues,
   SubmitHandler,
   SubmitErrorHandler,
-  Path,
 } from "react-hook-form";
-import WriteVideoLeft from "@/components/writeVideo/WriteVideoLeft/WriteVideoLeft";
-import WriteVideoRight from "@/components/writeVideo/WritevideoRight/WriteVideoRight";
-import WriteCategory from "../WriteCategory/WriteCategory";
+import WriteVideoLeft from "@/pages/video/VideoWrite/components/WriteVideoLeft/WriteVideoLeft";
+import WriteVideoRight from "@/pages/video/VideoWrite/components/WritevideoRight/WriteVideoRight";
+import WriteCategory from "../../../../components/video/WriteCategory/WriteCategory";
 
-interface Props <T extends FieldValues>{
+interface Props<T extends FieldValues> {
   currentTags: string[];
   videoPreview: string | null;
   currentCategory: string;
-  mediaName:Path<T>
-  addPreviewMedia:(e:React.ChangeEvent<HTMLInputElement>)=>void;
+  addPreviewMedia: (e: React.ChangeEvent<HTMLInputElement>) => void;
   register: UseFormRegister<T>;
   setValue: UseFormSetValue<T>;
   onInvalid?: SubmitErrorHandler<T>;
-  onSubmit: SubmitHandler<T>
+  onSubmit: SubmitHandler<T>;
   handleSubmit: UseFormHandleSubmit<T>;
 }
 
-const VideoFormTemplate =<T extends FieldValues> ({
+const VideoFormTemplate = <T extends FieldValues>({
   currentTags,
   videoPreview,
   currentCategory,
-  mediaName,
   addPreviewMedia,
   register,
   setValue,
@@ -54,7 +51,6 @@ const VideoFormTemplate =<T extends FieldValues> ({
           onSubmit={handleSubmit(onSubmit, onInvalid)}
         >
           <WriteVideoLeft
-            mediaName={mediaName}
             videoPreview={videoPreview}
             addPreviewMedia={addPreviewMedia}
             register={register}

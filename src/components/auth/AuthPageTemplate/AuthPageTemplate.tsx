@@ -1,7 +1,12 @@
 import styles from "./css/index.module.css";
 import AuthLink from "../AuthLink/AuthLink";
-import type {IAuthFields } from "@/interfaces/auth.type";
-import type { UseFormRegister,FieldValues, UseFormHandleSubmit,SubmitHandler } from "react-hook-form";
+import type { IAuthFields } from "@/interfaces/auth.type";
+import type {
+  UseFormRegister,
+  FieldValues,
+  UseFormHandleSubmit,
+  SubmitHandler,
+} from "react-hook-form";
 import AuthInput from "../authInput/AuthInput";
 import SubmitButton from "@/components/common/SubmitButton/SubmitButton";
 
@@ -19,17 +24,17 @@ interface Props<T extends FieldValues> {
 }
 
 const AuthPageTemplate = <T extends FieldValues>({
-    title,
-    subTitle,
-    fields,
-    link,
-    linkText,
-    btnText,
-    onInvalid,
-    register,
-    handleSubmit,
-    onSubmit
-}:Props<T>) => {
+  title,
+  subTitle,
+  fields,
+  link,
+  linkText,
+  btnText,
+  onInvalid,
+  register,
+  handleSubmit,
+  onSubmit,
+}: Props<T>) => {
   return (
     <main className={styles.authPageTemplate}>
       <section className={styles.section}>
@@ -37,9 +42,9 @@ const AuthPageTemplate = <T extends FieldValues>({
           <h1 className={styles.title}>{title}</h1>
           <p className={styles.subTitle}>{subTitle}</p>
         </div>
-        <form onSubmit={handleSubmit(onSubmit,onInvalid)}>
+        <form onSubmit={handleSubmit(onSubmit, onInvalid)}>
           <div className={styles.inputs}>
-            {fields.map(({ name, placeholder, type, label,min,max }, idx) => (
+            {fields.map(({ name, placeholder, type, label, min, max }, idx) => (
               <AuthInput
                 type={type}
                 label={label}
@@ -53,7 +58,7 @@ const AuthPageTemplate = <T extends FieldValues>({
             ))}
           </div>
           <div className={styles.buttonBox}>
-            <SubmitButton type="submit" text={btnText}  />
+            <SubmitButton type="submit" text={btnText} />
             <AuthLink link={link} text={linkText} />
             {link === "/user/login" && (
               <span className={styles.terms}>
@@ -66,6 +71,6 @@ const AuthPageTemplate = <T extends FieldValues>({
       </section>
     </main>
   );
-}
+};
 
-export default AuthPageTemplate
+export default AuthPageTemplate;

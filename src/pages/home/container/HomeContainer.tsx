@@ -13,12 +13,14 @@ const HomeContainer = () => {
   const [currentCategory, setCurrentCategory] = useState<CategoryType>();
   const { data: videos } = useGetVideosQuery({ category: currentCategory });
   const { data: shorts } = useGetShorts();
-  const handleVideoDetail = useCallback((id: string) => {
-    navigate(`/video/${id}`);
-  }, [navigate]);
-
-
-  const firstVideos = videos?.slice(0, 12) || []; 
+  const handleVideoDetail = useCallback(
+    (id: string) => {
+      navigate(`/video/${id}`);
+    },
+    [navigate],
+  );
+  console.log("videos", videos);
+  const firstVideos = videos?.slice(0, 12) || [];
   const remainingVideos = videos?.slice(12) || [];
   return (
     <main className={styles.homePage}>
@@ -79,6 +81,6 @@ const HomeContainer = () => {
       )}
     </main>
   );
-}
+};
 
 export default HomeContainer;
