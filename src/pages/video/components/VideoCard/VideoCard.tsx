@@ -8,31 +8,29 @@ interface Props {
   _id: string;
   title: string;
   meta: {
-      views: number;
+    views: number;
   };
-  ownerId:string;
+  ownerId: string;
   avatar?: string;
   nickName?: string;
-  video?: string;  
+  video?: string;
   shorts?: string;
-  createdAt:Date,
+  createdAt: Date;
   handleVideoDetail: (id: string) => void;
 }
 
 const VideoCard = ({
   video,
-  shorts, 
+  shorts,
   _id,
-  meta: {
-    views,
-  },
+  meta: { views },
   ownerId,
   avatar,
   title,
   nickName,
   createdAt,
-  handleVideoDetail
-}:Props) => {
+  handleVideoDetail,
+}: Props) => {
   const uid = useUidStore();
   const mediaSrc = video || shorts;
   return (
@@ -64,12 +62,10 @@ const VideoCard = ({
             </p>
           </div>
         </div>
-        {uid === ownerId && (
-          <VideoOptionMenuContainer videoId={_id}/>
-        )}
+        {uid === ownerId && <VideoOptionMenuContainer videoId={_id} />}
       </div>
     </div>
   );
-}
+};
 
 export default VideoCard;

@@ -6,7 +6,7 @@ import { useGetShorts } from "@/hooks/queries/short/useShortsQuery";
 import { useGetVideosQuery } from "@/hooks/queries/video/useGetVideoQuery";
 import Categories from "@/components/common/Categories/container/CategoriesContainer";
 import type { CategoryType } from "@/interfaces/media.type";
-import VideoCard from "@/components/common/VideoCard/VideoCard";
+import VideoCard from "@/pages/video/components/VideoCard/VideoCard";
 
 const HomeContainer = () => {
   const navigate = useNavigate();

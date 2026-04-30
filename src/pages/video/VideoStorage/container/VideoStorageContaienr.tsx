@@ -1,21 +1,18 @@
-import styles from "./css/index.module.css";
+import styles from "../css/index.module.css";
 import { useNavigate } from "react-router-dom";
 import { useUidStore } from "@/store/useUserStore";
 import { useCallback } from "react";
-import VideoCard from "@/components/common/VideoCard/VideoCard";
 import { useSavedVideosQuery } from "@/hooks/queries/auth/useSavedVideosQuery";
+import VideoCard from "@/pages/video/components/VideoCard/VideoCard";
 
-const VideoStoragePage = () => {
-    const navigate = useNavigate();
-    const uid = useUidStore()
-    const { data: storageVideos } = useSavedVideosQuery(uid);  
-    const handleVideoDetail =useCallback(
-      (id:string) => {
-        return navigate(`/video/${id}`)
-      },
-      [],
-    )
-    
+const VideoStorageContaienr = () => {
+  const navigate = useNavigate();
+  const uid = useUidStore();
+  const { data: storageVideos } = useSavedVideosQuery(uid);
+  const handleVideoDetail = useCallback((id: string) => {
+    return navigate(`/video/${id}`);
+  }, []);
+
   return (
     <main className={styles.videoStoragePage}>
       <section className={styles.titleBox}>
@@ -29,6 +26,7 @@ const VideoStoragePage = () => {
           {storageVideos &&
             storageVideos?.map((item) => (
               <VideoCard
+                key={item._id}
                 {...item}
                 handleVideoDetail={handleVideoDetail}
                 ownerId={uid}
@@ -39,6 +37,6 @@ const VideoStoragePage = () => {
       </section>
     </main>
   );
-}
+};
 
-export default VideoStoragePage;
+export default VideoStorageContaienr;

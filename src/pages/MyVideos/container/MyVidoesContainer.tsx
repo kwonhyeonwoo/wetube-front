@@ -1,25 +1,22 @@
 import styles from "../css/index.module.css";
-import { useCallback, useState} from "react";
+import { useCallback, useState } from "react";
 import { useGetMyVideos } from "@/hooks/queries/auth/useGetMyVideos";
 import { useParams } from "react-router-dom";
 import MediaTabs from "@/components/video/MediaTabs/MediaTabs";
 import { MY_VIDEOS_TABS } from "@/constants/historyConstants";
 import { useGetShorts } from "@/hooks/queries/short/useShortsQuery";
 import Short from "@/components/video/Short/Short";
-import VideoCard from "@/components/common/VideoCard/VideoCard";
+import VideoCard from "@/pages/video/components/VideoCard/VideoCard";
 
 const MyVideosContainer = () => {
-  const {id} = useParams();
-  const {data:videos} = useGetMyVideos(id ?? "")
-  const {data:shorts} = useGetShorts()
+  const { id } = useParams();
+  const { data: videos } = useGetMyVideos(id ?? "");
+  const { data: shorts } = useGetShorts();
   const [tab, setTab] = useState<string>("video");
 
-  const handleTabClicked = useCallback(
-    (type:string) => {
-        setTab(type)
-    },
-    [],
-  )
+  const handleTabClicked = useCallback((type: string) => {
+    setTab(type);
+  }, []);
   return (
     <main className={styles.myVideosPage}>
       {/* <MyVideoSearch
@@ -28,7 +25,7 @@ const MyVideosContainer = () => {
         currentQuery={currentQuery}
       /> */}
       <div className={styles.tabBox}>
-        {MY_VIDEOS_TABS.map((item,idx)=>(
+        {MY_VIDEOS_TABS.map((item, idx) => (
           <MediaTabs
             key={idx}
             text={item.text}
@@ -39,14 +36,21 @@ const MyVideosContainer = () => {
         ))}
       </div>
       <section className={styles.videoSection}>
-        {tab === "video" ?  
-        <div className={styles.gridBox}>
-            {videos?.map((item)=>(
-              <VideoCard key={item._id} {...item} nickName={item.owner.nickName} handleVideoDetail={()=>{}}/>
+        {tab === "video" ? (
+          <div className={styles.gridBox}>
+            {videos?.map((item) => (
+              <VideoCard
+                key={item._id}
+                {...item}
+                nickName={item.owner.nickName}
+                handleVideoDetail={() => {}}
+              />
             ))}
-        </div>: tab === "shorts" ? <div className={styles.gridBox}>
-            {shorts?.map((item)=>(
-              <Short 
+          </div>
+        ) : tab === "shorts" ? (
+          <div className={styles.gridBox}>
+            {shorts?.map((item) => (
+              <Short
                 key={item._id}
                 title={item.title}
                 meta={item.meta}
@@ -54,10 +58,11 @@ const MyVideosContainer = () => {
                 shortId={item._id}
               />
             ))}
-        </div>: null}
+          </div>
+        ) : null}
       </section>
     </main>
   );
-}
+};
 
 export default MyVideosContainer;
