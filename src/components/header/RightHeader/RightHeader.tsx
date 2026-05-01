@@ -4,14 +4,18 @@ import UserActions from "../UserActions/UserActions";
 
 interface Props {
   user?: UserResponse;
-  handleLogOut:()=>void;
+  handleLogOut: () => void;
 }
-const RightHeader = ({user,handleLogOut}:Props) => {
+const RightHeader = ({ user, handleLogOut }: Props) => {
   return (
     <>
-      {user ? <UserActions user={user} handleLogOut={handleLogOut}/> : <GuestActions/>}
+      {user ? (
+        <UserActions user={user} handleLogOut={handleLogOut} />
+      ) : (
+        <GuestActions />
+      )}
     </>
-  )
-}
+  );
+};
 
-export default RightHeader
+export default RightHeader;

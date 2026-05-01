@@ -12,12 +12,12 @@ export const useLogoutMutation = () => {
   return useMutation({
     mutationFn: authService.logout,
     onSuccess: () => {
-        queryClient.removeQueries({ queryKey: USER_KEYS.me });
-        setUser("");
-        addToast("성공적으로 로그아웃 되었습니다.");
+      queryClient.removeQueries({ queryKey: USER_KEYS.me });
+      setUser(null);
+      addToast("성공적으로 로그아웃 되었습니다.");
     },
-    onError: () => {
-        addToast("로그아웃 처리 중 문제가 발생했습니다.", "error");
+    onError: (error: any) => {
+      addToast("로그아웃 처리 중 문제가 발생했습니다.", "error");
     },
   });
 };

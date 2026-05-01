@@ -1,14 +1,14 @@
 import UndeProfile from "@/assets/common/unde-user.svg";
 import styles from "./css/index.module.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import type { UserResponse } from "@/interfaces/auth.type";
 
-interface Props{
-  user:UserResponse;
-  handleLogOut:()=>void;
+interface Props {
+  user: UserResponse;
+  handleLogOut: () => void;
 }
 
-const UserActions = ({user,handleLogOut}:Props) => {
+const UserActions = ({ user, handleLogOut }: Props) => {
   return (
     <div className={styles.rightHeaderWrapper}>
       <Link to="/video/write" className={styles.rightHeaderWrapperWriteButton}>
@@ -40,6 +40,6 @@ const UserActions = ({user,handleLogOut}:Props) => {
       </button>
     </div>
   );
-}
+};
 
-export default UserActions
+export default UserActions;

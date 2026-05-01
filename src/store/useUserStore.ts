@@ -2,17 +2,17 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 interface UserState {
-  uid:string;
-  setUser: (uid: string) => void;
+  uid: string | null;
+  setUser: (uid: string | null) => void;
 }
 
 const useUserStore = create(
   persist<UserState>(
-    (set)=>({
-      uid:"",
-      setUser:(uid,)=>{
-        if(uid){
-           set({ uid,});
+    (set) => ({
+      uid: "",
+      setUser: (uid,) => {
+        if (uid) {
+          set({ uid, });
         }
       }
     }),
@@ -22,5 +22,5 @@ const useUserStore = create(
   )
 )
 
-export const useSetUserAction = ()=>useUserStore((state)=>state.setUser);
-export const useUidStore =()=> useUserStore((state)=>state.uid);
+export const useSetUserAction = () => useUserStore((state) => state.setUser);
+export const useUidStore = () => useUserStore((state) => state.uid);

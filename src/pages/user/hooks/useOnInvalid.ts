@@ -7,7 +7,6 @@ export const useOnInvalid = <T extends FieldValues>() => {
     const firstError = Object.values(errors)[0];
 
     if (firstError && firstError.message) {
-      console.log('errors',errors)
       addToast(firstError.message as string);
     }
   };
