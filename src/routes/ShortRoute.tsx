@@ -1,21 +1,21 @@
-import ShortContainer from "@/pages/Short/container/ShortContainer"
-import WriteShortContainer from "@/pages/writeShort/container/WriteShortContainer"
-import {useRoutes } from "react-router-dom"
+import ShortContainer from "@/pages/short/Shorts/container/ShortContainer";
+import ShortWriteContainer from "@/pages/short/ShortWrite/container/ShortWriteContainer";
+import { useRoutes } from "react-router-dom";
 
-const shortRoutes=[
-    {
-        path:"/",
-        element:<ShortContainer/>
-    },
-    {
-        path:"/write",
-        element:<WriteShortContainer/>
-    }
-]
+const shortRoutes = [
+  {
+    path: "/",
+    element: <ShortContainer />,
+  },
+  {
+    path: "/write",
+    element: <ShortWriteContainer />,
+  },
+];
 
 const ShortRoute = () => {
-    const shortElement = useRoutes(shortRoutes)
+  const shortElement = useRoutes(shortRoutes);
   return shortElement;
-}
+};
 
-export default ShortRoute
+export default ShortRoute;
