@@ -5,17 +5,21 @@ import { getSidebarContents } from "@/constants/sidebarConstants";
 import SidebarList from "@/components/SidebarList/SidebarList";
 import useGetFollwing from "@/hooks/queries/auth/userGetFollwing";
 import { useUidStore } from "@/store/useUserStore";
+import { useSidebarIsOpen } from "@/store/useSidebarToggleStore";
 
 const SidebarContainer = () => {
   const { pathname } = useLocation();
   const uid = useUidStore()
+  const isSidebarOpen = useSidebarIsOpen();
   const { data: following, isLoading } = useGetFollwing(uid ??"" );
   const sidebarData = useMemo(() => {
     return getSidebarContents(following ?? [], uid || "");
   }, [uid, following]);
 
   return (
-    <aside className={styles.sidebarWrapper}>
+    <aside className={
+      `${styles.sidebarWrapper} ${isSidebarOpen ? styles.activeIsSidebar:""}`
+    }>
         {
         sidebarData?.map(({ title, lists }, sidebarIndex) => {
             if (title === "구독" && (!lists || lists.length === 0)) return null;
@@ -32,6 +36,7 @@ const SidebarContainer = () => {
                         isActivePathname={isActivePathname}
                         icon={icon}
                         text={text}
+                        isSidebarOpen={isSidebarOpen}
                     />
                     );
                 })}

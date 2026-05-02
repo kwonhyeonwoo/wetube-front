@@ -1,22 +1,22 @@
-.sidebarGroupUlLi{
+.sidebarList{
     display: flex;
     align-items: center;
     column-gap: 12px;
     padding: 15px 16px;
 }
-.sidebarGroupUlLiLink{
+.sidebarLink{
     display: flex;
     align-items: center;
     column-gap: 12px;
 }
-.sidebarGroupUlLiText{
+.text{
     font-size: 14px;
     color: #52525B;
 }
-.activeLiText{
+.activeText{
     color: #BC0100;
 }
-.sidebarGroupUlLiActive{
+.activeSidebarList{
     background-color: #E4E4E7;
     border-radius: 9999px;
 }
@@ -28,4 +28,7 @@
 .icon{
     width: 20px;
     height:20px;
+}
+.activeIsSidebarText{
+    display: none;
 }

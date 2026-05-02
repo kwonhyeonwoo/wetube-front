@@ -1,36 +1,23 @@
 .form {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   padding: 12px 12px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  box-sizing: border-box;
+  justify-content: space-between;
   background-color: #F3F3F3;
   border-radius: 16px;
 }
 
 .sortOptions {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-column-gap: 8px;
-     -moz-column-gap: 8px;
-          column-gap: 8px;
+  align-items: center;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
 }
 
 .sortBtn {
   padding: 8px 24px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   color: #603E39;
 }
 
@@ -49,15 +36,13 @@
   border-radius: 48px;
   background-color: white;
   padding: 13px 0px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   text-align: center;
 }
 
 .svg {
   position: absolute;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   left: 24px;
-}
+}/*# sourceMappingURL=index.module.css.map */

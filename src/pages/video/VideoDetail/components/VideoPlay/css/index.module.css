@@ -20,7 +20,6 @@
   padding: 0px 16px;
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
@@ -30,35 +29,21 @@
 }
 
 .videoAccess {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   padding: 0px 10px;
   border-radius: 16px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   row-gap: 12px;
 }
 
 .playBtn {
   width: 40px;
   height: 40px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  box-sizing: border-box;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 50%;
 }
@@ -68,15 +53,9 @@
   height: 40px;
   font-weight: 700;
   padding: 0px 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   border-radius: 16px;
   color: white;
   font-size: 14px;
@@ -85,57 +64,34 @@
 
 .accessBottom {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-transition: all 0.3s ease-in-out;
+  align-items: center;
   transition: all 0.3s ease-in-out;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 .leftAccess {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-column-gap: 10px;
-     -moz-column-gap: 10px;
-          column-gap: 10px;
+  align-items: center;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
 }
 
 .rightAccess {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-column-gap: 10px;
-     -moz-column-gap: 10px;
-          column-gap: 10px;
+  align-items: center;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
 }
 
 .volumeBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-column-gap: 3px;
-     -moz-column-gap: 3px;
-          column-gap: 3px;
+  align-items: center;
+  -moz-column-gap: 3px;
+       column-gap: 3px;
 }
 
 .volumeSlider {
-  -webkit-transition: width 0.2s ease, opacity 0.2s ease;
   transition: width 0.2s ease, opacity 0.2s ease;
   cursor: pointer;
   accent-color: white;
@@ -143,16 +99,10 @@
 
 .volumSliderBox {
   height: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   padding: 0px 10px;
   border-radius: 16px;
   background-color: rgba(0, 0, 0, 0.3);
-}
+}/*# sourceMappingURL=index.module.css.map */

@@ -1,10 +1,14 @@
 import styles from "./css/index.module.css";
 import { Link } from 'react-router-dom'
 
-const LeftHeader = () => {
+interface Props{
+    setSidebar:()=>void;
+}
+
+const LeftHeader = ({setSidebar}:Props) => {
   return (
     <div className={styles.leftHeader}>
-        <button className={styles.menubar}>
+        <button className={styles.menubar} onClick={setSidebar}>
             <img 
                 src="/assets/header/menu.png"
                 srcSet="

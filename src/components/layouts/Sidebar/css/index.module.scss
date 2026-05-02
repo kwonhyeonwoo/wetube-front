@@ -8,6 +8,11 @@
     flex-direction: column;
     row-gap: 46px;
 }
+.activeIsSidebar{
+    width: 0px;
+  padding: 20px 0;
+  overflow: hidden;
+}
 .sidebarGroup{
     display: flex;
     flex-direction: column;

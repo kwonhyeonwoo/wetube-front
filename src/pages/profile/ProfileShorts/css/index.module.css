@@ -1,15 +1,10 @@
 .profileShortsSection {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .videos {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 16px;
-}
+}/*# sourceMappingURL=index.module.css.map */
