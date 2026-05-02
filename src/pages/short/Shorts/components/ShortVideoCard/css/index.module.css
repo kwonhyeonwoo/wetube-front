@@ -1,0 +1,75 @@
+.shortVideoCard {
+  position: relative;
+  height: 90%;
+  width: 560px;
+  border: 1px solid red;
+  background-color: black;
+  border-radius: 16px;
+}
+
+.shortVideo {
+  border: 1px solid blue;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+
+.authorWrapper {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+}
+
+.authorProfile {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
+}
+
+.profile {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid blue;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+
+.nickName {
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+}
+
+.followBtn {
+  width: -moz-fit-content;
+  width: fit-content;
+  color: white;
+  background-color: black;
+  padding: 4px 12px;
+  box-sizing: border-box;
+}
+
+.descBox {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.shortHashtags {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 4px;
+       column-gap: 4px;
+}/*# sourceMappingURL=index.module.css.map */

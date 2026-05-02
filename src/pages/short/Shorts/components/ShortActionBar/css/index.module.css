@@ -1,0 +1,6 @@
+.shortActionBar {
+  display: flex;
+  flex-direction: column;
+  -moz-column-gap: 24px;
+       column-gap: 24px;
+}/*# sourceMappingURL=index.module.css.map */

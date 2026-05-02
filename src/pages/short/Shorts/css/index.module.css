@@ -1,1 +1,10 @@
-/*# sourceMappingURL=index.module.css.map */
+.shortPage {
+  border: 1px solid blue;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.shortSection {
+  display: flex;
+}/*# sourceMappingURL=index.module.css.map */
