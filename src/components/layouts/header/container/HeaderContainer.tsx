@@ -7,12 +7,14 @@ import { useCallback,  } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGetMe } from "@/hooks/queries/auth/useGetMe";
 import { useLogoutMutation } from "@/hooks/mutations/auth/useLogoutMutation";
+import { useSidebarSetToggle } from "@/store/useSidebarToggleStore";
 
 
 const HeaderContainer = () => {
   const navigate = useNavigate();
   const { data:user } = useGetMe();
   const {mutate:logOut} = useLogoutMutation();
+  const setSidebar = useSidebarSetToggle();
   const { register, handleSubmit } = useForm<{ keyword: string }>();
   const onSubmit: SubmitHandler<{ keyword: string }> = useCallback(
     (data) => {
@@ -29,7 +31,7 @@ const HeaderContainer = () => {
   
   return (
     <header className={styles.header}>
-      <LeftHeader />
+      <LeftHeader setSidebar={setSidebar}/>
       <CenterHeader
         handleSubmit={handleSubmit}
         onSubmit={onSubmit}

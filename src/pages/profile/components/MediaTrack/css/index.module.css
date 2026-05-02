@@ -1,11 +1,6 @@
 .mediaTrack {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   row-gap: 16px;
   border-bottom: 1px solid #E2E8F0;
   padding-bottom: 20px;
@@ -19,24 +14,17 @@
 .videoTrack {
   width: 100%;
   position: relative;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .videoGrid {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   gap: 16px;
-  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 .videoGrid > div {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 calc((100% - 80px) / 6);
-          flex: 0 0 calc((100% - 80px) / 6);
+  flex: 0 0 calc((100% - 80px) / 6);
   max-width: calc((100% - 80px) / 6);
 }
 
@@ -45,6 +33,5 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
+  transform: translate(-50%, -50%);
+}/*# sourceMappingURL=index.module.css.map */

@@ -35,6 +35,10 @@ main{
 	overflow: hidden;
     box-sizing: border-box;
 }
+.sidebarClosed {
+	width: 100vw;
+	left: 0;
+  }
 div{
 	box-sizing: border-box;
 }

@@ -10,6 +10,5 @@
 .progressPercent {
   height: 100%;
   background-color: var(--color-primary);
-  -webkit-transition: width 0.1s linear;
   transition: width 0.1s linear;
-}
+}/*# sourceMappingURL=index.module.css.map */

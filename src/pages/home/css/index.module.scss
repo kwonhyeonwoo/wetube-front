@@ -4,15 +4,16 @@
     height:100%;
     padding-bottom: 250px;
     overflow: hidden;
+    max-width: 2500px;
 }
 .videoSection{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    column-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(520px, 1fr));
+    column-gap: 16px;
     row-gap: 41px;
     margin-top: 36px;
 }
-.shortSection{
+.shortSection {
     margin-top: 50px;
     display: flex;
     flex-direction: column;
@@ -27,10 +28,9 @@
     font-size: 20px;
     font-weight: 700;
 }
-.shortLists{
+.shortLists {
     display: grid;
-    grid-template-columns: repeat(4, 300px);
-    justify-content: space-between;
-    column-gap: 10px;
-    padding-right: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    column-gap: 16px;
+    row-gap: 24px;
 }

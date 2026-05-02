@@ -7,9 +7,11 @@ import { useGetVideosQuery } from "@/hooks/queries/video/useGetVideoQuery";
 import Categories from "@/components/common/Categories/container/CategoriesContainer";
 import type { CategoryType } from "@/interfaces/media.type";
 import VideoCard from "@/pages/video/components/VideoCard/VideoCard";
+import { useSidebarIsOpen } from "@/store/useSidebarToggleStore";
 
 const HomeContainer = () => {
   const navigate = useNavigate();
+  const isSidebarOpen = useSidebarIsOpen();
   const [currentCategory, setCurrentCategory] = useState<CategoryType>();
   const { data: videos } = useGetVideosQuery({ category: currentCategory });
   const { data: shorts } = useGetShorts();
@@ -19,11 +21,10 @@ const HomeContainer = () => {
     },
     [navigate],
   );
-  console.log("videos", videos);
   const firstVideos = videos?.slice(0, 12) || [];
   const remainingVideos = videos?.slice(12) || [];
   return (
-    <main className={styles.homePage}>
+    <main className={`${styles.homePage} ${isSidebarOpen ? "sidebarClosed" : ""}`}>
       <Categories
         setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}

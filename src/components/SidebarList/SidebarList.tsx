@@ -6,18 +6,24 @@ interface Props {
   isActivePathname: boolean;
   icon: ElementType |  string;
   text: string;
+  isSidebarOpen:boolean;
 }
 const SidebarList = ({
     link,
     isActivePathname,
     icon: Icon,
     text,
+    isSidebarOpen,
 }:Props) => {
   return (
     <li
-      className={`${styles.sidebarGroupUlLi} ${isActivePathname ? styles.sidebarGroupUlLiActive : ''}`}
+      className={`
+        ${styles.sidebarList} 
+        ${isActivePathname ? styles.activeSidebarList : ''}
+        `
+      }
     >
-      <Link to={link} className={styles.sidebarGroupUlLiLink}>
+      <Link to={link} className={styles.sidebarLink}>
         <div className="sidebar-icon-container">
           {typeof Icon === "string" && (
             <img 
@@ -29,7 +35,11 @@ const SidebarList = ({
           )}
         </div>
         <span
-          className={`${styles.sidebarGroupUlLiText} ${isActivePathname ? styles.activeLiText : ''}`}
+          className={`
+            ${styles.text} ${isActivePathname ? styles.activeText : ''}
+            ${isSidebarOpen ? styles.activeIsSidebarText:""}
+          `
+          }
         >
           {text}
         </span>

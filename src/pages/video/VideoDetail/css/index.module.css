@@ -1,66 +1,40 @@
 @charset "UTF-8";
 .videoDetailPage {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-column-gap: 24px;
-     -moz-column-gap: 24px;
-          column-gap: 24px; /* 유튜브는 영역 간격으로 보통 24px을 많이 사용합니다 */
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -moz-column-gap: 24px;
+       column-gap: 24px; /* 유튜브는 영역 간격으로 보통 24px을 많이 사용합니다 */
+  justify-content: center;
   width: 100%;
   max-width: 1700px; /* 아주 큰 모니터에서 화면이 찢어지듯 늘어나는 것을 방지 */
   margin: 0 auto; /* 화면 중앙 정렬 */
   padding: 24px; /* 화면 양끝에 딱 붙지 않도록 여백 추가 */
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   left: 0;
   padding-bottom: 200px;
 }
 
 .videoSection {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1; /* 우측 영역을 제외한 나머지 공간을 꽉 채우도록 설정! (핵심) */
+  flex: 1; /* 우측 영역을 제외한 나머지 공간을 꽉 채우도록 설정! (핵심) */
   min-width: 640px; /* 화면을 줄였을 때 비디오가 너무 작아져서 깨지는 것 방지 */
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   row-gap: 24px;
 }
 
 .comments {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   row-gap: 24px;
 }
 
 .videoListSection {
   width: 400px; /* 추천 리스트는 350px ~ 400px 사이의 고정 너비를 줍니다 */
-  -ms-flex-negative: 0;
-      flex-shrink: 0; /* 창 크기가 줄어들어도 우측 리스트 영역의 너비가 쪼그라들지 않도록 방어 */
-  display: -webkit-box;
-  display: -ms-flexbox;
+  flex-shrink: 0; /* 창 크기가 줄어들어도 우측 리스트 영역의 너비가 쪼그라들지 않도록 방어 */
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .cateBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   overflow-x: auto;
   width: 100%;
@@ -68,12 +42,7 @@
 }
 
 .cateLists {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   row-gap: 20px;
-}
+}/*# sourceMappingURL=index.module.css.map */
