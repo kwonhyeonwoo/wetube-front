@@ -20,12 +20,12 @@ const HeaderContainer = () => {
     },
     [navigate],
   );
-  const handleLogOut = ()=> useCallback(
+  const handleLogOut = useCallback(
     () => {
       logOut(); 
     },
-    [logOut],
-  )
+    [logOut]
+  );
   
   return (
     <header className={styles.header}>
