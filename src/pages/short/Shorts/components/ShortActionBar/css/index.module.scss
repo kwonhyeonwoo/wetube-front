@@ -1,5 +1,40 @@
 .shortActionBar{
+    height: 90%;
+    display: flex;
+    row-gap: 24px;
+    column-gap: 16px;
+}
+.shortActionItems{
     display: flex;
     flex-direction: column;
-    column-gap: 24px;
+    row-gap: 24px;
+    justify-content: flex-end;
+}
+.shortActionItem{
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    align-items: center;
+}
+.circle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    background-color: #F3F3F3;
+}
+.text{
+    font-size: 12px;
+    font-weight: 700;
+}
+.shortCmtToggle{
+    min-width: 400px;
+    max-width: 400px;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    border:1px solid #E5E7EB;
+    border-radius: 12px;
 }

@@ -1,4 +1,6 @@
 .categories {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   border-bottom: 1px solid #E2E8F0;
 }
@@ -7,10 +9,11 @@
   color: var(--color-text-sub);
   font-weight: 700;
   padding: 10px 24px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   cursor: pointer;
 }
 
 .activeCategory {
   border-bottom: 2px solid black;
-}/*# sourceMappingURL=index.module.css.map */
+}

@@ -1,69 +1,103 @@
-.shortVideoCard{
-    position:relative;
-    height:90%;
-    width: 560px;
-    border:1px solid red;
+.shortVideoCard {
+    position: relative;
+    height: 90%;
+    width: 400px; 
     background-color: black;
     border-radius: 16px;
+    overflow: hidden; /* 모서리 둥글게 자르기 */
 }
-.shortVideo{
-    border:1px solid blue;
+
+.shortVideo {
     width: 100%;
-    height:100%;
-    border-radius:16px;
+    height: 100%;
+    object-fit: cover;
+    object-fit: cover;
 }
 
-.authorWrapper{
-    position:absolute;
-    bottom:30px;
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    pointer-events: none;
+}
+
+.authorWrapper {
+    position: absolute;
+    bottom: 30px;
     left: 20px;
+    right: 70px; /* 오른쪽에 들어갈 좋아요 버튼 자리를 위해 여백 남기기 */
     display: flex;
     flex-direction: column;
-    row-gap: 12px;
+    row-gap: 16px; /* 프로필과 설명 사이를 조금 더 띄워줍니다 */
+    z-index: 10;
 }
-.authorProfile{
+
+.authorProfile {
     display: flex;
     align-items: center;
-    column-gap: 8px;
+    column-gap: 12px;
 }
-.profile{
-    width: 36px;
-    height:36px;
+
+.profile {
+    width: 40px; /* 살짝 키웠습니다 */
+    height: 40px;
     border-radius: 50%;
-    border:1px solid blue;
+    background-color: #333; /* 이미지 없을 때 기본 배경색 */
+    object-fit: cover;
 }
-.authorInfo{
+
+/* 💡 핵심: 세로(column)에서 가로(row) 배치로 변경! */
+.authorInfo {
     display: flex;
-    flex-direction: column;
-    row-gap: 4px;
+    flex-direction: row; 
+    align-items: center;
+    column-gap: 10px;
 }
-.nickName{
-    font-size: 14px;
+
+.nickName {
+    font-size: 15px;
     font-weight: 700;
     color: white;
-}
-.followBtn{
-    width: fit-content;
-    color: white;
-    background-color: black;
-    padding:4px 12px;
-    box-sizing: border-box;
+    margin: 0;
 }
 
-.descBox{
+.followBtn {
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 12px;
+    padding: 4px 10px;
+    cursor: pointer;
+}
+
+.descBox {
     display: flex;
     flex-direction: column;
-    row-gap: 4px;
+    row-gap: 8px;
     color: white;
-    font-size: 20px;
-    font-weight: 700;
-}
-.shortTitle{
-
 }
 
-.shortHashtags{
+.shortTitle {
+    font-size: 15px; /* 20px -> 15px로 줄여서 안정감 확보 */
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.shortHashtags {
     display: flex;
     align-items: center;
-    column-gap: 4px;
+    flex-wrap: wrap; /* 해시태그 많으면 줄바꿈 되게 설정 */
+    gap: 6px;
+}
+
+.hashtag {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f1f1f1;
 }

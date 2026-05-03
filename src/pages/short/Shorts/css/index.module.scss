@@ -1,9 +1,18 @@
 .shortPage{
-    border:1px solid blue;
-    height:100vh;
-    display: flex;
-    justify-content: center;
+  height: calc(100vh - 40px);
+  overflow-y: scroll; 
+  box-sizing: border-box;
+  scroll-snap-type: y mandatory; 
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
 }
 .shortSection{
-    display: flex;
+  height: 100%; 
+  width: 100%;
+  scroll-snap-align: start; 
+  position: relative; 
+  display: flex;
+  column-gap: 32px;
+  justify-content: center;
+  align-items: center;
 }

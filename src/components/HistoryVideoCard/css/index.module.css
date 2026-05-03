@@ -1,7 +1,10 @@
 .historyVideoCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  -moz-column-gap: 24px;
-       column-gap: 24px;
+  -webkit-column-gap: 24px;
+     -moz-column-gap: 24px;
+          column-gap: 24px;
 }
 
 .video {
@@ -13,13 +16,22 @@
 
 .titleBox {
   width: 800px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .videoInfoBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   row-gap: 7px;
 }
 
@@ -48,4 +60,4 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   line-height: 1.5;
-}/*# sourceMappingURL=index.module.css.map */
+}

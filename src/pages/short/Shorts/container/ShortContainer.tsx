@@ -1,16 +1,19 @@
 import { useGetShorts } from "@/hooks/queries/short/useShortsQuery";
 import styles from "../css/index.module.css";
 import ShortVideoCard from "../components/ShortVideoCard/ShortVideoCard";
-import ShortActionBar from "../components/ShortActionBar/ShortActionBar";
+import ShortActionBarContainer from "../components/ShortActionBar/container/ShortActionBarContainer";
 const ShortContainer = () => {
-  const {data} = useGetShorts();
-  console.log('shorts',data)
-  return <main className={styles.shortPage}>
-    <section className={styles.shortSection}>
-        <ShortVideoCard/>
-        <ShortActionBar/>
-    </section>
-  </main>;
+  const { data } = useGetShorts();
+  return (
+    <main className={styles.shortPage}>
+      {data?.map((short) => (
+        <section key={short._id} className={styles.shortSection}>
+          <ShortVideoCard {...short} handleFollowAction={() => {}} />
+          <ShortActionBarContainer />
+        </section>
+      ))}
+    </main>
+  );
 };
 
 export default ShortContainer;
