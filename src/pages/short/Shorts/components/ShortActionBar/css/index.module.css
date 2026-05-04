@@ -58,9 +58,9 @@
   font-weight: 700;
 }
 
-.shortCmtToggle {
-  min-width: 400px;
+.activeToggleBox {
   max-width: 400px;
+  width: 400px;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -71,4 +71,13 @@
           flex-direction: column;
   border: 1px solid #E5E7EB;
   border-radius: 12px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.shortCmtToggleBox {
+  max-width: 0;
+  width: 0px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }

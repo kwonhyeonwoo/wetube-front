@@ -8,6 +8,10 @@ const shortRoutes = [
     element: <ShortContainer />,
   },
   {
+    path: "/:shortsId",
+    element: <ShortContainer />,
+  },
+  {
     path: "/write",
     element: <ShortWriteContainer />,
   },

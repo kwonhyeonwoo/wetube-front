@@ -13,6 +13,9 @@ export const usePostShortsCmtMutation = () => {
             queryClient.invalidateQueries({ queryKey: SHORTS_CMT_KEYS.list() });
             addToast("댓글을 작성하였습니다.")
 
+        },
+        onError:(error:any)=>{
+            console.log('cmt query',error);
         }
     })
 }

@@ -7,13 +7,14 @@ export const shortsService = {
     formData.append('title', data.title)
     formData.append('content', data.content);
     formData.append('categories', data.categories);
-    formData.append('shorts', data.shorts[0]);
-    formData.append('hashtags', JSON.stringify(data.tags))
+    formData.append('shorts', data.shorts);
+    formData.append('hashtags', JSON.stringify(data.hashtags))
     const response = await api.post('/shorts', formData, {
       headers: {
         "Content-Type": "multipart/form-data"
       }
     });
+    console.log('response',response)
     await await response.data;
   },
   getShorts: async (): Promise<ShortsResponse[]> => {
