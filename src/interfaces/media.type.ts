@@ -25,6 +25,8 @@ export interface ShortsResponse extends Omit<ShortsType, "shorts"> {
   owner: OwnerType;
   comments: ShortsCmtResponse[];
   likes?: string[];
+  isLiked: boolean;
+  isShortSaved: boolean;
 };
 
 export interface VideoResponse extends Omit<VideoType, "video"> {

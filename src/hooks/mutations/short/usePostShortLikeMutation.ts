@@ -7,8 +7,10 @@ export const usePostShortLikeMutation = (shortsId: string) => {
     return useMutation({
         mutationFn: shortsService.postShortLike,
         onSuccess: (data) => {
-            console.log('data', data);
             queryClient.invalidateQueries({ queryKey: SHORTS_KEYS.detail(shortsId) });
+            queryClient.invalidateQueries({
+              queryKey: SHORTS_KEYS.list(),
+            });
         }
     })
 }

@@ -20,7 +20,7 @@ const ShortCommentCard = ({comment:{
             ? `${import.meta.env.VITE_APP_BASE_SRC}/${owner.avatar}`
             : EmptyProfileIcon
         }
-        alt="profile"
+        alt={`${owner.nickName}-profile`}
       />
       <div className={styles.cmtContentRight}>
         <div className={styles.authorInfo}>

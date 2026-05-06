@@ -21,9 +21,7 @@ const ShortContainer = () => {
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        // 요소가 화면에 60% 이상 들어왔다면?
         if (entry.isIntersecting) {
-          // 태그에 달아둔 data-id 값을 가져와서 state에 저장
           const currentId = entry.target.getAttribute("data-id");
           if (currentId) {
             setActiveShortId(currentId);
@@ -57,6 +55,8 @@ const ShortContainer = () => {
           <ShortVideoCard {...short} handleFollowAction={() => {}} />
           <ShortActionBarContainer
             commentCount={short?.comments.length}
+            isShortSaved={short?.isShortSaved}
+            isLiked={short?.isLiked}
             likeCount={short?.likes?.length}
           />
         </section>

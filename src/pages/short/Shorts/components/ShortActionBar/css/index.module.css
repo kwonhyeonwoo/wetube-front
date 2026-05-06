@@ -53,6 +53,10 @@
   background-color: #F3F3F3;
 }
 
+.activeSvg path {
+  fill: var(--color-primary);
+}
+
 .text {
   font-size: 12px;
   font-weight: 700;

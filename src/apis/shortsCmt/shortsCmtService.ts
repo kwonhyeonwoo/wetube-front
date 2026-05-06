@@ -7,7 +7,7 @@ export const shortsCmtService = {
             comment,
         });
         const data = await response.data;
-        return data;
+        return data.data;
     },
     getShortsCmt: async (shortsId: string): Promise<ShortsCmtResponse[]> => {
         const response = await api.get(`/short-comment/${shortsId}`);

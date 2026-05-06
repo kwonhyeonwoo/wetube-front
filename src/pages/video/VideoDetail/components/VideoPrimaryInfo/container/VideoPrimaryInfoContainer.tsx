@@ -13,6 +13,7 @@ import VideoOptionMenuContainer from "../../../../../../components/video/VideoOp
 import VideoAuthorProfile from "@/components/video/VideoAuthorProfile/VideoAuthorProfile";
 import LikeIcon from "@/assets/video/like.svg?react";
 import VideoContent from "../../VideoContent/VideoContent";
+import { useUrlCopy } from "@/hooks/useUrlCopy";
 interface Props{
     video:VideoResponse;
     paramsId:string | undefined;
@@ -27,10 +28,7 @@ const VideoPrimaryInfoContainer = ({
     const {handleFollow}  = useFollow({videoId:paramsId ?? "",ownerId:video.owner._id});
     const {handleVideoLike} = useVideoLike({userId:uid, videoId:paramsId ?? ""})
     const { addToast } = useToastStore();
-    const handleCopyUrl = () => {
-      navigator.clipboard.writeText(window.location.href);
-      addToast("주소가 복사되었습니다!");
-    };
+    const {handleCopyUrl} = useUrlCopy();
     const isFollower = video.owner.followers.includes(uid);
     const isLike = video.likes?.includes(uid)
   return (

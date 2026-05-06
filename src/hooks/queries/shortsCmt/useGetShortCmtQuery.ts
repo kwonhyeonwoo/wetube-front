@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query"
 
 export const useGetShortCmtQuery=(shortsId:string)=>{
     return useQuery({
-      queryKey: SHORTS_CMT_KEYS.list(),
+      queryKey: SHORTS_CMT_KEYS.list(shortsId),
       queryFn: () => shortsCmtService.getShortsCmt(shortsId),
     });
 }

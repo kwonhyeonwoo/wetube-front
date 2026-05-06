@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query"
 
 export const useGetShorts = () => {
     return useQuery({
-        queryKey: SHORTS_KEYS.all,
+        queryKey: SHORTS_KEYS.list(),
         queryFn: shortsService.getShorts,
     })
 }
