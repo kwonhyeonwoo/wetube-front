@@ -1,6 +1,5 @@
 import styles from "./css/index.module.css";
 import CloseIcon from "@/assets/common/cancel.svg?react";
-import { getRelativeTime } from "@/lib/lib";
 import ShortCmtInputContainer from "../ShortCmtInput/container/ShortCmtInputContainer";
 import type { ShortsCmtResponse } from "@/interfaces/shorts.type";
 import ShortCommentCard from "../ShortCommentCard/ShortCommentCard";
@@ -10,11 +9,7 @@ interface Props {
   handleAction: (type: "comment") => void;
 }
 
-const ShortCmtToggle = ({
-  isCmtToggle,
-  comments,
-  handleAction,
-}: Props) => {
+const ShortCmtToggle = ({ isCmtToggle, comments, handleAction }: Props) => {
   return (
     <div
       className={isCmtToggle ? styles.activeShortToggle : styles.shortCmtToggle}
@@ -30,7 +25,7 @@ const ShortCmtToggle = ({
       </div>
       <div className={styles.cmtContents}>
         {comments.map((item) => (
-            <ShortCommentCard comment={item} key={item._id}/>
+          <ShortCommentCard comment={item} key={item._id} />
         ))}
       </div>
       <ShortCmtInputContainer />

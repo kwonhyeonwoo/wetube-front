@@ -9,6 +9,7 @@ const ShortVideoCard = ({
   shorts,
   owner,
   hashtags,
+  title,
   handleFollowAction,
 }: Props) => {
   return (
@@ -17,8 +18,6 @@ const ShortVideoCard = ({
         src={`${import.meta.env.VITE_APP_BASE_SRC}/${shorts}`}
         className={styles.shortVideo}
       />
-
-      {/* 💡 추가: 텍스트 가독성을 높여주는 그라데이션 막 */}
       <div className={styles.overlay}></div>
 
       <div className={styles.authorWrapper}>
@@ -34,13 +33,14 @@ const ShortVideoCard = ({
           />
           <div className={styles.authorInfo}>
             <p className={styles.nickName}>{owner.nickName}</p>
-            {/* 팔로우 버튼 디자인도 살짝 수정했습니다 */}
-            <button className={styles.followBtn}>팔로우</button>
+            <button className={styles.followBtn} onClick={handleFollowAction}>
+              팔로우
+            </button>
           </div>
         </div>
 
         <div className={styles.descBox}>
-          <p className={styles.shortTitle}>쇼츠 제목이 여기에 들어갑니다.</p>
+          <p className={styles.shortTitle}>{title}</p>
           <div className={styles.shortHashtags}>
             {hashtags.map((item) => (
               <span key={item} className={styles.hashtag}>

@@ -14,12 +14,15 @@ export const shortsService = {
         "Content-Type": "multipart/form-data"
       }
     });
-    console.log('response',response)
     await await response.data;
   },
   getShorts: async (): Promise<ShortsResponse[]> => {
     const response = await api.get('/shorts');
-    console.log('response', response.data.shorts)
     return await response.data.shorts;
+  },
+  postShortLike: async (shortsId: string) => {
+    const response = await api.post(`/shorts/like/${shortsId}`);
+    const data = await response.data;
+    return data;
   }
 };

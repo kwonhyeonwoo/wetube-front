@@ -14,8 +14,8 @@ export const usePostShortsCmtMutation = () => {
             addToast("댓글을 작성하였습니다.")
 
         },
-        onError:(error:any)=>{
-            console.log('cmt query',error);
+        onError: (error: any) => {
+            console.log('cmt query', error);
         }
     })
 }

@@ -8,19 +8,15 @@ const ShortContainer = () => {
   const navigate = useNavigate();
   const { data } = useGetShorts();
 
-  // 1️⃣ 현재 화면에 보이는 쇼츠의 ID를 저장할 상태
   const [activeShortId, setActiveShortId] = useState<string | null>(null);
-  // 전체 목록을 감싸는 컨테이너의 Ref (이 안에서만 section을 찾기 위해)
   const containerRef = useRef<HTMLElement>(null);
-  // 2️⃣ Intersection Observer 세팅
   useEffect(() => {
-    // 아직 데이터가 없거나 껍데기가 없으면 실행 안 함
     if (!data || !containerRef.current) return;
 
     const options = {
-      root: null, // 브라우저 뷰포트(화면) 기준
+      root: null,
       rootMargin: "0px",
-      threshold: 0.6, // 💡 화면에 60% 이상 들어왔을 때 '보고 있다'고 판정!
+      threshold: 0.6,
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -37,23 +33,19 @@ const ShortContainer = () => {
       });
     }, options);
 
-    // 3️⃣ containerRef 안의 모든 쇼츠 section들을 관찰 대상에 등록
     const sections = containerRef.current.querySelectorAll(
       `.${styles.shortSection}`,
     );
     sections.forEach((section) => observer.observe(section));
-
-    // 클린업 함수: 컴포넌트가 꺼지거나 데이터가 바뀔 때 관찰 해제
     return () => {
       sections.forEach((section) => observer.unobserve(section));
     };
   }, [data]);
   useEffect(() => {
     if (activeShortId) {
-      // url 주소를 `/shorts/해당ID` 로 변경합니다.
       navigate(`/shorts/${activeShortId}`, { replace: true });
     }
-  }, [activeShortId, navigate]); // activeShortId가 바뀔 때마다 실행됨
+  }, [activeShortId, navigate]);
   return (
     <main className={styles.shortPage} ref={containerRef}>
       {data?.map((short) => (
@@ -63,7 +55,10 @@ const ShortContainer = () => {
           className={styles.shortSection}
         >
           <ShortVideoCard {...short} handleFollowAction={() => {}} />
-          <ShortActionBarContainer />
+          <ShortActionBarContainer
+            commentCount={short?.comments.length}
+            likeCount={short?.likes?.length}
+          />
         </section>
       ))}
     </main>

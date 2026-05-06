@@ -7,14 +7,22 @@ import { useCallback, useState, type ElementType } from "react";
 import ShortCmtToggle from "../../ShortCmtToggle/ShortCmtToggle";
 import { useGetShortCmtQuery } from "@/hooks/queries/shortsCmt/useGetShortCmtQuery";
 import { useParams } from "react-router-dom";
-const ShortActionBarContainer = () => {
+import { usePostShortLikeMutation } from "@/hooks/mutations/short/usePostShortLikeMutation";
+
+interface Props {
+  commentCount?: number;
+  likeCount?: number;
+}
+const ShortActionBarContainer = ({ commentCount, likeCount }: Props) => {
   const [isCmtToggle, setIsCmtToggle] = useState<boolean>(false);
-  const {shortsId} = useParams();
-  const { data :comments} = useGetShortCmtQuery(shortsId ?? "");
+  const { shortsId } = useParams();
+  const { data: comments } = useGetShortCmtQuery(shortsId ?? "");
+  const { mutate: shortsLike } = usePostShortLikeMutation(shortsId ?? "");
   const handleAction = useCallback(
     (type: "like" | "comment" | "share" | "save") => {
       if (type === "like") {
-        console.log("like");
+        console.log("shortsId", shortsId);
+        shortsLike(shortsId ?? "");
       } else if (type === "comment") {
         setIsCmtToggle((prev) => !prev);
       } else if (type === "share") {
@@ -23,7 +31,7 @@ const ShortActionBarContainer = () => {
         console.log("save");
       }
     },
-    [],
+    [shortsLike],
   );
   const actions: {
     icon: ElementType | string;
@@ -32,12 +40,12 @@ const ShortActionBarContainer = () => {
   }[] = [
     {
       icon: LikeIcon,
-      text: "12",
+      text: `${String(likeCount)}개`,
       type: "like",
     },
     {
       icon: CommentIcon,
-      text: "12",
+      text: `${String(commentCount)}개`,
       type: "comment",
     },
     {
